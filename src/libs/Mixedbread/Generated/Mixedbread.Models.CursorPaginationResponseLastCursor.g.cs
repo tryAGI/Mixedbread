@@ -1,0 +1,18 @@
+
+#nullable enable
+
+namespace Mixedbread
+{
+    /// <summary>
+    /// Cursor of the last item in this page. Use for forward pagination. None if page is empty.
+    /// </summary>
+    public sealed partial class CursorPaginationResponseLastCursor
+    {
+
+        /// <summary>
+        /// Additional properties that are not explicitly defined in the schema
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonExtensionData]
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+    }
+}
