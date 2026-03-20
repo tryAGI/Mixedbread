@@ -21,7 +21,7 @@ public partial class Tests
             ["Compact embedding for efficient storage."],
             new Meai.EmbeddingGenerationOptions
             {
-                ModelId = "mxbai-embed-2d-large-v1",
+                ModelId = "mixedbread-ai/mxbai-embed-large-v1",
                 Dimensions = 256,
             });
 
