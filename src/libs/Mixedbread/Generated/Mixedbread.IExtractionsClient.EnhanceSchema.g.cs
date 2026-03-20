@@ -4,7 +4,6 @@ namespace Mixedbread
 {
     public partial interface IExtractionsClient
     {
-
         /// <summary>
         /// Enhance a schema<br/>
         /// Enhance a schema by enriching the descriptions to aid extraction.<br/>
@@ -13,7 +12,6 @@ namespace Mixedbread
         /// Returns:<br/>
         ///     The enhanced schema.
         /// </summary>
-
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Mixedbread.ApiException"></exception>
@@ -21,7 +19,6 @@ namespace Mixedbread
 
             global::Mixedbread.JsonSchemaEnhanceParams request,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Enhance a schema<br/>
         /// Enhance a schema by enriching the descriptions to aid extraction.<br/>

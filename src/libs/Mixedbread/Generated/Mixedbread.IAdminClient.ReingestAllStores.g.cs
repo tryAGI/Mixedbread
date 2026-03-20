@@ -4,7 +4,6 @@ namespace Mixedbread
 {
     public partial interface IAdminClient
     {
-
         /// <summary>
         /// Reingest all stores<br/>
         /// Reingest all stores across all organizations (admin only).<br/>

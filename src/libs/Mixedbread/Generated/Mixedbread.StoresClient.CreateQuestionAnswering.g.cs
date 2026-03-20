@@ -21,11 +21,9 @@ namespace Mixedbread
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
-
         /// <summary>
         /// Question answering
         /// </summary>
-
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Mixedbread.ApiException"></exception>
@@ -219,7 +217,6 @@ namespace Mixedbread
                 }
             }
         }
-
         /// <summary>
         /// Question answering
         /// </summary>

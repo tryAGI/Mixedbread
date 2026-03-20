@@ -21,7 +21,6 @@ namespace Mixedbread
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
-
         /// <summary>
         /// Get a store<br/>
         /// Get a store by ID or name.<br/>

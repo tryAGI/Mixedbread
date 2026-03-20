@@ -21,7 +21,6 @@ namespace Mixedbread
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
-
         /// <summary>
         /// Create embeddings for text and images<br/>
         /// Create embeddings for text or images using the specified model, encoding format, and normalization.<br/>
@@ -30,7 +29,6 @@ namespace Mixedbread
         /// Returns:<br/>
         ///     EmbeddingCreateResponse: The response containing the embeddings.
         /// </summary>
-
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Mixedbread.ApiException"></exception>
@@ -224,7 +222,6 @@ namespace Mixedbread
                 }
             }
         }
-
         /// <summary>
         /// Create embeddings for text and images<br/>
         /// Create embeddings for text or images using the specified model, encoding format, and normalization.<br/>

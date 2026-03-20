@@ -4,7 +4,6 @@ namespace Mixedbread
 {
     public partial interface IDataSourcesClient
     {
-
         /// <summary>
         /// OAuth2 callback for data source authorization<br/>
         /// OAuth2 callback endpoint for completing data source authorization.<br/>

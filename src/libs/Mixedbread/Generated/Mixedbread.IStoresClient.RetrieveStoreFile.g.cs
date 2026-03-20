@@ -4,7 +4,6 @@ namespace Mixedbread
 {
     public partial interface IStoresClient
     {
-
         /// <summary>
         /// Get store file<br/>
         /// Get a file from a store.<br/>

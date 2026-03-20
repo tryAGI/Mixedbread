@@ -4,7 +4,6 @@ namespace Mixedbread
 {
     public partial interface IFilesClient
     {
-
         /// <summary>
         /// Update file<br/>
         /// Update the details of a specific file.<br/>
@@ -17,7 +16,6 @@ namespace Mixedbread
         /// <param name="fileId">
         /// The ID of the file to update
         /// </param>
-
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Mixedbread.ApiException"></exception>
@@ -26,7 +24,6 @@ namespace Mixedbread
 
             global::Mixedbread.BodyUpdateFile request,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Update file<br/>
         /// Update the details of a specific file.<br/>

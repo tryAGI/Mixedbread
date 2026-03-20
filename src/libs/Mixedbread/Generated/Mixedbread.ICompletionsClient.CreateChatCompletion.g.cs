@@ -4,7 +4,6 @@ namespace Mixedbread
 {
     public partial interface ICompletionsClient
     {
-
         /// <summary>
         /// Create a chat completion<br/>
         /// Create a chat completion using the provided parameters.<br/>

@@ -4,11 +4,9 @@ namespace Mixedbread
 {
     public partial interface IStoresClient
     {
-
         /// <summary>
         /// Question answering
         /// </summary>
-
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Mixedbread.ApiException"></exception>
@@ -16,7 +14,6 @@ namespace Mixedbread
 
             global::Mixedbread.StoreQAParams request,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Question answering
         /// </summary>

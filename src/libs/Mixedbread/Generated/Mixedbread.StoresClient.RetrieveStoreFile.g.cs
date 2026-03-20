@@ -25,7 +25,6 @@ namespace Mixedbread
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
-
         /// <summary>
         /// Get store file<br/>
         /// Get a file from a store.<br/>

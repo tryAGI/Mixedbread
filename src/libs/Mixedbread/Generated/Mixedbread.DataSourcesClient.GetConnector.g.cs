@@ -23,7 +23,6 @@ namespace Mixedbread
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
-
         /// <summary>
         /// Get a connector by ID<br/>
         /// Get a connector by ID.<br/>

@@ -21,7 +21,6 @@ namespace Mixedbread
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
-
         /// <summary>
         /// Extract content from a string<br/>
         /// Extract content from a string using the provided schema.<br/>
@@ -30,7 +29,6 @@ namespace Mixedbread
         /// Returns:<br/>
         ///     The extracted content.
         /// </summary>
-
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Mixedbread.ApiException"></exception>
@@ -224,7 +222,6 @@ namespace Mixedbread
                 }
             }
         }
-
         /// <summary>
         /// Extract content from a string<br/>
         /// Extract content from a string using the provided schema.<br/>

@@ -4,7 +4,6 @@ namespace Mixedbread
 {
     public partial interface IDataSourcesClient
     {
-
         /// <summary>
         /// Get all connectors for a data source<br/>
         /// Get all connectors for a data source.<br/>

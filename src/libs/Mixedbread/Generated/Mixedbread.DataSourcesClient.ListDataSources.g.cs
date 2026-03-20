@@ -27,7 +27,6 @@ namespace Mixedbread
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
-
         /// <summary>
         /// Get all data sources<br/>
         /// Get all data sources.<br/>

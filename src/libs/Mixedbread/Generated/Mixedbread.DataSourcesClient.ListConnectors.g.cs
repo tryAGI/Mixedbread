@@ -29,7 +29,6 @@ namespace Mixedbread
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
-
         /// <summary>
         /// Get all connectors for a data source<br/>
         /// Get all connectors for a data source.<br/>

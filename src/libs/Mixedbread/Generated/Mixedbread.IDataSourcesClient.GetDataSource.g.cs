@@ -4,7 +4,6 @@ namespace Mixedbread
 {
     public partial interface IDataSourcesClient
     {
-
         /// <summary>
         /// Get a data source by ID<br/>
         /// Get a data source by ID.<br/>

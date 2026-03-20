@@ -23,7 +23,6 @@ namespace Mixedbread
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
-
         /// <summary>
         /// Get a search rule<br/>
         /// Get a search rule by ID.<br/>

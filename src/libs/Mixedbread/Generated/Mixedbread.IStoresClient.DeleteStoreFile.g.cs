@@ -4,7 +4,6 @@ namespace Mixedbread
 {
     public partial interface IStoresClient
     {
-
         /// <summary>
         /// Delete store file<br/>
         /// Delete a file from a store.<br/>

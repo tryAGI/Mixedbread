@@ -4,7 +4,6 @@ namespace Mixedbread
 {
     public partial interface IStoresClient
     {
-
         /// <summary>
         /// Update a search rule<br/>
         /// Update a search rule by ID.<br/>
@@ -21,7 +20,6 @@ namespace Mixedbread
         /// <param name="ruleId">
         /// The ID of the search rule to update
         /// </param>
-
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Mixedbread.ApiException"></exception>
@@ -31,7 +29,6 @@ namespace Mixedbread
 
             global::Mixedbread.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleUpdateParams request,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Update a search rule<br/>
         /// Update a search rule by ID.<br/>

@@ -21,7 +21,6 @@ namespace Mixedbread
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
-
         /// <summary>
         /// Start a parse job<br/>
         /// Start a parse job for the provided file.<br/>
@@ -30,7 +29,6 @@ namespace Mixedbread
         /// Returns:<br/>
         ///     The created parsing job.
         /// </summary>
-
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Mixedbread.ApiException"></exception>
@@ -224,7 +222,6 @@ namespace Mixedbread
                 }
             }
         }
-
         /// <summary>
         /// Start a parse job<br/>
         /// Start a parse job for the provided file.<br/>

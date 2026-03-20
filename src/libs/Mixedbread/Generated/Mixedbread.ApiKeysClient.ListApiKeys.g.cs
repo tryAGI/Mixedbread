@@ -23,7 +23,6 @@ namespace Mixedbread
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
-
         /// <summary>
         /// List API keys<br/>
         /// List all API keys for the authenticated user.<br/>

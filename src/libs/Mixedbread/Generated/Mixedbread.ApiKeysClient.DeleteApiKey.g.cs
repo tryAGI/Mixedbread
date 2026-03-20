@@ -21,7 +21,6 @@ namespace Mixedbread
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
-
         /// <summary>
         /// Delete API key<br/>
         /// Delete a specific API key by its ID.<br/>

@@ -4,7 +4,6 @@ namespace Mixedbread
 {
     public partial interface IStoresClient
     {
-
         /// <summary>
         /// List store files with metadata filter<br/>
         /// List files indexed in a vector store with pagination and metadata filter.<br/>
@@ -17,7 +16,6 @@ namespace Mixedbread
         /// <param name="storeIdentifier">
         /// The ID or name of the store
         /// </param>
-
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Mixedbread.ApiException"></exception>
@@ -26,7 +24,6 @@ namespace Mixedbread
 
             global::Mixedbread.SearchCursorPagination request,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// List store files with metadata filter<br/>
         /// List files indexed in a vector store with pagination and metadata filter.<br/>

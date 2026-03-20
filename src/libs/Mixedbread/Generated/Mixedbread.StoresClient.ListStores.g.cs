@@ -29,7 +29,6 @@ namespace Mixedbread
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
-
         /// <summary>
         /// List stores<br/>
         /// List all stores with optional search.<br/>

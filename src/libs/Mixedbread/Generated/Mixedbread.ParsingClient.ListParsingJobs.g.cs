@@ -31,7 +31,6 @@ namespace Mixedbread
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
-
         /// <summary>
         /// List parsing jobs<br/>
         /// List parsing jobs with pagination.<br/>

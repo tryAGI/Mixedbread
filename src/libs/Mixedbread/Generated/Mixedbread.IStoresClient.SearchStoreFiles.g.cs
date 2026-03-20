@@ -4,7 +4,6 @@ namespace Mixedbread
 {
     public partial interface IStoresClient
     {
-
         /// <summary>
         /// Search store files<br/>
         /// Search for files within a store based on semantic similarity.<br/>
@@ -14,7 +13,6 @@ namespace Mixedbread
         /// Returns:<br/>
         ///     StoreFileSearchResponse: List of matching files with relevance scores
         /// </summary>
-
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Mixedbread.ApiException"></exception>
@@ -22,7 +20,6 @@ namespace Mixedbread
 
             global::Mixedbread.StoreFileSearchParams request,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Search store files<br/>
         /// Search for files within a store based on semantic similarity.<br/>

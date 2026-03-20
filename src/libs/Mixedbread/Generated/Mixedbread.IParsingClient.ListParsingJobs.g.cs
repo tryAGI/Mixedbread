@@ -4,7 +4,6 @@ namespace Mixedbread
 {
     public partial interface IParsingClient
     {
-
         /// <summary>
         /// List parsing jobs<br/>
         /// List parsing jobs with pagination.<br/>

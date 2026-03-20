@@ -23,7 +23,6 @@ namespace Mixedbread
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
-
         /// <summary>
         /// Delete a search rule<br/>
         /// Delete a search rule by ID.<br/>

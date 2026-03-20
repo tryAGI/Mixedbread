@@ -25,7 +25,6 @@ namespace Mixedbread
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
-
         /// <summary>
         /// Update store file metadata<br/>
         /// Update metadata on a file within a store.<br/>
@@ -42,7 +41,6 @@ namespace Mixedbread
         /// <param name="fileIdentifier">
         /// The ID or name of the file to update
         /// </param>
-
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Mixedbread.ApiException"></exception>
@@ -242,7 +240,6 @@ namespace Mixedbread
                 }
             }
         }
-
         /// <summary>
         /// Update store file metadata<br/>
         /// Update metadata on a file within a store.<br/>

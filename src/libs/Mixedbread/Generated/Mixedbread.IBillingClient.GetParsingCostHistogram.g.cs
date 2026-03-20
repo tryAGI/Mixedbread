@@ -4,7 +4,6 @@ namespace Mixedbread
 {
     public partial interface IBillingClient
     {
-
         /// <summary>
         /// Get parsing cost histogram
         /// </summary>

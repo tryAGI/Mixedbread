@@ -19,7 +19,6 @@ namespace Mixedbread
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
-
         /// <summary>
         /// Info<br/>
         /// Returns service information, including name and version.<br/>

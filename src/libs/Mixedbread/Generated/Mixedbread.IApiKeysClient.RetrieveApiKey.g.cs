@@ -4,7 +4,6 @@ namespace Mixedbread
 {
     public partial interface IApiKeysClient
     {
-
         /// <summary>
         /// Get API key details<br/>
         /// Retrieve details of a specific API key by its ID.<br/>

@@ -22,7 +22,6 @@ namespace Mixedbread
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-
         /// <summary>
         /// OAuth2 callback for data source authorization<br/>
         /// OAuth2 callback endpoint for completing data source authorization.<br/>

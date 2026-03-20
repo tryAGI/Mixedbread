@@ -4,7 +4,6 @@ namespace Mixedbread
 {
     public partial interface IFilesClient
     {
-
         /// <summary>
         /// Get file details<br/>
         /// Retrieve details of a specific file by its ID.<br/>

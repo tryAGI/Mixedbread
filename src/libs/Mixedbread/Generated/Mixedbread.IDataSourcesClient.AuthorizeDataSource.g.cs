@@ -4,7 +4,6 @@ namespace Mixedbread
 {
     public partial interface IDataSourcesClient
     {
-
         /// <summary>
         /// Authorize a data source<br/>
         /// Start OAuth2 authorization flow for a data source.<br/>

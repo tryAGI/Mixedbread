@@ -4,7 +4,6 @@ namespace Mixedbread
 {
     public partial interface IStoresClient
     {
-
         /// <summary>
         /// Get a store<br/>
         /// Get a store by ID or name.<br/>

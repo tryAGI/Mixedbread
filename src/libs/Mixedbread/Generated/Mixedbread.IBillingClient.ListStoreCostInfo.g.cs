@@ -4,7 +4,6 @@ namespace Mixedbread
 {
     public partial interface IBillingClient
     {
-
         /// <summary>
         /// List store cost information
         /// </summary>

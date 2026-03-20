@@ -4,7 +4,6 @@ namespace Mixedbread
 {
     public partial interface IFilesClient
     {
-
         /// <summary>
         /// List in-progress multipart uploads<br/>
         /// List all in-progress multipart uploads for the authenticated organization.

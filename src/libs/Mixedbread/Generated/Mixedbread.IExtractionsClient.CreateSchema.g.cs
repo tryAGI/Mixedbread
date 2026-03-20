@@ -4,7 +4,6 @@ namespace Mixedbread
 {
     public partial interface IExtractionsClient
     {
-
         /// <summary>
         /// Create a schema<br/>
         /// Create a schema with the provided parameters.<br/>
@@ -13,7 +12,6 @@ namespace Mixedbread
         /// Returns:<br/>
         ///     The created schema.
         /// </summary>
-
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Mixedbread.ApiException"></exception>
@@ -21,7 +19,6 @@ namespace Mixedbread
 
             global::Mixedbread.JsonSchemaCreateParams request,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Create a schema<br/>
         /// Create a schema with the provided parameters.<br/>

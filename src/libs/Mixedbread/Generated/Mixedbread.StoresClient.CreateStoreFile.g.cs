@@ -23,7 +23,6 @@ namespace Mixedbread
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
-
         /// <summary>
         /// Upload file to store<br/>
         /// Upload a file to a store.<br/>
@@ -36,7 +35,6 @@ namespace Mixedbread
         /// <param name="storeIdentifier">
         /// The ID or name of the store
         /// </param>
-
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Mixedbread.ApiException"></exception>
@@ -233,7 +231,6 @@ namespace Mixedbread
                 }
             }
         }
-
         /// <summary>
         /// Upload file to store<br/>
         /// Upload a file to a store.<br/>

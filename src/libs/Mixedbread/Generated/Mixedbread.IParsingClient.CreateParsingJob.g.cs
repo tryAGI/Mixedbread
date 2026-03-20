@@ -4,7 +4,6 @@ namespace Mixedbread
 {
     public partial interface IParsingClient
     {
-
         /// <summary>
         /// Start a parse job<br/>
         /// Start a parse job for the provided file.<br/>
@@ -13,7 +12,6 @@ namespace Mixedbread
         /// Returns:<br/>
         ///     The created parsing job.
         /// </summary>
-
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Mixedbread.ApiException"></exception>
@@ -21,7 +19,6 @@ namespace Mixedbread
 
             global::Mixedbread.ParsingJobCreateParams request,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Start a parse job<br/>
         /// Start a parse job for the provided file.<br/>

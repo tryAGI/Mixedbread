@@ -21,7 +21,6 @@ namespace Mixedbread
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
-
         /// <summary>
         /// Get multipart upload details<br/>
         /// Get a multipart upload's details with fresh presigned URLs for any parts not yet uploaded.

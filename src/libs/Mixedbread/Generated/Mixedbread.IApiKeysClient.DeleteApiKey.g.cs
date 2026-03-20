@@ -4,7 +4,6 @@ namespace Mixedbread
 {
     public partial interface IApiKeysClient
     {
-
         /// <summary>
         /// Delete API key<br/>
         /// Delete a specific API key by its ID.<br/>
