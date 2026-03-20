@@ -77,11 +77,6 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
-        public DeprecatedVectorStoresClient DeprecatedVectorStores { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         public ParsingClient Parsing { get; }
 
         /// <summary>
