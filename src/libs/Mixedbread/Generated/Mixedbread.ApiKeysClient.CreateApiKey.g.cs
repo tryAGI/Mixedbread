@@ -21,7 +21,6 @@ namespace Mixedbread
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
-
         /// <summary>
         /// Create API key<br/>
         /// Create a new API key.<br/>
@@ -30,7 +29,6 @@ namespace Mixedbread
         /// Returns:<br/>
         ///     ApiKeyCreated: The response containing the details of the created API key.
         /// </summary>
-
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Mixedbread.ApiException"></exception>
@@ -224,7 +222,6 @@ namespace Mixedbread
                 }
             }
         }
-
         /// <summary>
         /// Create API key<br/>
         /// Create a new API key.<br/>

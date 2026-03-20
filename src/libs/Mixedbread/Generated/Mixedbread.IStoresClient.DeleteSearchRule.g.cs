@@ -4,7 +4,6 @@ namespace Mixedbread
 {
     public partial interface IStoresClient
     {
-
         /// <summary>
         /// Delete a search rule<br/>
         /// Delete a search rule by ID.<br/>

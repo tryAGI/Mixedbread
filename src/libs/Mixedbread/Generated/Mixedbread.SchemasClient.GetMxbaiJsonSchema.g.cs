@@ -19,7 +19,6 @@ namespace Mixedbread
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
-
         /// <summary>
         /// Get mxbai json schema<br/>
         /// Get the mxbai json schema.<br/>

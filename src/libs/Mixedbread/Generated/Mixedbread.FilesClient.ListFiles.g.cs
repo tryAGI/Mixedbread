@@ -29,7 +29,6 @@ namespace Mixedbread
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
-
         /// <summary>
         /// List files<br/>
         /// List all files for the authenticated user.<br/>

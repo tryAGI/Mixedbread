@@ -4,7 +4,6 @@ namespace Mixedbread
 {
     public partial interface IApiKeysClient
     {
-
         /// <summary>
         /// Reroll API key<br/>
         /// Reroll the secret for a specific API key by its ID.<br/>

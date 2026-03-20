@@ -4,7 +4,6 @@ namespace Mixedbread
 {
     public partial interface IStoresClient
     {
-
         /// <summary>
         /// Create a store<br/>
         /// Create a new vector store.<br/>
@@ -13,7 +12,6 @@ namespace Mixedbread
         /// Returns:<br/>
         ///     VectorStore: The response containing the created vector store details.
         /// </summary>
-
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Mixedbread.ApiException"></exception>
@@ -21,7 +19,6 @@ namespace Mixedbread
 
             global::Mixedbread.StoreCreateParams request,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Create a store<br/>
         /// Create a new vector store.<br/>

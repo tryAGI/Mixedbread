@@ -21,7 +21,6 @@ namespace Mixedbread
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
-
         /// <summary>
         /// Reroll API key<br/>
         /// Reroll the secret for a specific API key by its ID.<br/>

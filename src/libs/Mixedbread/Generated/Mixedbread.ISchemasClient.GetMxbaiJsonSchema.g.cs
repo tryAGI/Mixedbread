@@ -4,7 +4,6 @@ namespace Mixedbread
 {
     public partial interface ISchemasClient
     {
-
         /// <summary>
         /// Get mxbai json schema<br/>
         /// Get the mxbai json schema.<br/>

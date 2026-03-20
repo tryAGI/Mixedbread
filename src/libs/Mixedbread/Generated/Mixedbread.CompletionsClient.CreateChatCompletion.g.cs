@@ -19,7 +19,6 @@ namespace Mixedbread
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
-
         /// <summary>
         /// Create a chat completion<br/>
         /// Create a chat completion using the provided parameters.<br/>

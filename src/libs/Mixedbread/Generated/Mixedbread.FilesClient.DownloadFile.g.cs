@@ -21,7 +21,6 @@ namespace Mixedbread
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref byte[] content);
 
-
         /// <summary>
         /// Download file<br/>
         /// Download a specific file by its ID.<br/>

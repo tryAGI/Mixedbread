@@ -4,7 +4,6 @@ namespace Mixedbread
 {
     public partial interface IDataSourcesClient
     {
-
         /// <summary>
         /// Update a connector<br/>
         /// Update a connector.<br/>
@@ -21,7 +20,6 @@ namespace Mixedbread
         /// <param name="connectorId">
         /// The ID of the connector to update
         /// </param>
-
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Mixedbread.ApiException"></exception>
@@ -31,7 +29,6 @@ namespace Mixedbread
 
             global::Mixedbread.DataSourceConnectorUpdateParams request,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Update a connector<br/>
         /// Update a connector.<br/>

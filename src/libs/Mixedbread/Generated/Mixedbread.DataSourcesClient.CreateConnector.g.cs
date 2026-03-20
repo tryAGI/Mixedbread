@@ -23,7 +23,6 @@ namespace Mixedbread
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
-
         /// <summary>
         /// Create a new connector<br/>
         /// Create a new connector.<br/>
@@ -36,7 +35,6 @@ namespace Mixedbread
         /// <param name="dataSourceId">
         /// The ID of the data source to create a connector for
         /// </param>
-
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Mixedbread.ApiException"></exception>
@@ -233,7 +231,6 @@ namespace Mixedbread
                 }
             }
         }
-
         /// <summary>
         /// Create a new connector<br/>
         /// Create a new connector.<br/>

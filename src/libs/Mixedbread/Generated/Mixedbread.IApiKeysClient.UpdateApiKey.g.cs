@@ -4,7 +4,6 @@ namespace Mixedbread
 {
     public partial interface IApiKeysClient
     {
-
         /// <summary>
         /// Update API key<br/>
         /// Update a specific API key by its ID.<br/>
@@ -17,7 +16,6 @@ namespace Mixedbread
         /// <param name="apiKeyId">
         /// The ID of the API key to update
         /// </param>
-
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Mixedbread.ApiException"></exception>
@@ -26,7 +24,6 @@ namespace Mixedbread
 
             global::Mixedbread.ApiKeyUpdateParams request,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Update API key<br/>
         /// Update a specific API key by its ID.<br/>

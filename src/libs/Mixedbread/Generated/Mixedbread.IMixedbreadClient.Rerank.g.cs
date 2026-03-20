@@ -4,7 +4,6 @@ namespace Mixedbread
 {
     public partial interface IMixedbreadClient
     {
-
         /// <summary>
         /// Rerank different kind of documents for a given query<br/>
         /// Rerank different kind of documents for a given query.<br/>
@@ -13,7 +12,6 @@ namespace Mixedbread
         /// Returns:<br/>
         ///     RerankResponse: The reranked documents for the input query.
         /// </summary>
-
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Mixedbread.ApiException"></exception>
@@ -21,7 +19,6 @@ namespace Mixedbread
 
             global::Mixedbread.RerankParams request,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Rerank different kind of documents for a given query<br/>
         /// Rerank different kind of documents for a given query.<br/>

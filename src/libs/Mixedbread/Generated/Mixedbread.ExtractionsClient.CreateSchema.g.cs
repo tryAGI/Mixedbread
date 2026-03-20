@@ -21,7 +21,6 @@ namespace Mixedbread
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
-
         /// <summary>
         /// Create a schema<br/>
         /// Create a schema with the provided parameters.<br/>
@@ -30,7 +29,6 @@ namespace Mixedbread
         /// Returns:<br/>
         ///     The created schema.
         /// </summary>
-
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Mixedbread.ApiException"></exception>
@@ -224,7 +222,6 @@ namespace Mixedbread
                 }
             }
         }
-
         /// <summary>
         /// Create a schema<br/>
         /// Create a schema with the provided parameters.<br/>

@@ -19,7 +19,6 @@ namespace Mixedbread
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
-
         /// <summary>
         /// List in-progress multipart uploads<br/>
         /// List all in-progress multipart uploads for the authenticated organization.

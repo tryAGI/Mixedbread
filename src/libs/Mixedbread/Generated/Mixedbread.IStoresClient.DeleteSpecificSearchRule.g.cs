@@ -4,7 +4,6 @@ namespace Mixedbread
 {
     public partial interface IStoresClient
     {
-
         /// <summary>
         /// Delete a specific rule from rules array<br/>
         /// Delete a specific rule from within a search rule's rules array.<br/>
@@ -21,7 +20,6 @@ namespace Mixedbread
         /// <param name="ruleId">
         /// The ID of the search rule
         /// </param>
-
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Mixedbread.ApiException"></exception>
@@ -31,7 +29,6 @@ namespace Mixedbread
 
             global::Mixedbread.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleSpecificDeleteParams request,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Delete a specific rule from rules array<br/>
         /// Delete a specific rule from within a search rule's rules array.<br/>

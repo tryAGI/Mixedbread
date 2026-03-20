@@ -4,7 +4,6 @@ namespace Mixedbread
 {
     public partial interface IApiKeysClient
     {
-
         /// <summary>
         /// Revoke API key<br/>
         /// Revoke a specific API key by its ID.<br/>

@@ -35,7 +35,6 @@ namespace Mixedbread
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
-
         /// <summary>
         /// List events for a store<br/>
         /// List events for a store.<br/>

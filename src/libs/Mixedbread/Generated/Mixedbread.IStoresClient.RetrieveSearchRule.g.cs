@@ -4,7 +4,6 @@ namespace Mixedbread
 {
     public partial interface IStoresClient
     {
-
         /// <summary>
         /// Get a search rule<br/>
         /// Get a search rule by ID.<br/>

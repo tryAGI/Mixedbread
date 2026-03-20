@@ -4,7 +4,6 @@ namespace Mixedbread
 {
     public partial interface IStoresClient
     {
-
         /// <summary>
         /// Upload file via form to store<br/>
         /// Upload a file via form to a store.<br/>
@@ -19,7 +18,6 @@ namespace Mixedbread
         /// <param name="storeIdentifier">
         /// The ID or name of the store
         /// </param>
-
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Mixedbread.ApiException"></exception>
@@ -28,7 +26,6 @@ namespace Mixedbread
 
             global::Mixedbread.BodyUploadStoreFile request,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Upload file via form to store<br/>
         /// Upload a file via form to a store.<br/>

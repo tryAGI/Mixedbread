@@ -21,7 +21,6 @@ namespace Mixedbread
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
-
         /// <summary>
         /// Abort multipart upload<br/>
         /// Abort a multipart upload and clean up any uploaded parts.

@@ -4,7 +4,6 @@ namespace Mixedbread
 {
     public partial interface IStoresClient
     {
-
         /// <summary>
         /// Perform semantic search across store chunks<br/>
         /// Perform semantic search across store chunks.<br/>
@@ -31,7 +30,6 @@ namespace Mixedbread
         ///     HTTPException (400): If search parameters are invalid<br/>
         ///     HTTPException (404): If no vector stores are found to search
         /// </summary>
-
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Mixedbread.ApiException"></exception>
@@ -39,7 +37,6 @@ namespace Mixedbread
 
             global::Mixedbread.StoreChunkSearchParams request,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Perform semantic search across store chunks<br/>
         /// Perform semantic search across store chunks.<br/>

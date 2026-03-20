@@ -4,7 +4,6 @@ namespace Mixedbread
 {
     public partial interface IParsingClient
     {
-
         /// <summary>
         /// Get parsing job result<br/>
         /// Get detailed information about a specific parse job.<br/>

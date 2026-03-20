@@ -4,7 +4,6 @@ namespace Mixedbread
 {
     public partial interface IMixedbreadClient
     {
-
         /// <summary>
         /// Info<br/>
         /// Returns service information, including name and version.<br/>

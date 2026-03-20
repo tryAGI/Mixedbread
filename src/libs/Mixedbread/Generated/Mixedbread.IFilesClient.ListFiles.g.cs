@@ -4,7 +4,6 @@ namespace Mixedbread
 {
     public partial interface IFilesClient
     {
-
         /// <summary>
         /// List files<br/>
         /// List all files for the authenticated user.<br/>

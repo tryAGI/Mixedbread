@@ -4,7 +4,6 @@ namespace Mixedbread
 {
     public partial interface IDataSourcesClient
     {
-
         /// <summary>
         /// Update a data source<br/>
         /// Update a data source.<br/>
@@ -17,7 +16,6 @@ namespace Mixedbread
         /// <param name="dataSourceId">
         /// The ID of the data source to update
         /// </param>
-
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Mixedbread.ApiException"></exception>
@@ -26,7 +24,6 @@ namespace Mixedbread
 
             global::Mixedbread.AnyOf<global::Mixedbread.NotionDataSourceCreateOrUpdateParams, global::Mixedbread.LinearDataSourceCreateOrUpdateParams> request,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Update a data source<br/>
         /// Update a data source.<br/>

@@ -4,7 +4,6 @@ namespace Mixedbread
 {
     public partial interface IApiKeysClient
     {
-
         /// <summary>
         /// List API keys<br/>
         /// List all API keys for the authenticated user.<br/>

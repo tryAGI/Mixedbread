@@ -4,7 +4,6 @@ namespace Mixedbread
 {
     public partial interface IParsingClient
     {
-
         /// <summary>
         /// Delete a parsing job<br/>
         /// Delete a specific parse job.<br/>

@@ -21,7 +21,6 @@ namespace Mixedbread
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
-
         /// <summary>
         /// Authorize a data source<br/>
         /// Start OAuth2 authorization flow for a data source.<br/>

@@ -4,7 +4,6 @@ namespace Mixedbread
 {
     public partial interface IFilesClient
     {
-
         /// <summary>
         /// Delete file<br/>
         /// Delete a specific file by its ID.<br/>

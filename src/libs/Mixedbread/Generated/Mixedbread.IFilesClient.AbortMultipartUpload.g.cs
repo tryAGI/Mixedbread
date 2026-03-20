@@ -4,7 +4,6 @@ namespace Mixedbread
 {
     public partial interface IFilesClient
     {
-
         /// <summary>
         /// Abort multipart upload<br/>
         /// Abort a multipart upload and clean up any uploaded parts.

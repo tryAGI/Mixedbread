@@ -4,7 +4,6 @@ namespace Mixedbread
 {
     public partial interface IFilesClient
     {
-
         /// <summary>
         /// Get multipart upload details<br/>
         /// Get a multipart upload's details with fresh presigned URLs for any parts not yet uploaded.

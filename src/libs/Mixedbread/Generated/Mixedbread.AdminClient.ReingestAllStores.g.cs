@@ -27,7 +27,6 @@ namespace Mixedbread
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
-
         /// <summary>
         /// Reingest all stores<br/>
         /// Reingest all stores across all organizations (admin only).<br/>

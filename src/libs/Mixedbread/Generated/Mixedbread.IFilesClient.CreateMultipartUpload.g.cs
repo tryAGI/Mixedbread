@@ -4,12 +4,10 @@ namespace Mixedbread
 {
     public partial interface IFilesClient
     {
-
         /// <summary>
         /// Create multipart upload<br/>
         /// Initiate a multipart upload and receive presigned URLs for uploading parts directly to storage.
         /// </summary>
-
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Mixedbread.ApiException"></exception>
@@ -17,7 +15,6 @@ namespace Mixedbread
 
             global::Mixedbread.CreateMultipartUploadRequest request,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Create multipart upload<br/>
         /// Initiate a multipart upload and receive presigned URLs for uploading parts directly to storage.

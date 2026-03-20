@@ -23,7 +23,6 @@ namespace Mixedbread
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
-
         /// <summary>
         /// Complete multipart upload<br/>
         /// Complete a multipart upload after all parts have been uploaded.<br/>
@@ -32,7 +31,6 @@ namespace Mixedbread
         /// <param name="uploadId">
         /// The ID of the multipart upload
         /// </param>
-
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Mixedbread.ApiException"></exception>
@@ -229,7 +227,6 @@ namespace Mixedbread
                 }
             }
         }
-
         /// <summary>
         /// Complete multipart upload<br/>
         /// Complete a multipart upload after all parts have been uploaded.<br/>
