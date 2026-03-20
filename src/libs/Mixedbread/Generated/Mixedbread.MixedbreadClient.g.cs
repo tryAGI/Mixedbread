@@ -102,15 +102,6 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
-        public DeprecatedVectorStoresClient DeprecatedVectorStores => new DeprecatedVectorStoresClient(HttpClient, authorizations: Authorizations)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
         public ParsingClient Parsing => new ParsingClient(HttpClient, authorizations: Authorizations)
         {
             ReadResponseAsString = ReadResponseAsString,
