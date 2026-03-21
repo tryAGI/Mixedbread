@@ -42,12 +42,7 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
-        public FilesClient Files { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public CompletionsClient Completions { get; }
+        public AdminClient Admin { get; }
 
         /// <summary>
         /// 
@@ -57,27 +52,17 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
-        public SchemasClient Schemas { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         public BillingClient Billing { get; }
 
         /// <summary>
         /// 
         /// </summary>
-        public AdminClient Admin { get; }
+        public CompletionsClient Completions { get; }
 
         /// <summary>
         /// 
         /// </summary>
-        public StoresClient Stores { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public ParsingClient Parsing { get; }
+        public DataSourcesClient DataSources { get; }
 
         /// <summary>
         /// 
@@ -87,7 +72,22 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
-        public DataSourcesClient DataSources { get; }
+        public FilesClient Files { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public ParsingClient Parsing { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public SchemasClient Schemas { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public StoresClient Stores { get; }
 
     }
 }
