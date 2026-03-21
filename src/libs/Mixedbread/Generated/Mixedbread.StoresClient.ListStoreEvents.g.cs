@@ -103,7 +103,7 @@ namespace Mixedbread
                 .AddOptionalParameter("limit", limit?.ToString())
                 .AddOptionalParameter("after", after)
                 .AddOptionalParameter("before", before)
-                .AddOptionalParameter("include_total", includeTotal?.ToString())
+                .AddOptionalParameter("include_total", includeTotal?.ToString().ToLowerInvariant())
                 .AddOptionalParameter("filter_before", filterBefore?.ToString())
                 .AddOptionalParameter("filter_after", filterAfter?.ToString())
                 .AddRequiredParameter("event_type", eventType.ToValueString()) 

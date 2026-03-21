@@ -81,7 +81,7 @@ namespace Mixedbread
                 .AddOptionalParameter("limit", limit?.ToString())
                 .AddOptionalParameter("after", after)
                 .AddOptionalParameter("before", before)
-                .AddOptionalParameter("include_total", includeTotal?.ToString())
+                .AddOptionalParameter("include_total", includeTotal?.ToString().ToLowerInvariant())
                 .AddOptionalParameter("q", q) 
                 ; 
             var __path = __pathBuilder.ToString();
