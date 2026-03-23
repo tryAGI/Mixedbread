@@ -15,15 +15,19 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
-        NotEq,
-        /// <summary>
-        /// 
-        /// </summary>
         Gt,
         /// <summary>
         /// 
         /// </summary>
         Gte,
+        /// <summary>
+        /// 
+        /// </summary>
+        In,
+        /// <summary>
+        /// 
+        /// </summary>
+        Like,
         /// <summary>
         /// 
         /// </summary>
@@ -35,19 +39,11 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
-        In,
+        NotEq,
         /// <summary>
         /// 
         /// </summary>
         NotIn,
-        /// <summary>
-        /// 
-        /// </summary>
-        Like,
-        /// <summary>
-        /// 
-        /// </summary>
-        StartsWith,
         /// <summary>
         /// 
         /// </summary>
@@ -56,6 +52,10 @@ namespace Mixedbread
         /// 
         /// </summary>
         Regex,
+        /// <summary>
+        /// 
+        /// </summary>
+        StartsWith,
     }
 
     /// <summary>
@@ -71,17 +71,17 @@ namespace Mixedbread
             return value switch
             {
                 ConditionOperator.Eq => "eq",
-                ConditionOperator.NotEq => "not_eq",
                 ConditionOperator.Gt => "gt",
                 ConditionOperator.Gte => "gte",
+                ConditionOperator.In => "in",
+                ConditionOperator.Like => "like",
                 ConditionOperator.Lt => "lt",
                 ConditionOperator.Lte => "lte",
-                ConditionOperator.In => "in",
+                ConditionOperator.NotEq => "not_eq",
                 ConditionOperator.NotIn => "not_in",
-                ConditionOperator.Like => "like",
-                ConditionOperator.StartsWith => "starts_with",
                 ConditionOperator.NotLike => "not_like",
                 ConditionOperator.Regex => "regex",
+                ConditionOperator.StartsWith => "starts_with",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -93,17 +93,17 @@ namespace Mixedbread
             return value switch
             {
                 "eq" => ConditionOperator.Eq,
-                "not_eq" => ConditionOperator.NotEq,
                 "gt" => ConditionOperator.Gt,
                 "gte" => ConditionOperator.Gte,
+                "in" => ConditionOperator.In,
+                "like" => ConditionOperator.Like,
                 "lt" => ConditionOperator.Lt,
                 "lte" => ConditionOperator.Lte,
-                "in" => ConditionOperator.In,
+                "not_eq" => ConditionOperator.NotEq,
                 "not_in" => ConditionOperator.NotIn,
-                "like" => ConditionOperator.Like,
-                "starts_with" => ConditionOperator.StartsWith,
                 "not_like" => ConditionOperator.NotLike,
                 "regex" => ConditionOperator.Regex,
+                "starts_with" => ConditionOperator.StartsWith,
                 _ => null,
             };
         }

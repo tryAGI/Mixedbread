@@ -11,11 +11,11 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
-        Notion,
+        Linear,
         /// <summary>
         /// 
         /// </summary>
-        Linear,
+        Notion,
     }
 
     /// <summary>
@@ -30,8 +30,8 @@ namespace Mixedbread
         {
             return value switch
             {
-                DataSourceType.Notion => "notion",
                 DataSourceType.Linear => "linear",
+                DataSourceType.Notion => "notion",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -42,8 +42,8 @@ namespace Mixedbread
         {
             return value switch
             {
-                "notion" => DataSourceType.Notion,
                 "linear" => DataSourceType.Linear,
+                "notion" => DataSourceType.Notion,
                 _ => null,
             };
         }

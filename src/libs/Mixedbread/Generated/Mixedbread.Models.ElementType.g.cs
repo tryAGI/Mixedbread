@@ -11,7 +11,7 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
-        Header,
+        Figure,
         /// <summary>
         /// 
         /// </summary>
@@ -19,27 +19,7 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
-        Title,
-        /// <summary>
-        /// 
-        /// </summary>
-        SectionHeader,
-        /// <summary>
-        /// 
-        /// </summary>
-        PageNumber,
-        /// <summary>
-        /// 
-        /// </summary>
-        ListItem,
-        /// <summary>
-        /// 
-        /// </summary>
-        Figure,
-        /// <summary>
-        /// 
-        /// </summary>
-        Table,
+        Footnote,
         /// <summary>
         /// 
         /// </summary>
@@ -47,11 +27,31 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
+        Header,
+        /// <summary>
+        /// 
+        /// </summary>
+        ListItem,
+        /// <summary>
+        /// 
+        /// </summary>
+        PageNumber,
+        /// <summary>
+        /// 
+        /// </summary>
+        SectionHeader,
+        /// <summary>
+        /// 
+        /// </summary>
+        Table,
+        /// <summary>
+        /// 
+        /// </summary>
         Text,
         /// <summary>
         /// 
         /// </summary>
-        Footnote,
+        Title,
     }
 
     /// <summary>
@@ -66,17 +66,17 @@ namespace Mixedbread
         {
             return value switch
             {
-                ElementType.Header => "header",
-                ElementType.Footer => "footer",
-                ElementType.Title => "title",
-                ElementType.SectionHeader => "section-header",
-                ElementType.PageNumber => "page-number",
-                ElementType.ListItem => "list-item",
                 ElementType.Figure => "figure",
-                ElementType.Table => "table",
-                ElementType.Form => "form",
-                ElementType.Text => "text",
+                ElementType.Footer => "footer",
                 ElementType.Footnote => "footnote",
+                ElementType.Form => "form",
+                ElementType.Header => "header",
+                ElementType.ListItem => "list-item",
+                ElementType.PageNumber => "page-number",
+                ElementType.SectionHeader => "section-header",
+                ElementType.Table => "table",
+                ElementType.Text => "text",
+                ElementType.Title => "title",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -87,17 +87,17 @@ namespace Mixedbread
         {
             return value switch
             {
-                "header" => ElementType.Header,
-                "footer" => ElementType.Footer,
-                "title" => ElementType.Title,
-                "section-header" => ElementType.SectionHeader,
-                "page-number" => ElementType.PageNumber,
-                "list-item" => ElementType.ListItem,
                 "figure" => ElementType.Figure,
-                "table" => ElementType.Table,
-                "form" => ElementType.Form,
-                "text" => ElementType.Text,
+                "footer" => ElementType.Footer,
                 "footnote" => ElementType.Footnote,
+                "form" => ElementType.Form,
+                "header" => ElementType.Header,
+                "list-item" => ElementType.ListItem,
+                "page-number" => ElementType.PageNumber,
+                "section-header" => ElementType.SectionHeader,
+                "table" => ElementType.Table,
+                "text" => ElementType.Text,
+                "title" => ElementType.Title,
                 _ => null,
             };
         }

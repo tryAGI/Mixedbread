@@ -11,11 +11,7 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
-        Read,
-        /// <summary>
-        /// 
-        /// </summary>
-        Write,
+        Create,
         /// <summary>
         /// 
         /// </summary>
@@ -27,11 +23,15 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
-        Create,
+        Read,
         /// <summary>
         /// 
         /// </summary>
         Search,
+        /// <summary>
+        /// 
+        /// </summary>
+        Write,
     }
 
     /// <summary>
@@ -46,12 +46,12 @@ namespace Mixedbread
         {
             return value switch
             {
-                ScopeMethod.Read => "read",
-                ScopeMethod.Write => "write",
+                ScopeMethod.Create => "create",
                 ScopeMethod.Delete => "delete",
                 ScopeMethod.List => "list",
-                ScopeMethod.Create => "create",
+                ScopeMethod.Read => "read",
                 ScopeMethod.Search => "search",
+                ScopeMethod.Write => "write",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -62,12 +62,12 @@ namespace Mixedbread
         {
             return value switch
             {
-                "read" => ScopeMethod.Read,
-                "write" => ScopeMethod.Write,
+                "create" => ScopeMethod.Create,
                 "delete" => ScopeMethod.Delete,
                 "list" => ScopeMethod.List,
-                "create" => ScopeMethod.Create,
+                "read" => ScopeMethod.Read,
                 "search" => ScopeMethod.Search,
+                "write" => ScopeMethod.Write,
                 _ => null,
             };
         }
