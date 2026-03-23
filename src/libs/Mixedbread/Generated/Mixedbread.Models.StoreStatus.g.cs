@@ -11,15 +11,15 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
+        Completed,
+        /// <summary>
+        /// 
+        /// </summary>
         Expired,
         /// <summary>
         /// 
         /// </summary>
         InProgress,
-        /// <summary>
-        /// 
-        /// </summary>
-        Completed,
     }
 
     /// <summary>
@@ -34,9 +34,9 @@ namespace Mixedbread
         {
             return value switch
             {
+                StoreStatus.Completed => "completed",
                 StoreStatus.Expired => "expired",
                 StoreStatus.InProgress => "in_progress",
-                StoreStatus.Completed => "completed",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -47,9 +47,9 @@ namespace Mixedbread
         {
             return value switch
             {
+                "completed" => StoreStatus.Completed,
                 "expired" => StoreStatus.Expired,
                 "in_progress" => StoreStatus.InProgress,
-                "completed" => StoreStatus.Completed,
                 _ => null,
             };
         }

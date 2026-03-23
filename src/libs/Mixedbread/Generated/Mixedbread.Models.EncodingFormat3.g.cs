@@ -11,14 +11,6 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
-        Float,
-        /// <summary>
-        /// 
-        /// </summary>
-        Float16,
-        /// <summary>
-        /// 
-        /// </summary>
         Base64,
         /// <summary>
         /// 
@@ -27,11 +19,19 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
-        Ubinary,
+        Float,
+        /// <summary>
+        /// 
+        /// </summary>
+        Float16,
         /// <summary>
         /// 
         /// </summary>
         Int8,
+        /// <summary>
+        /// 
+        /// </summary>
+        Ubinary,
         /// <summary>
         /// 
         /// </summary>
@@ -50,12 +50,12 @@ namespace Mixedbread
         {
             return value switch
             {
-                EncodingFormat3.Float => "float",
-                EncodingFormat3.Float16 => "float16",
                 EncodingFormat3.Base64 => "base64",
                 EncodingFormat3.Binary => "binary",
-                EncodingFormat3.Ubinary => "ubinary",
+                EncodingFormat3.Float => "float",
+                EncodingFormat3.Float16 => "float16",
                 EncodingFormat3.Int8 => "int8",
+                EncodingFormat3.Ubinary => "ubinary",
                 EncodingFormat3.Uint8 => "uint8",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -67,12 +67,12 @@ namespace Mixedbread
         {
             return value switch
             {
-                "float" => EncodingFormat3.Float,
-                "float16" => EncodingFormat3.Float16,
                 "base64" => EncodingFormat3.Base64,
                 "binary" => EncodingFormat3.Binary,
-                "ubinary" => EncodingFormat3.Ubinary,
+                "float" => EncodingFormat3.Float,
+                "float16" => EncodingFormat3.Float16,
                 "int8" => EncodingFormat3.Int8,
+                "ubinary" => EncodingFormat3.Ubinary,
                 "uint8" => EncodingFormat3.Uint8,
                 _ => null,
             };

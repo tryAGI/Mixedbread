@@ -11,14 +11,6 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
-        Pending,
-        /// <summary>
-        /// 
-        /// </summary>
-        InProgress,
-        /// <summary>
-        /// 
-        /// </summary>
         Cancelled,
         /// <summary>
         /// 
@@ -28,6 +20,14 @@ namespace Mixedbread
         /// 
         /// </summary>
         Failed,
+        /// <summary>
+        /// 
+        /// </summary>
+        InProgress,
+        /// <summary>
+        /// 
+        /// </summary>
+        Pending,
     }
 
     /// <summary>
@@ -42,11 +42,11 @@ namespace Mixedbread
         {
             return value switch
             {
-                StoreFileStatus.Pending => "pending",
-                StoreFileStatus.InProgress => "in_progress",
                 StoreFileStatus.Cancelled => "cancelled",
                 StoreFileStatus.Completed => "completed",
                 StoreFileStatus.Failed => "failed",
+                StoreFileStatus.InProgress => "in_progress",
+                StoreFileStatus.Pending => "pending",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -57,11 +57,11 @@ namespace Mixedbread
         {
             return value switch
             {
-                "pending" => StoreFileStatus.Pending,
-                "in_progress" => StoreFileStatus.InProgress,
                 "cancelled" => StoreFileStatus.Cancelled,
                 "completed" => StoreFileStatus.Completed,
                 "failed" => StoreFileStatus.Failed,
+                "in_progress" => StoreFileStatus.InProgress,
+                "pending" => StoreFileStatus.Pending,
                 _ => null,
             };
         }

@@ -11,6 +11,14 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
+        Ascii,
+        /// <summary>
+        /// 
+        /// </summary>
+        Dotall,
+        /// <summary>
+        /// 
+        /// </summary>
         Ignorecase,
         /// <summary>
         /// 
@@ -19,19 +27,11 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
-        Dotall,
+        Unicode,
         /// <summary>
         /// 
         /// </summary>
         Verbose,
-        /// <summary>
-        /// 
-        /// </summary>
-        Ascii,
-        /// <summary>
-        /// 
-        /// </summary>
-        Unicode,
     }
 
     /// <summary>
@@ -46,12 +46,12 @@ namespace Mixedbread
         {
             return value switch
             {
+                RegexFlag.Ascii => "ASCII",
+                RegexFlag.Dotall => "DOTALL",
                 RegexFlag.Ignorecase => "IGNORECASE",
                 RegexFlag.Multiline => "MULTILINE",
-                RegexFlag.Dotall => "DOTALL",
-                RegexFlag.Verbose => "VERBOSE",
-                RegexFlag.Ascii => "ASCII",
                 RegexFlag.Unicode => "UNICODE",
+                RegexFlag.Verbose => "VERBOSE",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -62,12 +62,12 @@ namespace Mixedbread
         {
             return value switch
             {
+                "ASCII" => RegexFlag.Ascii,
+                "DOTALL" => RegexFlag.Dotall,
                 "IGNORECASE" => RegexFlag.Ignorecase,
                 "MULTILINE" => RegexFlag.Multiline,
-                "DOTALL" => RegexFlag.Dotall,
-                "VERBOSE" => RegexFlag.Verbose,
-                "ASCII" => RegexFlag.Ascii,
                 "UNICODE" => RegexFlag.Unicode,
+                "VERBOSE" => RegexFlag.Verbose,
                 _ => null,
             };
         }

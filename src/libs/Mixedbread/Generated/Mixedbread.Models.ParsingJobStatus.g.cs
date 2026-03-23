@@ -11,14 +11,6 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
-        Pending,
-        /// <summary>
-        /// 
-        /// </summary>
-        InProgress,
-        /// <summary>
-        /// 
-        /// </summary>
         Cancelled,
         /// <summary>
         /// 
@@ -28,6 +20,14 @@ namespace Mixedbread
         /// 
         /// </summary>
         Failed,
+        /// <summary>
+        /// 
+        /// </summary>
+        InProgress,
+        /// <summary>
+        /// 
+        /// </summary>
+        Pending,
     }
 
     /// <summary>
@@ -42,11 +42,11 @@ namespace Mixedbread
         {
             return value switch
             {
-                ParsingJobStatus.Pending => "pending",
-                ParsingJobStatus.InProgress => "in_progress",
                 ParsingJobStatus.Cancelled => "cancelled",
                 ParsingJobStatus.Completed => "completed",
                 ParsingJobStatus.Failed => "failed",
+                ParsingJobStatus.InProgress => "in_progress",
+                ParsingJobStatus.Pending => "pending",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -57,11 +57,11 @@ namespace Mixedbread
         {
             return value switch
             {
-                "pending" => ParsingJobStatus.Pending,
-                "in_progress" => ParsingJobStatus.InProgress,
                 "cancelled" => ParsingJobStatus.Cancelled,
                 "completed" => ParsingJobStatus.Completed,
                 "failed" => ParsingJobStatus.Failed,
+                "in_progress" => ParsingJobStatus.InProgress,
+                "pending" => ParsingJobStatus.Pending,
                 _ => null,
             };
         }

@@ -11,18 +11,6 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
-        Idle,
-        /// <summary>
-        /// 
-        /// </summary>
-        Pending,
-        /// <summary>
-        /// 
-        /// </summary>
-        InProgress,
-        /// <summary>
-        /// 
-        /// </summary>
         Cancelled,
         /// <summary>
         /// 
@@ -32,6 +20,18 @@ namespace Mixedbread
         /// 
         /// </summary>
         Failed,
+        /// <summary>
+        /// 
+        /// </summary>
+        Idle,
+        /// <summary>
+        /// 
+        /// </summary>
+        InProgress,
+        /// <summary>
+        /// 
+        /// </summary>
+        Pending,
     }
 
     /// <summary>
@@ -46,12 +46,12 @@ namespace Mixedbread
         {
             return value switch
             {
-                SyncStatus.Idle => "idle",
-                SyncStatus.Pending => "pending",
-                SyncStatus.InProgress => "in_progress",
                 SyncStatus.Cancelled => "cancelled",
                 SyncStatus.Completed => "completed",
                 SyncStatus.Failed => "failed",
+                SyncStatus.Idle => "idle",
+                SyncStatus.InProgress => "in_progress",
+                SyncStatus.Pending => "pending",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -62,12 +62,12 @@ namespace Mixedbread
         {
             return value switch
             {
-                "idle" => SyncStatus.Idle,
-                "pending" => SyncStatus.Pending,
-                "in_progress" => SyncStatus.InProgress,
                 "cancelled" => SyncStatus.Cancelled,
                 "completed" => SyncStatus.Completed,
                 "failed" => SyncStatus.Failed,
+                "idle" => SyncStatus.Idle,
+                "in_progress" => SyncStatus.InProgress,
+                "pending" => SyncStatus.Pending,
                 _ => null,
             };
         }
