@@ -14,243 +14,481 @@ namespace Mixedbread
         Converters = new global::System.Type[]
         {
             typeof(global::Mixedbread.JsonConverters.AudioUrlInputChunkGeneratedMetadataVariant1DiscriminatorTypeJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.AudioUrlInputChunkGeneratedMetadataVariant1DiscriminatorTypeNullableJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.ChunkingStrategyJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.ChunkingStrategyNullableJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.ConditionOperatorJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.ConditionOperatorNullableJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.DataSourceAuthParamsVariant1DiscriminatorTypeJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.DataSourceAuthParamsVariant1DiscriminatorTypeNullableJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.DataSourceTypeJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.DataSourceTypeNullableJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.ElementTypeJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.ElementTypeNullableJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.EncodingFormat3JsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.EncodingFormat3NullableJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.ImageUrlInputChunkGeneratedMetadataVariant1DiscriminatorTypeJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.ImageUrlInputChunkGeneratedMetadataVariant1DiscriminatorTypeNullableJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.LinearDataSourceCreateOrUpdateParamsAuthParamsVariant1DiscriminatorTypeJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.LinearDataSourceCreateOrUpdateParamsAuthParamsVariant1DiscriminatorTypeNullableJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.ModeJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.ModeNullableJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.MultiModalQueryVariant2DiscriminatorTypeJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.MultiModalQueryVariant2DiscriminatorTypeNullableJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.NotionDataSourceCreateOrUpdateParamsAuthParamsVariant1DiscriminatorTypeJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.NotionDataSourceCreateOrUpdateParamsAuthParamsVariant1DiscriminatorTypeNullableJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.ParsingJobStatusJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.ParsingJobStatusNullableJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.RegexFlagJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.RegexFlagNullableJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.ReturnFormatJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.ReturnFormatNullableJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.ScopeMethodJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.ScopeMethodNullableJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.ScoredStoreFileChunksVariant1ItemDiscriminatorTypeJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.ScoredStoreFileChunksVariant1ItemDiscriminatorTypeNullableJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.ScoredVectorStoreFileChunksVariant1ItemDiscriminatorTypeJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.ScoredVectorStoreFileChunksVariant1ItemDiscriminatorTypeNullableJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.StoreEventHistogramBucketTypeJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.StoreEventHistogramBucketTypeNullableJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.StoreEventListResponseDataItemDiscriminatorTypeJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.StoreEventListResponseDataItemDiscriminatorTypeNullableJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.StoreFileChunksVariant1ItemDiscriminatorTypeJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.StoreFileChunksVariant1ItemDiscriminatorTypeNullableJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.StoreFileParsingStrategyJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.StoreFileParsingStrategyNullableJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.StoreFileStatusJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.StoreFileStatusNullableJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.StoreQAResultsSourceDiscriminatorTypeJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.StoreQAResultsSourceDiscriminatorTypeNullableJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.StoreSearchResponseDataItemDiscriminatorTypeJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.StoreSearchResponseDataItemDiscriminatorTypeNullableJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.StoreStatusJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.StoreStatusNullableJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.SyncStatusJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.SyncStatusNullableJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.TextInputChunkGeneratedMetadataVariant1DiscriminatorTypeJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.TextInputChunkGeneratedMetadataVariant1DiscriminatorTypeNullableJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.VectorStoreFileChunksVariant1ItemDiscriminatorTypeJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.VectorStoreFileChunksVariant1ItemDiscriminatorTypeNullableJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.VectorStoreFileStatusJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.VectorStoreFileStatusNullableJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.VectorStoreQAResultsSourceDiscriminatorTypeJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.VectorStoreQAResultsSourceDiscriminatorTypeNullableJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.VectorStoreSearchResponseDataItemDiscriminatorTypeJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.VectorStoreSearchResponseDataItemDiscriminatorTypeNullableJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.VideoUrlInputChunkGeneratedMetadataVariant1DiscriminatorTypeJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.VideoUrlInputChunkGeneratedMetadataVariant1DiscriminatorTypeNullableJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredAudioUrlInputChunkGeneratedMetadataVariant1DiscriminatorTypeJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredAudioUrlInputChunkGeneratedMetadataVariant1DiscriminatorTypeNullableJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredImageUrlInputChunkGeneratedMetadataVariant1DiscriminatorTypeJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredImageUrlInputChunkGeneratedMetadataVariant1DiscriminatorTypeNullableJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredTextInputChunkGeneratedMetadataVariant1DiscriminatorTypeJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredTextInputChunkGeneratedMetadataVariant1DiscriminatorTypeNullableJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredVideoUrlInputChunkGeneratedMetadataVariant1DiscriminatorTypeJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredVideoUrlInputChunkGeneratedMetadataVariant1DiscriminatorTypeNullableJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsSearchRuleCreateParamsRuleDiscriminatorTypeJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsSearchRuleCreateParamsRuleDiscriminatorTypeNullableJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsSearchRuleResponseRuleDiscriminatorTypeJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsSearchRuleResponseRuleDiscriminatorTypeNullableJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsSearchRuleSpecificDeleteParamsRuleDiscriminatorTypeJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsSearchRuleSpecificDeleteParamsRuleDiscriminatorTypeNullableJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsSearchRuleSpecificDeletedDeletedRuleDiscriminatorTypeJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsSearchRuleSpecificDeletedDeletedRuleDiscriminatorTypeNullableJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsSearchRuleUpdateParamsRulesVariant1ItemDiscriminatorTypeJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsSearchRuleUpdateParamsRulesVariant1ItemDiscriminatorTypeNullableJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleCreateParamsRuleDiscriminatorTypeJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleCreateParamsRuleDiscriminatorTypeNullableJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleResponseRuleDiscriminatorTypeJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleResponseRuleDiscriminatorTypeNullableJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleSpecificDeleteParamsRuleDiscriminatorTypeJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleSpecificDeleteParamsRuleDiscriminatorTypeNullableJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleSpecificDeletedDeletedRuleDiscriminatorTypeJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleSpecificDeletedDeletedRuleDiscriminatorTypeNullableJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleUpdateParamsRulesVariant1ItemDiscriminatorTypeJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleUpdateParamsRulesVariant1ItemDiscriminatorTypeNullableJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.MxbaiOmniCoreStoreModelsChunkTypesScoredAudioUrlInputChunkGeneratedMetadataVariant1DiscriminatorTypeJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.MxbaiOmniCoreStoreModelsChunkTypesScoredAudioUrlInputChunkGeneratedMetadataVariant1DiscriminatorTypeNullableJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.MxbaiOmniCoreStoreModelsChunkTypesScoredImageUrlInputChunkGeneratedMetadataVariant1DiscriminatorTypeJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.MxbaiOmniCoreStoreModelsChunkTypesScoredImageUrlInputChunkGeneratedMetadataVariant1DiscriminatorTypeNullableJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.MxbaiOmniCoreStoreModelsChunkTypesScoredTextInputChunkGeneratedMetadataVariant1DiscriminatorTypeJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.MxbaiOmniCoreStoreModelsChunkTypesScoredTextInputChunkGeneratedMetadataVariant1DiscriminatorTypeNullableJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.MxbaiOmniCoreStoreModelsChunkTypesScoredVideoUrlInputChunkGeneratedMetadataVariant1DiscriminatorTypeJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.MxbaiOmniCoreStoreModelsChunkTypesScoredVideoUrlInputChunkGeneratedMetadataVariant1DiscriminatorTypeNullableJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.ListStoreEventsEventTypeJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.ListStoreEventsEventTypeNullableJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.GeneratedMetadataVariant1JsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.AuthParamsVariant1JsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.EmbeddingItemJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.GeneratedMetadataVariant12JsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.AuthParamsVariant12JsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.MultiModalQueryJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.MultiModalQueryVariant2JsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.AuthParamsVariant13JsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.ChunksVariant1ItemJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.ChunksVariant1Item2JsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.DataItemJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.ChunksVariant1Item3JsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.SourcesItemJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.DataItem2JsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.GeneratedMetadataVariant13JsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.ChunksVariant1Item4JsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.SourcesItem2JsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.DataItem3JsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.GeneratedMetadataVariant14JsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.GeneratedMetadataVariant15JsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.GeneratedMetadataVariant16JsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.GeneratedMetadataVariant17JsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.GeneratedMetadataVariant18JsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.RulesItemJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.RulesItem2JsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.RuleJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.DeletedRuleJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.RulesVariant1ItemJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.RulesItem3JsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.RulesItem4JsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.Rule2JsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.DeletedRule2JsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.RulesVariant1Item2JsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.GeneratedMetadataVariant19JsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.GeneratedMetadataVariant110JsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.GeneratedMetadataVariant111JsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.GeneratedMetadataVariant112JsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<bool?, global::System.Collections.Generic.IList<string>>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<int?, string, object>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<int?, string, object>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<global::Mixedbread.EncodingFormat3?, global::System.Collections.Generic.IList<global::Mixedbread.EncodingFormat3>>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<global::System.Collections.Generic.IList<global::Mixedbread.Embedding>, global::System.Collections.Generic.IList<global::Mixedbread.MultiEncodingEmbedding>>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<global::Mixedbread.EncodingFormat3?, global::System.Collections.Generic.IList<global::Mixedbread.EncodingFormat3>>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.TextInput, global::Mixedbread.ImageUrlInput2>>>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<global::Mixedbread.TextInput, global::Mixedbread.ImageUrlInput2>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition>>, object>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition>>, object>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<byte[], global::System.Collections.Generic.IList<global::System.Guid>, object>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<bool?, global::System.Collections.Generic.IList<string>>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, object, global::System.Collections.Generic.IList<object>>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?, object>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition>>, object>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<bool?, global::Mixedbread.RerankConfig, object>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<bool?, global::Mixedbread.AgenticSearchConfig, object>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition>>, object>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<byte[], global::System.Collections.Generic.IList<global::System.Guid>, object>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<bool?, global::Mixedbread.ContextualizationConfig>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<bool?, global::Mixedbread.RerankConfig, object>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<bool?, global::Mixedbread.AgenticSearchConfig, object>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition>>, object>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<byte[], global::System.Collections.Generic.IList<global::System.Guid>, object>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition>>, object>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<byte[], global::System.Collections.Generic.IList<global::System.Guid>, object>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, int?>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<bool?, global::Mixedbread.RerankConfig, object>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<bool?, global::Mixedbread.AgenticSearchConfig, object>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition>>, object>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<byte[], global::System.Collections.Generic.IList<global::System.Guid>, object>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<bool?, global::Mixedbread.RerankConfig, object>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<bool?, global::Mixedbread.AgenticSearchConfig, object>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition>>, object>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<byte[], global::System.Collections.Generic.IList<global::System.Guid>, object>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition>>, object>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<byte[], global::System.Collections.Generic.IList<global::System.Guid>, object>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<global::Mixedbread.NotionDataSourceCreateOrUpdateParams, global::Mixedbread.LinearDataSourceCreateOrUpdateParams>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<global::Mixedbread.NotionDataSourceCreateOrUpdateParams, global::Mixedbread.LinearDataSourceCreateOrUpdateParams>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<bool?, global::System.Collections.Generic.IList<int>>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?>),
+
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?>),
+
             typeof(global::Mixedbread.JsonConverters.UnixTimestampJsonConverter),
         })]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.JsonSerializerContextTypes))]
