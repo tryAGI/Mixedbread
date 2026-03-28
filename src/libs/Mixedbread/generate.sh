@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# OpenAPI spec: resolved from mixedbread-ai/mixedbread-python/.stats.yml (Stainless-hosted)
+
 # Mixedbread spec is hosted on Stainless GCS with hash-based URLs that change each update.
 # We dynamically resolve the latest URL from mixedbread-ai/mixedbread-python/.stats.yml.
 readonly stats_url="https://raw.githubusercontent.com/mixedbread-ai/mixedbread-python/main/.stats.yml"
