@@ -21,20 +21,11 @@ dotnet tool install --global autosdk.cli --prerelease
 rm -rf Generated
 curl --fail --silent --show-error --location "$openapi_url" -o openapi.yaml
 
-# Add top-level security array (spec defines securitySchemes but not top-level security)
-# The spec is JSON format despite the .yaml extension
-python3 -c "
-import json
-with open('openapi.yaml') as f:
-    data = json.load(f)
-data['security'] = [{'ApiKeyAuth': []}]
-with open('openapi.yaml', 'w') as f:
-    json.dump(data, f, indent=2)
-"
-
+# Auth: --security-scheme overrides the spec's per-operation-only ApiKeyAuth with top-level security.
 autosdk generate openapi.yaml \
   --namespace Mixedbread \
   --clientClassName MixedbreadClient \
   --targetFramework net10.0 \
   --output Generated \
-  --exclude-deprecated-operations
+  --exclude-deprecated-operations \
+  --security-scheme Http:Header:Bearer
