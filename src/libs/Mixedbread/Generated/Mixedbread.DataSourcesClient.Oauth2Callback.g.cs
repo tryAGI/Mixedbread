@@ -136,13 +136,13 @@ namespace Mixedbread
                     if (ReadResponseAsString)
                     {
                         __content_307 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                        __value_307 = global::System.Text.Json.JsonSerializer.Deserialize(__content_307, typeof(string), JsonSerializerContext) as string;
+                        __value_307 = (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content_307, typeof(string), JsonSerializerContext);
                     }
                     else
                     {
                         __content_307 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
 
-                        __value_307 = global::System.Text.Json.JsonSerializer.Deserialize(__content_307, typeof(string), JsonSerializerContext) as string;
+                        __value_307 = (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content_307, typeof(string), JsonSerializerContext);
                     }
                 }
                 catch (global::System.Exception __ex)
