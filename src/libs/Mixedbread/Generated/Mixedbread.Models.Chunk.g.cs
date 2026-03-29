@@ -37,14 +37,14 @@ namespace Mixedbread
         /// <summary>
         /// Initializes a new instance of the <see cref="Chunk" /> class.
         /// </summary>
-        /// <param name="content">
-        /// The full content of the chunk
-        /// </param>
         /// <param name="contentToEmbed">
         /// The content of the chunk to embed
         /// </param>
         /// <param name="elements">
         /// List of elements contained in this chunk
+        /// </param>
+        /// <param name="content">
+        /// The full content of the chunk
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -54,9 +54,9 @@ namespace Mixedbread
             global::System.Collections.Generic.IList<global::Mixedbread.ChunkElement> elements,
             string? content)
         {
+            this.Content = content;
             this.ContentToEmbed = contentToEmbed ?? throw new global::System.ArgumentNullException(nameof(contentToEmbed));
             this.Elements = elements ?? throw new global::System.ArgumentNullException(nameof(elements));
-            this.Content = content;
         }
 
         /// <summary>

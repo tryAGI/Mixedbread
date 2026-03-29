@@ -116,6 +116,12 @@ namespace Mixedbread
         /// <param name="name">
         /// Name of the vector store
         /// </param>
+        /// <param name="createdAt">
+        /// Timestamp when the vector store was created
+        /// </param>
+        /// <param name="updatedAt">
+        /// Timestamp when the vector store was last updated
+        /// </param>
         /// <param name="description">
         /// Detailed description of the vector store's purpose and contents
         /// </param>
@@ -135,12 +141,6 @@ namespace Mixedbread
         /// <param name="status">
         /// Processing status of the vector store<br/>
         /// Default Value: completed
-        /// </param>
-        /// <param name="createdAt">
-        /// Timestamp when the vector store was created
-        /// </param>
-        /// <param name="updatedAt">
-        /// Timestamp when the vector store was last updated
         /// </param>
         /// <param name="lastActiveAt">
         /// Timestamp when the vector store was last used
@@ -177,14 +177,14 @@ namespace Mixedbread
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
-            this.CreatedAt = createdAt;
-            this.UpdatedAt = updatedAt;
             this.Description = description;
             this.IsPublic = isPublic;
             this.Metadata = metadata;
             this.FileCounts = fileCounts;
             this.ExpiresAfter = expiresAfter;
             this.Status = status;
+            this.CreatedAt = createdAt;
+            this.UpdatedAt = updatedAt;
             this.LastActiveAt = lastActiveAt;
             this.UsageBytes = usageBytes;
             this.ExpiresAt = expiresAt;

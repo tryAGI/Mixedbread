@@ -65,15 +65,15 @@ namespace Mixedbread
         /// <summary>
         /// Initializes a new instance of the <see cref="RerankParams" /> class.
         /// </summary>
-        /// <param name="model">
-        /// The model to use for reranking documents.<br/>
-        /// Default Value: mixedbread-ai/mxbai-rerank-large-v2
-        /// </param>
         /// <param name="query">
         /// The query to rerank the documents.
         /// </param>
         /// <param name="input">
         /// The input documents to rerank.
+        /// </param>
+        /// <param name="model">
+        /// The model to use for reranking documents.<br/>
+        /// Default Value: mixedbread-ai/mxbai-rerank-large-v2
         /// </param>
         /// <param name="rankFields">
         /// The fields of the documents to rank.
@@ -102,9 +102,9 @@ namespace Mixedbread
             bool? returnInput,
             bool? rewriteQuery)
         {
+            this.Model = model;
             this.Query = query ?? throw new global::System.ArgumentNullException(nameof(query));
             this.Input = input ?? throw new global::System.ArgumentNullException(nameof(input));
-            this.Model = model;
             this.RankFields = rankFields;
             this.TopK = topK;
             this.ReturnInput = returnInput;

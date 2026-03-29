@@ -58,6 +58,9 @@ namespace Mixedbread
         /// <summary>
         /// Initializes a new instance of the <see cref="DeprecatedStoreFileUpsertParams" /> class.
         /// </summary>
+        /// <param name="fileId">
+        /// ID of the file to add
+        /// </param>
         /// <param name="metadata">
         /// Optional metadata for the file
         /// </param>
@@ -71,9 +74,6 @@ namespace Mixedbread
         /// If true, overwrite an existing file with the same external_id<br/>
         /// Default Value: true
         /// </param>
-        /// <param name="fileId">
-        /// ID of the file to add
-        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -84,11 +84,11 @@ namespace Mixedbread
             string? externalId,
             bool? overwrite)
         {
-            this.FileId = fileId;
             this.Metadata = metadata;
             this.Config = config;
             this.ExternalId = externalId;
             this.Overwrite = overwrite;
+            this.FileId = fileId;
         }
 
         /// <summary>

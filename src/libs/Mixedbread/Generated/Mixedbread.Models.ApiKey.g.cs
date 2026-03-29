@@ -86,14 +86,14 @@ namespace Mixedbread
         /// <param name="redactedValue">
         /// The redacted value of the API key
         /// </param>
-        /// <param name="expiresAt">
-        /// The expiration datetime of the API key
-        /// </param>
         /// <param name="createdAt">
         /// The creation datetime of the API key
         /// </param>
         /// <param name="updatedAt">
         /// The last update datetime of the API key
+        /// </param>
+        /// <param name="expiresAt">
+        /// The expiration datetime of the API key
         /// </param>
         /// <param name="lastActiveAt">
         /// The last active datetime of the API key
@@ -122,9 +122,9 @@ namespace Mixedbread
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.RedactedValue = redactedValue ?? throw new global::System.ArgumentNullException(nameof(redactedValue));
+            this.ExpiresAt = expiresAt;
             this.CreatedAt = createdAt;
             this.UpdatedAt = updatedAt;
-            this.ExpiresAt = expiresAt;
             this.LastActiveAt = lastActiveAt;
             this.Object = @object;
             this.Scope = scope;

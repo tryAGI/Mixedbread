@@ -106,9 +106,6 @@ namespace Mixedbread
         /// <param name="createdAt">
         /// Timestamp when the event was created
         /// </param>
-        /// <param name="type">
-        /// Default Value: ingestion
-        /// </param>
         /// <param name="storeId">
         /// ID of the vector store
         /// </param>
@@ -133,6 +130,9 @@ namespace Mixedbread
         /// <param name="mode">
         /// Strategy used to ingest the file
         /// </param>
+        /// <param name="type">
+        /// Default Value: ingestion
+        /// </param>
         /// <param name="filename">
         /// Name of the file if the event is tied to a file
         /// </param>
@@ -155,6 +155,7 @@ namespace Mixedbread
         {
             this.Id = id;
             this.CreatedAt = createdAt;
+            this.Type = type;
             this.StoreId = storeId;
             this.StoreFileId = storeFileId ?? throw new global::System.ArgumentNullException(nameof(storeFileId));
             this.TotalTime = totalTime ?? throw new global::System.ArgumentNullException(nameof(totalTime));
@@ -163,7 +164,6 @@ namespace Mixedbread
             this.ChunkCount = chunkCount;
             this.Contextualization = contextualization;
             this.Mode = mode;
-            this.Type = type;
             this.Filename = filename;
         }
 

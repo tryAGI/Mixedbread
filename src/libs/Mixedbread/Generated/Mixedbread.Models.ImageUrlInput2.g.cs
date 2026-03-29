@@ -31,12 +31,12 @@ namespace Mixedbread
         /// <summary>
         /// Initializes a new instance of the <see cref="ImageUrlInput2" /> class.
         /// </summary>
+        /// <param name="imageUrl">
+        /// The image input specification.
+        /// </param>
         /// <param name="type">
         /// Input type identifier<br/>
         /// Default Value: image_url
-        /// </param>
-        /// <param name="imageUrl">
-        /// The image input specification.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -45,8 +45,8 @@ namespace Mixedbread
             global::Mixedbread.ImageUrlInput imageUrl,
             string? type)
         {
-            this.ImageUrl = imageUrl ?? throw new global::System.ArgumentNullException(nameof(imageUrl));
             this.Type = type;
+            this.ImageUrl = imageUrl ?? throw new global::System.ArgumentNullException(nameof(imageUrl));
         }
 
         /// <summary>

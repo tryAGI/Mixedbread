@@ -63,11 +63,11 @@ namespace Mixedbread
         /// <summary>
         /// Initializes a new instance of the <see cref="MetadataFacetsParams" /> class.
         /// </summary>
-        /// <param name="query">
-        /// Search query text
-        /// </param>
         /// <param name="storeIdentifiers">
         /// IDs or names of stores to search
+        /// </param>
+        /// <param name="query">
+        /// Search query text
         /// </param>
         /// <param name="topK">
         /// Number of results to return<br/>
@@ -97,8 +97,8 @@ namespace Mixedbread
             global::Mixedbread.StoreChunkSearchOptions? searchOptions,
             global::System.Collections.Generic.IList<string>? facets)
         {
-            this.StoreIdentifiers = storeIdentifiers ?? throw new global::System.ArgumentNullException(nameof(storeIdentifiers));
             this.Query = query;
+            this.StoreIdentifiers = storeIdentifiers ?? throw new global::System.ArgumentNullException(nameof(storeIdentifiers));
             this.TopK = topK;
             this.Filters = filters;
             this.FileIds = fileIds;

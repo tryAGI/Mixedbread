@@ -65,18 +65,18 @@ namespace Mixedbread
         /// <param name="storeId">
         /// The store identifier to apply the rule to
         /// </param>
-        /// <param name="type">
-        /// The type of substitution
-        /// </param>
         /// <param name="pattern">
         /// The regex pattern to match
+        /// </param>
+        /// <param name="replacement">
+        /// The replacement string (can use regex groups)
         /// </param>
         /// <param name="flags">
         /// The regex flags to use<br/>
         /// Default Value: []
         /// </param>
-        /// <param name="replacement">
-        /// The replacement string (can use regex groups)
+        /// <param name="type">
+        /// The type of substitution
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -91,10 +91,10 @@ namespace Mixedbread
         {
             this.Query = query ?? throw new global::System.ArgumentNullException(nameof(query));
             this.StoreId = storeId ?? throw new global::System.ArgumentNullException(nameof(storeId));
-            this.Pattern = pattern ?? throw new global::System.ArgumentNullException(nameof(pattern));
-            this.Replacement = replacement ?? throw new global::System.ArgumentNullException(nameof(replacement));
             this.Type = type;
+            this.Pattern = pattern ?? throw new global::System.ArgumentNullException(nameof(pattern));
             this.Flags = flags;
+            this.Replacement = replacement ?? throw new global::System.ArgumentNullException(nameof(replacement));
         }
 
         /// <summary>

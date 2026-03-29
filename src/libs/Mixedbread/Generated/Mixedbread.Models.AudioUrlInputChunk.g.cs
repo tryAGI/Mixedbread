@@ -78,6 +78,9 @@ namespace Mixedbread
         /// <param name="chunkIndex">
         /// position of the chunk in a file
         /// </param>
+        /// <param name="samplingRate">
+        /// The sampling rate of the audio.
+        /// </param>
         /// <param name="mimeType">
         /// mime type of the chunk<br/>
         /// Default Value: audio/mpeg
@@ -101,9 +104,6 @@ namespace Mixedbread
         /// <param name="audioUrl">
         /// Audio URL
         /// </param>
-        /// <param name="samplingRate">
-        /// The sampling rate of the audio.
-        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -119,7 +119,6 @@ namespace Mixedbread
             global::Mixedbread.AudioUrl? audioUrl)
         {
             this.ChunkIndex = chunkIndex;
-            this.SamplingRate = samplingRate;
             this.MimeType = mimeType;
             this.GeneratedMetadata = generatedMetadata;
             this.Model = model;
@@ -127,6 +126,7 @@ namespace Mixedbread
             this.Transcription = transcription;
             this.Summary = summary;
             this.AudioUrl = audioUrl;
+            this.SamplingRate = samplingRate;
         }
 
         /// <summary>

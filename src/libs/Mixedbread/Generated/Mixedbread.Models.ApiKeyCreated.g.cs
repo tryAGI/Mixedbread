@@ -93,14 +93,17 @@ namespace Mixedbread
         /// <param name="redactedValue">
         /// The redacted value of the API key
         /// </param>
-        /// <param name="expiresAt">
-        /// The expiration datetime of the API key
-        /// </param>
         /// <param name="createdAt">
         /// The creation datetime of the API key
         /// </param>
         /// <param name="updatedAt">
         /// The last update datetime of the API key
+        /// </param>
+        /// <param name="value">
+        /// The value of the API key
+        /// </param>
+        /// <param name="expiresAt">
+        /// The expiration datetime of the API key
         /// </param>
         /// <param name="lastActiveAt">
         /// The last active datetime of the API key
@@ -111,9 +114,6 @@ namespace Mixedbread
         /// </param>
         /// <param name="scope">
         /// The scope of the API key
-        /// </param>
-        /// <param name="value">
-        /// The value of the API key
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -133,13 +133,13 @@ namespace Mixedbread
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.RedactedValue = redactedValue ?? throw new global::System.ArgumentNullException(nameof(redactedValue));
+            this.ExpiresAt = expiresAt;
             this.CreatedAt = createdAt;
             this.UpdatedAt = updatedAt;
-            this.Value = value ?? throw new global::System.ArgumentNullException(nameof(value));
-            this.ExpiresAt = expiresAt;
             this.LastActiveAt = lastActiveAt;
             this.Object = @object;
             this.Scope = scope;
+            this.Value = value ?? throw new global::System.ArgumentNullException(nameof(value));
         }
 
         /// <summary>

@@ -106,23 +106,23 @@ namespace Mixedbread
         /// <param name="updatedAt">
         /// When the job was last updated
         /// </param>
+        /// <param name="status">
+        /// Current status of the job
+        /// </param>
+        /// <param name="jsonSchema">
+        /// The JSON schema used for extraction
+        /// </param>
         /// <param name="startedAt">
         /// When the job started processing
         /// </param>
         /// <param name="finishedAt">
         /// When the job finished processing
         /// </param>
-        /// <param name="status">
-        /// Current status of the job
-        /// </param>
         /// <param name="result">
         /// The extraction results if completed
         /// </param>
         /// <param name="error">
         /// Error information if failed
-        /// </param>
-        /// <param name="jsonSchema">
-        /// The JSON schema used for extraction
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -145,12 +145,12 @@ namespace Mixedbread
             this.FileId = fileId;
             this.CreatedAt = createdAt;
             this.UpdatedAt = updatedAt;
-            this.Status = status;
-            this.JsonSchema = jsonSchema ?? throw new global::System.ArgumentNullException(nameof(jsonSchema));
             this.StartedAt = startedAt;
             this.FinishedAt = finishedAt;
+            this.Status = status;
             this.Result = result;
             this.Error = error;
+            this.JsonSchema = jsonSchema ?? throw new global::System.ArgumentNullException(nameof(jsonSchema));
         }
 
         /// <summary>

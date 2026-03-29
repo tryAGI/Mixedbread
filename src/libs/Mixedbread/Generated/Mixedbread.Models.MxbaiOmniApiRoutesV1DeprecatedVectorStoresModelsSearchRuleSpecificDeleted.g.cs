@@ -49,15 +49,15 @@ namespace Mixedbread
         /// <param name="id">
         /// The search rule ID
         /// </param>
-        /// <param name="object">
-        /// The object type<br/>
-        /// Default Value: search_rule
-        /// </param>
         /// <param name="deletedRule">
         /// The specific rule that was deleted
         /// </param>
         /// <param name="remainingRules">
         /// Number of rules remaining in the array
+        /// </param>
+        /// <param name="object">
+        /// The object type<br/>
+        /// Default Value: search_rule
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -69,9 +69,9 @@ namespace Mixedbread
             string? @object)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
+            this.Object = @object;
             this.DeletedRule = deletedRule;
             this.RemainingRules = remainingRules;
-            this.Object = @object;
         }
 
         /// <summary>

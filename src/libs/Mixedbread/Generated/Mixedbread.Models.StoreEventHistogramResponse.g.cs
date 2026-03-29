@@ -31,12 +31,12 @@ namespace Mixedbread
         /// <summary>
         /// Initializes a new instance of the <see cref="StoreEventHistogramResponse" /> class.
         /// </summary>
+        /// <param name="data">
+        /// The histogram of store events
+        /// </param>
         /// <param name="object">
         /// The object type of the response<br/>
         /// Default Value: store.histogram
-        /// </param>
-        /// <param name="data">
-        /// The histogram of store events
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -45,8 +45,8 @@ namespace Mixedbread
             global::System.Collections.Generic.IList<global::Mixedbread.StoreEventHistogramBucket> data,
             string? @object)
         {
-            this.Data = data ?? throw new global::System.ArgumentNullException(nameof(data));
             this.Object = @object;
+            this.Data = data ?? throw new global::System.ArgumentNullException(nameof(data));
         }
 
         /// <summary>

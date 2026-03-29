@@ -88,11 +88,11 @@ namespace Mixedbread
         /// <param name="fileId">
         /// The ID of the file to parse
         /// </param>
-        /// <param name="filename">
-        /// The name of the file
-        /// </param>
         /// <param name="status">
         /// The status of the job
+        /// </param>
+        /// <param name="filename">
+        /// The name of the file
         /// </param>
         /// <param name="error">
         /// The error of the job
@@ -130,8 +130,8 @@ namespace Mixedbread
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.FileId = fileId ?? throw new global::System.ArgumentNullException(nameof(fileId));
-            this.Status = status;
             this.Filename = filename;
+            this.Status = status;
             this.Error = error;
             this.StartedAt = startedAt;
             this.FinishedAt = finishedAt;
