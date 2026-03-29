@@ -34,12 +34,12 @@ namespace Mixedbread
         /// <summary>
         /// Initializes a new instance of the <see cref="TextInput" /> class.
         /// </summary>
+        /// <param name="text">
+        /// Text content to process
+        /// </param>
         /// <param name="type">
         /// Input type identifier<br/>
         /// Default Value: text
-        /// </param>
-        /// <param name="text">
-        /// Text content to process
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -48,8 +48,8 @@ namespace Mixedbread
             string text,
             string? type)
         {
-            this.Text = text ?? throw new global::System.ArgumentNullException(nameof(text));
             this.Type = type;
+            this.Text = text ?? throw new global::System.ArgumentNullException(nameof(text));
         }
 
         /// <summary>

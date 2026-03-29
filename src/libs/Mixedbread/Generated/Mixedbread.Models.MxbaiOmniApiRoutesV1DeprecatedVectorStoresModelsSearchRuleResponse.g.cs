@@ -69,10 +69,6 @@ namespace Mixedbread
         /// <param name="id">
         /// The search rule ID
         /// </param>
-        /// <param name="object">
-        /// The object type<br/>
-        /// Default Value: search_rule
-        /// </param>
         /// <param name="query">
         /// The query pattern
         /// </param>
@@ -88,6 +84,10 @@ namespace Mixedbread
         /// <param name="updatedAt">
         /// When the rule was last updated
         /// </param>
+        /// <param name="object">
+        /// The object type<br/>
+        /// Default Value: search_rule
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -101,12 +101,12 @@ namespace Mixedbread
             string? @object)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
+            this.Object = @object;
             this.Query = query ?? throw new global::System.ArgumentNullException(nameof(query));
             this.VectorStoreId = vectorStoreId ?? throw new global::System.ArgumentNullException(nameof(vectorStoreId));
             this.Rules = rules ?? throw new global::System.ArgumentNullException(nameof(rules));
             this.CreatedAt = createdAt;
             this.UpdatedAt = updatedAt;
-            this.Object = @object;
         }
 
         /// <summary>

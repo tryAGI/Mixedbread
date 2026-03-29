@@ -66,10 +66,10 @@ namespace Mixedbread
         /// <summary>
         /// Initializes a new instance of the <see cref="CodeChunkGeneratedMetadata" /> class.
         /// </summary>
+        /// <param name="fileType"></param>
         /// <param name="type">
         /// Default Value: code
         /// </param>
-        /// <param name="fileType"></param>
         /// <param name="language"></param>
         /// <param name="wordCount"></param>
         /// <param name="fileSize"></param>
@@ -93,8 +93,8 @@ namespace Mixedbread
             int? numLines,
             string? fileExtension)
         {
-            this.FileType = fileType ?? throw new global::System.ArgumentNullException(nameof(fileType));
             this.Type = type;
+            this.FileType = fileType ?? throw new global::System.ArgumentNullException(nameof(fileType));
             this.Language = language;
             this.WordCount = wordCount;
             this.FileSize = fileSize;

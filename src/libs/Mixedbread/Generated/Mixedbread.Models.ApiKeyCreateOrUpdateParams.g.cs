@@ -30,11 +30,11 @@ namespace Mixedbread
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiKeyCreateOrUpdateParams" /> class.
         /// </summary>
-        /// <param name="type">
-        /// Default Value: api_key
-        /// </param>
         /// <param name="apiKey">
         /// The API key
+        /// </param>
+        /// <param name="type">
+        /// Default Value: api_key
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -43,8 +43,8 @@ namespace Mixedbread
             string apiKey,
             string? type)
         {
-            this.ApiKey = apiKey ?? throw new global::System.ArgumentNullException(nameof(apiKey));
             this.Type = type;
+            this.ApiKey = apiKey ?? throw new global::System.ArgumentNullException(nameof(apiKey));
         }
 
         /// <summary>

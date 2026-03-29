@@ -76,15 +76,15 @@ namespace Mixedbread
         /// <param name="data">
         /// The created embeddings.
         /// </param>
-        /// <param name="object">
-        /// The object type of the response<br/>
-        /// Default Value: list
-        /// </param>
         /// <param name="normalized">
         /// Whether the embeddings are normalized.
         /// </param>
         /// <param name="encodingFormat">
         /// The encoding formats of the embeddings.
+        /// </param>
+        /// <param name="object">
+        /// The object type of the response<br/>
+        /// Default Value: list
         /// </param>
         /// <param name="dimensions">
         /// The number of dimensions used for the embeddings.
@@ -104,9 +104,9 @@ namespace Mixedbread
             this.Usage = usage ?? throw new global::System.ArgumentNullException(nameof(usage));
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
             this.Data = data;
+            this.Object = @object;
             this.Normalized = normalized;
             this.EncodingFormat = encodingFormat;
-            this.Object = @object;
             this.Dimensions = dimensions;
         }
 

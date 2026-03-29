@@ -31,12 +31,12 @@ namespace Mixedbread
         /// <summary>
         /// Initializes a new instance of the <see cref="StoreSearchResponse" /> class.
         /// </summary>
+        /// <param name="data">
+        /// The list of scored store file chunks
+        /// </param>
         /// <param name="object">
         /// The object type of the response<br/>
         /// Default Value: list
-        /// </param>
-        /// <param name="data">
-        /// The list of scored store file chunks
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -45,8 +45,8 @@ namespace Mixedbread
             global::System.Collections.Generic.IList<global::Mixedbread.DataItem2> data,
             string? @object)
         {
-            this.Data = data ?? throw new global::System.ArgumentNullException(nameof(data));
             this.Object = @object;
+            this.Data = data ?? throw new global::System.ArgumentNullException(nameof(data));
         }
 
         /// <summary>

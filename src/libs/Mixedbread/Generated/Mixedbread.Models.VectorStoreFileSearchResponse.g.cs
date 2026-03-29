@@ -31,12 +31,12 @@ namespace Mixedbread
         /// <summary>
         /// Initializes a new instance of the <see cref="VectorStoreFileSearchResponse" /> class.
         /// </summary>
+        /// <param name="data">
+        /// The list of scored vector store files
+        /// </param>
         /// <param name="object">
         /// The object type of the response<br/>
         /// Default Value: list
-        /// </param>
-        /// <param name="data">
-        /// The list of scored vector store files
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -45,8 +45,8 @@ namespace Mixedbread
             global::System.Collections.Generic.IList<global::Mixedbread.ScoredVectorStoreFile> data,
             string? @object)
         {
-            this.Data = data ?? throw new global::System.ArgumentNullException(nameof(data));
             this.Object = @object;
+            this.Data = data ?? throw new global::System.ArgumentNullException(nameof(data));
         }
 
         /// <summary>

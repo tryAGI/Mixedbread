@@ -41,12 +41,12 @@ namespace Mixedbread
         /// <param name="pagination">
         /// Pagination model that includes total count of items.
         /// </param>
+        /// <param name="data">
+        /// The list of API keys
+        /// </param>
         /// <param name="object">
         /// The object type of the response<br/>
         /// Default Value: list
-        /// </param>
-        /// <param name="data">
-        /// The list of API keys
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -57,8 +57,8 @@ namespace Mixedbread
             string? @object)
         {
             this.Pagination = pagination ?? throw new global::System.ArgumentNullException(nameof(pagination));
-            this.Data = data ?? throw new global::System.ArgumentNullException(nameof(data));
             this.Object = @object;
+            this.Data = data ?? throw new global::System.ArgumentNullException(nameof(data));
         }
 
         /// <summary>

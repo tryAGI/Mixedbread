@@ -43,12 +43,12 @@ namespace Mixedbread
         /// <summary>
         /// Initializes a new instance of the <see cref="LinearDataSourceCreateOrUpdateParams" /> class.
         /// </summary>
+        /// <param name="name">
+        /// The name of the data source
+        /// </param>
         /// <param name="type">
         /// The type of data source to create<br/>
         /// Default Value: linear
-        /// </param>
-        /// <param name="name">
-        /// The name of the data source
         /// </param>
         /// <param name="metadata">
         /// The metadata of the data source
@@ -65,8 +65,8 @@ namespace Mixedbread
             object? metadata,
             global::Mixedbread.AuthParamsVariant12? authParams)
         {
-            this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Type = type;
+            this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Metadata = metadata;
             this.AuthParams = authParams;
         }

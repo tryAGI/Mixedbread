@@ -110,6 +110,12 @@ namespace Mixedbread
         /// <param name="id">
         /// Unique identifier for the file
         /// </param>
+        /// <param name="storeId">
+        /// ID of the containing store
+        /// </param>
+        /// <param name="createdAt">
+        /// Timestamp of store file creation
+        /// </param>
         /// <param name="filename">
         /// Name of the file
         /// </param>
@@ -125,12 +131,6 @@ namespace Mixedbread
         /// </param>
         /// <param name="lastError">
         /// Last error message if processing failed
-        /// </param>
-        /// <param name="storeId">
-        /// ID of the containing store
-        /// </param>
-        /// <param name="createdAt">
-        /// Timestamp of store file creation
         /// </param>
         /// <param name="version">
         /// Version number of the file
@@ -171,13 +171,13 @@ namespace Mixedbread
             global::System.Collections.Generic.IList<global::Mixedbread.ChunksVariant1Item3>? chunks)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
-            this.StoreId = storeId ?? throw new global::System.ArgumentNullException(nameof(storeId));
-            this.CreatedAt = createdAt;
             this.Filename = filename;
             this.Metadata = metadata;
             this.ExternalId = externalId;
             this.Status = status;
             this.LastError = lastError;
+            this.StoreId = storeId ?? throw new global::System.ArgumentNullException(nameof(storeId));
+            this.CreatedAt = createdAt;
             this.Version = version;
             this.UsageBytes = usageBytes;
             this.UsageTokens = usageTokens;

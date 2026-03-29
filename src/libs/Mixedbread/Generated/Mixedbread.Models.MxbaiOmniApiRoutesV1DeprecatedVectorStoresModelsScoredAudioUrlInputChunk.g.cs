@@ -112,16 +112,6 @@ namespace Mixedbread
         /// <param name="chunkIndex">
         /// position of the chunk in a file
         /// </param>
-        /// <param name="mimeType">
-        /// mime type of the chunk<br/>
-        /// Default Value: audio/mpeg
-        /// </param>
-        /// <param name="generatedMetadata">
-        /// metadata of the chunk
-        /// </param>
-        /// <param name="model">
-        /// model used for this chunk
-        /// </param>
         /// <param name="score">
         /// score of the chunk
         /// </param>
@@ -133,6 +123,19 @@ namespace Mixedbread
         /// </param>
         /// <param name="vectorStoreId">
         /// store id
+        /// </param>
+        /// <param name="samplingRate">
+        /// The sampling rate of the audio.
+        /// </param>
+        /// <param name="mimeType">
+        /// mime type of the chunk<br/>
+        /// Default Value: audio/mpeg
+        /// </param>
+        /// <param name="generatedMetadata">
+        /// metadata of the chunk
+        /// </param>
+        /// <param name="model">
+        /// model used for this chunk
         /// </param>
         /// <param name="metadata">
         /// file metadata
@@ -149,9 +152,6 @@ namespace Mixedbread
         /// </param>
         /// <param name="audioUrl">
         /// Audio URL
-        /// </param>
-        /// <param name="samplingRate">
-        /// The sampling rate of the audio.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -173,19 +173,19 @@ namespace Mixedbread
             global::Mixedbread.AudioUrl? audioUrl)
         {
             this.ChunkIndex = chunkIndex;
+            this.MimeType = mimeType;
+            this.GeneratedMetadata = generatedMetadata;
+            this.Model = model;
             this.Score = score;
             this.FileId = fileId ?? throw new global::System.ArgumentNullException(nameof(fileId));
             this.Filename = filename ?? throw new global::System.ArgumentNullException(nameof(filename));
             this.VectorStoreId = vectorStoreId ?? throw new global::System.ArgumentNullException(nameof(vectorStoreId));
-            this.SamplingRate = samplingRate;
-            this.MimeType = mimeType;
-            this.GeneratedMetadata = generatedMetadata;
-            this.Model = model;
             this.Metadata = metadata;
             this.Type = type;
             this.Transcription = transcription;
             this.Summary = summary;
             this.AudioUrl = audioUrl;
+            this.SamplingRate = samplingRate;
         }
 
         /// <summary>

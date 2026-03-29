@@ -129,6 +129,12 @@ namespace Mixedbread
         /// <param name="name">
         /// Name of the store
         /// </param>
+        /// <param name="createdAt">
+        /// Timestamp when the store was created
+        /// </param>
+        /// <param name="updatedAt">
+        /// Timestamp when the store was last updated
+        /// </param>
         /// <param name="description">
         /// Detailed description of the store's purpose and contents
         /// </param>
@@ -151,12 +157,6 @@ namespace Mixedbread
         /// <param name="status">
         /// Processing status of the store<br/>
         /// Default Value: completed
-        /// </param>
-        /// <param name="createdAt">
-        /// Timestamp when the store was created
-        /// </param>
-        /// <param name="updatedAt">
-        /// Timestamp when the store was last updated
         /// </param>
         /// <param name="lastActiveAt">
         /// Timestamp when the store was last used
@@ -199,8 +199,6 @@ namespace Mixedbread
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
-            this.CreatedAt = createdAt;
-            this.UpdatedAt = updatedAt;
             this.Description = description;
             this.IsPublic = isPublic;
             this.Metadata = metadata;
@@ -208,6 +206,8 @@ namespace Mixedbread
             this.FileCounts = fileCounts;
             this.ExpiresAfter = expiresAfter;
             this.Status = status;
+            this.CreatedAt = createdAt;
+            this.UpdatedAt = updatedAt;
             this.LastActiveAt = lastActiveAt;
             this.UsageBytes = usageBytes;
             this.UsageTokens = usageTokens;

@@ -68,15 +68,15 @@ namespace Mixedbread
         /// <param name="data">
         /// The ranked documents.
         /// </param>
-        /// <param name="object">
-        /// The object type of the response<br/>
-        /// Default Value: list
-        /// </param>
         /// <param name="topK">
         /// The number of documents to return.
         /// </param>
         /// <param name="returnInput">
         /// Whether to return the documents.
+        /// </param>
+        /// <param name="object">
+        /// The object type of the response<br/>
+        /// Default Value: list
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -92,9 +92,9 @@ namespace Mixedbread
             this.Usage = usage ?? throw new global::System.ArgumentNullException(nameof(usage));
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
             this.Data = data ?? throw new global::System.ArgumentNullException(nameof(data));
+            this.Object = @object;
             this.TopK = topK;
             this.ReturnInput = returnInput;
-            this.Object = @object;
         }
 
         /// <summary>

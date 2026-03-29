@@ -126,15 +126,18 @@ namespace Mixedbread
         /// <param name="dataSourceId">
         /// The ID of the data source
         /// </param>
+        /// <param name="pollingInterval">
+        /// The polling interval of the connector
+        /// </param>
+        /// <param name="status">
+        /// The sync status of the connector
+        /// </param>
         /// <param name="name">
         /// The name of the connector<br/>
         /// Default Value: New Connector
         /// </param>
         /// <param name="metadata">
         /// The metadata of the connector
-        /// </param>
-        /// <param name="pollingInterval">
-        /// The polling interval of the connector
         /// </param>
         /// <param name="startedAt">
         /// The start time of the connector
@@ -144,9 +147,6 @@ namespace Mixedbread
         /// </param>
         /// <param name="lastSyncedAt">
         /// The last sync time of the connector
-        /// </param>
-        /// <param name="status">
-        /// The sync status of the connector
         /// </param>
         /// <param name="error">
         /// The sync error of the connector
@@ -179,13 +179,13 @@ namespace Mixedbread
             this.UpdatedAt = updatedAt;
             this.StoreId = storeId ?? throw new global::System.ArgumentNullException(nameof(storeId));
             this.DataSourceId = dataSourceId ?? throw new global::System.ArgumentNullException(nameof(dataSourceId));
-            this.PollingInterval = pollingInterval ?? throw new global::System.ArgumentNullException(nameof(pollingInterval));
-            this.Status = status;
             this.Name = name;
             this.Metadata = metadata;
+            this.PollingInterval = pollingInterval ?? throw new global::System.ArgumentNullException(nameof(pollingInterval));
             this.StartedAt = startedAt;
             this.FinishedAt = finishedAt;
             this.LastSyncedAt = lastSyncedAt;
+            this.Status = status;
             this.Error = error;
             this.Object = @object;
         }

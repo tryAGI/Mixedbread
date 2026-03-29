@@ -52,9 +52,6 @@ namespace Mixedbread
         /// <summary>
         /// Initializes a new instance of the <see cref="DocumentParserResult" /> class.
         /// </summary>
-        /// <param name="chunkingStrategy">
-        /// The strategy used for chunking the document
-        /// </param>
         /// <param name="returnFormat">
         /// The format of the returned content
         /// </param>
@@ -63,6 +60,9 @@ namespace Mixedbread
         /// </param>
         /// <param name="chunks">
         /// List of extracted chunks from the document
+        /// </param>
+        /// <param name="chunkingStrategy">
+        /// The strategy used for chunking the document
         /// </param>
         /// <param name="pageSizes">
         /// List of (width, height) tuples for each page
@@ -77,10 +77,10 @@ namespace Mixedbread
             global::Mixedbread.ChunkingStrategy chunkingStrategy,
             global::System.Collections.Generic.IList<byte[]>? pageSizes)
         {
+            this.ChunkingStrategy = chunkingStrategy;
             this.ReturnFormat = returnFormat;
             this.ElementTypes = elementTypes ?? throw new global::System.ArgumentNullException(nameof(elementTypes));
             this.Chunks = chunks ?? throw new global::System.ArgumentNullException(nameof(chunks));
-            this.ChunkingStrategy = chunkingStrategy;
             this.PageSizes = pageSizes;
         }
 

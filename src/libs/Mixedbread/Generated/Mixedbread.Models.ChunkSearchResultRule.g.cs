@@ -65,9 +65,6 @@ namespace Mixedbread
         /// <param name="storeId">
         /// The store identifier to apply the rule to
         /// </param>
-        /// <param name="type">
-        /// The type of substitution
-        /// </param>
         /// <param name="fileId">
         /// The file ID of the chunk to substitute
         /// </param>
@@ -76,6 +73,9 @@ namespace Mixedbread
         /// </param>
         /// <param name="resultIndex">
         /// The index where the result will be inserted
+        /// </param>
+        /// <param name="type">
+        /// The type of substitution
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -90,10 +90,10 @@ namespace Mixedbread
         {
             this.Query = query ?? throw new global::System.ArgumentNullException(nameof(query));
             this.StoreId = storeId ?? throw new global::System.ArgumentNullException(nameof(storeId));
+            this.Type = type;
             this.FileId = fileId ?? throw new global::System.ArgumentNullException(nameof(fileId));
             this.ChunkIndex = chunkIndex;
             this.ResultIndex = resultIndex;
-            this.Type = type;
         }
 
         /// <summary>

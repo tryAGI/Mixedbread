@@ -70,11 +70,11 @@ namespace Mixedbread
         /// <summary>
         /// Initializes a new instance of the <see cref="VectorStoreQAParams" /> class.
         /// </summary>
-        /// <param name="query">
-        /// Question to answer. If not provided, the question will be extracted from the passed messages.
-        /// </param>
         /// <param name="vectorStoreIdentifiers">
         /// IDs or names of vector stores to search
+        /// </param>
+        /// <param name="query">
+        /// Question to answer. If not provided, the question will be extracted from the passed messages.
         /// </param>
         /// <param name="topK">
         /// Number of results to return<br/>
@@ -109,8 +109,8 @@ namespace Mixedbread
             bool? stream,
             global::Mixedbread.QuestionAnsweringOptions? qaOptions)
         {
-            this.VectorStoreIdentifiers = vectorStoreIdentifiers ?? throw new global::System.ArgumentNullException(nameof(vectorStoreIdentifiers));
             this.Query = query;
+            this.VectorStoreIdentifiers = vectorStoreIdentifiers ?? throw new global::System.ArgumentNullException(nameof(vectorStoreIdentifiers));
             this.TopK = topK;
             this.Filters = filters;
             this.FileIds = fileIds;

@@ -77,18 +77,18 @@ namespace Mixedbread
         /// <param name="createdAt">
         /// Timestamp when the event was created
         /// </param>
-        /// <param name="type">
-        /// Default Value: search
-        /// </param>
         /// <param name="storeIds">
         /// IDs of the vector stores searched
+        /// </param>
+        /// <param name="query">
+        /// Query used to search the vector store
+        /// </param>
+        /// <param name="type">
+        /// Default Value: search
         /// </param>
         /// <param name="searchTime">
         /// Time taken to search the vector store<br/>
         /// Default Value: PT0S
-        /// </param>
-        /// <param name="query">
-        /// Query used to search the vector store
         /// </param>
         /// <param name="rewrittenQuery">
         /// Rewritten query if query rewriting was enabled
@@ -112,10 +112,10 @@ namespace Mixedbread
         {
             this.Id = id;
             this.CreatedAt = createdAt;
-            this.StoreIds = storeIds ?? throw new global::System.ArgumentNullException(nameof(storeIds));
-            this.Query = query ?? throw new global::System.ArgumentNullException(nameof(query));
             this.Type = type;
+            this.StoreIds = storeIds ?? throw new global::System.ArgumentNullException(nameof(storeIds));
             this.SearchTime = searchTime;
+            this.Query = query ?? throw new global::System.ArgumentNullException(nameof(query));
             this.RewrittenQuery = rewrittenQuery;
             this.Rerank = rerank;
         }

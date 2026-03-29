@@ -51,11 +51,11 @@ namespace Mixedbread
         /// <param name="storeId">
         /// The store identifier to apply the rule to
         /// </param>
-        /// <param name="type">
-        /// The type of substitution
-        /// </param>
         /// <param name="substitution">
         /// The substitution to apply
+        /// </param>
+        /// <param name="type">
+        /// The type of substitution
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -68,8 +68,8 @@ namespace Mixedbread
         {
             this.Query = query ?? throw new global::System.ArgumentNullException(nameof(query));
             this.StoreId = storeId ?? throw new global::System.ArgumentNullException(nameof(storeId));
-            this.Substitution = substitution ?? throw new global::System.ArgumentNullException(nameof(substitution));
             this.Type = type;
+            this.Substitution = substitution ?? throw new global::System.ArgumentNullException(nameof(substitution));
         }
 
         /// <summary>
