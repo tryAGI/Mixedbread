@@ -296,7 +296,6 @@ namespace Mixedbread
             global::Mixedbread.StoreChunkSearchOptions? searchOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::Mixedbread.StoreChunkSearchParams
             {
                 Query = query,

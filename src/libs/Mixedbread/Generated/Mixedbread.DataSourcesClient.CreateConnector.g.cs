@@ -274,7 +274,6 @@ namespace Mixedbread
             global::Mixedbread.AnyOf<int?, string, object>? pollingInterval = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::Mixedbread.DataSourceConnectorCreateParams
             {
                 StoreId = storeId,

@@ -245,7 +245,6 @@ namespace Mixedbread
             global::System.Collections.Generic.IList<global::Mixedbread.MultipartUploadPart> parts,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::Mixedbread.CompleteMultipartUploadRequest
             {
                 Parts = parts,
