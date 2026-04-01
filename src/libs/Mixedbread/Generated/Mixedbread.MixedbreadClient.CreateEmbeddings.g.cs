@@ -261,6 +261,7 @@ namespace Mixedbread
             global::Mixedbread.AnyOf<global::Mixedbread.EncodingFormat3?, global::System.Collections.Generic.IList<global::Mixedbread.EncodingFormat3>>? encodingFormat = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+
             var __request = new global::Mixedbread.EmbeddingCreateParams
             {
                 Model = model,

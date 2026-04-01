@@ -264,6 +264,7 @@ namespace Mixedbread
             global::System.Collections.Generic.IList<global::System.Guid>? fileIds = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+
             var __request = new global::Mixedbread.StoreCreateParams
             {
                 Name = name,
