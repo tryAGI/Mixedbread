@@ -50,7 +50,7 @@ namespace Mixedbread.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Mixedbread.OAuth2CreateOrUpdateParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Mixedbread.OAuth2CreateOrUpdateParams?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Mixedbread.OAuth2CreateOrUpdateParams).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Oauth2, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Oauth2!, typeInfo);
             }
         }
     }

@@ -59,13 +59,13 @@ namespace Mixedbread.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Mixedbread.ImageUrlInput2), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Mixedbread.ImageUrlInput2?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Mixedbread.ImageUrlInput2).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.ImageUrl, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.ImageUrl!, typeInfo);
             }
             else if (value.IsText)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Mixedbread.TextInput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Mixedbread.TextInput?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Mixedbread.TextInput).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Text, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Text!, typeInfo);
             }
         }
     }
