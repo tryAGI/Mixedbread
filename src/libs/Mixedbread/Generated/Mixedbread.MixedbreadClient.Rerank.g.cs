@@ -267,7 +267,6 @@ namespace Mixedbread
             bool? rewriteQuery = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::Mixedbread.RerankParams
             {
                 Model = model,

@@ -257,7 +257,6 @@ namespace Mixedbread
             global::System.Collections.Generic.IList<global::Mixedbread.RulesItem3> rules,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::Mixedbread.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleCreateParams
             {
                 Query = query,
