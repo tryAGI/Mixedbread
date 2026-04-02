@@ -13,35 +13,35 @@ namespace Mixedbread
         /// The text input document to create embeddings for.
         /// </summary>
 #if NET6_0_OR_GREATER
-        public string? Value1 { get; init; }
+        public string? MultiModalQueryVariant1 { get; init; }
 #else
-        public string? Value1 { get; }
+        public string? MultiModalQueryVariant1 { get; }
 #endif
 
         /// <summary>
         /// 
         /// </summary>
 #if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Value1))]
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(MultiModalQueryVariant1))]
 #endif
-        public bool IsValue1 => Value1 != null;
+        public bool IsMultiModalQueryVariant1 => MultiModalQueryVariant1 != null;
 
         /// <summary>
         /// The input to create embeddings for.
         /// </summary>
 #if NET6_0_OR_GREATER
-        public global::Mixedbread.MultiModalQueryVariant2? Value2 { get; init; }
+        public global::Mixedbread.MultiModalQueryVariant2? MultiModalQueryVariant2 { get; init; }
 #else
-        public global::Mixedbread.MultiModalQueryVariant2? Value2 { get; }
+        public global::Mixedbread.MultiModalQueryVariant2? MultiModalQueryVariant2 { get; }
 #endif
 
         /// <summary>
         /// 
         /// </summary>
 #if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Value2))]
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(MultiModalQueryVariant2))]
 #endif
-        public bool IsValue2 => Value2 != null;
+        public bool IsMultiModalQueryVariant2 => MultiModalQueryVariant2 != null;
         /// <summary>
         /// 
         /// </summary>
@@ -50,14 +50,14 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator string?(MultiModalQuery @this) => @this.Value1;
+        public static implicit operator string?(MultiModalQuery @this) => @this.MultiModalQueryVariant1;
 
         /// <summary>
         /// 
         /// </summary>
         public MultiModalQuery(string? value)
         {
-            Value1 = value;
+            MultiModalQueryVariant1 = value;
         }
 
         /// <summary>
@@ -68,42 +68,42 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator global::Mixedbread.MultiModalQueryVariant2?(MultiModalQuery @this) => @this.Value2;
+        public static implicit operator global::Mixedbread.MultiModalQueryVariant2?(MultiModalQuery @this) => @this.MultiModalQueryVariant2;
 
         /// <summary>
         /// 
         /// </summary>
         public MultiModalQuery(global::Mixedbread.MultiModalQueryVariant2? value)
         {
-            Value2 = value;
+            MultiModalQueryVariant2 = value;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public MultiModalQuery(
-            string? value1,
-            global::Mixedbread.MultiModalQueryVariant2? value2
+            string? multiModalQueryVariant1,
+            global::Mixedbread.MultiModalQueryVariant2? multiModalQueryVariant2
             )
         {
-            Value1 = value1;
-            Value2 = value2;
+            MultiModalQueryVariant1 = multiModalQueryVariant1;
+            MultiModalQueryVariant2 = multiModalQueryVariant2;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public object? Object =>
-            Value2 as object ??
-            Value1 as object 
+            MultiModalQueryVariant2 as object ??
+            MultiModalQueryVariant1 as object 
             ;
 
         /// <summary>
         /// 
         /// </summary>
         public override string? ToString() =>
-            Value1?.ToString() ??
-            Value2?.ToString() 
+            MultiModalQueryVariant1?.ToString() ??
+            MultiModalQueryVariant2?.ToString() 
             ;
 
         /// <summary>
@@ -111,15 +111,15 @@ namespace Mixedbread
         /// </summary>
         public bool Validate()
         {
-            return IsValue1 || IsValue2;
+            return IsMultiModalQueryVariant1 || IsMultiModalQueryVariant2;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<string?, TResult>? value1 = null,
-            global::System.Func<global::Mixedbread.MultiModalQueryVariant2?, TResult>? value2 = null,
+            global::System.Func<string?, TResult>? multiModalQueryVariant1 = null,
+            global::System.Func<global::Mixedbread.MultiModalQueryVariant2?, TResult>? multiModalQueryVariant2 = null,
             bool validate = true)
         {
             if (validate)
@@ -127,13 +127,13 @@ namespace Mixedbread
                 Validate();
             }
 
-            if (IsValue1 && value1 != null)
+            if (IsMultiModalQueryVariant1 && multiModalQueryVariant1 != null)
             {
-                return value1(Value1!);
+                return multiModalQueryVariant1(MultiModalQueryVariant1!);
             }
-            else if (IsValue2 && value2 != null)
+            else if (IsMultiModalQueryVariant2 && multiModalQueryVariant2 != null)
             {
-                return value2(Value2!);
+                return multiModalQueryVariant2(MultiModalQueryVariant2!);
             }
 
             return default(TResult);
@@ -143,8 +143,8 @@ namespace Mixedbread
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<string?>? value1 = null,
-            global::System.Action<global::Mixedbread.MultiModalQueryVariant2?>? value2 = null,
+            global::System.Action<string?>? multiModalQueryVariant1 = null,
+            global::System.Action<global::Mixedbread.MultiModalQueryVariant2?>? multiModalQueryVariant2 = null,
             bool validate = true)
         {
             if (validate)
@@ -152,13 +152,13 @@ namespace Mixedbread
                 Validate();
             }
 
-            if (IsValue1)
+            if (IsMultiModalQueryVariant1)
             {
-                value1?.Invoke(Value1!);
+                multiModalQueryVariant1?.Invoke(MultiModalQueryVariant1!);
             }
-            else if (IsValue2)
+            else if (IsMultiModalQueryVariant2)
             {
-                value2?.Invoke(Value2!);
+                multiModalQueryVariant2?.Invoke(MultiModalQueryVariant2!);
             }
         }
 
@@ -169,9 +169,9 @@ namespace Mixedbread
         {
             var fields = new object?[]
             {
-                Value1,
+                MultiModalQueryVariant1,
                 typeof(string),
-                Value2,
+                MultiModalQueryVariant2,
                 typeof(global::Mixedbread.MultiModalQueryVariant2),
             };
             const int offset = unchecked((int)2166136261);
@@ -189,8 +189,8 @@ namespace Mixedbread
         public bool Equals(MultiModalQuery other)
         {
             return
-                global::System.Collections.Generic.EqualityComparer<string?>.Default.Equals(Value1, other.Value1) &&
-                global::System.Collections.Generic.EqualityComparer<global::Mixedbread.MultiModalQueryVariant2?>.Default.Equals(Value2, other.Value2) 
+                global::System.Collections.Generic.EqualityComparer<string?>.Default.Equals(MultiModalQueryVariant1, other.MultiModalQueryVariant1) &&
+                global::System.Collections.Generic.EqualityComparer<global::Mixedbread.MultiModalQueryVariant2?>.Default.Equals(MultiModalQueryVariant2, other.MultiModalQueryVariant2) 
                 ;
         }
 
