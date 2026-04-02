@@ -101,7 +101,7 @@ namespace Mixedbread
                     __response.EnsureSuccessStatusCode();
 
                     return
-                        global::Mixedbread.CostHistogramResponse.FromJson(__content, JsonSerializerContext) ??
+                        global::Mixedbread.CostHistogramResponse.FromJson(__content, JsonSerializerOptions) ??
                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
@@ -132,7 +132,7 @@ namespace Mixedbread
                     ).ConfigureAwait(false);
 
                     return
-                        await global::Mixedbread.CostHistogramResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                        await global::Mixedbread.CostHistogramResponse.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)
