@@ -54,8 +54,8 @@ namespace Mixedbread.JsonConverters
             if (__score0 > __bestScore) { __bestScore = __score0; __bestIndex = 0; }
             if (__score1 > __bestScore) { __bestScore = __score1; __bestIndex = 1; }
 
-            string? value1 = default;
-            global::Mixedbread.MultiModalQueryVariant2? value2 = default;
+            string? multiModalQueryVariant1 = default;
+            global::Mixedbread.MultiModalQueryVariant2? multiModalQueryVariant2 = default;
             if (__bestIndex >= 0)
             {
                 if (__bestIndex == 0)
@@ -65,7 +65,7 @@ namespace Mixedbread.JsonConverters
 
                         var typeInfo = typeInfoResolver.GetTypeInfo(typeof(string), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<string> ??
                                        throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(string).Name}");
-                        value1 = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                        multiModalQueryVariant1 = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
                     }
                     catch (global::System.Text.Json.JsonException)
                     {
@@ -82,7 +82,7 @@ namespace Mixedbread.JsonConverters
 
                         var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Mixedbread.MultiModalQueryVariant2), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Mixedbread.MultiModalQueryVariant2> ??
                                        throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Mixedbread.MultiModalQueryVariant2).Name}");
-                        value2 = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                        multiModalQueryVariant2 = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
                     }
                     catch (global::System.Text.Json.JsonException)
                     {
@@ -93,14 +93,14 @@ namespace Mixedbread.JsonConverters
                 }
             }
 
-            if (value1 == null && value2 == null)
+            if (multiModalQueryVariant1 == null && multiModalQueryVariant2 == null)
             {
                 try
                 {
 
                     var typeInfo = typeInfoResolver.GetTypeInfo(typeof(string), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<string> ??
                                    throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(string).Name}");
-                    value1 = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                    multiModalQueryVariant1 = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
                 }
                 catch (global::System.Text.Json.JsonException)
                 {
@@ -114,7 +114,7 @@ namespace Mixedbread.JsonConverters
 
                     var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Mixedbread.MultiModalQueryVariant2), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Mixedbread.MultiModalQueryVariant2> ??
                                    throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Mixedbread.MultiModalQueryVariant2).Name}");
-                    value2 = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                    multiModalQueryVariant2 = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
                 }
                 catch (global::System.Text.Json.JsonException)
                 {
@@ -125,9 +125,9 @@ namespace Mixedbread.JsonConverters
             }
 
             var __value = new global::Mixedbread.MultiModalQuery(
-                value1,
+                multiModalQueryVariant1,
 
-                value2
+                multiModalQueryVariant2
                 );
 
             return __value;
@@ -142,17 +142,17 @@ namespace Mixedbread.JsonConverters
             options = options ?? throw new global::System.ArgumentNullException(nameof(options));
             var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
 
-            if (value.IsValue1)
+            if (value.IsMultiModalQueryVariant1)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(string), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<string?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(string).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Value1!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.MultiModalQueryVariant1!, typeInfo);
             }
-            else if (value.IsValue2)
+            else if (value.IsMultiModalQueryVariant2)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Mixedbread.MultiModalQueryVariant2), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Mixedbread.MultiModalQueryVariant2> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Mixedbread.MultiModalQueryVariant2).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Value2!.Value, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.MultiModalQueryVariant2!.Value, typeInfo);
             }
         }
     }
