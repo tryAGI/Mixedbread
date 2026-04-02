@@ -12,28 +12,21 @@ namespace Mixedbread.JsonConverters
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
         {
-            options = options ?? throw new global::System.ArgumentNullException(nameof(options));
-            var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
+            options = options ?? throw new global::System.ArgumentNullException(nameof(options)); 
 
 
             var readerCopy = reader;
-            var discriminatorTypeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Mixedbread.MultiModalQueryVariant2Discriminator), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Mixedbread.MultiModalQueryVariant2Discriminator> ??
-                            throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::Mixedbread.MultiModalQueryVariant2Discriminator)}");
-            var discriminator = global::System.Text.Json.JsonSerializer.Deserialize(ref readerCopy, discriminatorTypeInfo);
+            var discriminator = global::System.Text.Json.JsonSerializer.Deserialize<global::Mixedbread.MultiModalQueryVariant2Discriminator>(ref readerCopy, options);
 
             global::Mixedbread.ImageUrlInput2? imageUrl = default;
             if (discriminator?.Type == global::Mixedbread.MultiModalQueryVariant2DiscriminatorType.ImageUrl)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Mixedbread.ImageUrlInput2), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Mixedbread.ImageUrlInput2> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::Mixedbread.ImageUrlInput2)}");
-                imageUrl = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                imageUrl = global::System.Text.Json.JsonSerializer.Deserialize<global::Mixedbread.ImageUrlInput2>(ref reader, options);
             }
             global::Mixedbread.TextInput? text = default;
             if (discriminator?.Type == global::Mixedbread.MultiModalQueryVariant2DiscriminatorType.Text)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Mixedbread.TextInput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Mixedbread.TextInput> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::Mixedbread.TextInput)}");
-                text = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                text = global::System.Text.Json.JsonSerializer.Deserialize<global::Mixedbread.TextInput>(ref reader, options);
             }
 
             var __value = new global::Mixedbread.MultiModalQueryVariant2(
@@ -52,20 +45,15 @@ namespace Mixedbread.JsonConverters
             global::Mixedbread.MultiModalQueryVariant2 value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
-            options = options ?? throw new global::System.ArgumentNullException(nameof(options));
-            var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
+            options = options ?? throw new global::System.ArgumentNullException(nameof(options)); 
 
             if (value.IsImageUrl)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Mixedbread.ImageUrlInput2), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Mixedbread.ImageUrlInput2?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Mixedbread.ImageUrlInput2).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.ImageUrl!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.ImageUrl, typeof(global::Mixedbread.ImageUrlInput2), options);
             }
             else if (value.IsText)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Mixedbread.TextInput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Mixedbread.TextInput?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Mixedbread.TextInput).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Text!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Text, typeof(global::Mixedbread.TextInput), options);
             }
         }
     }
