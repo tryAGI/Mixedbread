@@ -12,31 +12,42 @@ namespace Mixedbread.JsonConverters
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
         {
-            options = options ?? throw new global::System.ArgumentNullException(nameof(options)); 
+            options = options ?? throw new global::System.ArgumentNullException(nameof(options));
+            var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
 
 
             var readerCopy = reader;
-            var discriminator = global::System.Text.Json.JsonSerializer.Deserialize<global::Mixedbread.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleResponseRuleDiscriminator>(ref readerCopy, options);
+            var discriminatorTypeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Mixedbread.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleResponseRuleDiscriminator), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Mixedbread.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleResponseRuleDiscriminator> ??
+                            throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::Mixedbread.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleResponseRuleDiscriminator)}");
+            var discriminator = global::System.Text.Json.JsonSerializer.Deserialize(ref readerCopy, discriminatorTypeInfo);
 
             global::Mixedbread.QueryStringSubstitutionRule? queryString = default;
             if (discriminator?.Type == global::Mixedbread.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleResponseRuleDiscriminatorType.QueryString)
             {
-                queryString = global::System.Text.Json.JsonSerializer.Deserialize<global::Mixedbread.QueryStringSubstitutionRule>(ref reader, options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Mixedbread.QueryStringSubstitutionRule), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Mixedbread.QueryStringSubstitutionRule> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::Mixedbread.QueryStringSubstitutionRule)}");
+                queryString = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
             global::Mixedbread.QueryRegexSubstitutionRule? queryRegex = default;
             if (discriminator?.Type == global::Mixedbread.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleResponseRuleDiscriminatorType.QueryRegex)
             {
-                queryRegex = global::System.Text.Json.JsonSerializer.Deserialize<global::Mixedbread.QueryRegexSubstitutionRule>(ref reader, options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Mixedbread.QueryRegexSubstitutionRule), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Mixedbread.QueryRegexSubstitutionRule> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::Mixedbread.QueryRegexSubstitutionRule)}");
+                queryRegex = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
             global::Mixedbread.ChunkSearchResultRule? chunkSearchResult = default;
             if (discriminator?.Type == global::Mixedbread.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleResponseRuleDiscriminatorType.ChunkSearchResult)
             {
-                chunkSearchResult = global::System.Text.Json.JsonSerializer.Deserialize<global::Mixedbread.ChunkSearchResultRule>(ref reader, options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Mixedbread.ChunkSearchResultRule), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Mixedbread.ChunkSearchResultRule> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::Mixedbread.ChunkSearchResultRule)}");
+                chunkSearchResult = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
             global::Mixedbread.FileSearchResultRule? fileSearchResult = default;
             if (discriminator?.Type == global::Mixedbread.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleResponseRuleDiscriminatorType.FileSearchResult)
             {
-                fileSearchResult = global::System.Text.Json.JsonSerializer.Deserialize<global::Mixedbread.FileSearchResultRule>(ref reader, options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Mixedbread.FileSearchResultRule), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Mixedbread.FileSearchResultRule> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::Mixedbread.FileSearchResultRule)}");
+                fileSearchResult = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
 
             var __value = new global::Mixedbread.RulesItem4(
@@ -59,23 +70,32 @@ namespace Mixedbread.JsonConverters
             global::Mixedbread.RulesItem4 value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
-            options = options ?? throw new global::System.ArgumentNullException(nameof(options)); 
+            options = options ?? throw new global::System.ArgumentNullException(nameof(options));
+            var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
 
             if (value.IsQueryString)
             {
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.QueryString, typeof(global::Mixedbread.QueryStringSubstitutionRule), options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Mixedbread.QueryStringSubstitutionRule), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Mixedbread.QueryStringSubstitutionRule?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Mixedbread.QueryStringSubstitutionRule).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.QueryString!, typeInfo);
             }
             else if (value.IsQueryRegex)
             {
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.QueryRegex, typeof(global::Mixedbread.QueryRegexSubstitutionRule), options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Mixedbread.QueryRegexSubstitutionRule), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Mixedbread.QueryRegexSubstitutionRule?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Mixedbread.QueryRegexSubstitutionRule).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.QueryRegex!, typeInfo);
             }
             else if (value.IsChunkSearchResult)
             {
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.ChunkSearchResult, typeof(global::Mixedbread.ChunkSearchResultRule), options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Mixedbread.ChunkSearchResultRule), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Mixedbread.ChunkSearchResultRule?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Mixedbread.ChunkSearchResultRule).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.ChunkSearchResult!, typeInfo);
             }
             else if (value.IsFileSearchResult)
             {
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.FileSearchResult, typeof(global::Mixedbread.FileSearchResultRule), options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Mixedbread.FileSearchResultRule), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Mixedbread.FileSearchResultRule?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Mixedbread.FileSearchResultRule).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.FileSearchResult!, typeInfo);
             }
         }
     }

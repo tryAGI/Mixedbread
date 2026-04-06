@@ -12,31 +12,42 @@ namespace Mixedbread.JsonConverters
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
         {
-            options = options ?? throw new global::System.ArgumentNullException(nameof(options)); 
+            options = options ?? throw new global::System.ArgumentNullException(nameof(options));
+            var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
 
 
             var readerCopy = reader;
-            var discriminator = global::System.Text.Json.JsonSerializer.Deserialize<global::Mixedbread.ScoredStoreFileChunksVariant1ItemDiscriminator>(ref readerCopy, options);
+            var discriminatorTypeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Mixedbread.ScoredStoreFileChunksVariant1ItemDiscriminator), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Mixedbread.ScoredStoreFileChunksVariant1ItemDiscriminator> ??
+                            throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::Mixedbread.ScoredStoreFileChunksVariant1ItemDiscriminator)}");
+            var discriminator = global::System.Text.Json.JsonSerializer.Deserialize(ref readerCopy, discriminatorTypeInfo);
 
             global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredTextInputChunk? text = default;
             if (discriminator?.Type == global::Mixedbread.ScoredStoreFileChunksVariant1ItemDiscriminatorType.Text)
             {
-                text = global::System.Text.Json.JsonSerializer.Deserialize<global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredTextInputChunk>(ref reader, options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredTextInputChunk), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredTextInputChunk> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredTextInputChunk)}");
+                text = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
             global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredImageUrlInputChunk? imageUrl = default;
             if (discriminator?.Type == global::Mixedbread.ScoredStoreFileChunksVariant1ItemDiscriminatorType.ImageUrl)
             {
-                imageUrl = global::System.Text.Json.JsonSerializer.Deserialize<global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredImageUrlInputChunk>(ref reader, options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredImageUrlInputChunk), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredImageUrlInputChunk> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredImageUrlInputChunk)}");
+                imageUrl = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
             global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredAudioUrlInputChunk? audioUrl = default;
             if (discriminator?.Type == global::Mixedbread.ScoredStoreFileChunksVariant1ItemDiscriminatorType.AudioUrl)
             {
-                audioUrl = global::System.Text.Json.JsonSerializer.Deserialize<global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredAudioUrlInputChunk>(ref reader, options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredAudioUrlInputChunk), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredAudioUrlInputChunk> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredAudioUrlInputChunk)}");
+                audioUrl = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
             global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredVideoUrlInputChunk? videoUrl = default;
             if (discriminator?.Type == global::Mixedbread.ScoredStoreFileChunksVariant1ItemDiscriminatorType.VideoUrl)
             {
-                videoUrl = global::System.Text.Json.JsonSerializer.Deserialize<global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredVideoUrlInputChunk>(ref reader, options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredVideoUrlInputChunk), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredVideoUrlInputChunk> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredVideoUrlInputChunk)}");
+                videoUrl = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
 
             var __value = new global::Mixedbread.ChunksVariant1Item(
@@ -59,23 +70,32 @@ namespace Mixedbread.JsonConverters
             global::Mixedbread.ChunksVariant1Item value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
-            options = options ?? throw new global::System.ArgumentNullException(nameof(options)); 
+            options = options ?? throw new global::System.ArgumentNullException(nameof(options));
+            var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
 
             if (value.IsText)
             {
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Text, typeof(global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredTextInputChunk), options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredTextInputChunk), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredTextInputChunk?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredTextInputChunk).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Text!, typeInfo);
             }
             else if (value.IsImageUrl)
             {
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.ImageUrl, typeof(global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredImageUrlInputChunk), options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredImageUrlInputChunk), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredImageUrlInputChunk?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredImageUrlInputChunk).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.ImageUrl!, typeInfo);
             }
             else if (value.IsAudioUrl)
             {
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.AudioUrl, typeof(global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredAudioUrlInputChunk), options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredAudioUrlInputChunk), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredAudioUrlInputChunk?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredAudioUrlInputChunk).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.AudioUrl!, typeInfo);
             }
             else if (value.IsVideoUrl)
             {
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.VideoUrl, typeof(global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredVideoUrlInputChunk), options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredVideoUrlInputChunk), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredVideoUrlInputChunk?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredVideoUrlInputChunk).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.VideoUrl!, typeInfo);
             }
         }
     }

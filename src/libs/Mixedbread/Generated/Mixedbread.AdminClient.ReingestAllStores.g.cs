@@ -126,13 +126,13 @@ namespace Mixedbread
                     if (ReadResponseAsString)
                     {
                         __content_422 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                        __value_422 = global::Mixedbread.HTTPValidationError.FromJson(__content_422, JsonSerializerOptions);
+                        __value_422 = global::Mixedbread.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
                     }
                     else
                     {
                         __content_422 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
 
-                        __value_422 = global::Mixedbread.HTTPValidationError.FromJson(__content_422, JsonSerializerOptions);
+                        __value_422 = global::Mixedbread.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
                     }
                 }
                 catch (global::System.Exception __ex)
