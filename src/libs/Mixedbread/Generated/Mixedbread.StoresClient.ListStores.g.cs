@@ -144,13 +144,13 @@ namespace Mixedbread
                     if (ReadResponseAsString)
                     {
                         __content_422 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                        __value_422 = global::Mixedbread.HTTPValidationError.FromJson(__content_422, JsonSerializerOptions);
+                        __value_422 = global::Mixedbread.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
                     }
                     else
                     {
                         __content_422 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
 
-                        __value_422 = global::Mixedbread.HTTPValidationError.FromJson(__content_422, JsonSerializerOptions);
+                        __value_422 = global::Mixedbread.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
                     }
                 }
                 catch (global::System.Exception __ex)
@@ -194,7 +194,7 @@ namespace Mixedbread
                     __response.EnsureSuccessStatusCode();
 
                     return
-                        global::Mixedbread.StoreListResponse.FromJson(__content, JsonSerializerOptions) ??
+                        global::Mixedbread.StoreListResponse.FromJson(__content, JsonSerializerContext) ??
                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
@@ -224,7 +224,7 @@ namespace Mixedbread
                     ).ConfigureAwait(false);
 
                     return
-                        await global::Mixedbread.StoreListResponse.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
+                        await global::Mixedbread.StoreListResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)

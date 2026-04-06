@@ -12,16 +12,21 @@ namespace Mixedbread.JsonConverters
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
         {
-            options = options ?? throw new global::System.ArgumentNullException(nameof(options)); 
+            options = options ?? throw new global::System.ArgumentNullException(nameof(options));
+            var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
 
 
             var readerCopy = reader;
-            var discriminator = global::System.Text.Json.JsonSerializer.Deserialize<global::Mixedbread.LinearDataSourceCreateOrUpdateParamsAuthParamsVariant1Discriminator>(ref readerCopy, options);
+            var discriminatorTypeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Mixedbread.LinearDataSourceCreateOrUpdateParamsAuthParamsVariant1Discriminator), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Mixedbread.LinearDataSourceCreateOrUpdateParamsAuthParamsVariant1Discriminator> ??
+                            throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::Mixedbread.LinearDataSourceCreateOrUpdateParamsAuthParamsVariant1Discriminator)}");
+            var discriminator = global::System.Text.Json.JsonSerializer.Deserialize(ref readerCopy, discriminatorTypeInfo);
 
             global::Mixedbread.OAuth2CreateOrUpdateParams? oauth2 = default;
             if (discriminator?.Type == global::Mixedbread.LinearDataSourceCreateOrUpdateParamsAuthParamsVariant1DiscriminatorType.Oauth2)
             {
-                oauth2 = global::System.Text.Json.JsonSerializer.Deserialize<global::Mixedbread.OAuth2CreateOrUpdateParams>(ref reader, options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Mixedbread.OAuth2CreateOrUpdateParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Mixedbread.OAuth2CreateOrUpdateParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::Mixedbread.OAuth2CreateOrUpdateParams)}");
+                oauth2 = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
 
             var __value = new global::Mixedbread.AuthParamsVariant12(
@@ -38,11 +43,14 @@ namespace Mixedbread.JsonConverters
             global::Mixedbread.AuthParamsVariant12 value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
-            options = options ?? throw new global::System.ArgumentNullException(nameof(options)); 
+            options = options ?? throw new global::System.ArgumentNullException(nameof(options));
+            var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
 
             if (value.IsOauth2)
             {
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Oauth2, typeof(global::Mixedbread.OAuth2CreateOrUpdateParams), options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Mixedbread.OAuth2CreateOrUpdateParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Mixedbread.OAuth2CreateOrUpdateParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Mixedbread.OAuth2CreateOrUpdateParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Oauth2!, typeInfo);
             }
         }
     }

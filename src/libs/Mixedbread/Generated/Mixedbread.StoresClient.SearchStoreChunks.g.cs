@@ -90,7 +90,7 @@ namespace Mixedbread
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-            var __httpRequestContentBody = request.ToJson(JsonSerializerOptions);
+            var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
                 encoding: global::System.Text.Encoding.UTF8,
@@ -127,13 +127,13 @@ namespace Mixedbread
                     if (ReadResponseAsString)
                     {
                         __content_422 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                        __value_422 = global::Mixedbread.HTTPValidationError.FromJson(__content_422, JsonSerializerOptions);
+                        __value_422 = global::Mixedbread.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
                     }
                     else
                     {
                         __content_422 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
 
-                        __value_422 = global::Mixedbread.HTTPValidationError.FromJson(__content_422, JsonSerializerOptions);
+                        __value_422 = global::Mixedbread.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
                     }
                 }
                 catch (global::System.Exception __ex)
@@ -177,7 +177,7 @@ namespace Mixedbread
                     __response.EnsureSuccessStatusCode();
 
                     return
-                        global::Mixedbread.StoreSearchResponse.FromJson(__content, JsonSerializerOptions) ??
+                        global::Mixedbread.StoreSearchResponse.FromJson(__content, JsonSerializerContext) ??
                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
@@ -207,7 +207,7 @@ namespace Mixedbread
                     ).ConfigureAwait(false);
 
                     return
-                        await global::Mixedbread.StoreSearchResponse.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
+                        await global::Mixedbread.StoreSearchResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)
