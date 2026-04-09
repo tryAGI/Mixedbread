@@ -28,7 +28,7 @@ namespace Mixedbread
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("bbox")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required byte[] Bbox { get; set; }
+        public required global::System.Collections.Generic.IList<double> Bbox { get; set; }
 
         /// <summary>
         /// The page number where the element was found
@@ -92,7 +92,7 @@ namespace Mixedbread
         public ChunkElement(
             global::Mixedbread.ElementType type,
             double confidence,
-            byte[] bbox,
+            global::System.Collections.Generic.IList<double> bbox,
             int page,
             string content,
             string? summary,
