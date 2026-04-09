@@ -5,6 +5,25 @@ namespace Mixedbread
 {
     public partial class SchemasClient
     {
+
+
+        private static readonly global::Mixedbread.EndPointSecurityRequirement s_GetMxbaiJsonSchemaSecurityRequirement0 =
+            new global::Mixedbread.EndPointSecurityRequirement
+            {
+                Authorizations = new global::Mixedbread.EndPointAuthorizationRequirement[]
+                {                    new global::Mixedbread.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::Mixedbread.EndPointSecurityRequirement[] s_GetMxbaiJsonSchemaSecurityRequirements =
+            new global::Mixedbread.EndPointSecurityRequirement[]
+            {                s_GetMxbaiJsonSchemaSecurityRequirement0,
+            };
         partial void PrepareGetMxbaiJsonSchemaArguments(
             global::System.Net.Http.HttpClient httpClient);
         partial void PrepareGetMxbaiJsonSchemaRequest(
@@ -35,9 +54,15 @@ namespace Mixedbread
             PrepareGetMxbaiJsonSchemaArguments(
                 httpClient: HttpClient);
 
+
+            var __authorizations = global::Mixedbread.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_GetMxbaiJsonSchemaSecurityRequirements,
+                operationName: "GetMxbaiJsonSchemaAsync");
+
             var __pathBuilder = new global::Mixedbread.PathBuilder(
                 path: "/v1/schemas/mxjson",
-                baseUri: HttpClient.BaseAddress); 
+                baseUri: HttpClient.BaseAddress);
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -47,7 +72,7 @@ namespace Mixedbread
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")

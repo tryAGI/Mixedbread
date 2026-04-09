@@ -12,7 +12,7 @@ namespace Mixedbread
         /// <summary>
         /// mixedbread ai production server
         /// </summary>
-        public const string DefaultBaseUrl = "https://api.mixedbread.com";
+        public const string DefaultBaseUrl = "https://api.mixedbread.com/";
 
         private bool _disposeHttpClient = true;
 

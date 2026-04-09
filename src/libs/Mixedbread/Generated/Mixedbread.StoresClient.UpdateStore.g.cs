@@ -5,6 +5,25 @@ namespace Mixedbread
 {
     public partial class StoresClient
     {
+
+
+        private static readonly global::Mixedbread.EndPointSecurityRequirement s_UpdateStoreSecurityRequirement0 =
+            new global::Mixedbread.EndPointSecurityRequirement
+            {
+                Authorizations = new global::Mixedbread.EndPointAuthorizationRequirement[]
+                {                    new global::Mixedbread.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::Mixedbread.EndPointSecurityRequirement[] s_UpdateStoreSecurityRequirements =
+            new global::Mixedbread.EndPointSecurityRequirement[]
+            {                s_UpdateStoreSecurityRequirement0,
+            };
         partial void PrepareUpdateStoreArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref global::Mixedbread.AnyOf<string, global::System.Guid?> storeIdentifier,
@@ -53,9 +72,15 @@ namespace Mixedbread
                 storeIdentifier: ref storeIdentifier,
                 request: request);
 
+
+            var __authorizations = global::Mixedbread.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_UpdateStoreSecurityRequirements,
+                operationName: "UpdateStoreAsync");
+
             var __pathBuilder = new global::Mixedbread.PathBuilder(
                 path: $"/v1/stores/{storeIdentifier}",
-                baseUri: HttpClient.BaseAddress); 
+                baseUri: HttpClient.BaseAddress);
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Put,
@@ -65,7 +90,7 @@ namespace Mixedbread
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")
