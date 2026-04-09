@@ -39,8 +39,8 @@ namespace Mixedbread
         /// Optional list of file IDs to filter chunks by (inclusion filter)
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file_ids")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<byte[], global::System.Collections.Generic.IList<global::System.Guid>, object>))]
-        public global::Mixedbread.AnyOf<byte[], global::System.Collections.Generic.IList<global::System.Guid>, object>? FileIds { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.ConditionOperator?, global::System.Collections.Generic.IList<global::System.Guid>>>, global::System.Collections.Generic.IList<global::System.Guid>, object>))]
+        public global::Mixedbread.AnyOf<global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.ConditionOperator?, global::System.Collections.Generic.IList<global::System.Guid>>>, global::System.Collections.Generic.IList<global::System.Guid>, object>? FileIds { get; set; }
 
         /// <summary>
         /// Search configuration options
@@ -93,7 +93,7 @@ namespace Mixedbread
             string? query,
             int? topK,
             global::Mixedbread.AnyOf<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition>>, object>? filters,
-            global::Mixedbread.AnyOf<byte[], global::System.Collections.Generic.IList<global::System.Guid>, object>? fileIds,
+            global::Mixedbread.AnyOf<global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.ConditionOperator?, global::System.Collections.Generic.IList<global::System.Guid>>>, global::System.Collections.Generic.IList<global::System.Guid>, object>? fileIds,
             global::Mixedbread.StoreChunkSearchOptions? searchOptions,
             global::System.Collections.Generic.IList<string>? facets)
         {

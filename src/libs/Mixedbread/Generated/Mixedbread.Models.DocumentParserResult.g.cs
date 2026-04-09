@@ -41,7 +41,7 @@ namespace Mixedbread
         /// List of (width, height) tuples for each page
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("page_sizes")]
-        public global::System.Collections.Generic.IList<byte[]>? PageSizes { get; set; }
+        public global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<int>>? PageSizes { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -75,7 +75,7 @@ namespace Mixedbread
             global::System.Collections.Generic.IList<global::Mixedbread.ElementType> elementTypes,
             global::System.Collections.Generic.IList<global::Mixedbread.Chunk> chunks,
             global::Mixedbread.ChunkingStrategy chunkingStrategy,
-            global::System.Collections.Generic.IList<byte[]>? pageSizes)
+            global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<int>>? pageSizes)
         {
             this.ChunkingStrategy = chunkingStrategy;
             this.ReturnFormat = returnFormat;
