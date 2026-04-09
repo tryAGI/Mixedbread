@@ -5,6 +5,25 @@ namespace Mixedbread
 {
     public partial class MixedbreadClient
     {
+
+
+        private static readonly global::Mixedbread.EndPointSecurityRequirement s_InfoSecurityRequirement0 =
+            new global::Mixedbread.EndPointSecurityRequirement
+            {
+                Authorizations = new global::Mixedbread.EndPointAuthorizationRequirement[]
+                {                    new global::Mixedbread.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::Mixedbread.EndPointSecurityRequirement[] s_InfoSecurityRequirements =
+            new global::Mixedbread.EndPointSecurityRequirement[]
+            {                s_InfoSecurityRequirement0,
+            };
         partial void PrepareInfoArguments(
             global::System.Net.Http.HttpClient httpClient);
         partial void PrepareInfoRequest(
@@ -35,9 +54,15 @@ namespace Mixedbread
             PrepareInfoArguments(
                 httpClient: HttpClient);
 
+
+            var __authorizations = global::Mixedbread.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_InfoSecurityRequirements,
+                operationName: "InfoAsync");
+
             var __pathBuilder = new global::Mixedbread.PathBuilder(
                 path: "/",
-                baseUri: HttpClient.BaseAddress); 
+                baseUri: HttpClient.BaseAddress);
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -47,7 +72,7 @@ namespace Mixedbread
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")

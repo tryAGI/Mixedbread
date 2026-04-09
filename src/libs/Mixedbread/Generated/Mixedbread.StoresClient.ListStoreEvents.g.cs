@@ -5,6 +5,25 @@ namespace Mixedbread
 {
     public partial class StoresClient
     {
+
+
+        private static readonly global::Mixedbread.EndPointSecurityRequirement s_ListStoreEventsSecurityRequirement0 =
+            new global::Mixedbread.EndPointSecurityRequirement
+            {
+                Authorizations = new global::Mixedbread.EndPointAuthorizationRequirement[]
+                {                    new global::Mixedbread.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::Mixedbread.EndPointSecurityRequirement[] s_ListStoreEventsSecurityRequirements =
+            new global::Mixedbread.EndPointSecurityRequirement[]
+            {                s_ListStoreEventsSecurityRequirement0,
+            };
         partial void PrepareListStoreEventsArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref global::Mixedbread.AnyOf<string, global::System.Guid?> storeIdentifier,
@@ -96,6 +115,12 @@ namespace Mixedbread
                 filterAfter: filterAfter,
                 eventType: ref eventType);
 
+
+            var __authorizations = global::Mixedbread.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_ListStoreEventsSecurityRequirements,
+                operationName: "ListStoreEventsAsync");
+
             var __pathBuilder = new global::Mixedbread.PathBuilder(
                 path: $"/v1/stores/{storeIdentifier}/events",
                 baseUri: HttpClient.BaseAddress); 
@@ -107,7 +132,7 @@ namespace Mixedbread
                 .AddOptionalParameter("filter_before", filterBefore?.ToString())
                 .AddOptionalParameter("filter_after", filterAfter?.ToString())
                 .AddRequiredParameter("event_type", eventType.ToValueString()) 
-                ; 
+                ;
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -117,7 +142,7 @@ namespace Mixedbread
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")

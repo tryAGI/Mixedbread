@@ -6,6 +6,7 @@ namespace Mixedbread
     public sealed partial class MixedbreadClient
     {
         /// <inheritdoc cref="MixedbreadClient(global::System.Net.Http.HttpClient?, global::System.Uri?, global::System.Collections.Generic.List{global::Mixedbread.EndPointAuthorization}?, bool)"/>
+
         public MixedbreadClient(
             string apiKey,
             global::System.Net.Http.HttpClient? httpClient = null,

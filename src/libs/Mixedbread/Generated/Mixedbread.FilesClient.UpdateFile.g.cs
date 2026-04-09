@@ -5,6 +5,25 @@ namespace Mixedbread
 {
     public partial class FilesClient
     {
+
+
+        private static readonly global::Mixedbread.EndPointSecurityRequirement s_UpdateFileSecurityRequirement0 =
+            new global::Mixedbread.EndPointSecurityRequirement
+            {
+                Authorizations = new global::Mixedbread.EndPointAuthorizationRequirement[]
+                {                    new global::Mixedbread.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::Mixedbread.EndPointSecurityRequirement[] s_UpdateFileSecurityRequirements =
+            new global::Mixedbread.EndPointSecurityRequirement[]
+            {                s_UpdateFileSecurityRequirement0,
+            };
         partial void PrepareUpdateFileArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref global::System.Guid fileId,
@@ -53,9 +72,15 @@ namespace Mixedbread
                 fileId: ref fileId,
                 request: request);
 
+
+            var __authorizations = global::Mixedbread.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_UpdateFileSecurityRequirements,
+                operationName: "UpdateFileAsync");
+
             var __pathBuilder = new global::Mixedbread.PathBuilder(
                 path: $"/v1/files/{fileId}",
-                baseUri: HttpClient.BaseAddress); 
+                baseUri: HttpClient.BaseAddress);
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
@@ -65,7 +90,7 @@ namespace Mixedbread
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")

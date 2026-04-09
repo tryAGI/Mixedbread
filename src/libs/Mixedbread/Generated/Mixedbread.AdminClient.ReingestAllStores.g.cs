@@ -5,6 +5,25 @@ namespace Mixedbread
 {
     public partial class AdminClient
     {
+
+
+        private static readonly global::Mixedbread.EndPointSecurityRequirement s_ReingestAllStoresSecurityRequirement0 =
+            new global::Mixedbread.EndPointSecurityRequirement
+            {
+                Authorizations = new global::Mixedbread.EndPointAuthorizationRequirement[]
+                {                    new global::Mixedbread.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::Mixedbread.EndPointSecurityRequirement[] s_ReingestAllStoresSecurityRequirements =
+            new global::Mixedbread.EndPointSecurityRequirement[]
+            {                s_ReingestAllStoresSecurityRequirement0,
+            };
         partial void PrepareReingestAllStoresArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref global::System.Guid organizationId,
@@ -61,13 +80,19 @@ namespace Mixedbread
                 statuses: statuses,
                 billable: ref billable);
 
+
+            var __authorizations = global::Mixedbread.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_ReingestAllStoresSecurityRequirements,
+                operationName: "ReingestAllStoresAsync");
+
             var __pathBuilder = new global::Mixedbread.PathBuilder(
                 path: $"/v1/admin/stores/{organizationId}/{storeIdentifier}/reingest",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder
                 .AddOptionalParameter("statuses", statuses?.ToString())
                 .AddOptionalParameter("billable", billable?.ToString().ToLowerInvariant()) 
-                ; 
+                ;
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
@@ -77,7 +102,7 @@ namespace Mixedbread
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")
