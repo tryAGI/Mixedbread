@@ -13,11 +13,13 @@ namespace Mixedbread
         ///     EmbeddingCreateResponse: The response containing the embeddings.
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Mixedbread.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Mixedbread.EmbeddingCreateResponse> CreateEmbeddingsAsync(
 
             global::Mixedbread.EmbeddingCreateParams request,
+            global::Mixedbread.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create embeddings for text and images<br/>
@@ -47,6 +49,7 @@ namespace Mixedbread
         /// The encoding format(s) of the embeddings. Can be a single format or a list of formats.<br/>
         /// Default Value: float
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Mixedbread.EmbeddingCreateResponse> CreateEmbeddingsAsync(
@@ -56,6 +59,7 @@ namespace Mixedbread
             string? prompt = default,
             bool? normalized = default,
             global::Mixedbread.AnyOf<global::Mixedbread.EncodingFormat3?, global::System.Collections.Generic.IList<global::Mixedbread.EncodingFormat3>>? encodingFormat = default,
+            global::Mixedbread.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

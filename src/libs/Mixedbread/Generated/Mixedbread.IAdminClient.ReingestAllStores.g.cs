@@ -20,6 +20,7 @@ namespace Mixedbread
         /// Whether the reingestion is billable to the user<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Mixedbread.ApiException"></exception>
         global::System.Threading.Tasks.Task<string> ReingestAllStoresAsync(
@@ -27,6 +28,7 @@ namespace Mixedbread
             string storeIdentifier,
             global::System.Collections.Generic.IList<global::Mixedbread.VectorStoreFileStatus>? statuses = default,
             bool? billable = default,
+            global::Mixedbread.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

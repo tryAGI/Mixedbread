@@ -8,11 +8,13 @@ namespace Mixedbread
         /// Question answering
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Mixedbread.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Mixedbread.StoreQAResults> CreateQuestionAnsweringAsync(
 
             global::Mixedbread.StoreQAParams request,
+            global::Mixedbread.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Question answering
@@ -46,6 +48,7 @@ namespace Mixedbread
         /// <param name="qaOptions">
         /// Question answering configuration options
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Mixedbread.StoreQAResults> CreateQuestionAnsweringAsync(
@@ -58,6 +61,7 @@ namespace Mixedbread
             bool? stream = default,
             string? instructions = default,
             global::Mixedbread.QuestionAnsweringOptions? qaOptions = default,
+            global::Mixedbread.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

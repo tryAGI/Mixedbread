@@ -13,11 +13,13 @@ namespace Mixedbread
         ///     VectorStore: The response containing the created vector store details.
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Mixedbread.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Mixedbread.Store> CreateStoreAsync(
 
             global::Mixedbread.StoreCreateParams request,
+            global::Mixedbread.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create a store<br/>
@@ -49,6 +51,7 @@ namespace Mixedbread
         /// <param name="fileIds">
         /// Optional list of file IDs
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Mixedbread.Store> CreateStoreAsync(
@@ -59,6 +62,7 @@ namespace Mixedbread
             object? metadata = default,
             global::Mixedbread.StoreConfig2? config = default,
             global::System.Collections.Generic.IList<global::System.Guid>? fileIds = default,
+            global::Mixedbread.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

@@ -9,11 +9,13 @@ namespace Mixedbread
         /// Initiate a multipart upload and receive presigned URLs for uploading parts directly to storage.
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Mixedbread.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Mixedbread.CreateMultipartUploadResponse> CreateMultipartUploadAsync(
 
             global::Mixedbread.CreateMultipartUploadRequest request,
+            global::Mixedbread.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create multipart upload<br/>
@@ -32,6 +34,7 @@ namespace Mixedbread
         /// Number of parts to split the upload into<br/>
         /// Default Value: 1
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Mixedbread.CreateMultipartUploadResponse> CreateMultipartUploadAsync(
@@ -39,6 +42,7 @@ namespace Mixedbread
             long fileSize,
             string mimeType,
             int? partCount = default,
+            global::Mixedbread.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }
