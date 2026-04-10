@@ -13,11 +13,13 @@ namespace Mixedbread
         ///     ApiKeyCreated: The response containing the details of the created API key.
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Mixedbread.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Mixedbread.ApiKeyCreated> CreateApiKeyAsync(
 
             global::Mixedbread.ApiKeyCreateParams request,
+            global::Mixedbread.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create API key<br/>
@@ -37,12 +39,14 @@ namespace Mixedbread
         /// <param name="expiresAt">
         /// Optional expiration datetime
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Mixedbread.ApiKeyCreated> CreateApiKeyAsync(
             string? name = default,
             global::System.Collections.Generic.IList<global::Mixedbread.Scope>? scope = default,
             global::System.DateTime? expiresAt = default,
+            global::Mixedbread.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

@@ -21,6 +21,7 @@ namespace Mixedbread
         /// The ID of the search rule to update
         /// </param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Mixedbread.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Mixedbread.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleResponse> UpdateSearchRuleAsync(
@@ -28,6 +29,7 @@ namespace Mixedbread
             global::System.Guid ruleId,
 
             global::Mixedbread.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleUpdateParams request,
+            global::Mixedbread.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update a search rule<br/>
@@ -51,6 +53,7 @@ namespace Mixedbread
         /// <param name="rules">
         /// The rules to apply on query matches
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Mixedbread.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleResponse> UpdateSearchRuleAsync(
@@ -58,6 +61,7 @@ namespace Mixedbread
             global::System.Guid ruleId,
             string? query = default,
             global::System.Collections.Generic.IList<global::Mixedbread.RulesVariant1Item2>? rules = default,
+            global::Mixedbread.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

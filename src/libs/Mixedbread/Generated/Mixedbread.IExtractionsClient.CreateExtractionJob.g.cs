@@ -13,11 +13,13 @@ namespace Mixedbread
         ///     The created extraction job.
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Mixedbread.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Mixedbread.ExtractionJob> CreateExtractionJobAsync(
 
             global::Mixedbread.ExtractJobCreateParams request,
+            global::Mixedbread.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Start an extraction job<br/>
@@ -33,11 +35,13 @@ namespace Mixedbread
         /// <param name="jsonSchema">
         /// The JSON schema to use for extraction
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Mixedbread.ExtractionJob> CreateExtractionJobAsync(
             string fileId,
             object jsonSchema,
+            global::Mixedbread.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

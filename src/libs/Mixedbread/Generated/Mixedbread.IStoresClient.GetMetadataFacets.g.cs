@@ -8,11 +8,13 @@ namespace Mixedbread
         /// Get metadata facets
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Mixedbread.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Mixedbread.MetadataFacets> GetMetadataFacetsAsync(
 
             global::Mixedbread.MetadataFacetsParams request,
+            global::Mixedbread.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get metadata facets
@@ -39,6 +41,7 @@ namespace Mixedbread
         /// <param name="facets">
         /// Optional list of facets to return. Use dot for nested fields.
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Mixedbread.MetadataFacets> GetMetadataFacetsAsync(
@@ -49,6 +52,7 @@ namespace Mixedbread
             global::Mixedbread.AnyOf<global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.ConditionOperator?, global::System.Collections.Generic.IList<global::System.Guid>>>, global::System.Collections.Generic.IList<global::System.Guid>, object>? fileIds = default,
             global::Mixedbread.StoreChunkSearchOptions? searchOptions = default,
             global::System.Collections.Generic.IList<string>? facets = default,
+            global::Mixedbread.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

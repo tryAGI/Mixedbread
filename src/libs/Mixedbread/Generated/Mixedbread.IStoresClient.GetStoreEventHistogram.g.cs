@@ -17,12 +17,14 @@ namespace Mixedbread
         /// The ID or name of the store
         /// </param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Mixedbread.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Mixedbread.StoreEventHistogramResponse> GetStoreEventHistogramAsync(
             global::Mixedbread.AnyOf<string, global::System.Guid?> storeIdentifier,
 
             global::Mixedbread.StoreEventHistogramParams request,
+            global::Mixedbread.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get store event histogram<br/>
@@ -46,6 +48,7 @@ namespace Mixedbread
         /// Number of seconds in each bucket<br/>
         /// Default Value: 7200
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Mixedbread.StoreEventHistogramResponse> GetStoreEventHistogramAsync(
@@ -53,6 +56,7 @@ namespace Mixedbread
             global::System.DateTime? startTime = default,
             global::System.DateTime? endTime = default,
             int? bucketSeconds = default,
+            global::Mixedbread.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

@@ -25,6 +25,7 @@ namespace Mixedbread
             Authorizations.Add(new global::Mixedbread.EndPointAuthorization
             {
                 Type = "Http",
+                SchemeId = "HttpBearer",
                 Location = "Header",
                 Name = "Bearer",
                 Value = apiKey,

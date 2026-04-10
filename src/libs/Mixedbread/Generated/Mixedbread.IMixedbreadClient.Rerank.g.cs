@@ -13,11 +13,13 @@ namespace Mixedbread
         ///     RerankResponse: The reranked documents for the input query.
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Mixedbread.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Mixedbread.RerankResponse> RerankAsync(
 
             global::Mixedbread.RerankParams request,
+            global::Mixedbread.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Rerank different kind of documents for a given query<br/>
@@ -52,6 +54,7 @@ namespace Mixedbread
         /// Wether or not to rewrite the query before passing it to the reranking model<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Mixedbread.RerankResponse> RerankAsync(
@@ -62,6 +65,7 @@ namespace Mixedbread
             int? topK = default,
             bool? returnInput = default,
             bool? rewriteQuery = default,
+            global::Mixedbread.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }
