@@ -6,6 +6,29 @@ namespace Mixedbread
     public partial class StoresClient
     {
 
+        private static readonly global::Mixedbread.AutoSDKServer[] s_UpdateSearchRuleServers = new global::Mixedbread.AutoSDKServer[]
+        {            new global::Mixedbread.AutoSDKServer(
+                id: "https-api-mixedbread-com",
+                name: "mixedbread ai production server",
+                url: "https://api.mixedbread.com/",
+                description: "mixedbread ai production server"),
+            new global::Mixedbread.AutoSDKServer(
+                id: "https-api-dev-mixedbread-com",
+                name: "mixedbread ai development server",
+                url: "https://api.dev.mixedbread.com/",
+                description: "mixedbread ai development server"),
+            new global::Mixedbread.AutoSDKServer(
+                id: "http-127-0-0-1",
+                name: "mixedbread local server",
+                url: "http://127.0.0.1:8000/",
+                description: "mixedbread local server"),
+            new global::Mixedbread.AutoSDKServer(
+                id: "http-localhost",
+                name: "mixedbread local server",
+                url: "http://localhost:8000/",
+                description: "mixedbread local server"),
+        };
+
 
         private static readonly global::Mixedbread.EndPointSecurityRequirement s_UpdateSearchRuleSecurityRequirement0 =
             new global::Mixedbread.EndPointSecurityRequirement
@@ -107,7 +130,9 @@ namespace Mixedbread
             {
                             var __pathBuilder = new global::Mixedbread.PathBuilder(
                                 path: $"/v1/stores/{storeIdentifier}/rules/{ruleId}",
-                                baseUri: HttpClient.BaseAddress);
+                                baseUri: ResolveBaseUri(
+                                servers: s_UpdateSearchRuleServers,
+                                defaultBaseUrl: "https://api.mixedbread.com/"));
                             var __path = __pathBuilder.ToString();
                 __path = global::Mixedbread.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
