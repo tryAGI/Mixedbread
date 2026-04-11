@@ -20,7 +20,7 @@ namespace Mixedbread
         public global::System.Net.Http.HttpClient HttpClient { get; }
 
         /// <inheritdoc/>
-        public System.Uri? BaseUri => HttpClient.BaseAddress;
+        public System.Uri? BaseUri => ResolveDisplayedBaseUri();
 
         /// <inheritdoc/>
         public global::System.Collections.Generic.List<global::Mixedbread.EndPointAuthorization> Authorizations { get; }
@@ -33,11 +33,52 @@ namespace Mixedbread
 
         /// <inheritdoc/>
         public global::Mixedbread.AutoSDKClientOptions Options { get; }
+
+
+        internal global::Mixedbread.AutoSDKServerConfiguration AutoSDKServerConfiguration { get; set; } = new global::Mixedbread.AutoSDKServerConfiguration();
         /// <summary>
         /// 
         /// </summary>
         public global::System.Text.Json.Serialization.JsonSerializerContext JsonSerializerContext { get; set; } = global::Mixedbread.SourceGenerationContext.Default;
 
+
+
+        private static readonly global::Mixedbread.AutoSDKServer[] s_availableServers = new global::Mixedbread.AutoSDKServer[]
+        {            new global::Mixedbread.AutoSDKServer(
+                id: "https-api-mixedbread-com",
+                name: "mixedbread ai production server",
+                url: "https://api.mixedbread.com/",
+                description: "mixedbread ai production server"),
+            new global::Mixedbread.AutoSDKServer(
+                id: "https-api-dev-mixedbread-com",
+                name: "mixedbread ai development server",
+                url: "https://api.dev.mixedbread.com/",
+                description: "mixedbread ai development server"),
+            new global::Mixedbread.AutoSDKServer(
+                id: "http-127-0-0-1",
+                name: "mixedbread local server",
+                url: "http://127.0.0.1:8000/",
+                description: "mixedbread local server"),
+            new global::Mixedbread.AutoSDKServer(
+                id: "http-localhost",
+                name: "mixedbread local server",
+                url: "http://localhost:8000/",
+                description: "mixedbread local server"),
+        };
+
+        /// <summary>
+        /// The server options available for this client.
+        /// </summary>
+        public global::System.Collections.Generic.IReadOnlyList<global::Mixedbread.AutoSDKServer> AvailableServers => s_availableServers;
+
+        /// <summary>
+        /// The currently selected server for this client, if any.
+        /// </summary>
+        public global::Mixedbread.AutoSDKServer? SelectedServer
+        {
+            get => ResolveSelectedServer();
+            set => SelectServer(value);
+        }
 
         /// <summary>
         /// Creates a new instance of the BillingClient.
@@ -85,6 +126,8 @@ namespace Mixedbread
             Options = options ?? new global::Mixedbread.AutoSDKClientOptions();
             _disposeHttpClient = disposeHttpClient;
 
+            AutoSDKServerConfiguration.ExplicitBaseUri = baseUri ?? httpClient?.BaseAddress;
+
             Initialized(HttpClient);
         }
 
@@ -111,5 +154,117 @@ namespace Mixedbread
             global::System.Net.Http.HttpClient client,
             global::System.Net.Http.HttpResponseMessage response,
             ref string content);
+
+
+        /// <summary>
+        /// Selects one of the generated server options by id.
+        /// </summary>
+        public bool TrySelectServer(string serverId)
+        {
+            if (string.IsNullOrWhiteSpace(serverId))
+            {
+                return false;
+            }
+
+            foreach (var server in s_availableServers)
+            {
+                if (string.Equals(server.Id, serverId, global::System.StringComparison.OrdinalIgnoreCase))
+                {
+                    AutoSDKServerConfiguration.SelectedServer = server;
+                    AutoSDKServerConfiguration.ExplicitBaseUri = null;
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Clears the currently selected server.
+        /// </summary>
+        public void ClearSelectedServer()
+        {
+            AutoSDKServerConfiguration.SelectedServer = null;
+        }
+
+        private global::Mixedbread.AutoSDKServer? ResolveSelectedServer()
+        {
+            var selectedServer = AutoSDKServerConfiguration.SelectedServer;
+            if (selectedServer is null)
+            {
+                return null;
+            }
+
+            foreach (var server in s_availableServers)
+            {
+                if (string.Equals(server.Id, selectedServer.Id, global::System.StringComparison.Ordinal))
+                {
+                    return server;
+                }
+            }
+
+            return null;
+        }
+
+        private void SelectServer(global::Mixedbread.AutoSDKServer? server)
+        {
+            if (server is null)
+            {
+                AutoSDKServerConfiguration.SelectedServer = null;
+                return;
+            }
+
+            foreach (var candidate in s_availableServers)
+            {
+                if (string.Equals(candidate.Id, server.Id, global::System.StringComparison.Ordinal))
+                {
+                    AutoSDKServerConfiguration.SelectedServer = candidate;
+                    AutoSDKServerConfiguration.ExplicitBaseUri = null;
+                    return;
+                }
+            }
+
+            throw new global::System.ArgumentException("The provided server is not available for this client.", nameof(server));
+        }
+
+        private global::System.Uri? ResolveDisplayedBaseUri()
+        {
+            if (AutoSDKServerConfiguration.ExplicitBaseUri is global::System.Uri explicitBaseUri)
+            {
+                return explicitBaseUri;
+            }
+
+            return ResolveSelectedServer()?.Uri ?? HttpClient.BaseAddress;
+        }
+
+        private global::System.Uri? ResolveBaseUri(
+            global::Mixedbread.AutoSDKServer[] servers,
+            string defaultBaseUrl)
+        {
+            if (AutoSDKServerConfiguration.ExplicitBaseUri is global::System.Uri explicitBaseUri)
+            {
+                return explicitBaseUri;
+            }
+
+            if (AutoSDKServerConfiguration.SelectedServer is global::Mixedbread.AutoSDKServer selectedServer)
+            {
+                foreach (var server in servers)
+                {
+                    if (string.Equals(server.Id, selectedServer.Id, global::System.StringComparison.Ordinal))
+                    {
+                        return server.Uri;
+                    }
+                }
+            }
+
+            if (servers.Length > 0)
+            {
+                return servers[0].Uri;
+            }
+
+            return string.IsNullOrWhiteSpace(defaultBaseUrl)
+                ? HttpClient.BaseAddress
+                : new global::System.Uri(defaultBaseUrl, global::System.UriKind.RelativeOrAbsolute);
+        }
     }
 }
