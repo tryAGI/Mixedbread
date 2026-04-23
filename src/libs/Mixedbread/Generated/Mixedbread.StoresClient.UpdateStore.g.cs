@@ -484,6 +484,9 @@ namespace Mixedbread
         /// <param name="isPublic">
         /// Whether the store can be accessed by anyone with valid login credentials
         /// </param>
+        /// <param name="license">
+        /// License for public stores
+        /// </param>
         /// <param name="expiresAfter">
         /// Optional expiration policy
         /// </param>
@@ -498,6 +501,7 @@ namespace Mixedbread
             string? name = default,
             string? description = default,
             bool? isPublic = default,
+            string? license = default,
             global::Mixedbread.ExpiresAfter? expiresAfter = default,
             object? metadata = default,
             global::Mixedbread.AutoSDKRequestOptions? requestOptions = default,
@@ -508,6 +512,7 @@ namespace Mixedbread
                 Name = name,
                 Description = description,
                 IsPublic = isPublic,
+                License = license,
                 ExpiresAfter = expiresAfter,
                 Metadata = metadata,
             };

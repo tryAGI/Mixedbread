@@ -969,10 +969,10 @@
             "in": "query",
             "required": true,
             "schema": {
-              "enum": ["ingestion", "search"],
+              "enum": ["ingestion", "search", "agentic_search"],
               "type": "string",
               "description": "The type of event to list",
-              "examples": ["ingestion", "search"],
+              "examples": ["ingestion", "search", "agentic_search"],
               "title": "Event Type"
             },
             "description": "The type of event to list"
@@ -1423,40 +1423,6 @@
             }
           }
         }
-      }
-    },
-    "/v1/stores/files/search": {
-      "post": {
-        "tags": ["stores"],
-        "summary": "Search store files",
-        "description": "Search for files within a store based on semantic similarity.\n\nArgs:\n    store_identifier: The ID or name of the store to search within\n    search_params: Search configuration including query text, pagination, and filters\n\nReturns:\n    StoreFileSearchResponse: List of matching files with relevance scores",
-        "operationId": "search_store_files",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/StoreFileSearchParams",
-                "description": "Search parameters including query text and pagination options"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "List of files matching search criteria with relevance scores",
-            "content": {
-              "application/json": { "schema": { "$ref": "#/components/schemas/StoreFileSearchResponse" } }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": { "schema": { "$ref": "#/components/schemas/HTTPValidationError" } }
-            }
-          }
-        },
-        "security": [{ "ApiKeyAuth": [] }]
       }
     },
     "/v1/stores/{store_identifier}/rules": {
@@ -2360,43 +2326,6 @@
             }
           }
         }
-      }
-    },
-    "/v1/vector_stores/files/search": {
-      "post": {
-        "tags": ["deprecated_vector_stores"],
-        "summary": "[DEPRECATED] Search vector store files",
-        "description": "DEPRECATED: Use POST /stores/{store_identifier}/files/search instead",
-        "operationId": "search_vector_store_files",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/VectorStoreFileSearchParams",
-                "description": "Search parameters including query text and pagination options"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "List of files matching search criteria with relevance scores",
-            "content": {
-              "application/json": {
-                "schema": { "$ref": "#/components/schemas/VectorStoreFileSearchResponse" }
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": { "schema": { "$ref": "#/components/schemas/HTTPValidationError" } }
-            }
-          }
-        },
-        "deprecated": true,
-        "security": [{ "ApiKeyAuth": [] }]
       }
     },
     "/v1/vector_stores/{vector_store_identifier}/rules": {
@@ -4139,6 +4068,91 @@
         "title": "AgenticSearchConfig",
         "description": "Configuration for agentic multi-query search."
       },
+      "AgenticSearchTokenUsage": {
+        "properties": {
+          "prompt_tokens": {
+            "type": "integer",
+            "title": "Prompt Tokens",
+            "description": "Number of prompt tokens consumed",
+            "default": 0
+          },
+          "completion_tokens": {
+            "type": "integer",
+            "title": "Completion Tokens",
+            "description": "Number of completion tokens generated",
+            "default": 0
+          },
+          "total_tokens": {
+            "type": "integer",
+            "title": "Total Tokens",
+            "description": "Total tokens consumed (prompt + completion)",
+            "default": 0
+          },
+          "cost_usd": {
+            "type": "number",
+            "title": "Cost Usd",
+            "description": "Estimated cost in USD",
+            "default": 0
+          }
+        },
+        "type": "object",
+        "title": "AgenticSearchTokenUsage",
+        "description": "Token usage and cost for LLM calls made during an agentic search."
+      },
+      "AgenticToolCall": {
+        "properties": {
+          "tool_call_id": {
+            "type": "string",
+            "title": "Tool Call Id",
+            "description": "Unique identifier for the tool call (gen_ai.tool.call.id)"
+          },
+          "tool_name": {
+            "type": "string",
+            "title": "Tool Name",
+            "description": "Name of the tool invoked (gen_ai.tool.name)",
+            "examples": ["search_batch"]
+          },
+          "tool_type": {
+            "type": "string",
+            "enum": ["function", "extension", "datastore"],
+            "title": "Tool Type",
+            "description": "Category of the tool (gen_ai.tool.type)",
+            "default": "function"
+          },
+          "started_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Started At",
+            "description": "Time when the tool call began"
+          },
+          "duration": {
+            "type": "string",
+            "format": "duration",
+            "title": "Duration",
+            "description": "Time taken to execute the tool call"
+          },
+          "arguments": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Arguments",
+            "description": "Arguments passed to the tool (gen_ai.tool.call.arguments)"
+          },
+          "result": {
+            "anyOf": [{ "additionalProperties": true, "type": "object" }, { "type": "null" }],
+            "title": "Result",
+            "description": "Result returned to the model (gen_ai.tool.call.result). None if the tool errored."
+          },
+          "error": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Error",
+            "description": "Error message if the tool call failed"
+          }
+        },
+        "type": "object",
+        "required": ["tool_call_id", "tool_name", "started_at", "duration", "arguments"],
+        "title": "AgenticToolCall",
+        "description": "Represents a single tool call made by the agent during an agentic search.\n\nFields follow the OpenTelemetry GenAI semantic conventions for tool calls:\nhttps://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-spans/"
+      },
       "ApiKey": {
         "properties": {
           "id": { "type": "string", "title": "Id", "description": "The ID of the API key" },
@@ -4444,12 +4458,6 @@
             "description": "speech recognition (sr) text of the audio",
             "examples": ["The year 2025 reports for .."]
           },
-          "summary": {
-            "anyOf": [{ "type": "string" }, { "type": "null" }],
-            "title": "Summary",
-            "description": "summary of the audio",
-            "examples": ["A financial report audio for 2025"]
-          },
           "audio_url": {
             "anyOf": [{ "$ref": "#/components/schemas/AudioUrl" }, { "type": "null" }],
             "description": "Audio URL"
@@ -4748,6 +4756,12 @@
             "description": "Include all metadata or specific fields in the contextualization. Supports dot notation for nested fields (e.g., 'author.name'). When True, all metadata is included (flattened). When a list, only specified fields are included.",
             "default": false,
             "examples": [true, false, ["title", "author.name", "author.email", "tags"]]
+          },
+          "with_file_context": {
+            "type": "boolean",
+            "title": "With File Context",
+            "description": "Use an LLM to generate a short context for each text chunk that situates it within the full document, improving retrieval accuracy. Only applies to text content during non-sliced ingestion.",
+            "default": false
           }
         },
         "type": "object",
@@ -7188,209 +7202,6 @@
         "required": ["method"],
         "title": "Scope"
       },
-      "ScoredStoreFile": {
-        "properties": {
-          "id": { "type": "string", "title": "Id", "description": "Unique identifier for the file" },
-          "filename": { "type": "string", "title": "Filename", "description": "Name of the file" },
-          "metadata": {
-            "anyOf": [{}, { "type": "null" }],
-            "title": "Metadata",
-            "description": "Optional file metadata"
-          },
-          "external_id": {
-            "anyOf": [{ "type": "string" }, { "type": "null" }],
-            "title": "External Id",
-            "description": "External identifier for this file in the store"
-          },
-          "status": {
-            "$ref": "#/components/schemas/StoreFileStatus",
-            "description": "Processing status of the file",
-            "default": "pending"
-          },
-          "last_error": {
-            "anyOf": [{}, { "type": "null" }],
-            "title": "Last Error",
-            "description": "Last error message if processing failed"
-          },
-          "store_id": { "type": "string", "title": "Store Id", "description": "ID of the containing store" },
-          "created_at": {
-            "type": "string",
-            "format": "date-time",
-            "title": "Created At",
-            "description": "Timestamp of store file creation"
-          },
-          "version": {
-            "anyOf": [{ "type": "integer" }, { "type": "null" }],
-            "title": "Version",
-            "description": "Version number of the file",
-            "examples": [1]
-          },
-          "usage_bytes": {
-            "anyOf": [{ "type": "integer" }, { "type": "null" }],
-            "title": "Usage Bytes",
-            "description": "Storage usage in bytes",
-            "examples": [51200]
-          },
-          "usage_tokens": {
-            "anyOf": [{ "type": "integer" }, { "type": "null" }],
-            "title": "Usage Tokens",
-            "description": "Storage usage in tokens",
-            "examples": [51200]
-          },
-          "config": {
-            "anyOf": [{ "$ref": "#/components/schemas/StoreFileConfig" }, { "type": "null" }],
-            "description": "Configuration for the file"
-          },
-          "object": {
-            "type": "string",
-            "const": "store.file",
-            "title": "Object",
-            "description": "Type of the object",
-            "default": "store.file"
-          },
-          "chunks": {
-            "anyOf": [
-              {
-                "items": {
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/mxbai_omni__core__store__models__chunk_types__ScoredTextInputChunk"
-                    },
-                    {
-                      "$ref": "#/components/schemas/mxbai_omni__core__store__models__chunk_types__ScoredImageUrlInputChunk"
-                    },
-                    {
-                      "$ref": "#/components/schemas/mxbai_omni__core__store__models__chunk_types__ScoredAudioUrlInputChunk"
-                    },
-                    {
-                      "$ref": "#/components/schemas/mxbai_omni__core__store__models__chunk_types__ScoredVideoUrlInputChunk"
-                    }
-                  ],
-                  "discriminator": {
-                    "propertyName": "type",
-                    "mapping": {
-                      "audio_url": "#/components/schemas/mxbai_omni__core__store__models__chunk_types__ScoredAudioUrlInputChunk",
-                      "image_url": "#/components/schemas/mxbai_omni__core__store__models__chunk_types__ScoredImageUrlInputChunk",
-                      "text": "#/components/schemas/mxbai_omni__core__store__models__chunk_types__ScoredTextInputChunk",
-                      "video_url": "#/components/schemas/mxbai_omni__core__store__models__chunk_types__ScoredVideoUrlInputChunk"
-                    }
-                  }
-                },
-                "type": "array"
-              },
-              { "type": "null" }
-            ],
-            "title": "Chunks",
-            "description": "Array of scored file chunks"
-          },
-          "score": {
-            "type": "number",
-            "title": "Score",
-            "description": "score of the file",
-            "examples": [0.5]
-          }
-        },
-        "type": "object",
-        "required": ["id", "store_id", "created_at", "chunks", "score"],
-        "title": "ScoredStoreFile",
-        "description": "Represents a scored store file."
-      },
-      "ScoredVectorStoreFile": {
-        "properties": {
-          "id": { "type": "string", "title": "Id", "description": "Unique identifier for the file" },
-          "filename": { "type": "string", "title": "Filename", "description": "Name of the file" },
-          "metadata": {
-            "anyOf": [{}, { "type": "null" }],
-            "title": "Metadata",
-            "description": "Optional file metadata"
-          },
-          "status": {
-            "$ref": "#/components/schemas/StoreFileStatus",
-            "description": "Processing status of the file",
-            "default": "pending"
-          },
-          "last_error": {
-            "anyOf": [{}, { "type": "null" }],
-            "title": "Last Error",
-            "description": "Last error message if processing failed"
-          },
-          "vector_store_id": {
-            "type": "string",
-            "title": "Vector Store Id",
-            "description": "ID of the containing store"
-          },
-          "created_at": {
-            "type": "string",
-            "format": "date-time",
-            "title": "Created At",
-            "description": "Timestamp of store file creation"
-          },
-          "version": {
-            "anyOf": [{ "type": "integer" }, { "type": "null" }],
-            "title": "Version",
-            "description": "Version number of the file",
-            "examples": [1]
-          },
-          "usage_bytes": {
-            "anyOf": [{ "type": "integer" }, { "type": "null" }],
-            "title": "Usage Bytes",
-            "description": "Storage usage in bytes",
-            "examples": [51200]
-          },
-          "object": {
-            "type": "string",
-            "const": "vector_store.file",
-            "title": "Object",
-            "description": "Type of the object",
-            "default": "vector_store.file"
-          },
-          "chunks": {
-            "anyOf": [
-              {
-                "items": {
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/mxbai_omni__api__routes__v1__deprecated_vector_stores__models__ScoredTextInputChunk"
-                    },
-                    {
-                      "$ref": "#/components/schemas/mxbai_omni__api__routes__v1__deprecated_vector_stores__models__ScoredImageUrlInputChunk"
-                    },
-                    {
-                      "$ref": "#/components/schemas/mxbai_omni__api__routes__v1__deprecated_vector_stores__models__ScoredAudioUrlInputChunk"
-                    },
-                    {
-                      "$ref": "#/components/schemas/mxbai_omni__api__routes__v1__deprecated_vector_stores__models__ScoredVideoUrlInputChunk"
-                    }
-                  ],
-                  "discriminator": {
-                    "propertyName": "type",
-                    "mapping": {
-                      "audio_url": "#/components/schemas/mxbai_omni__api__routes__v1__deprecated_vector_stores__models__ScoredAudioUrlInputChunk",
-                      "image_url": "#/components/schemas/mxbai_omni__api__routes__v1__deprecated_vector_stores__models__ScoredImageUrlInputChunk",
-                      "text": "#/components/schemas/mxbai_omni__api__routes__v1__deprecated_vector_stores__models__ScoredTextInputChunk",
-                      "video_url": "#/components/schemas/mxbai_omni__api__routes__v1__deprecated_vector_stores__models__ScoredVideoUrlInputChunk"
-                    }
-                  }
-                },
-                "type": "array"
-              },
-              { "type": "null" }
-            ],
-            "title": "Chunks",
-            "description": "Array of scored file chunks"
-          },
-          "score": {
-            "type": "number",
-            "title": "Score",
-            "description": "score of the file",
-            "examples": [0.5]
-          }
-        },
-        "type": "object",
-        "required": ["id", "vector_store_id", "created_at", "chunks", "score"],
-        "title": "ScoredVectorStoreFile",
-        "description": "Represents a scored store file."
-      },
       "SearchCursorPagination": {
         "properties": {
           "limit": {
@@ -7587,6 +7398,11 @@
             "default": false,
             "examples": [false]
           },
+          "license": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "License",
+            "description": "License for public stores"
+          },
           "metadata": {
             "anyOf": [{}, { "type": "null" }],
             "title": "Metadata",
@@ -7661,6 +7477,78 @@
         "required": ["id", "name", "created_at", "updated_at"],
         "title": "Store",
         "description": "Model representing a store with its metadata and timestamps."
+      },
+      "StoreAgenticSearchEvent": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Id",
+            "description": "Unique identifier for the event"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At",
+            "description": "Timestamp when the event was created"
+          },
+          "type": {
+            "type": "string",
+            "const": "agentic_search",
+            "title": "Type",
+            "default": "agentic_search"
+          },
+          "store_ids": {
+            "items": { "type": "string", "format": "uuid" },
+            "type": "array",
+            "title": "Store Ids",
+            "description": "IDs of the vector stores searched"
+          },
+          "started_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Started At",
+            "description": "Time when the agentic search began"
+          },
+          "search_time": {
+            "type": "string",
+            "format": "duration",
+            "title": "Search Time",
+            "description": "Total wall-clock time of the agent loop",
+            "default": "PT0S"
+          },
+          "query": {
+            "type": "string",
+            "title": "Query",
+            "description": "Original query submitted by the user"
+          },
+          "rounds_executed": {
+            "type": "integer",
+            "title": "Rounds Executed",
+            "description": "Number of search rounds the agent executed",
+            "default": 0
+          },
+          "token_usage": {
+            "$ref": "#/components/schemas/AgenticSearchTokenUsage",
+            "description": "Token usage and cost for LLM calls during the agentic search"
+          },
+          "tool_calls": {
+            "items": { "$ref": "#/components/schemas/AgenticToolCall" },
+            "type": "array",
+            "title": "Tool Calls",
+            "description": "Ordered tool calls issued by the agent"
+          },
+          "results": {
+            "items": { "$ref": "#/components/schemas/StoreSearchEventResult" },
+            "type": "array",
+            "title": "Results",
+            "description": "Chunks returned by the agentic search"
+          }
+        },
+        "type": "object",
+        "required": ["id", "created_at", "store_ids", "started_at", "query"],
+        "title": "StoreAgenticSearchEvent",
+        "description": "Represents an agentic search trace in a vector store.\n\nUnlike StoreSearchEvent, this captures the full sequence of tool calls the\nagent issued (name, arguments, result) so developers can inspect what the\nagent did, along with the token usage and cost."
       },
       "StoreChunkSearchOptions": {
         "properties": {
@@ -7866,6 +7754,11 @@
             "default": false,
             "examples": [false]
           },
+          "license": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "License",
+            "description": "License for public stores"
+          },
           "expires_after": {
             "anyOf": [{ "$ref": "#/components/schemas/ExpiresAfter" }, { "type": "null" }],
             "description": "Optional expiration policy"
@@ -8051,11 +7944,13 @@
             "items": {
               "oneOf": [
                 { "$ref": "#/components/schemas/StoreIngestionEvent" },
-                { "$ref": "#/components/schemas/StoreSearchEvent" }
+                { "$ref": "#/components/schemas/StoreSearchEvent" },
+                { "$ref": "#/components/schemas/StoreAgenticSearchEvent" }
               ],
               "discriminator": {
                 "propertyName": "type",
                 "mapping": {
+                  "agentic_search": "#/components/schemas/StoreAgenticSearchEvent",
                   "ingestion": "#/components/schemas/StoreIngestionEvent",
                   "search": "#/components/schemas/StoreSearchEvent"
                 }
@@ -8156,10 +8051,15 @@
             ],
             "title": "Chunks",
             "description": "chunks"
+          },
+          "content_url": {
+            "type": "string",
+            "title": "Content Url",
+            "description": "Presigned URL for file content"
           }
         },
         "type": "object",
-        "required": ["id", "store_id", "created_at"],
+        "required": ["id", "store_id", "created_at", "content_url"],
         "title": "StoreFile",
         "description": "Represents a file stored in a store."
       },
@@ -8235,161 +8135,6 @@
         "enum": ["fast", "high_quality"],
         "title": "StoreFileParsingStrategy",
         "description": "Strategy for adding a file to a store."
-      },
-      "StoreFileSearchOptions": {
-        "properties": {
-          "score_threshold": {
-            "type": "number",
-            "maximum": 1,
-            "minimum": 0,
-            "title": "Score Threshold",
-            "description": "Minimum similarity score threshold",
-            "default": 0
-          },
-          "rewrite_query": {
-            "type": "boolean",
-            "title": "Rewrite Query",
-            "description": "Whether to rewrite the query. Ignored when agentic is enabled (the agent handles query decomposition).",
-            "default": false
-          },
-          "rerank": {
-            "anyOf": [
-              { "type": "boolean" },
-              { "$ref": "#/components/schemas/RerankConfig" },
-              { "type": "null" }
-            ],
-            "title": "Rerank",
-            "description": "Whether to rerank results and optional reranking configuration. Ignored when agentic is enabled (the agent handles ranking)."
-          },
-          "agentic": {
-            "anyOf": [
-              { "type": "boolean" },
-              { "$ref": "#/components/schemas/AgenticSearchConfig" },
-              { "type": "null" }
-            ],
-            "title": "Agentic",
-            "description": "Whether to use agentic multi-query search with automatic query decomposition and ranking. When enabled, rewrite_query and rerank options are ignored."
-          },
-          "return_metadata": {
-            "type": "boolean",
-            "title": "Return Metadata",
-            "description": "Whether to return file metadata",
-            "default": true
-          },
-          "return_chunks": {
-            "type": "boolean",
-            "title": "Return Chunks",
-            "description": "Whether to return matching text chunks",
-            "default": false
-          },
-          "chunks_per_file": {
-            "type": "integer",
-            "title": "Chunks Per File",
-            "description": "Number of chunks to return for each file",
-            "default": 1
-          },
-          "apply_search_rules": {
-            "type": "boolean",
-            "title": "Apply Search Rules",
-            "description": "Whether to apply search rules",
-            "default": true
-          }
-        },
-        "type": "object",
-        "title": "StoreFileSearchOptions",
-        "description": "Options for configuring store file searches."
-      },
-      "StoreFileSearchParams": {
-        "properties": {
-          "query": {
-            "$ref": "#/components/schemas/MultiModalQuery",
-            "description": "Search query text",
-            "examples": ["how to configure SSL"]
-          },
-          "store_identifiers": {
-            "items": { "anyOf": [{ "type": "string" }, { "type": "string", "format": "uuid" }] },
-            "type": "array",
-            "maxItems": 100,
-            "minItems": 1,
-            "title": "Store Identifiers",
-            "description": "IDs or names of stores to search"
-          },
-          "top_k": {
-            "type": "integer",
-            "minimum": 1,
-            "title": "Top K",
-            "description": "Number of results to return",
-            "default": 10
-          },
-          "filters": {
-            "anyOf": [
-              { "$ref": "#/components/schemas/SearchFilter" },
-              { "$ref": "#/components/schemas/SearchFilterCondition" },
-              {
-                "items": {
-                  "anyOf": [
-                    { "$ref": "#/components/schemas/SearchFilter" },
-                    { "$ref": "#/components/schemas/SearchFilterCondition" }
-                  ]
-                },
-                "type": "array"
-              },
-              { "type": "null" }
-            ],
-            "title": "Filters",
-            "description": "Optional filter conditions"
-          },
-          "file_ids": {
-            "anyOf": [
-              {
-                "prefixItems": [
-                  { "$ref": "#/components/schemas/ConditionOperator" },
-                  { "items": { "type": "string", "format": "uuid" }, "type": "array" }
-                ],
-                "type": "array",
-                "maxItems": 2,
-                "minItems": 2
-              },
-              { "items": { "type": "string", "format": "uuid" }, "type": "array" },
-              { "type": "null" }
-            ],
-            "title": "File Ids",
-            "description": "Optional list of file IDs to filter chunks by (inclusion filter)",
-            "examples": [
-              ["123e4567-e89b-12d3-a456-426614174000", "123e4567-e89b-12d3-a456-426614174001"],
-              ["in", ["123e4567-e89b-12d3-a456-426614174000"]],
-              ["not_in", ["123e4567-e89b-12d3-a456-426614174000"]]
-            ]
-          },
-          "search_options": {
-            "$ref": "#/components/schemas/StoreFileSearchOptions",
-            "description": "Search configuration options"
-          }
-        },
-        "type": "object",
-        "required": ["query", "store_identifiers"],
-        "title": "StoreFileSearchParams",
-        "description": "Query parameters for searching store files."
-      },
-      "StoreFileSearchResponse": {
-        "properties": {
-          "object": {
-            "type": "string",
-            "const": "list",
-            "title": "Object",
-            "description": "The object type of the response",
-            "default": "list"
-          },
-          "data": {
-            "items": { "$ref": "#/components/schemas/ScoredStoreFile" },
-            "type": "array",
-            "title": "Data",
-            "description": "The list of scored store files"
-          }
-        },
-        "type": "object",
-        "required": ["data"],
-        "title": "StoreFileSearchResponse"
       },
       "StoreFileStatus": {
         "type": "string",
@@ -8667,12 +8412,52 @@
             "title": "Rerank",
             "description": "Whether to rerank the results",
             "default": false
+          },
+          "results": {
+            "items": { "$ref": "#/components/schemas/StoreSearchEventResult" },
+            "type": "array",
+            "title": "Results",
+            "description": "Chunks returned by the search"
           }
         },
         "type": "object",
         "required": ["id", "created_at", "store_ids", "query"],
         "title": "StoreSearchEvent",
         "description": "Represents a search event in a vector store."
+      },
+      "StoreSearchEventResult": {
+        "properties": {
+          "file_id": {
+            "type": "string",
+            "title": "File Id",
+            "description": "ID of the file the chunk belongs to"
+          },
+          "filename": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Filename",
+            "description": "Name of the file the chunk belongs to"
+          },
+          "chunk_index": {
+            "type": "integer",
+            "title": "Chunk Index",
+            "description": "Index of the chunk within its file"
+          },
+          "score": { "type": "number", "title": "Score", "description": "Final score assigned to the chunk" },
+          "first_stage_position": {
+            "anyOf": [{ "type": "integer" }, { "type": "null" }],
+            "title": "First Stage Position",
+            "description": "Position of the chunk in the first-stage ranking"
+          },
+          "first_stage_source": {
+            "anyOf": [{ "type": "string", "enum": ["dense", "sparse", "both"] }, { "type": "null" }],
+            "title": "First Stage Source",
+            "description": "Which first-stage retriever surfaced the chunk"
+          }
+        },
+        "type": "object",
+        "required": ["file_id", "chunk_index", "score"],
+        "title": "StoreSearchEventResult",
+        "description": "A single result captured on a search event."
       },
       "StoreSearchResponse": {
         "properties": {
@@ -8740,6 +8525,11 @@
             "anyOf": [{ "type": "boolean" }, { "type": "null" }],
             "title": "Is Public",
             "description": "Whether the store can be accessed by anyone with valid login credentials"
+          },
+          "license": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "License",
+            "description": "License for public stores"
           },
           "expires_after": {
             "anyOf": [{ "$ref": "#/components/schemas/ExpiresAfter" }, { "type": "null" }],
@@ -8880,6 +8670,12 @@
             "anyOf": [{ "type": "string" }, { "type": "null" }],
             "title": "Text",
             "description": "Text content"
+          },
+          "context": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Context",
+            "description": "LLM-generated context that situates this chunk within its source document",
+            "examples": ["This chunk is from an SEC filing on ACME corp's Q2 2023 performance."]
           }
         },
         "type": "object",
@@ -9389,164 +9185,6 @@
         "title": "VectorStoreFileListResponse",
         "description": "List response wrapper for vector store files."
       },
-      "VectorStoreFileSearchOptions": {
-        "properties": {
-          "score_threshold": {
-            "type": "number",
-            "maximum": 1,
-            "minimum": 0,
-            "title": "Score Threshold",
-            "description": "Minimum similarity score threshold",
-            "default": 0
-          },
-          "rewrite_query": {
-            "type": "boolean",
-            "title": "Rewrite Query",
-            "description": "Whether to rewrite the query. Ignored when agentic is enabled (the agent handles query decomposition).",
-            "default": false
-          },
-          "rerank": {
-            "anyOf": [
-              { "type": "boolean" },
-              { "$ref": "#/components/schemas/RerankConfig" },
-              { "type": "null" }
-            ],
-            "title": "Rerank",
-            "description": "Whether to rerank results and optional reranking configuration. Ignored when agentic is enabled (the agent handles ranking)."
-          },
-          "agentic": {
-            "anyOf": [
-              { "type": "boolean" },
-              { "$ref": "#/components/schemas/AgenticSearchConfig" },
-              { "type": "null" }
-            ],
-            "title": "Agentic",
-            "description": "Whether to use agentic multi-query search with automatic query decomposition and ranking. When enabled, rewrite_query and rerank options are ignored."
-          },
-          "return_metadata": {
-            "type": "boolean",
-            "title": "Return Metadata",
-            "description": "Whether to return file metadata",
-            "default": true
-          },
-          "return_chunks": {
-            "type": "boolean",
-            "title": "Return Chunks",
-            "description": "Whether to return matching text chunks",
-            "default": false
-          },
-          "chunks_per_file": {
-            "type": "integer",
-            "title": "Chunks Per File",
-            "description": "Number of chunks to return for each file",
-            "default": 1
-          },
-          "apply_search_rules": {
-            "type": "boolean",
-            "title": "Apply Search Rules",
-            "description": "Whether to apply search rules",
-            "default": true
-          }
-        },
-        "type": "object",
-        "title": "VectorStoreFileSearchOptions",
-        "description": "Options for configuring vector store file searches."
-      },
-      "VectorStoreFileSearchParams": {
-        "properties": {
-          "query": {
-            "type": "string",
-            "minLength": 1,
-            "title": "Query",
-            "description": "Search query text",
-            "examples": ["how to configure SSL"]
-          },
-          "vector_store_identifiers": {
-            "items": { "anyOf": [{ "type": "string" }, { "type": "string", "format": "uuid" }] },
-            "type": "array",
-            "maxItems": 100,
-            "minItems": 1,
-            "title": "Vector Store Identifiers",
-            "description": "IDs or names of vector stores to search"
-          },
-          "top_k": {
-            "type": "integer",
-            "minimum": 1,
-            "title": "Top K",
-            "description": "Number of results to return",
-            "default": 10
-          },
-          "filters": {
-            "anyOf": [
-              { "$ref": "#/components/schemas/SearchFilter" },
-              { "$ref": "#/components/schemas/SearchFilterCondition" },
-              {
-                "items": {
-                  "anyOf": [
-                    { "$ref": "#/components/schemas/SearchFilter" },
-                    { "$ref": "#/components/schemas/SearchFilterCondition" }
-                  ]
-                },
-                "type": "array"
-              },
-              { "type": "null" }
-            ],
-            "title": "Filters",
-            "description": "Optional filter conditions"
-          },
-          "file_ids": {
-            "anyOf": [
-              {
-                "prefixItems": [
-                  { "$ref": "#/components/schemas/ConditionOperator" },
-                  { "items": { "type": "string", "format": "uuid" }, "type": "array" }
-                ],
-                "type": "array",
-                "maxItems": 2,
-                "minItems": 2
-              },
-              { "items": { "type": "string", "format": "uuid" }, "type": "array" },
-              { "type": "null" }
-            ],
-            "title": "File Ids",
-            "description": "Optional list of file IDs to filter chunks by (inclusion filter)",
-            "examples": [
-              ["123e4567-e89b-12d3-a456-426614174000", "123e4567-e89b-12d3-a456-426614174001"],
-              ["in", ["123e4567-e89b-12d3-a456-426614174000"]],
-              ["not_in", ["123e4567-e89b-12d3-a456-426614174000"]]
-            ]
-          },
-          "search_options": {
-            "$ref": "#/components/schemas/VectorStoreFileSearchOptions",
-            "description": "Search configuration options"
-          }
-        },
-        "type": "object",
-        "required": ["query", "vector_store_identifiers"],
-        "title": "VectorStoreFileSearchParams",
-        "description": "Query parameters for searching store files."
-      },
-      "VectorStoreFileSearchResponse": {
-        "properties": {
-          "object": {
-            "type": "string",
-            "const": "list",
-            "title": "Object",
-            "description": "The object type of the response",
-            "default": "list"
-          },
-          "data": {
-            "items": { "$ref": "#/components/schemas/ScoredVectorStoreFile" },
-            "type": "array",
-            "title": "Data",
-            "description": "The list of scored vector store files"
-          }
-        },
-        "type": "object",
-        "required": ["data"],
-        "title": "VectorStoreFileSearchResponse",
-        "description": "Search response wrapper for vector store files."
-      },
       "VectorStoreFileStatus": {
         "type": "string",
         "enum": ["pending", "in_progress", "cancelled", "completed", "failed"],
@@ -9995,12 +9633,6 @@
             "description": "speech recognition (sr) text of the audio",
             "examples": ["The year 2025 reports for .."]
           },
-          "summary": {
-            "anyOf": [{ "type": "string" }, { "type": "null" }],
-            "title": "Summary",
-            "description": "summary of the audio",
-            "examples": ["A financial report audio for 2025"]
-          },
           "audio_url": {
             "anyOf": [{ "$ref": "#/components/schemas/AudioUrl" }, { "type": "null" }],
             "description": "Audio URL"
@@ -10243,6 +9875,12 @@
             "anyOf": [{ "type": "string" }, { "type": "null" }],
             "title": "Text",
             "description": "Text content"
+          },
+          "context": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Context",
+            "description": "LLM-generated context that situates this chunk within its source document",
+            "examples": ["This chunk is from an SEC filing on ACME corp's Q2 2023 performance."]
           }
         },
         "type": "object",
@@ -10908,12 +10546,6 @@
             "description": "speech recognition (sr) text of the audio",
             "examples": ["The year 2025 reports for .."]
           },
-          "summary": {
-            "anyOf": [{ "type": "string" }, { "type": "null" }],
-            "title": "Summary",
-            "description": "summary of the audio",
-            "examples": ["A financial report audio for 2025"]
-          },
           "audio_url": {
             "anyOf": [{ "$ref": "#/components/schemas/AudioUrl" }, { "type": "null" }],
             "description": "Audio URL"
@@ -11166,6 +10798,12 @@
             "anyOf": [{ "type": "string" }, { "type": "null" }],
             "title": "Text",
             "description": "Text content"
+          },
+          "context": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Context",
+            "description": "LLM-generated context that situates this chunk within its source document",
+            "examples": ["This chunk is from an SEC filing on ACME corp's Q2 2023 performance."]
           }
         },
         "type": "object",

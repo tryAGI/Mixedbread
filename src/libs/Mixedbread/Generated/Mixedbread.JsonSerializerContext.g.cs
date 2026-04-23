@@ -13,6 +13,10 @@ namespace Mixedbread
         DefaultIgnoreCondition = global::System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull,
         Converters = new global::System.Type[]
         {
+            typeof(global::Mixedbread.JsonConverters.AgenticToolCallToolTypeJsonConverter),
+
+            typeof(global::Mixedbread.JsonConverters.AgenticToolCallToolTypeNullableJsonConverter),
+
             typeof(global::Mixedbread.JsonConverters.AudioUrlInputChunkGeneratedMetadataVariant1DiscriminatorTypeJsonConverter),
 
             typeof(global::Mixedbread.JsonConverters.AudioUrlInputChunkGeneratedMetadataVariant1DiscriminatorTypeNullableJsonConverter),
@@ -77,14 +81,6 @@ namespace Mixedbread
 
             typeof(global::Mixedbread.JsonConverters.ScopeMethodNullableJsonConverter),
 
-            typeof(global::Mixedbread.JsonConverters.ScoredStoreFileChunksVariant1ItemDiscriminatorTypeJsonConverter),
-
-            typeof(global::Mixedbread.JsonConverters.ScoredStoreFileChunksVariant1ItemDiscriminatorTypeNullableJsonConverter),
-
-            typeof(global::Mixedbread.JsonConverters.ScoredVectorStoreFileChunksVariant1ItemDiscriminatorTypeJsonConverter),
-
-            typeof(global::Mixedbread.JsonConverters.ScoredVectorStoreFileChunksVariant1ItemDiscriminatorTypeNullableJsonConverter),
-
             typeof(global::Mixedbread.JsonConverters.StoreEventHistogramBucketTypeJsonConverter),
 
             typeof(global::Mixedbread.JsonConverters.StoreEventHistogramBucketTypeNullableJsonConverter),
@@ -108,6 +104,10 @@ namespace Mixedbread
             typeof(global::Mixedbread.JsonConverters.StoreQAResultsSourceDiscriminatorTypeJsonConverter),
 
             typeof(global::Mixedbread.JsonConverters.StoreQAResultsSourceDiscriminatorTypeNullableJsonConverter),
+
+            typeof(global::Mixedbread.JsonConverters.StoreSearchEventResultFirstStageSource2JsonConverter),
+
+            typeof(global::Mixedbread.JsonConverters.StoreSearchEventResultFirstStageSource2NullableJsonConverter),
 
             typeof(global::Mixedbread.JsonConverters.StoreSearchResponseDataItemDiscriminatorTypeJsonConverter),
 
@@ -237,13 +237,9 @@ namespace Mixedbread
 
             typeof(global::Mixedbread.JsonConverters.AuthParamsVariant13JsonConverter),
 
-            typeof(global::Mixedbread.JsonConverters.ChunksVariant1ItemJsonConverter),
-
-            typeof(global::Mixedbread.JsonConverters.ChunksVariant1Item2JsonConverter),
-
             typeof(global::Mixedbread.JsonConverters.DataItemJsonConverter),
 
-            typeof(global::Mixedbread.JsonConverters.ChunksVariant1Item3JsonConverter),
+            typeof(global::Mixedbread.JsonConverters.ChunksVariant1ItemJsonConverter),
 
             typeof(global::Mixedbread.JsonConverters.SourcesItemJsonConverter),
 
@@ -251,7 +247,7 @@ namespace Mixedbread
 
             typeof(global::Mixedbread.JsonConverters.GeneratedMetadataVariant13JsonConverter),
 
-            typeof(global::Mixedbread.JsonConverters.ChunksVariant1Item4JsonConverter),
+            typeof(global::Mixedbread.JsonConverters.ChunksVariant1Item2JsonConverter),
 
             typeof(global::Mixedbread.JsonConverters.SourcesItem2JsonConverter),
 
@@ -361,20 +357,6 @@ namespace Mixedbread
 
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?>),
 
-            typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<bool?, global::Mixedbread.RerankConfig, object>),
-
-            typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<bool?, global::Mixedbread.AgenticSearchConfig, object>),
-
-            typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?>),
-
-            typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition>>, object>),
-
-            typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition>),
-
-            typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.ConditionOperator?, global::System.Collections.Generic.IList<global::System.Guid>>>, global::System.Collections.Generic.IList<global::System.Guid>, object>),
-
-            typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<global::Mixedbread.ConditionOperator?, global::System.Collections.Generic.IList<global::System.Guid>>),
-
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?>),
 
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition>>, object>),
@@ -402,20 +384,6 @@ namespace Mixedbread
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<global::Mixedbread.ConditionOperator?, global::System.Collections.Generic.IList<global::System.Guid>>),
 
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?>),
-
-            typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<bool?, global::Mixedbread.RerankConfig, object>),
-
-            typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<bool?, global::Mixedbread.AgenticSearchConfig, object>),
-
-            typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?>),
-
-            typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition>>, object>),
-
-            typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition>),
-
-            typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.ConditionOperator?, global::System.Collections.Generic.IList<global::System.Guid>>>, global::System.Collections.Generic.IList<global::System.Guid>, object>),
-
-            typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<global::Mixedbread.ConditionOperator?, global::System.Collections.Generic.IList<global::System.Guid>>),
 
             typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?>),
 
@@ -510,8 +478,12 @@ namespace Mixedbread
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(int))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(string))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(object))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.ApiKey))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.AgenticSearchTokenUsage))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(double))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.AgenticToolCall))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.AgenticToolCallToolType), TypeInfoPropertyName = "AgenticToolCallToolType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.DateTime))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.ApiKey))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Mixedbread.Scope>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.Scope))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.ApiKeyCreateOrUpdateParams))]
@@ -524,7 +496,6 @@ namespace Mixedbread
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Mixedbread.ApiKey>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.ApiKeyUpdateParams))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.AudioChunkGeneratedMetadata))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(double))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.AudioUrl))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.AudioUrlInputChunk))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.GeneratedMetadataVariant1))]
@@ -708,28 +679,14 @@ namespace Mixedbread
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Mixedbread.RankedDocument>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.ScopeMethod), TypeInfoPropertyName = "ScopeMethod2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.AnyOf<string, global::System.Guid?, object>), TypeInfoPropertyName = "AnyOfStringGuidObject2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.ScoredStoreFile))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Mixedbread.ChunksVariant1Item>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.ChunksVariant1Item), TypeInfoPropertyName = "ChunksVariant1Item2_3")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredTextInputChunk))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredImageUrlInputChunk))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredAudioUrlInputChunk))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredVideoUrlInputChunk))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.ScoredStoreFileChunksVariant1ItemDiscriminator))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.ScoredStoreFileChunksVariant1ItemDiscriminatorType), TypeInfoPropertyName = "ScoredStoreFileChunksVariant1ItemDiscriminatorType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.ScoredVectorStoreFile))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Mixedbread.ChunksVariant1Item2>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.ChunksVariant1Item2), TypeInfoPropertyName = "ChunksVariant1Item22")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredTextInputChunk))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredImageUrlInputChunk))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredAudioUrlInputChunk))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredVideoUrlInputChunk))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.ScoredVectorStoreFileChunksVariant1ItemDiscriminator))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.ScoredVectorStoreFileChunksVariant1ItemDiscriminatorType), TypeInfoPropertyName = "ScoredVectorStoreFileChunksVariant1ItemDiscriminatorType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.SearchCursorPagination))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.Store))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.StoreConfig2))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.StoreStatus), TypeInfoPropertyName = "StoreStatus2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.StoreAgenticSearchEvent))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Mixedbread.AgenticToolCall>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Mixedbread.StoreSearchEventResult>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.StoreSearchEventResult))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.AnyOf<bool?, global::Mixedbread.RerankConfig, object>), TypeInfoPropertyName = "AnyOfBooleanRerankConfigObject2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.AnyOf<bool?, global::Mixedbread.AgenticSearchConfig, object>), TypeInfoPropertyName = "AnyOfBooleanAgenticSearchConfigObject2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.StoreChunkSearchParams))]
@@ -752,8 +709,8 @@ namespace Mixedbread
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.StoreEventListResponseDataItemDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.StoreEventListResponseDataItemDiscriminatorType), TypeInfoPropertyName = "StoreEventListResponseDataItemDiscriminatorType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.StoreFile))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Mixedbread.ChunksVariant1Item3>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.ChunksVariant1Item3), TypeInfoPropertyName = "ChunksVariant1Item32")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Mixedbread.ChunksVariant1Item>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.ChunksVariant1Item), TypeInfoPropertyName = "ChunksVariant1Item2_3")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.TextInputChunk))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.VideoUrlInputChunk))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.StoreFileChunksVariant1ItemDiscriminator))]
@@ -763,18 +720,19 @@ namespace Mixedbread
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.StoreFileListResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Mixedbread.StoreFile>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.StoreFileMetadataUpdateParams))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.StoreFileSearchOptions))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.StoreFileSearchParams))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.StoreFileSearchResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Mixedbread.ScoredStoreFile>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.StoreListResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Mixedbread.Store>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.StoreQAParams))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.StoreQAResults))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Mixedbread.SourcesItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.SourcesItem), TypeInfoPropertyName = "SourcesItem2_3")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredTextInputChunk))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredImageUrlInputChunk))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredAudioUrlInputChunk))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredVideoUrlInputChunk))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.StoreQAResultsSourceDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.StoreQAResultsSourceDiscriminatorType), TypeInfoPropertyName = "StoreQAResultsSourceDiscriminatorType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.StoreSearchEventResultFirstStageSource2))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.StoreSearchResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Mixedbread.DataItem2>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.DataItem2), TypeInfoPropertyName = "DataItem22")]
@@ -793,17 +751,13 @@ namespace Mixedbread
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.VectorStoreCreateParams))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.VectorStoreDeleted))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.VectorStoreFile))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Mixedbread.ChunksVariant1Item4>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.ChunksVariant1Item4), TypeInfoPropertyName = "ChunksVariant1Item42")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Mixedbread.ChunksVariant1Item2>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.ChunksVariant1Item2), TypeInfoPropertyName = "ChunksVariant1Item22")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.VectorStoreFileChunksVariant1ItemDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.VectorStoreFileChunksVariant1ItemDiscriminatorType), TypeInfoPropertyName = "VectorStoreFileChunksVariant1ItemDiscriminatorType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.VectorStoreFileDeleted))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.VectorStoreFileListResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Mixedbread.VectorStoreFile>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.VectorStoreFileSearchOptions))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.VectorStoreFileSearchParams))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.VectorStoreFileSearchResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Mixedbread.ScoredVectorStoreFile>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.VectorStoreFileStatus), TypeInfoPropertyName = "VectorStoreFileStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.VectorStoreListResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Mixedbread.VectorStore>))]
@@ -811,6 +765,10 @@ namespace Mixedbread
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.VectorStoreQAResults))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Mixedbread.SourcesItem2>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.SourcesItem2), TypeInfoPropertyName = "SourcesItem22")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredTextInputChunk))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredImageUrlInputChunk))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredAudioUrlInputChunk))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredVideoUrlInputChunk))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.VectorStoreQAResultsSourceDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.VectorStoreQAResultsSourceDiscriminatorType), TypeInfoPropertyName = "VectorStoreQAResultsSourceDiscriminatorType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.VectorStoreSearchResponse))]
@@ -943,21 +901,19 @@ namespace Mixedbread
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.AnyOf<string, object, global::System.Collections.Generic.List<object>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<object>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Mixedbread.RankedDocument>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Mixedbread.ChunksVariant1Item>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Mixedbread.ChunksVariant1Item2>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Mixedbread.AgenticToolCall>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Mixedbread.StoreSearchEventResult>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Mixedbread.StoreCostInfo>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Mixedbread.StoreEventHistogramBucket>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Mixedbread.DataItem>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Mixedbread.ChunksVariant1Item3>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Mixedbread.ChunksVariant1Item>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Mixedbread.StoreFile>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Mixedbread.ScoredStoreFile>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Mixedbread.Store>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Mixedbread.SourcesItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Mixedbread.DataItem2>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Mixedbread.AnyOf<string, int?>>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Mixedbread.ChunksVariant1Item4>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Mixedbread.ChunksVariant1Item2>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Mixedbread.VectorStoreFile>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Mixedbread.ScoredVectorStoreFile>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Mixedbread.VectorStore>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Mixedbread.SourcesItem2>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Mixedbread.DataItem3>))]

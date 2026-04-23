@@ -28,6 +28,12 @@ namespace Mixedbread
         public bool? IsPublic { get; set; }
 
         /// <summary>
+        /// License for public stores
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("license")]
+        public string? License { get; set; }
+
+        /// <summary>
         /// Optional expiration policy
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("expires_after")]
@@ -70,6 +76,9 @@ namespace Mixedbread
         /// Whether the store can be accessed by anyone with valid login credentials<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="license">
+        /// License for public stores
+        /// </param>
         /// <param name="expiresAfter">
         /// Optional expiration policy
         /// </param>
@@ -89,6 +98,7 @@ namespace Mixedbread
             string? name,
             string? description,
             bool? isPublic,
+            string? license,
             global::Mixedbread.ExpiresAfter? expiresAfter,
             object? metadata,
             global::Mixedbread.StoreConfig2? config,
@@ -97,6 +107,7 @@ namespace Mixedbread
             this.Name = name;
             this.Description = description;
             this.IsPublic = isPublic;
+            this.License = license;
             this.ExpiresAfter = expiresAfter;
             this.Metadata = metadata;
             this.Config = config;

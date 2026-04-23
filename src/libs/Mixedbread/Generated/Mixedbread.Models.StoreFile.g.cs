@@ -96,7 +96,14 @@ namespace Mixedbread
         /// chunks
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("chunks")]
-        public global::System.Collections.Generic.IList<global::Mixedbread.ChunksVariant1Item3>? Chunks { get; set; }
+        public global::System.Collections.Generic.IList<global::Mixedbread.ChunksVariant1Item>? Chunks { get; set; }
+
+        /// <summary>
+        /// Presigned URL for file content
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("content_url")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string ContentUrl { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -115,6 +122,9 @@ namespace Mixedbread
         /// </param>
         /// <param name="createdAt">
         /// Timestamp of store file creation
+        /// </param>
+        /// <param name="contentUrl">
+        /// Presigned URL for file content
         /// </param>
         /// <param name="filename">
         /// Name of the file
@@ -158,6 +168,7 @@ namespace Mixedbread
             string id,
             string storeId,
             global::System.DateTime createdAt,
+            string contentUrl,
             string? filename,
             object? metadata,
             string? externalId,
@@ -168,7 +179,7 @@ namespace Mixedbread
             int? usageTokens,
             global::Mixedbread.StoreFileConfig2? config,
             string? @object,
-            global::System.Collections.Generic.IList<global::Mixedbread.ChunksVariant1Item3>? chunks)
+            global::System.Collections.Generic.IList<global::Mixedbread.ChunksVariant1Item>? chunks)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Filename = filename;
@@ -184,6 +195,7 @@ namespace Mixedbread
             this.Config = config;
             this.Object = @object;
             this.Chunks = chunks;
+            this.ContentUrl = contentUrl ?? throw new global::System.ArgumentNullException(nameof(contentUrl));
         }
 
         /// <summary>

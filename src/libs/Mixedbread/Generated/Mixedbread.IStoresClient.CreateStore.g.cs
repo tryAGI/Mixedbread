@@ -39,6 +39,9 @@ namespace Mixedbread
         /// Whether the store can be accessed by anyone with valid login credentials<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="license">
+        /// License for public stores
+        /// </param>
         /// <param name="expiresAfter">
         /// Optional expiration policy
         /// </param>
@@ -58,6 +61,7 @@ namespace Mixedbread
             string? name = default,
             string? description = default,
             bool? isPublic = default,
+            string? license = default,
             global::Mixedbread.ExpiresAfter? expiresAfter = default,
             object? metadata = default,
             global::Mixedbread.StoreConfig2? config = default,

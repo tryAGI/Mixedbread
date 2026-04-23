@@ -63,6 +63,12 @@ namespace Mixedbread
         public bool? Rerank { get; set; }
 
         /// <summary>
+        /// Chunks returned by the search
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("results")]
+        public global::System.Collections.Generic.IList<global::Mixedbread.StoreSearchEventResult>? Results { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -97,6 +103,9 @@ namespace Mixedbread
         /// Whether to rerank the results<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="results">
+        /// Chunks returned by the search
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -108,7 +117,8 @@ namespace Mixedbread
             string? type,
             string? searchTime,
             string? rewrittenQuery,
-            bool? rerank)
+            bool? rerank,
+            global::System.Collections.Generic.IList<global::Mixedbread.StoreSearchEventResult>? results)
         {
             this.Id = id;
             this.CreatedAt = createdAt;
@@ -118,6 +128,7 @@ namespace Mixedbread
             this.Query = query ?? throw new global::System.ArgumentNullException(nameof(query));
             this.RewrittenQuery = rewrittenQuery;
             this.Rerank = rerank;
+            this.Results = results;
         }
 
         /// <summary>
