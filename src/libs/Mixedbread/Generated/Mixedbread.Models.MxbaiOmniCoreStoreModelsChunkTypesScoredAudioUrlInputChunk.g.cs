@@ -88,12 +88,6 @@ namespace Mixedbread
         public string? Transcription { get; set; }
 
         /// <summary>
-        /// summary of the audio
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("summary")]
-        public string? Summary { get; set; }
-
-        /// <summary>
         /// Audio URL
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("audio_url")]
@@ -156,9 +150,6 @@ namespace Mixedbread
         /// <param name="transcription">
         /// speech recognition (sr) text of the audio
         /// </param>
-        /// <param name="summary">
-        /// summary of the audio
-        /// </param>
         /// <param name="audioUrl">
         /// Audio URL
         /// </param>
@@ -179,7 +170,6 @@ namespace Mixedbread
             object? metadata,
             string? type,
             string? transcription,
-            string? summary,
             global::Mixedbread.AudioUrl? audioUrl)
         {
             this.ChunkIndex = chunkIndex;
@@ -194,7 +184,6 @@ namespace Mixedbread
             this.Metadata = metadata;
             this.Type = type;
             this.Transcription = transcription;
-            this.Summary = summary;
             this.AudioUrl = audioUrl;
             this.SamplingRate = samplingRate;
         }

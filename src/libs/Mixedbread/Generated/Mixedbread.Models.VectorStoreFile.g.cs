@@ -78,7 +78,7 @@ namespace Mixedbread
         /// chunks
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("chunks")]
-        public global::System.Collections.Generic.IList<global::Mixedbread.ChunksVariant1Item4>? Chunks { get; set; }
+        public global::System.Collections.Generic.IList<global::Mixedbread.ChunksVariant1Item2>? Chunks { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -138,7 +138,7 @@ namespace Mixedbread
             int? version,
             long? usageBytes,
             string? @object,
-            global::System.Collections.Generic.IList<global::Mixedbread.ChunksVariant1Item4>? chunks)
+            global::System.Collections.Generic.IList<global::Mixedbread.ChunksVariant1Item2>? chunks)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Filename = filename;

@@ -36,6 +36,12 @@ namespace Mixedbread
         public bool? IsPublic { get; set; }
 
         /// <summary>
+        /// License for public stores
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("license")]
+        public string? License { get; set; }
+
+        /// <summary>
         /// Additional metadata associated with the store
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
@@ -142,6 +148,9 @@ namespace Mixedbread
         /// Whether the store can be accessed by anyone with valid login credentials<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="license">
+        /// License for public stores
+        /// </param>
         /// <param name="metadata">
         /// Additional metadata associated with the store
         /// </param>
@@ -186,6 +195,7 @@ namespace Mixedbread
             global::System.DateTime updatedAt,
             string? description,
             bool? isPublic,
+            string? license,
             object? metadata,
             global::Mixedbread.StoreConfig2? config,
             global::Mixedbread.FileCounts? fileCounts,
@@ -201,6 +211,7 @@ namespace Mixedbread
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Description = description;
             this.IsPublic = isPublic;
+            this.License = license;
             this.Metadata = metadata;
             this.Config = config;
             this.FileCounts = fileCounts;

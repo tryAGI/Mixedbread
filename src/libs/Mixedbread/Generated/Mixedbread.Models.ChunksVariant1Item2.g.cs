@@ -12,15 +12,15 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.ScoredVectorStoreFileChunksVariant1ItemDiscriminatorType? Type { get; }
+        public global::Mixedbread.VectorStoreFileChunksVariant1ItemDiscriminatorType? Type { get; }
 
         /// <summary>
-        /// Scored text chunk for deprecated API.
+        /// 
         /// </summary>
 #if NET6_0_OR_GREATER
-        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredTextInputChunk? Text { get; init; }
+        public global::Mixedbread.TextInputChunk? Text { get; init; }
 #else
-        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredTextInputChunk? Text { get; }
+        public global::Mixedbread.TextInputChunk? Text { get; }
 #endif
 
         /// <summary>
@@ -32,12 +32,12 @@ namespace Mixedbread
         public bool IsText => Text != null;
 
         /// <summary>
-        /// Scored image chunk for deprecated API.
+        /// 
         /// </summary>
 #if NET6_0_OR_GREATER
-        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredImageUrlInputChunk? ImageUrl { get; init; }
+        public global::Mixedbread.ImageUrlInputChunk? ImageUrl { get; init; }
 #else
-        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredImageUrlInputChunk? ImageUrl { get; }
+        public global::Mixedbread.ImageUrlInputChunk? ImageUrl { get; }
 #endif
 
         /// <summary>
@@ -49,12 +49,12 @@ namespace Mixedbread
         public bool IsImageUrl => ImageUrl != null;
 
         /// <summary>
-        /// Scored audio chunk for deprecated API.
+        /// 
         /// </summary>
 #if NET6_0_OR_GREATER
-        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredAudioUrlInputChunk? AudioUrl { get; init; }
+        public global::Mixedbread.AudioUrlInputChunk? AudioUrl { get; init; }
 #else
-        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredAudioUrlInputChunk? AudioUrl { get; }
+        public global::Mixedbread.AudioUrlInputChunk? AudioUrl { get; }
 #endif
 
         /// <summary>
@@ -66,12 +66,12 @@ namespace Mixedbread
         public bool IsAudioUrl => AudioUrl != null;
 
         /// <summary>
-        /// Scored video chunk for deprecated API.
+        /// 
         /// </summary>
 #if NET6_0_OR_GREATER
-        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredVideoUrlInputChunk? VideoUrl { get; init; }
+        public global::Mixedbread.VideoUrlInputChunk? VideoUrl { get; init; }
 #else
-        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredVideoUrlInputChunk? VideoUrl { get; }
+        public global::Mixedbread.VideoUrlInputChunk? VideoUrl { get; }
 #endif
 
         /// <summary>
@@ -84,17 +84,17 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator ChunksVariant1Item2(global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredTextInputChunk value) => new ChunksVariant1Item2((global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredTextInputChunk?)value);
+        public static implicit operator ChunksVariant1Item2(global::Mixedbread.TextInputChunk value) => new ChunksVariant1Item2((global::Mixedbread.TextInputChunk?)value);
 
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredTextInputChunk?(ChunksVariant1Item2 @this) => @this.Text;
+        public static implicit operator global::Mixedbread.TextInputChunk?(ChunksVariant1Item2 @this) => @this.Text;
 
         /// <summary>
         /// 
         /// </summary>
-        public ChunksVariant1Item2(global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredTextInputChunk? value)
+        public ChunksVariant1Item2(global::Mixedbread.TextInputChunk? value)
         {
             Text = value;
         }
@@ -102,17 +102,17 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator ChunksVariant1Item2(global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredImageUrlInputChunk value) => new ChunksVariant1Item2((global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredImageUrlInputChunk?)value);
+        public static implicit operator ChunksVariant1Item2(global::Mixedbread.ImageUrlInputChunk value) => new ChunksVariant1Item2((global::Mixedbread.ImageUrlInputChunk?)value);
 
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredImageUrlInputChunk?(ChunksVariant1Item2 @this) => @this.ImageUrl;
+        public static implicit operator global::Mixedbread.ImageUrlInputChunk?(ChunksVariant1Item2 @this) => @this.ImageUrl;
 
         /// <summary>
         /// 
         /// </summary>
-        public ChunksVariant1Item2(global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredImageUrlInputChunk? value)
+        public ChunksVariant1Item2(global::Mixedbread.ImageUrlInputChunk? value)
         {
             ImageUrl = value;
         }
@@ -120,17 +120,17 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator ChunksVariant1Item2(global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredAudioUrlInputChunk value) => new ChunksVariant1Item2((global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredAudioUrlInputChunk?)value);
+        public static implicit operator ChunksVariant1Item2(global::Mixedbread.AudioUrlInputChunk value) => new ChunksVariant1Item2((global::Mixedbread.AudioUrlInputChunk?)value);
 
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredAudioUrlInputChunk?(ChunksVariant1Item2 @this) => @this.AudioUrl;
+        public static implicit operator global::Mixedbread.AudioUrlInputChunk?(ChunksVariant1Item2 @this) => @this.AudioUrl;
 
         /// <summary>
         /// 
         /// </summary>
-        public ChunksVariant1Item2(global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredAudioUrlInputChunk? value)
+        public ChunksVariant1Item2(global::Mixedbread.AudioUrlInputChunk? value)
         {
             AudioUrl = value;
         }
@@ -138,17 +138,17 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator ChunksVariant1Item2(global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredVideoUrlInputChunk value) => new ChunksVariant1Item2((global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredVideoUrlInputChunk?)value);
+        public static implicit operator ChunksVariant1Item2(global::Mixedbread.VideoUrlInputChunk value) => new ChunksVariant1Item2((global::Mixedbread.VideoUrlInputChunk?)value);
 
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredVideoUrlInputChunk?(ChunksVariant1Item2 @this) => @this.VideoUrl;
+        public static implicit operator global::Mixedbread.VideoUrlInputChunk?(ChunksVariant1Item2 @this) => @this.VideoUrl;
 
         /// <summary>
         /// 
         /// </summary>
-        public ChunksVariant1Item2(global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredVideoUrlInputChunk? value)
+        public ChunksVariant1Item2(global::Mixedbread.VideoUrlInputChunk? value)
         {
             VideoUrl = value;
         }
@@ -157,11 +157,11 @@ namespace Mixedbread
         /// 
         /// </summary>
         public ChunksVariant1Item2(
-            global::Mixedbread.ScoredVectorStoreFileChunksVariant1ItemDiscriminatorType? type,
-            global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredTextInputChunk? text,
-            global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredImageUrlInputChunk? imageUrl,
-            global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredAudioUrlInputChunk? audioUrl,
-            global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredVideoUrlInputChunk? videoUrl
+            global::Mixedbread.VectorStoreFileChunksVariant1ItemDiscriminatorType? type,
+            global::Mixedbread.TextInputChunk? text,
+            global::Mixedbread.ImageUrlInputChunk? imageUrl,
+            global::Mixedbread.AudioUrlInputChunk? audioUrl,
+            global::Mixedbread.VideoUrlInputChunk? videoUrl
             )
         {
             Type = type;
@@ -204,10 +204,10 @@ namespace Mixedbread
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredTextInputChunk?, TResult>? text = null,
-            global::System.Func<global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredImageUrlInputChunk?, TResult>? imageUrl = null,
-            global::System.Func<global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredAudioUrlInputChunk?, TResult>? audioUrl = null,
-            global::System.Func<global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredVideoUrlInputChunk?, TResult>? videoUrl = null,
+            global::System.Func<global::Mixedbread.TextInputChunk?, TResult>? text = null,
+            global::System.Func<global::Mixedbread.ImageUrlInputChunk?, TResult>? imageUrl = null,
+            global::System.Func<global::Mixedbread.AudioUrlInputChunk?, TResult>? audioUrl = null,
+            global::System.Func<global::Mixedbread.VideoUrlInputChunk?, TResult>? videoUrl = null,
             bool validate = true)
         {
             if (validate)
@@ -239,10 +239,10 @@ namespace Mixedbread
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredTextInputChunk?>? text = null,
-            global::System.Action<global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredImageUrlInputChunk?>? imageUrl = null,
-            global::System.Action<global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredAudioUrlInputChunk?>? audioUrl = null,
-            global::System.Action<global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredVideoUrlInputChunk?>? videoUrl = null,
+            global::System.Action<global::Mixedbread.TextInputChunk?>? text = null,
+            global::System.Action<global::Mixedbread.ImageUrlInputChunk?>? imageUrl = null,
+            global::System.Action<global::Mixedbread.AudioUrlInputChunk?>? audioUrl = null,
+            global::System.Action<global::Mixedbread.VideoUrlInputChunk?>? videoUrl = null,
             bool validate = true)
         {
             if (validate)
@@ -276,13 +276,13 @@ namespace Mixedbread
             var fields = new object?[]
             {
                 Text,
-                typeof(global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredTextInputChunk),
+                typeof(global::Mixedbread.TextInputChunk),
                 ImageUrl,
-                typeof(global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredImageUrlInputChunk),
+                typeof(global::Mixedbread.ImageUrlInputChunk),
                 AudioUrl,
-                typeof(global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredAudioUrlInputChunk),
+                typeof(global::Mixedbread.AudioUrlInputChunk),
                 VideoUrl,
-                typeof(global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredVideoUrlInputChunk),
+                typeof(global::Mixedbread.VideoUrlInputChunk),
             };
             const int offset = unchecked((int)2166136261);
             const int prime = 16777619;
@@ -299,10 +299,10 @@ namespace Mixedbread
         public bool Equals(ChunksVariant1Item2 other)
         {
             return
-                global::System.Collections.Generic.EqualityComparer<global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredTextInputChunk?>.Default.Equals(Text, other.Text) &&
-                global::System.Collections.Generic.EqualityComparer<global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredImageUrlInputChunk?>.Default.Equals(ImageUrl, other.ImageUrl) &&
-                global::System.Collections.Generic.EqualityComparer<global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredAudioUrlInputChunk?>.Default.Equals(AudioUrl, other.AudioUrl) &&
-                global::System.Collections.Generic.EqualityComparer<global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredVideoUrlInputChunk?>.Default.Equals(VideoUrl, other.VideoUrl) 
+                global::System.Collections.Generic.EqualityComparer<global::Mixedbread.TextInputChunk?>.Default.Equals(Text, other.Text) &&
+                global::System.Collections.Generic.EqualityComparer<global::Mixedbread.ImageUrlInputChunk?>.Default.Equals(ImageUrl, other.ImageUrl) &&
+                global::System.Collections.Generic.EqualityComparer<global::Mixedbread.AudioUrlInputChunk?>.Default.Equals(AudioUrl, other.AudioUrl) &&
+                global::System.Collections.Generic.EqualityComparer<global::Mixedbread.VideoUrlInputChunk?>.Default.Equals(VideoUrl, other.VideoUrl) 
                 ;
         }
 

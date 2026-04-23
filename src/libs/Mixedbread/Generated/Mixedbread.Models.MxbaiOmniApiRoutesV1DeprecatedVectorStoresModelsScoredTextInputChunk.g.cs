@@ -89,6 +89,12 @@ namespace Mixedbread
         public string? Text { get; set; }
 
         /// <summary>
+        /// LLM-generated context that situates this chunk within its source document
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("context")]
+        public string? Context { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -136,6 +142,9 @@ namespace Mixedbread
         /// <param name="text">
         /// Text content
         /// </param>
+        /// <param name="context">
+        /// LLM-generated context that situates this chunk within its source document
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -151,7 +160,8 @@ namespace Mixedbread
             object? metadata,
             string? type,
             int? offset,
-            string? text)
+            string? text,
+            string? context)
         {
             this.ChunkIndex = chunkIndex;
             this.MimeType = mimeType;
@@ -165,6 +175,7 @@ namespace Mixedbread
             this.Type = type;
             this.Offset = offset;
             this.Text = text;
+            this.Context = context;
         }
 
         /// <summary>

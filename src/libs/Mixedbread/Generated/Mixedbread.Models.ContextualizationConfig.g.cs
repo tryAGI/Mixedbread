@@ -17,6 +17,13 @@ namespace Mixedbread
         public global::Mixedbread.AnyOf<bool?, global::System.Collections.Generic.IList<string>>? WithMetadata { get; set; }
 
         /// <summary>
+        /// Use an LLM to generate a short context for each text chunk that situates it within the full document, improving retrieval accuracy. Only applies to text content during non-sliced ingestion.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("with_file_context")]
+        public bool? WithFileContext { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -29,13 +36,19 @@ namespace Mixedbread
         /// Include all metadata or specific fields in the contextualization. Supports dot notation for nested fields (e.g., 'author.name'). When True, all metadata is included (flattened). When a list, only specified fields are included.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="withFileContext">
+        /// Use an LLM to generate a short context for each text chunk that situates it within the full document, improving retrieval accuracy. Only applies to text content during non-sliced ingestion.<br/>
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ContextualizationConfig(
-            global::Mixedbread.AnyOf<bool?, global::System.Collections.Generic.IList<string>>? withMetadata)
+            global::Mixedbread.AnyOf<bool?, global::System.Collections.Generic.IList<string>>? withMetadata,
+            bool? withFileContext)
         {
             this.WithMetadata = withMetadata;
+            this.WithFileContext = withFileContext;
         }
 
         /// <summary>
