@@ -171,7 +171,7 @@ namespace Mixedbread
                 PrepareUpdateApiKeyRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    apiKeyId: apiKeyId,
+                    apiKeyId: apiKeyId!,
                     request: request);
 
                 return __httpRequest;

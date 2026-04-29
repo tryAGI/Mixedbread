@@ -162,7 +162,7 @@ namespace Mixedbread
                 PrepareAuthorizeDataSourceRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    dataSourceId: dataSourceId);
+                    dataSourceId: dataSourceId!);
 
                 return __httpRequest;
             }

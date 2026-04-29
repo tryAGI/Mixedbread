@@ -187,8 +187,8 @@ namespace Mixedbread
                 PrepareOauth2CallbackRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    state: state,
-                    code: code,
+                    state: state!,
+                    code: code!,
                     error: error,
                     errorDescription: errorDescription);
 

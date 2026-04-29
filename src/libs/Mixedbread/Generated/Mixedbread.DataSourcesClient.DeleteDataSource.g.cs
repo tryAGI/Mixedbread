@@ -154,7 +154,7 @@ namespace Mixedbread
                 PrepareDeleteDataSourceRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    dataSourceId: dataSourceId);
+                    dataSourceId: dataSourceId!);
 
                 return __httpRequest;
             }

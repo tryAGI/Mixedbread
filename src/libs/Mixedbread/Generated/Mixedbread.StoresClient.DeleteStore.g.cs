@@ -156,7 +156,7 @@ namespace Mixedbread
                 PrepareDeleteStoreRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    storeIdentifier: storeIdentifier);
+                    storeIdentifier: storeIdentifier!);
 
                 return __httpRequest;
             }

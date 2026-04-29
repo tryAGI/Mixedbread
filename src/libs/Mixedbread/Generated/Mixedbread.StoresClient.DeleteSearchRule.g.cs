@@ -164,8 +164,8 @@ namespace Mixedbread
                 PrepareDeleteSearchRuleRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    storeIdentifier: storeIdentifier,
-                    ruleId: ruleId);
+                    storeIdentifier: storeIdentifier!,
+                    ruleId: ruleId!);
 
                 return __httpRequest;
             }

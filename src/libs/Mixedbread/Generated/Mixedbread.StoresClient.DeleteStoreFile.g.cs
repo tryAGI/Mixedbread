@@ -164,8 +164,8 @@ namespace Mixedbread
                 PrepareDeleteStoreFileRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    storeIdentifier: storeIdentifier,
-                    fileIdentifier: fileIdentifier);
+                    storeIdentifier: storeIdentifier!,
+                    fileIdentifier: fileIdentifier!);
 
                 return __httpRequest;
             }

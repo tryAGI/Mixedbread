@@ -173,7 +173,7 @@ namespace Mixedbread
                 PrepareCreateStoreFileRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    storeIdentifier: storeIdentifier,
+                    storeIdentifier: storeIdentifier!,
                     request: request);
 
                 return __httpRequest;
