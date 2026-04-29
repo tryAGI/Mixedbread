@@ -156,7 +156,7 @@ namespace Mixedbread
                 PrepareRetrieveExtractionJobRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    jobId: jobId);
+                    jobId: jobId!);
 
                 return __httpRequest;
             }

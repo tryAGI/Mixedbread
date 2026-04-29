@@ -179,8 +179,8 @@ namespace Mixedbread
                 PrepareDeleteSpecificSearchRuleRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    storeIdentifier: storeIdentifier,
-                    ruleId: ruleId,
+                    storeIdentifier: storeIdentifier!,
+                    ruleId: ruleId!,
                     request: request);
 
                 return __httpRequest;

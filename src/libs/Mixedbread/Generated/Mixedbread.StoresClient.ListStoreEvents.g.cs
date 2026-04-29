@@ -217,14 +217,14 @@ namespace Mixedbread
                 PrepareListStoreEventsRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    storeIdentifier: storeIdentifier,
+                    storeIdentifier: storeIdentifier!,
                     limit: limit,
                     after: after,
                     before: before,
                     includeTotal: includeTotal,
                     filterBefore: filterBefore,
                     filterAfter: filterAfter,
-                    eventType: eventType);
+                    eventType: eventType!);
 
                 return __httpRequest;
             }

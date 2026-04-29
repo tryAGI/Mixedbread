@@ -193,7 +193,7 @@ namespace Mixedbread
                 PrepareListConnectorsRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    dataSourceId: dataSourceId,
+                    dataSourceId: dataSourceId!,
                     limit: limit,
                     after: after,
                     before: before,

@@ -171,7 +171,7 @@ namespace Mixedbread
                 PrepareGetStoreEventHistogramRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    storeIdentifier: storeIdentifier,
+                    storeIdentifier: storeIdentifier!,
                     request: request);
 
                 return __httpRequest;

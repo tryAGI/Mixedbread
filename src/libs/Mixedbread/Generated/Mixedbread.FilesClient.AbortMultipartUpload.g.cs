@@ -152,7 +152,7 @@ namespace Mixedbread
                 PrepareAbortMultipartUploadRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    uploadId: uploadId);
+                    uploadId: uploadId!);
 
                 return __httpRequest;
             }

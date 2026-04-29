@@ -179,8 +179,8 @@ namespace Mixedbread
                 PrepareUpdateConnectorRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    dataSourceId: dataSourceId,
-                    connectorId: connectorId,
+                    dataSourceId: dataSourceId!,
+                    connectorId: connectorId!,
                     request: request);
 
                 return __httpRequest;

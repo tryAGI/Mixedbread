@@ -177,8 +177,8 @@ namespace Mixedbread
                 PrepareReingestAllStoresRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    organizationId: organizationId,
-                    storeIdentifier: storeIdentifier,
+                    organizationId: organizationId!,
+                    storeIdentifier: storeIdentifier!,
                     statuses: statuses,
                     billable: billable);
 

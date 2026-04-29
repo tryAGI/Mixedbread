@@ -167,7 +167,7 @@ namespace Mixedbread
                 PrepareCompleteMultipartUploadRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    uploadId: uploadId,
+                    uploadId: uploadId!,
                     request: request);
 
                 return __httpRequest;

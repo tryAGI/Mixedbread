@@ -176,8 +176,8 @@ namespace Mixedbread
                 PrepareRetrieveStoreFileRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    storeIdentifier: storeIdentifier,
-                    fileIdentifier: fileIdentifier,
+                    storeIdentifier: storeIdentifier!,
+                    fileIdentifier: fileIdentifier!,
                     returnChunks: returnChunks);
 
                 return __httpRequest;

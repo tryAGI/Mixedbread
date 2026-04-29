@@ -179,8 +179,8 @@ namespace Mixedbread
                 PrepareUpdateStoreFileRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    storeIdentifier: storeIdentifier,
-                    fileIdentifier: fileIdentifier,
+                    storeIdentifier: storeIdentifier!,
+                    fileIdentifier: fileIdentifier!,
                     request: request);
 
                 return __httpRequest;
