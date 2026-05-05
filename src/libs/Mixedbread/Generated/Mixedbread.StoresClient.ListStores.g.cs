@@ -110,6 +110,56 @@ namespace Mixedbread
             global::Mixedbread.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            var __response = await ListStoresAsResponseAsync(
+                limit: limit,
+                after: after,
+                before: before,
+                includeTotal: includeTotal,
+                q: q,
+                requestOptions: requestOptions,
+                cancellationToken: cancellationToken
+            ).ConfigureAwait(false);
+
+            return __response.Body;
+        }
+        /// <summary>
+        /// List stores<br/>
+        /// List all stores with optional search.<br/>
+        /// Args:<br/>
+        ///     pagination: The pagination options.<br/>
+        ///     q: Optional search query to filter vector stores.<br/>
+        /// Returns:<br/>
+        ///     StoreListResponse: The list of stores.
+        /// </summary>
+        /// <param name="limit">
+        /// Maximum number of items to return per page (1-100)<br/>
+        /// Default Value: 20
+        /// </param>
+        /// <param name="after">
+        /// Cursor for forward pagination - get items after this position. Use last_cursor from previous response.
+        /// </param>
+        /// <param name="before">
+        /// Cursor for backward pagination - get items before this position. Use first_cursor from previous response.
+        /// </param>
+        /// <param name="includeTotal">
+        /// Whether to include total count in response (expensive operation)<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="q">
+        /// Search query for fuzzy matching over name and description fields
+        /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::Mixedbread.ApiException"></exception>
+        public async global::System.Threading.Tasks.Task<global::Mixedbread.AutoSDKHttpResponse<global::Mixedbread.StoreListResponse>> ListStoresAsResponseAsync(
+            int? limit = default,
+            string? after = default,
+            string? before = default,
+            bool? includeTotal = default,
+            string? q = default,
+            global::Mixedbread.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
             PrepareArguments(
                 client: HttpClient);
             PrepareListStoresArguments(
@@ -142,17 +192,18 @@ namespace Mixedbread
 
             global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
             {
+
                             var __pathBuilder = new global::Mixedbread.PathBuilder(
                                 path: "/v1/stores",
                                 baseUri: ResolveBaseUri(
                                 servers: s_ListStoresServers,
-                                defaultBaseUrl: "https://api.mixedbread.com/")); 
+                                defaultBaseUrl: "https://api.mixedbread.com/"));
                             __pathBuilder
                                 .AddOptionalParameter("limit", limit?.ToString())
                                 .AddOptionalParameter("after", after)
                                 .AddOptionalParameter("before", before)
                                 .AddOptionalParameter("include_total", includeTotal?.ToString().ToLowerInvariant())
-                                .AddOptionalParameter("q", q) 
+                                .AddOptionalParameter("q", q)
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::Mixedbread.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -228,6 +279,8 @@ namespace Mixedbread
                                 attempt: __attempt,
                                 maxAttempts: __maxAttempts,
                                 willRetry: false,
+                                retryDelay: null,
+                                retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                     try
                     {
@@ -238,6 +291,11 @@ namespace Mixedbread
                     }
                     catch (global::System.Net.Http.HttpRequestException __exception)
                     {
+                        var __retryDelay = global::Mixedbread.AutoSDKRequestOptionsSupport.GetRetryDelay(
+                            clientOptions: Options,
+                            requestOptions: requestOptions,
+                            response: null,
+                            attempt: __attempt);
                         var __willRetry = __attempt < __maxAttempts && !__effectiveCancellationToken.IsCancellationRequested;
                         await global::Mixedbread.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
@@ -255,6 +313,8 @@ namespace Mixedbread
                                 attempt: __attempt,
                                 maxAttempts: __maxAttempts,
                                 willRetry: __willRetry,
+                                retryDelay: __willRetry ? __retryDelay : (global::System.TimeSpan?)null,
+                                retryReason: "exception",
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                         if (!__willRetry)
                         {
@@ -264,8 +324,7 @@ namespace Mixedbread
                         __httpRequest.Dispose();
                         __httpRequest = null;
                         await global::Mixedbread.AutoSDKRequestOptionsSupport.DelayBeforeRetryAsync(
-                            clientOptions: Options,
-                            requestOptions: requestOptions,
+                            retryDelay: __retryDelay,
                             cancellationToken: __effectiveCancellationToken).ConfigureAwait(false);
                         continue;
                     }
@@ -274,6 +333,11 @@ namespace Mixedbread
                         __attempt < __maxAttempts &&
                         global::Mixedbread.AutoSDKRequestOptionsSupport.ShouldRetryStatusCode(__response.StatusCode))
                     {
+                        var __retryDelay = global::Mixedbread.AutoSDKRequestOptionsSupport.GetRetryDelay(
+                            clientOptions: Options,
+                            requestOptions: requestOptions,
+                            response: __response,
+                            attempt: __attempt);
                         await global::Mixedbread.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::Mixedbread.AutoSDKRequestOptionsSupport.CreateHookContext(
@@ -290,14 +354,15 @@ namespace Mixedbread
                                 attempt: __attempt,
                                 maxAttempts: __maxAttempts,
                                 willRetry: true,
+                                retryDelay: __retryDelay,
+                                retryReason: "status:" + ((int)__response.StatusCode).ToString(global::System.Globalization.CultureInfo.InvariantCulture),
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                         __response.Dispose();
                         __response = null;
                         __httpRequest.Dispose();
                         __httpRequest = null;
                         await global::Mixedbread.AutoSDKRequestOptionsSupport.DelayBeforeRetryAsync(
-                            clientOptions: Options,
-                            requestOptions: requestOptions,
+                            retryDelay: __retryDelay,
                             cancellationToken: __effectiveCancellationToken).ConfigureAwait(false);
                         continue;
                     }
@@ -337,6 +402,8 @@ namespace Mixedbread
                                 attempt: __attemptNumber,
                                 maxAttempts: __maxAttempts,
                                 willRetry: false,
+                                retryDelay: null,
+                                retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
                 else
@@ -357,6 +424,8 @@ namespace Mixedbread
                                 attempt: __attemptNumber,
                                 maxAttempts: __maxAttempts,
                                 willRetry: false,
+                                retryDelay: null,
+                                retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
                             // Validation Error
@@ -419,9 +488,13 @@ namespace Mixedbread
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    return
-                                        global::Mixedbread.StoreListResponse.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::Mixedbread.StoreListResponse.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                                    return new global::Mixedbread.AutoSDKHttpResponse<global::Mixedbread.StoreListResponse>(
+                                        statusCode: __response.StatusCode,
+                                        headers: global::Mixedbread.AutoSDKHttpResponse.CreateHeaders(__response),
+                                        requestUri: __response.RequestMessage?.RequestUri,
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -449,9 +522,13 @@ namespace Mixedbread
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    return
-                                        await global::Mixedbread.StoreListResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::Mixedbread.StoreListResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
+                                    return new global::Mixedbread.AutoSDKHttpResponse<global::Mixedbread.StoreListResponse>(
+                                        statusCode: __response.StatusCode,
+                                        headers: global::Mixedbread.AutoSDKHttpResponse.CreateHeaders(__response),
+                                        requestUri: __response.RequestMessage?.RequestUri,
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {

@@ -21,6 +21,19 @@ namespace Mixedbread
         /// Create multipart upload<br/>
         /// Initiate a multipart upload and receive presigned URLs for uploading parts directly to storage.
         /// </summary>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::Mixedbread.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::Mixedbread.AutoSDKHttpResponse<global::Mixedbread.CreateMultipartUploadResponse>> CreateMultipartUploadAsResponseAsync(
+
+            global::Mixedbread.CreateMultipartUploadRequest request,
+            global::Mixedbread.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Create multipart upload<br/>
+        /// Initiate a multipart upload and receive presigned URLs for uploading parts directly to storage.
+        /// </summary>
         /// <param name="filename">
         /// Name of the file including extension
         /// </param>

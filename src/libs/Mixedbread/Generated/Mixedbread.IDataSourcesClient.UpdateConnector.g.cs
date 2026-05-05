@@ -47,6 +47,33 @@ namespace Mixedbread
         /// <param name="connectorId">
         /// The ID of the connector to update
         /// </param>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::Mixedbread.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::Mixedbread.AutoSDKHttpResponse<global::Mixedbread.DataSourceConnector>> UpdateConnectorAsResponseAsync(
+            global::System.Guid dataSourceId,
+            global::System.Guid connectorId,
+
+            global::Mixedbread.DataSourceConnectorUpdateParams request,
+            global::Mixedbread.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Update a connector<br/>
+        /// Update a connector.<br/>
+        /// Args:<br/>
+        ///     data_source_id: The ID of the data source to update a connector for.<br/>
+        ///     connector_id: The ID of the connector to update.<br/>
+        ///     params: The connector to update.<br/>
+        /// Returns:<br/>
+        ///     The updated connector.
+        /// </summary>
+        /// <param name="dataSourceId">
+        /// The ID of the data source to update a connector for
+        /// </param>
+        /// <param name="connectorId">
+        /// The ID of the connector to update
+        /// </param>
         /// <param name="name">
         /// The name of the connector
         /// </param>

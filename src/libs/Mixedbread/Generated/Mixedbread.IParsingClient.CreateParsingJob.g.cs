@@ -29,6 +29,23 @@ namespace Mixedbread
         /// Returns:<br/>
         ///     The created parsing job.
         /// </summary>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::Mixedbread.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::Mixedbread.AutoSDKHttpResponse<global::Mixedbread.ParsingJob>> CreateParsingJobAsResponseAsync(
+
+            global::Mixedbread.ParsingJobCreateParams request,
+            global::Mixedbread.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Start a parse job<br/>
+        /// Start a parse job for the provided file.<br/>
+        /// Args:<br/>
+        ///     params: The parameters for creating a parse job.<br/>
+        /// Returns:<br/>
+        ///     The created parsing job.
+        /// </summary>
         /// <param name="fileId">
         /// The ID of the file to parse
         /// </param>

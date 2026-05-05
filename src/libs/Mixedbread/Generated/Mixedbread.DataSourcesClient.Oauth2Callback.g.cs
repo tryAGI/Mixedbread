@@ -105,6 +105,55 @@ namespace Mixedbread
             global::Mixedbread.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            await Oauth2CallbackAsResponseAsync(
+                state: state,
+                code: code,
+                error: error,
+                errorDescription: errorDescription,
+                requestOptions: requestOptions,
+                cancellationToken: cancellationToken
+            ).ConfigureAwait(false);
+        }
+        /// <summary>
+        /// OAuth2 callback for data source authorization<br/>
+        /// OAuth2 callback endpoint for completing data source authorization.<br/>
+        /// This endpoint is called by OAuth2 providers after user authorization.<br/>
+        /// It exchanges the authorization code for access tokens and stores them<br/>
+        /// securely for the data source.<br/>
+        /// Args:<br/>
+        ///     state: OAuth2 state parameter used for CSRF protection<br/>
+        ///     code: Authorization code from the OAuth2 provider<br/>
+        ///     error: OAuth2 error code if authorization was denied or failed<br/>
+        ///     error_description: Human-readable description of the error<br/>
+        /// Returns:<br/>
+        ///     Redirect to the data source details page on success<br/>
+        /// Raises:<br/>
+        ///     OAuth2TokenExchangeError: When OAuth2 provider returns an error<br/>
+        ///     InvalidStateError: When state parameter is invalid or expired
+        /// </summary>
+        /// <param name="state">
+        /// OAuth2 state parameter for CSRF protection
+        /// </param>
+        /// <param name="code">
+        /// Authorization code from OAuth2 provider
+        /// </param>
+        /// <param name="error">
+        /// OAuth2 error code if authorization failed
+        /// </param>
+        /// <param name="errorDescription">
+        /// Human-readable error description
+        /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::Mixedbread.ApiException"></exception>
+        public async global::System.Threading.Tasks.Task<global::Mixedbread.AutoSDKHttpResponse> Oauth2CallbackAsResponseAsync(
+            string state,
+            string code,
+            string? error = default,
+            string? errorDescription = default,
+            global::Mixedbread.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
             PrepareArguments(
                 client: HttpClient);
             PrepareOauth2CallbackArguments(
@@ -136,16 +185,17 @@ namespace Mixedbread
 
             global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
             {
+
                             var __pathBuilder = new global::Mixedbread.PathBuilder(
                                 path: "/v1/data_sources/oauth2/callback",
                                 baseUri: ResolveBaseUri(
                                 servers: s_Oauth2CallbackServers,
-                                defaultBaseUrl: "https://api.mixedbread.com/")); 
+                                defaultBaseUrl: "https://api.mixedbread.com/"));
                             __pathBuilder
                                 .AddRequiredParameter("state", state)
                                 .AddRequiredParameter("code", code)
                                 .AddOptionalParameter("error", error)
-                                .AddOptionalParameter("error_description", errorDescription) 
+                                .AddOptionalParameter("error_description", errorDescription)
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::Mixedbread.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -220,6 +270,8 @@ namespace Mixedbread
                                 attempt: __attempt,
                                 maxAttempts: __maxAttempts,
                                 willRetry: false,
+                                retryDelay: null,
+                                retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                     try
                     {
@@ -230,6 +282,11 @@ namespace Mixedbread
                     }
                     catch (global::System.Net.Http.HttpRequestException __exception)
                     {
+                        var __retryDelay = global::Mixedbread.AutoSDKRequestOptionsSupport.GetRetryDelay(
+                            clientOptions: Options,
+                            requestOptions: requestOptions,
+                            response: null,
+                            attempt: __attempt);
                         var __willRetry = __attempt < __maxAttempts && !__effectiveCancellationToken.IsCancellationRequested;
                         await global::Mixedbread.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
@@ -247,6 +304,8 @@ namespace Mixedbread
                                 attempt: __attempt,
                                 maxAttempts: __maxAttempts,
                                 willRetry: __willRetry,
+                                retryDelay: __willRetry ? __retryDelay : (global::System.TimeSpan?)null,
+                                retryReason: "exception",
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                         if (!__willRetry)
                         {
@@ -256,8 +315,7 @@ namespace Mixedbread
                         __httpRequest.Dispose();
                         __httpRequest = null;
                         await global::Mixedbread.AutoSDKRequestOptionsSupport.DelayBeforeRetryAsync(
-                            clientOptions: Options,
-                            requestOptions: requestOptions,
+                            retryDelay: __retryDelay,
                             cancellationToken: __effectiveCancellationToken).ConfigureAwait(false);
                         continue;
                     }
@@ -266,6 +324,11 @@ namespace Mixedbread
                         __attempt < __maxAttempts &&
                         global::Mixedbread.AutoSDKRequestOptionsSupport.ShouldRetryStatusCode(__response.StatusCode))
                     {
+                        var __retryDelay = global::Mixedbread.AutoSDKRequestOptionsSupport.GetRetryDelay(
+                            clientOptions: Options,
+                            requestOptions: requestOptions,
+                            response: __response,
+                            attempt: __attempt);
                         await global::Mixedbread.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::Mixedbread.AutoSDKRequestOptionsSupport.CreateHookContext(
@@ -282,14 +345,15 @@ namespace Mixedbread
                                 attempt: __attempt,
                                 maxAttempts: __maxAttempts,
                                 willRetry: true,
+                                retryDelay: __retryDelay,
+                                retryReason: "status:" + ((int)__response.StatusCode).ToString(global::System.Globalization.CultureInfo.InvariantCulture),
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                         __response.Dispose();
                         __response = null;
                         __httpRequest.Dispose();
                         __httpRequest = null;
                         await global::Mixedbread.AutoSDKRequestOptionsSupport.DelayBeforeRetryAsync(
-                            clientOptions: Options,
-                            requestOptions: requestOptions,
+                            retryDelay: __retryDelay,
                             cancellationToken: __effectiveCancellationToken).ConfigureAwait(false);
                         continue;
                     }
@@ -329,6 +393,8 @@ namespace Mixedbread
                                 attempt: __attemptNumber,
                                 maxAttempts: __maxAttempts,
                                 willRetry: false,
+                                retryDelay: null,
+                                retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
                 else
@@ -349,6 +415,8 @@ namespace Mixedbread
                                 attempt: __attemptNumber,
                                 maxAttempts: __maxAttempts,
                                 willRetry: false,
+                                retryDelay: null,
+                                retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
                             // Successful authorization, redirect to data source
@@ -511,6 +579,10 @@ namespace Mixedbread
                                 {
                                     __response.EnsureSuccessStatusCode();
 
+                return new global::Mixedbread.AutoSDKHttpResponse(
+                                        statusCode: __response.StatusCode,
+                                        headers: global::Mixedbread.AutoSDKHttpResponse.CreateHeaders(__response),
+                                        requestUri: __response.RequestMessage?.RequestUri);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -532,6 +604,10 @@ namespace Mixedbread
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
+                                    return new global::Mixedbread.AutoSDKHttpResponse(
+                                        statusCode: __response.StatusCode,
+                                        headers: global::Mixedbread.AutoSDKHttpResponse.CreateHeaders(__response),
+                                        requestUri: __response.RequestMessage?.RequestUri);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
