@@ -38,6 +38,28 @@ namespace Mixedbread
         /// <param name="dataSourceId">
         /// The ID of the data source to update
         /// </param>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::Mixedbread.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::Mixedbread.AutoSDKHttpResponse<global::Mixedbread.DataSource>> UpdateDataSourceAsResponseAsync(
+            global::System.Guid dataSourceId,
+
+            global::Mixedbread.AnyOf<global::Mixedbread.NotionDataSourceCreateOrUpdateParams, global::Mixedbread.LinearDataSourceCreateOrUpdateParams> request,
+            global::Mixedbread.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Update a data source<br/>
+        /// Update a data source.<br/>
+        /// Args:<br/>
+        ///     data_source_id: The ID of the data source to update.<br/>
+        ///     params: The data source to update.<br/>
+        /// Returns:<br/>
+        ///     The updated data source.
+        /// </summary>
+        /// <param name="dataSourceId">
+        /// The ID of the data source to update
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>

@@ -38,6 +38,28 @@ namespace Mixedbread
         /// <param name="dataSourceId">
         /// The ID of the data source to create a connector for
         /// </param>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::Mixedbread.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::Mixedbread.AutoSDKHttpResponse<global::Mixedbread.DataSourceConnector>> CreateConnectorAsResponseAsync(
+            global::System.Guid dataSourceId,
+
+            global::Mixedbread.DataSourceConnectorCreateParams request,
+            global::Mixedbread.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Create a new connector<br/>
+        /// Create a new connector.<br/>
+        /// Args:<br/>
+        ///     data_source_id: The ID of the data source to create a connector for.<br/>
+        ///     params: The connector to create.<br/>
+        /// Returns:<br/>
+        ///     The created connector.
+        /// </summary>
+        /// <param name="dataSourceId">
+        /// The ID of the data source to create a connector for
+        /// </param>
         /// <param name="storeId">
         /// The ID of the store
         /// </param>

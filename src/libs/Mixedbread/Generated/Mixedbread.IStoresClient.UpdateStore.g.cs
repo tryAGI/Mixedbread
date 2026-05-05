@@ -38,6 +38,28 @@ namespace Mixedbread
         /// <param name="storeIdentifier">
         /// The ID or name of the store
         /// </param>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::Mixedbread.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::Mixedbread.AutoSDKHttpResponse<global::Mixedbread.Store>> UpdateStoreAsResponseAsync(
+            global::Mixedbread.AnyOf<string, global::System.Guid?> storeIdentifier,
+
+            global::Mixedbread.StoreUpdateParams request,
+            global::Mixedbread.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Update a store<br/>
+        /// Update a store by ID or name.<br/>
+        /// Args:<br/>
+        ///     store_identifier: The ID or name of the store to update.<br/>
+        ///     store_update: StoreCreate object containing the name, description, and metadata.<br/>
+        /// Returns:<br/>
+        ///     Store: The response containing the updated store details.
+        /// </summary>
+        /// <param name="storeIdentifier">
+        /// The ID or name of the store
+        /// </param>
         /// <param name="name">
         /// New name for the store. Can only contain lowercase letters, numbers, periods (.), and hyphens (-).
         /// </param>

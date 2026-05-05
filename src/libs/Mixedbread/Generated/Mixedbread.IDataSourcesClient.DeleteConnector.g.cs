@@ -27,5 +27,28 @@ namespace Mixedbread
             global::System.Guid connectorId,
             global::Mixedbread.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Delete a connector<br/>
+        /// Delete a connector.<br/>
+        /// Args:<br/>
+        ///     data_source_id: The ID of the data source to delete a connector for.<br/>
+        ///     connector_id: The ID of the connector to delete.<br/>
+        /// Returns:<br/>
+        ///     The deleted connector.
+        /// </summary>
+        /// <param name="dataSourceId">
+        /// The ID of the data source to delete a connector for
+        /// </param>
+        /// <param name="connectorId">
+        /// The ID of the connector to delete
+        /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::Mixedbread.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::Mixedbread.AutoSDKHttpResponse<global::Mixedbread.DataSourceConnectorDeleted>> DeleteConnectorAsResponseAsync(
+            global::System.Guid dataSourceId,
+            global::System.Guid connectorId,
+            global::Mixedbread.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

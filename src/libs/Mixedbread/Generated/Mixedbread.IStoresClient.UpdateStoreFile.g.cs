@@ -47,6 +47,33 @@ namespace Mixedbread
         /// <param name="fileIdentifier">
         /// The ID or name of the file to update
         /// </param>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::Mixedbread.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::Mixedbread.AutoSDKHttpResponse<global::Mixedbread.StoreFile>> UpdateStoreFileAsResponseAsync(
+            global::Mixedbread.AnyOf<string, global::System.Guid?> storeIdentifier,
+            global::Mixedbread.AnyOf<string, global::System.Guid?> fileIdentifier,
+
+            global::Mixedbread.StoreFileMetadataUpdateParams request,
+            global::Mixedbread.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Update store file metadata<br/>
+        /// Update metadata on a file within a store.<br/>
+        /// Args:<br/>
+        ///     store_identifier: The ID or name of the store.<br/>
+        ///     file_identifier: The ID or name of the file to update.<br/>
+        ///     update_params: Metadata update payload.<br/>
+        /// Returns:<br/>
+        ///     StoreFile: The updated file details.
+        /// </summary>
+        /// <param name="storeIdentifier">
+        /// The ID or name of the store
+        /// </param>
+        /// <param name="fileIdentifier">
+        /// The ID or name of the file to update
+        /// </param>
         /// <param name="metadata">
         /// Updated metadata for the file
         /// </param>
