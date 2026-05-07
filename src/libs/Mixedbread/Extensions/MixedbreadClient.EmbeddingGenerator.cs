@@ -46,7 +46,9 @@ public partial class MixedbreadClient : Meai.IEmbeddingGenerator<string, Meai.Em
             request.Dimensions = dimensions;
         }
 
-        var response = await CreateEmbeddingsAsync(request, cancellationToken).ConfigureAwait(false);
+        var response = await CreateEmbeddingsAsync(
+            request: request,
+            cancellationToken: cancellationToken).ConfigureAwait(false);
 
         var embeddings = new Meai.GeneratedEmbeddings<Meai.Embedding<float>>();
 
@@ -54,7 +56,7 @@ public partial class MixedbreadClient : Meai.IEmbeddingGenerator<string, Meai.Em
         {
             foreach (var item in data)
             {
-                if (item.Embedding1.IsValue1 && item.Embedding1.Value1 is { } doubleList)
+                if (item.Embedding1.IsEmbeddingItemVariant1 && item.Embedding1.EmbeddingItemVariant1 is { } doubleList)
                 {
                     var floatArray = new float[doubleList.Count];
                     for (var i = 0; i < doubleList.Count; i++)
