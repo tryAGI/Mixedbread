@@ -32,6 +32,19 @@ namespace Mixedbread
         public bool IsOauth2 => Oauth2 != null;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickOauth2(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::Mixedbread.OAuth2CreateOrUpdateParams? value)
+        {
+            value = Oauth2;
+            return IsOauth2;
+        }
+
+        /// <summary>
         /// Base class for API key create or update parameters.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -47,6 +60,19 @@ namespace Mixedbread
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ApiKey))]
 #endif
         public bool IsApiKey => ApiKey != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickApiKey(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::Mixedbread.ApiKeyCreateOrUpdateParams? value)
+        {
+            value = ApiKey;
+            return IsApiKey;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -126,8 +152,8 @@ namespace Mixedbread
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::Mixedbread.OAuth2CreateOrUpdateParams?, TResult>? oauth2 = null,
-            global::System.Func<global::Mixedbread.ApiKeyCreateOrUpdateParams?, TResult>? apiKey = null,
+            global::System.Func<global::Mixedbread.OAuth2CreateOrUpdateParams, TResult>? oauth2 = null,
+            global::System.Func<global::Mixedbread.ApiKeyCreateOrUpdateParams, TResult>? apiKey = null,
             bool validate = true)
         {
             if (validate)
@@ -151,8 +177,32 @@ namespace Mixedbread
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::Mixedbread.OAuth2CreateOrUpdateParams?>? oauth2 = null,
-            global::System.Action<global::Mixedbread.ApiKeyCreateOrUpdateParams?>? apiKey = null,
+            global::System.Action<global::Mixedbread.OAuth2CreateOrUpdateParams>? oauth2 = null,
+
+            global::System.Action<global::Mixedbread.ApiKeyCreateOrUpdateParams>? apiKey = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsOauth2)
+            {
+                oauth2?.Invoke(Oauth2!);
+            }
+            else if (IsApiKey)
+            {
+                apiKey?.Invoke(ApiKey!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::Mixedbread.OAuth2CreateOrUpdateParams>? oauth2 = null,
+            global::System.Action<global::Mixedbread.ApiKeyCreateOrUpdateParams>? apiKey = null,
             bool validate = true)
         {
             if (validate)

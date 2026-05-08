@@ -32,6 +32,19 @@ namespace Mixedbread
         public bool IsImageUrl => ImageUrl != null;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickImageUrl(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::Mixedbread.ImageUrlInput2? value)
+        {
+            value = ImageUrl;
+            return IsImageUrl;
+        }
+
+        /// <summary>
         /// Model for text input validation.<br/>
         /// Attributes:<br/>
         ///     type: Input type identifier, always "text"<br/>
@@ -50,6 +63,19 @@ namespace Mixedbread
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Text))]
 #endif
         public bool IsText => Text != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickText(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::Mixedbread.TextInput? value)
+        {
+            value = Text;
+            return IsText;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -129,8 +155,8 @@ namespace Mixedbread
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::Mixedbread.ImageUrlInput2?, TResult>? imageUrl = null,
-            global::System.Func<global::Mixedbread.TextInput?, TResult>? text = null,
+            global::System.Func<global::Mixedbread.ImageUrlInput2, TResult>? imageUrl = null,
+            global::System.Func<global::Mixedbread.TextInput, TResult>? text = null,
             bool validate = true)
         {
             if (validate)
@@ -154,8 +180,32 @@ namespace Mixedbread
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::Mixedbread.ImageUrlInput2?>? imageUrl = null,
-            global::System.Action<global::Mixedbread.TextInput?>? text = null,
+            global::System.Action<global::Mixedbread.ImageUrlInput2>? imageUrl = null,
+
+            global::System.Action<global::Mixedbread.TextInput>? text = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsImageUrl)
+            {
+                imageUrl?.Invoke(ImageUrl!);
+            }
+            else if (IsText)
+            {
+                text?.Invoke(Text!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::Mixedbread.ImageUrlInput2>? imageUrl = null,
+            global::System.Action<global::Mixedbread.TextInput>? text = null,
             bool validate = true)
         {
             if (validate)

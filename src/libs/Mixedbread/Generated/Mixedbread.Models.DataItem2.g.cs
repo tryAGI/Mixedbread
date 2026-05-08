@@ -34,6 +34,19 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickText(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredTextInputChunk? value)
+        {
+            value = Text;
+            return IsText;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredImageUrlInputChunk? ImageUrl { get; init; }
 #else
@@ -47,6 +60,19 @@ namespace Mixedbread
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ImageUrl))]
 #endif
         public bool IsImageUrl => ImageUrl != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickImageUrl(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredImageUrlInputChunk? value)
+        {
+            value = ImageUrl;
+            return IsImageUrl;
+        }
 
         /// <summary>
         /// 
@@ -68,6 +94,19 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickAudioUrl(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredAudioUrlInputChunk? value)
+        {
+            value = AudioUrl;
+            return IsAudioUrl;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredVideoUrlInputChunk? VideoUrl { get; init; }
 #else
@@ -81,6 +120,19 @@ namespace Mixedbread
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(VideoUrl))]
 #endif
         public bool IsVideoUrl => VideoUrl != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickVideoUrl(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredVideoUrlInputChunk? value)
+        {
+            value = VideoUrl;
+            return IsVideoUrl;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -204,10 +256,10 @@ namespace Mixedbread
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredTextInputChunk?, TResult>? text = null,
-            global::System.Func<global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredImageUrlInputChunk?, TResult>? imageUrl = null,
-            global::System.Func<global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredAudioUrlInputChunk?, TResult>? audioUrl = null,
-            global::System.Func<global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredVideoUrlInputChunk?, TResult>? videoUrl = null,
+            global::System.Func<global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredTextInputChunk, TResult>? text = null,
+            global::System.Func<global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredImageUrlInputChunk, TResult>? imageUrl = null,
+            global::System.Func<global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredAudioUrlInputChunk, TResult>? audioUrl = null,
+            global::System.Func<global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredVideoUrlInputChunk, TResult>? videoUrl = null,
             bool validate = true)
         {
             if (validate)
@@ -239,10 +291,46 @@ namespace Mixedbread
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredTextInputChunk?>? text = null,
-            global::System.Action<global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredImageUrlInputChunk?>? imageUrl = null,
-            global::System.Action<global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredAudioUrlInputChunk?>? audioUrl = null,
-            global::System.Action<global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredVideoUrlInputChunk?>? videoUrl = null,
+            global::System.Action<global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredTextInputChunk>? text = null,
+
+            global::System.Action<global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredImageUrlInputChunk>? imageUrl = null,
+
+            global::System.Action<global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredAudioUrlInputChunk>? audioUrl = null,
+
+            global::System.Action<global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredVideoUrlInputChunk>? videoUrl = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsText)
+            {
+                text?.Invoke(Text!);
+            }
+            else if (IsImageUrl)
+            {
+                imageUrl?.Invoke(ImageUrl!);
+            }
+            else if (IsAudioUrl)
+            {
+                audioUrl?.Invoke(AudioUrl!);
+            }
+            else if (IsVideoUrl)
+            {
+                videoUrl?.Invoke(VideoUrl!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredTextInputChunk>? text = null,
+            global::System.Action<global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredImageUrlInputChunk>? imageUrl = null,
+            global::System.Action<global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredAudioUrlInputChunk>? audioUrl = null,
+            global::System.Action<global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredVideoUrlInputChunk>? videoUrl = null,
             bool validate = true)
         {
             if (validate)
