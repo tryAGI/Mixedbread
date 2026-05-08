@@ -32,6 +32,19 @@ namespace Mixedbread
         public bool IsIngestion => Ingestion != null;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickIngestion(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::Mixedbread.StoreIngestionEvent? value)
+        {
+            value = Ingestion;
+            return IsIngestion;
+        }
+
+        /// <summary>
         /// Represents a search event in a vector store.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -47,6 +60,19 @@ namespace Mixedbread
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Search))]
 #endif
         public bool IsSearch => Search != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickSearch(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::Mixedbread.StoreSearchEvent? value)
+        {
+            value = Search;
+            return IsSearch;
+        }
 
         /// <summary>
         /// Represents an agentic search trace in a vector store.<br/>
@@ -67,6 +93,19 @@ namespace Mixedbread
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(AgenticSearch))]
 #endif
         public bool IsAgenticSearch => AgenticSearch != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickAgenticSearch(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::Mixedbread.StoreAgenticSearchEvent? value)
+        {
+            value = AgenticSearch;
+            return IsAgenticSearch;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -168,9 +207,9 @@ namespace Mixedbread
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::Mixedbread.StoreIngestionEvent?, TResult>? ingestion = null,
-            global::System.Func<global::Mixedbread.StoreSearchEvent?, TResult>? search = null,
-            global::System.Func<global::Mixedbread.StoreAgenticSearchEvent?, TResult>? agenticSearch = null,
+            global::System.Func<global::Mixedbread.StoreIngestionEvent, TResult>? ingestion = null,
+            global::System.Func<global::Mixedbread.StoreSearchEvent, TResult>? search = null,
+            global::System.Func<global::Mixedbread.StoreAgenticSearchEvent, TResult>? agenticSearch = null,
             bool validate = true)
         {
             if (validate)
@@ -198,9 +237,39 @@ namespace Mixedbread
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::Mixedbread.StoreIngestionEvent?>? ingestion = null,
-            global::System.Action<global::Mixedbread.StoreSearchEvent?>? search = null,
-            global::System.Action<global::Mixedbread.StoreAgenticSearchEvent?>? agenticSearch = null,
+            global::System.Action<global::Mixedbread.StoreIngestionEvent>? ingestion = null,
+
+            global::System.Action<global::Mixedbread.StoreSearchEvent>? search = null,
+
+            global::System.Action<global::Mixedbread.StoreAgenticSearchEvent>? agenticSearch = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsIngestion)
+            {
+                ingestion?.Invoke(Ingestion!);
+            }
+            else if (IsSearch)
+            {
+                search?.Invoke(Search!);
+            }
+            else if (IsAgenticSearch)
+            {
+                agenticSearch?.Invoke(AgenticSearch!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::Mixedbread.StoreIngestionEvent>? ingestion = null,
+            global::System.Action<global::Mixedbread.StoreSearchEvent>? search = null,
+            global::System.Action<global::Mixedbread.StoreAgenticSearchEvent>? agenticSearch = null,
             bool validate = true)
         {
             if (validate)

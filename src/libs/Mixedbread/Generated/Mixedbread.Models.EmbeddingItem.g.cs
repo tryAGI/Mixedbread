@@ -29,6 +29,19 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickEmbeddingItemVariant1(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::System.Collections.Generic.IList<double>? value)
+        {
+            value = EmbeddingItemVariant1;
+            return IsEmbeddingItemVariant1;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::System.Collections.Generic.IList<int>? EmbeddingItemVariant2 { get; init; }
 #else
@@ -46,6 +59,19 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickEmbeddingItemVariant2(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::System.Collections.Generic.IList<int>? value)
+        {
+            value = EmbeddingItemVariant2;
+            return IsEmbeddingItemVariant2;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public string? EmbeddingItemVariant3 { get; init; }
 #else
@@ -59,6 +85,19 @@ namespace Mixedbread
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(EmbeddingItemVariant3))]
 #endif
         public bool IsEmbeddingItemVariant3 => EmbeddingItemVariant3 != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickEmbeddingItemVariant3(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out string? value)
+        {
+            value = EmbeddingItemVariant3;
+            return IsEmbeddingItemVariant3;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -121,9 +160,9 @@ namespace Mixedbread
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::System.Collections.Generic.IList<double>?, TResult>? embeddingItemVariant1 = null,
-            global::System.Func<global::System.Collections.Generic.IList<int>?, TResult>? embeddingItemVariant2 = null,
-            global::System.Func<string?, TResult>? embeddingItemVariant3 = null,
+            global::System.Func<global::System.Collections.Generic.IList<double>, TResult>? embeddingItemVariant1 = null,
+            global::System.Func<global::System.Collections.Generic.IList<int>, TResult>? embeddingItemVariant2 = null,
+            global::System.Func<string, TResult>? embeddingItemVariant3 = null,
             bool validate = true)
         {
             if (validate)
@@ -151,9 +190,39 @@ namespace Mixedbread
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::System.Collections.Generic.IList<double>?>? embeddingItemVariant1 = null,
-            global::System.Action<global::System.Collections.Generic.IList<int>?>? embeddingItemVariant2 = null,
-            global::System.Action<string?>? embeddingItemVariant3 = null,
+            global::System.Action<global::System.Collections.Generic.IList<double>>? embeddingItemVariant1 = null,
+
+            global::System.Action<global::System.Collections.Generic.IList<int>>? embeddingItemVariant2 = null,
+
+            global::System.Action<string>? embeddingItemVariant3 = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsEmbeddingItemVariant1)
+            {
+                embeddingItemVariant1?.Invoke(EmbeddingItemVariant1!);
+            }
+            else if (IsEmbeddingItemVariant2)
+            {
+                embeddingItemVariant2?.Invoke(EmbeddingItemVariant2!);
+            }
+            else if (IsEmbeddingItemVariant3)
+            {
+                embeddingItemVariant3?.Invoke(EmbeddingItemVariant3!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::System.Collections.Generic.IList<double>>? embeddingItemVariant1 = null,
+            global::System.Action<global::System.Collections.Generic.IList<int>>? embeddingItemVariant2 = null,
+            global::System.Action<string>? embeddingItemVariant3 = null,
             bool validate = true)
         {
             if (validate)
