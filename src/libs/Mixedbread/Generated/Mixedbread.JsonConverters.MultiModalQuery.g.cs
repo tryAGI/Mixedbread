@@ -108,7 +108,10 @@ namespace Mixedbread.JsonConverters
                 catch (global::System.InvalidOperationException)
                 {
                 }
+            }
 
+            if (multiModalQueryVariant1 == null && multiModalQueryVariant2 == null)
+            {
                 try
                 {
 
