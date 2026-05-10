@@ -40,6 +40,13 @@ namespace Mixedbread
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public string PickMultiModalQueryVariant1() => IsMultiModalQueryVariant1
+            ? MultiModalQueryVariant1!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'MultiModalQueryVariant1' but the value was {ToString()}.");
+
+        /// <summary>
         /// The input to create embeddings for.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -68,6 +75,13 @@ namespace Mixedbread
             value = MultiModalQueryVariant2;
             return IsMultiModalQueryVariant2;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Mixedbread.MultiModalQueryVariant2 PickMultiModalQueryVariant2() => IsMultiModalQueryVariant2
+            ? MultiModalQueryVariant2!.Value
+            : throw new global::System.InvalidOperationException($"Expected union variant 'MultiModalQueryVariant2' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>
@@ -89,6 +103,11 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
+        public static MultiModalQuery FromMultiModalQueryVariant1(string? value) => new MultiModalQuery(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator MultiModalQuery(global::Mixedbread.MultiModalQueryVariant2 value) => new MultiModalQuery((global::Mixedbread.MultiModalQueryVariant2?)value);
 
         /// <summary>
@@ -103,6 +122,11 @@ namespace Mixedbread
         {
             MultiModalQueryVariant2 = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static MultiModalQuery FromMultiModalQueryVariant2(global::Mixedbread.MultiModalQueryVariant2? value) => new MultiModalQuery(value);
 
         /// <summary>
         /// 

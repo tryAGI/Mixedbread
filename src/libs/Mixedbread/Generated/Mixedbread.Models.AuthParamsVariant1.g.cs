@@ -45,6 +45,13 @@ namespace Mixedbread
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public global::Mixedbread.DataSourceOAuth2Params PickOauth2() => IsOauth2
+            ? Oauth2!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Oauth2' but the value was {ToString()}.");
+
+        /// <summary>
         /// Authentication parameters for a API key data source.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -73,6 +80,13 @@ namespace Mixedbread
             value = ApiKey;
             return IsApiKey;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Mixedbread.DataSourceApiKeyParams PickApiKey() => IsApiKey
+            ? ApiKey!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'ApiKey' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>
@@ -94,6 +108,11 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
+        public static AuthParamsVariant1 FromOauth2(global::Mixedbread.DataSourceOAuth2Params? value) => new AuthParamsVariant1(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator AuthParamsVariant1(global::Mixedbread.DataSourceApiKeyParams value) => new AuthParamsVariant1((global::Mixedbread.DataSourceApiKeyParams?)value);
 
         /// <summary>
@@ -108,6 +127,11 @@ namespace Mixedbread
         {
             ApiKey = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static AuthParamsVariant1 FromApiKey(global::Mixedbread.DataSourceApiKeyParams? value) => new AuthParamsVariant1(value);
 
         /// <summary>
         /// 

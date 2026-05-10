@@ -43,6 +43,13 @@ namespace Mixedbread
             value = Oauth2;
             return IsOauth2;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Mixedbread.OAuth2CreateOrUpdateParams PickOauth2() => IsOauth2
+            ? Oauth2!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Oauth2' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>
@@ -60,6 +67,11 @@ namespace Mixedbread
         {
             Oauth2 = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static AuthParamsVariant12 FromOauth2(global::Mixedbread.OAuth2CreateOrUpdateParams? value) => new AuthParamsVariant12(value);
 
         /// <summary>
         /// 

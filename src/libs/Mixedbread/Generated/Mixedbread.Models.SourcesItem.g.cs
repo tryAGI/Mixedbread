@@ -47,6 +47,13 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
+        public global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredTextInputChunk PickText() => IsText
+            ? Text!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Text' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredImageUrlInputChunk? ImageUrl { get; init; }
 #else
@@ -73,6 +80,13 @@ namespace Mixedbread
             value = ImageUrl;
             return IsImageUrl;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredImageUrlInputChunk PickImageUrl() => IsImageUrl
+            ? ImageUrl!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'ImageUrl' but the value was {ToString()}.");
 
         /// <summary>
         /// 
@@ -107,6 +121,13 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
+        public global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredAudioUrlInputChunk PickAudioUrl() => IsAudioUrl
+            ? AudioUrl!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'AudioUrl' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredVideoUrlInputChunk? VideoUrl { get; init; }
 #else
@@ -133,6 +154,13 @@ namespace Mixedbread
             value = VideoUrl;
             return IsVideoUrl;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredVideoUrlInputChunk PickVideoUrl() => IsVideoUrl
+            ? VideoUrl!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'VideoUrl' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>
@@ -150,6 +178,11 @@ namespace Mixedbread
         {
             Text = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static SourcesItem FromText(global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredTextInputChunk? value) => new SourcesItem(value);
 
         /// <summary>
         /// 
@@ -172,6 +205,11 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
+        public static SourcesItem FromImageUrl(global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredImageUrlInputChunk? value) => new SourcesItem(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator SourcesItem(global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredAudioUrlInputChunk value) => new SourcesItem((global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredAudioUrlInputChunk?)value);
 
         /// <summary>
@@ -190,6 +228,11 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
+        public static SourcesItem FromAudioUrl(global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredAudioUrlInputChunk? value) => new SourcesItem(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator SourcesItem(global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredVideoUrlInputChunk value) => new SourcesItem((global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredVideoUrlInputChunk?)value);
 
         /// <summary>
@@ -204,6 +247,11 @@ namespace Mixedbread
         {
             VideoUrl = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static SourcesItem FromVideoUrl(global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredVideoUrlInputChunk? value) => new SourcesItem(value);
 
         /// <summary>
         /// 

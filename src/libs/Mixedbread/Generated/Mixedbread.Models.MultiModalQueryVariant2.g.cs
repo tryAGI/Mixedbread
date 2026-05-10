@@ -45,6 +45,13 @@ namespace Mixedbread
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public global::Mixedbread.ImageUrlInput2 PickImageUrl() => IsImageUrl
+            ? ImageUrl!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'ImageUrl' but the value was {ToString()}.");
+
+        /// <summary>
         /// Model for text input validation.<br/>
         /// Attributes:<br/>
         ///     type: Input type identifier, always "text"<br/>
@@ -76,6 +83,13 @@ namespace Mixedbread
             value = Text;
             return IsText;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Mixedbread.TextInput PickText() => IsText
+            ? Text!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Text' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>
@@ -97,6 +111,11 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
+        public static MultiModalQueryVariant2 FromImageUrl(global::Mixedbread.ImageUrlInput2? value) => new MultiModalQueryVariant2(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator MultiModalQueryVariant2(global::Mixedbread.TextInput value) => new MultiModalQueryVariant2((global::Mixedbread.TextInput?)value);
 
         /// <summary>
@@ -111,6 +130,11 @@ namespace Mixedbread
         {
             Text = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static MultiModalQueryVariant2 FromText(global::Mixedbread.TextInput? value) => new MultiModalQueryVariant2(value);
 
         /// <summary>
         /// 
