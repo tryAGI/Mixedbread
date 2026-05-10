@@ -45,6 +45,13 @@ namespace Mixedbread
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public global::Mixedbread.StoreIngestionEvent PickIngestion() => IsIngestion
+            ? Ingestion!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Ingestion' but the value was {ToString()}.");
+
+        /// <summary>
         /// Represents a search event in a vector store.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -73,6 +80,13 @@ namespace Mixedbread
             value = Search;
             return IsSearch;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Mixedbread.StoreSearchEvent PickSearch() => IsSearch
+            ? Search!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Search' but the value was {ToString()}.");
 
         /// <summary>
         /// Represents an agentic search trace in a vector store.<br/>
@@ -106,6 +120,13 @@ namespace Mixedbread
             value = AgenticSearch;
             return IsAgenticSearch;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Mixedbread.StoreAgenticSearchEvent PickAgenticSearch() => IsAgenticSearch
+            ? AgenticSearch!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'AgenticSearch' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>
@@ -123,6 +144,11 @@ namespace Mixedbread
         {
             Ingestion = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static DataItem FromIngestion(global::Mixedbread.StoreIngestionEvent? value) => new DataItem(value);
 
         /// <summary>
         /// 
@@ -145,6 +171,11 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
+        public static DataItem FromSearch(global::Mixedbread.StoreSearchEvent? value) => new DataItem(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator DataItem(global::Mixedbread.StoreAgenticSearchEvent value) => new DataItem((global::Mixedbread.StoreAgenticSearchEvent?)value);
 
         /// <summary>
@@ -159,6 +190,11 @@ namespace Mixedbread
         {
             AgenticSearch = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static DataItem FromAgenticSearch(global::Mixedbread.StoreAgenticSearchEvent? value) => new DataItem(value);
 
         /// <summary>
         /// 

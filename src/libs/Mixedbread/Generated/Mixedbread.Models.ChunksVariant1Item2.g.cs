@@ -47,6 +47,13 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
+        public global::Mixedbread.TextInputChunk PickText() => IsText
+            ? Text!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Text' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::Mixedbread.ImageUrlInputChunk? ImageUrl { get; init; }
 #else
@@ -73,6 +80,13 @@ namespace Mixedbread
             value = ImageUrl;
             return IsImageUrl;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Mixedbread.ImageUrlInputChunk PickImageUrl() => IsImageUrl
+            ? ImageUrl!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'ImageUrl' but the value was {ToString()}.");
 
         /// <summary>
         /// 
@@ -107,6 +121,13 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
+        public global::Mixedbread.AudioUrlInputChunk PickAudioUrl() => IsAudioUrl
+            ? AudioUrl!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'AudioUrl' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::Mixedbread.VideoUrlInputChunk? VideoUrl { get; init; }
 #else
@@ -133,6 +154,13 @@ namespace Mixedbread
             value = VideoUrl;
             return IsVideoUrl;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Mixedbread.VideoUrlInputChunk PickVideoUrl() => IsVideoUrl
+            ? VideoUrl!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'VideoUrl' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>
@@ -150,6 +178,11 @@ namespace Mixedbread
         {
             Text = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static ChunksVariant1Item2 FromText(global::Mixedbread.TextInputChunk? value) => new ChunksVariant1Item2(value);
 
         /// <summary>
         /// 
@@ -172,6 +205,11 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
+        public static ChunksVariant1Item2 FromImageUrl(global::Mixedbread.ImageUrlInputChunk? value) => new ChunksVariant1Item2(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator ChunksVariant1Item2(global::Mixedbread.AudioUrlInputChunk value) => new ChunksVariant1Item2((global::Mixedbread.AudioUrlInputChunk?)value);
 
         /// <summary>
@@ -190,6 +228,11 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
+        public static ChunksVariant1Item2 FromAudioUrl(global::Mixedbread.AudioUrlInputChunk? value) => new ChunksVariant1Item2(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator ChunksVariant1Item2(global::Mixedbread.VideoUrlInputChunk value) => new ChunksVariant1Item2((global::Mixedbread.VideoUrlInputChunk?)value);
 
         /// <summary>
@@ -204,6 +247,11 @@ namespace Mixedbread
         {
             VideoUrl = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static ChunksVariant1Item2 FromVideoUrl(global::Mixedbread.VideoUrlInputChunk? value) => new ChunksVariant1Item2(value);
 
         /// <summary>
         /// 

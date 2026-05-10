@@ -45,6 +45,13 @@ namespace Mixedbread
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredTextInputChunk PickText() => IsText
+            ? Text!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Text' but the value was {ToString()}.");
+
+        /// <summary>
         /// Scored image chunk for deprecated API.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -73,6 +80,13 @@ namespace Mixedbread
             value = ImageUrl;
             return IsImageUrl;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredImageUrlInputChunk PickImageUrl() => IsImageUrl
+            ? ImageUrl!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'ImageUrl' but the value was {ToString()}.");
 
         /// <summary>
         /// Scored audio chunk for deprecated API.
@@ -105,6 +119,13 @@ namespace Mixedbread
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredAudioUrlInputChunk PickAudioUrl() => IsAudioUrl
+            ? AudioUrl!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'AudioUrl' but the value was {ToString()}.");
+
+        /// <summary>
         /// Scored video chunk for deprecated API.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -133,6 +154,13 @@ namespace Mixedbread
             value = VideoUrl;
             return IsVideoUrl;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredVideoUrlInputChunk PickVideoUrl() => IsVideoUrl
+            ? VideoUrl!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'VideoUrl' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>
@@ -150,6 +178,11 @@ namespace Mixedbread
         {
             Text = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static DataItem3 FromText(global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredTextInputChunk? value) => new DataItem3(value);
 
         /// <summary>
         /// 
@@ -172,6 +205,11 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
+        public static DataItem3 FromImageUrl(global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredImageUrlInputChunk? value) => new DataItem3(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator DataItem3(global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredAudioUrlInputChunk value) => new DataItem3((global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredAudioUrlInputChunk?)value);
 
         /// <summary>
@@ -190,6 +228,11 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
+        public static DataItem3 FromAudioUrl(global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredAudioUrlInputChunk? value) => new DataItem3(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator DataItem3(global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredVideoUrlInputChunk value) => new DataItem3((global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredVideoUrlInputChunk?)value);
 
         /// <summary>
@@ -204,6 +247,11 @@ namespace Mixedbread
         {
             VideoUrl = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static DataItem3 FromVideoUrl(global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredVideoUrlInputChunk? value) => new DataItem3(value);
 
         /// <summary>
         /// 

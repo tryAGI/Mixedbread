@@ -45,6 +45,13 @@ namespace Mixedbread
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public global::Mixedbread.OAuth2CreateOrUpdateParams PickOauth2() => IsOauth2
+            ? Oauth2!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Oauth2' but the value was {ToString()}.");
+
+        /// <summary>
         /// Base class for API key create or update parameters.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -73,6 +80,13 @@ namespace Mixedbread
             value = ApiKey;
             return IsApiKey;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Mixedbread.ApiKeyCreateOrUpdateParams PickApiKey() => IsApiKey
+            ? ApiKey!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'ApiKey' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>
@@ -94,6 +108,11 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
+        public static AuthParamsVariant13 FromOauth2(global::Mixedbread.OAuth2CreateOrUpdateParams? value) => new AuthParamsVariant13(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator AuthParamsVariant13(global::Mixedbread.ApiKeyCreateOrUpdateParams value) => new AuthParamsVariant13((global::Mixedbread.ApiKeyCreateOrUpdateParams?)value);
 
         /// <summary>
@@ -108,6 +127,11 @@ namespace Mixedbread
         {
             ApiKey = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static AuthParamsVariant13 FromApiKey(global::Mixedbread.ApiKeyCreateOrUpdateParams? value) => new AuthParamsVariant13(value);
 
         /// <summary>
         /// 
