@@ -138,7 +138,10 @@ namespace Mixedbread.JsonConverters
                 catch (global::System.InvalidOperationException)
                 {
                 }
+            }
 
+            if (embeddingItemVariant1 == null && embeddingItemVariant2 == null && embeddingItemVariant3 == null)
+            {
                 try
                 {
 
@@ -152,7 +155,10 @@ namespace Mixedbread.JsonConverters
                 catch (global::System.InvalidOperationException)
                 {
                 }
+            }
 
+            if (embeddingItemVariant1 == null && embeddingItemVariant2 == null && embeddingItemVariant3 == null)
+            {
                 try
                 {
 
