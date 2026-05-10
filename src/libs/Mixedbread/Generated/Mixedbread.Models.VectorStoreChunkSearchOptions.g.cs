@@ -106,5 +106,6 @@ namespace Mixedbread
         public VectorStoreChunkSearchOptions()
         {
         }
+
     }
 }

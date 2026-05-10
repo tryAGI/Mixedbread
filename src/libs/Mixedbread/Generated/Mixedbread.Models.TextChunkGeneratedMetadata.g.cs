@@ -110,5 +110,6 @@ namespace Mixedbread
         public TextChunkGeneratedMetadata()
         {
         }
+
     }
 }

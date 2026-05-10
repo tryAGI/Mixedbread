@@ -193,5 +193,6 @@ namespace Mixedbread
         public MxbaiOmniCoreStoreModelsChunkTypesScoredImageUrlInputChunk()
         {
         }
+
     }
 }

@@ -65,5 +65,6 @@ namespace Mixedbread
         public StoreEventHistogramParams()
         {
         }
+
     }
 }

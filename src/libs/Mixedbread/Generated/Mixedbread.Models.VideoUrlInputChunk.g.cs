@@ -123,5 +123,6 @@ namespace Mixedbread
         public VideoUrlInputChunk()
         {
         }
+
     }
 }

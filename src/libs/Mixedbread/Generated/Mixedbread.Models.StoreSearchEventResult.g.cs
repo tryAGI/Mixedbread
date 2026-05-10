@@ -99,5 +99,6 @@ namespace Mixedbread
         public StoreSearchEventResult()
         {
         }
+
     }
 }

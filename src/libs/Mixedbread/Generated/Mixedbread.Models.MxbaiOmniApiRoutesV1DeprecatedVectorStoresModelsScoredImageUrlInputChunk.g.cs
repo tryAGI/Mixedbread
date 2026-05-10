@@ -182,5 +182,6 @@ namespace Mixedbread
         public MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredImageUrlInputChunk()
         {
         }
+
     }
 }

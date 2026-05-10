@@ -194,5 +194,6 @@ namespace Mixedbread
         public MxbaiOmniCoreStoreModelsChunkTypesScoredAudioUrlInputChunk()
         {
         }
+
     }
 }

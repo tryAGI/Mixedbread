@@ -96,5 +96,6 @@ namespace Mixedbread
         public StoreUpdateParams()
         {
         }
+
     }
 }

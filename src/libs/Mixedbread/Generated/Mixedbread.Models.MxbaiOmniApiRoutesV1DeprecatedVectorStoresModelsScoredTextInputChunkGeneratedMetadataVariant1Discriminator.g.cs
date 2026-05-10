@@ -40,5 +40,6 @@ namespace Mixedbread
         public MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredTextInputChunkGeneratedMetadataVariant1Discriminator()
         {
         }
+
     }
 }

@@ -137,5 +137,6 @@ namespace Mixedbread
         public StoreSearchEvent()
         {
         }
+
     }
 }

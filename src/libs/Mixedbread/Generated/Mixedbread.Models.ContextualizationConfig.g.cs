@@ -57,5 +57,6 @@ namespace Mixedbread
         public ContextualizationConfig()
         {
         }
+
     }
 }

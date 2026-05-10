@@ -115,5 +115,6 @@ namespace Mixedbread
         public MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsSearchRuleResponse()
         {
         }
+
     }
 }
