@@ -40,5 +40,6 @@ namespace Mixedbread
         public MxbaiOmniCoreStoreModelsChunkTypesScoredAudioUrlInputChunkGeneratedMetadataVariant1Discriminator()
         {
         }
+
     }
 }

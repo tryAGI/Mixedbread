@@ -52,5 +52,6 @@ namespace Mixedbread
         public MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleUpdateParams()
         {
         }
+
     }
 }

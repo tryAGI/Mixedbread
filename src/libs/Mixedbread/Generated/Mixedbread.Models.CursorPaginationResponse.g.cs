@@ -75,5 +75,6 @@ namespace Mixedbread
         public CursorPaginationResponse()
         {
         }
+
     }
 }

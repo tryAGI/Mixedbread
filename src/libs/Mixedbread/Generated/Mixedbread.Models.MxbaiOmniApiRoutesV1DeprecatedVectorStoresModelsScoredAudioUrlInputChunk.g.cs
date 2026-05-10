@@ -183,5 +183,6 @@ namespace Mixedbread
         public MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredAudioUrlInputChunk()
         {
         }
+
     }
 }

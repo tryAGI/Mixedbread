@@ -43,5 +43,6 @@ namespace Mixedbread
         public MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsSearchRuleSpecificDeleteParams()
         {
         }
+
     }
 }

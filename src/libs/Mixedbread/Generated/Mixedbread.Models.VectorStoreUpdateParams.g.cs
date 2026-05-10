@@ -85,5 +85,6 @@ namespace Mixedbread
         public VectorStoreUpdateParams()
         {
         }
+
     }
 }

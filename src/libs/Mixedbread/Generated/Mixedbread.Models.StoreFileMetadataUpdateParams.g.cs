@@ -41,5 +41,6 @@ namespace Mixedbread
         public StoreFileMetadataUpdateParams()
         {
         }
+
     }
 }
