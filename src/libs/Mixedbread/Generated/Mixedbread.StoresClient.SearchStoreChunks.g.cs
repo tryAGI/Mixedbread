@@ -570,11 +570,8 @@ namespace Mixedbread
         ///     HTTPException (400): If search parameters are invalid<br/>
         ///     HTTPException (404): If no vector stores are found to search
         /// </summary>
-        /// <param name="query">
-        /// Search query text
-        /// </param>
         /// <param name="storeIdentifiers">
-        /// IDs or names of stores to search
+        /// IDs or names of stores
         /// </param>
         /// <param name="topK">
         /// Number of results to return<br/>
@@ -586,6 +583,9 @@ namespace Mixedbread
         /// <param name="fileIds">
         /// Optional list of file IDs to filter chunks by (inclusion filter)
         /// </param>
+        /// <param name="query">
+        /// Search query text
+        /// </param>
         /// <param name="searchOptions">
         /// Search configuration options
         /// </param>
@@ -593,10 +593,10 @@ namespace Mixedbread
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::Mixedbread.StoreSearchResponse> SearchStoreChunksAsync(
-            global::Mixedbread.MultiModalQuery query,
             global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<string, global::System.Guid?>> storeIdentifiers,
+            global::Mixedbread.MultiModalQuery query,
             int? topK = default,
-            global::Mixedbread.AnyOf<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition>>, object>? filters = default,
+            global::Mixedbread.AnyOf<global::Mixedbread.SearchFilterInput, global::Mixedbread.SearchFilterCondition, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilterInput, global::Mixedbread.SearchFilterCondition>>, object>? filters = default,
             global::Mixedbread.AnyOf<global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.ConditionOperator?, global::System.Collections.Generic.IList<global::System.Guid>>>, global::System.Collections.Generic.IList<global::System.Guid>, object>? fileIds = default,
             global::Mixedbread.StoreChunkSearchOptions? searchOptions = default,
             global::Mixedbread.AutoSDKRequestOptions? requestOptions = default,
@@ -604,11 +604,11 @@ namespace Mixedbread
         {
             var __request = new global::Mixedbread.StoreChunkSearchParams
             {
-                Query = query,
                 StoreIdentifiers = storeIdentifiers,
                 TopK = topK,
                 Filters = filters,
                 FileIds = fileIds,
+                Query = query,
                 SearchOptions = searchOptions,
             };
 

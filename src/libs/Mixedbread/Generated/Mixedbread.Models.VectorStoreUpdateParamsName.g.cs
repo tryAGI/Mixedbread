@@ -4,7 +4,7 @@
 namespace Mixedbread
 {
     /// <summary>
-    /// New name for the store
+    /// New name for the store. Can only contain lowercase letters, numbers, periods (.), and hyphens (-).
     /// </summary>
     public sealed partial class VectorStoreUpdateParamsName
     {

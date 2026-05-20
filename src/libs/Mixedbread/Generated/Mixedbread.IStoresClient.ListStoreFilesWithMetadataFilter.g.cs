@@ -93,7 +93,7 @@ namespace Mixedbread
             string? before = default,
             bool? includeTotal = default,
             global::System.Collections.Generic.IList<global::Mixedbread.StoreFileStatus>? statuses = default,
-            global::Mixedbread.AnyOf<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition>>, object>? metadataFilter = default,
+            global::Mixedbread.AnyOf<global::Mixedbread.SearchFilterInput, global::Mixedbread.SearchFilterCondition, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilterInput, global::Mixedbread.SearchFilterCondition>>, object>? metadataFilter = default,
             string? q = default,
             global::Mixedbread.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);

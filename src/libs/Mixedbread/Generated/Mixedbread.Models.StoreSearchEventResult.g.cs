@@ -9,6 +9,13 @@ namespace Mixedbread
     public sealed partial class StoreSearchEventResult
     {
         /// <summary>
+        /// ID of the store the chunk belongs to
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("store_id")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string StoreId { get; set; }
+
+        /// <summary>
         /// ID of the file the chunk belongs to
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file_id")]
@@ -56,6 +63,9 @@ namespace Mixedbread
         /// <summary>
         /// Initializes a new instance of the <see cref="StoreSearchEventResult" /> class.
         /// </summary>
+        /// <param name="storeId">
+        /// ID of the store the chunk belongs to
+        /// </param>
         /// <param name="fileId">
         /// ID of the file the chunk belongs to
         /// </param>
@@ -78,6 +88,7 @@ namespace Mixedbread
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public StoreSearchEventResult(
+            string storeId,
             string fileId,
             int chunkIndex,
             double score,
@@ -85,6 +96,7 @@ namespace Mixedbread
             int? firstStagePosition,
             global::Mixedbread.StoreSearchEventResultFirstStageSource2? firstStageSource)
         {
+            this.StoreId = storeId ?? throw new global::System.ArgumentNullException(nameof(storeId));
             this.FileId = fileId ?? throw new global::System.ArgumentNullException(nameof(fileId));
             this.Filename = filename;
             this.ChunkIndex = chunkIndex;

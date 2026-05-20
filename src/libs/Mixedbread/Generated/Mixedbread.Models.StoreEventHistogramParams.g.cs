@@ -28,6 +28,12 @@ namespace Mixedbread
         public int? BucketSeconds { get; set; }
 
         /// <summary>
+        /// Restrict the histogram to these event types. When omitted, includes search, agentic_search, and ingestion events.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("event_types")]
+        public global::System.Collections.Generic.IList<global::Mixedbread.StoreEventHistogramParamsEventTypesVariant1Item>? EventTypes { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -46,17 +52,22 @@ namespace Mixedbread
         /// Number of seconds in each bucket<br/>
         /// Default Value: 7200
         /// </param>
+        /// <param name="eventTypes">
+        /// Restrict the histogram to these event types. When omitted, includes search, agentic_search, and ingestion events.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public StoreEventHistogramParams(
             global::System.DateTime? startTime,
             global::System.DateTime? endTime,
-            int? bucketSeconds)
+            int? bucketSeconds,
+            global::System.Collections.Generic.IList<global::Mixedbread.StoreEventHistogramParamsEventTypesVariant1Item>? eventTypes)
         {
             this.StartTime = startTime;
             this.EndTime = endTime;
             this.BucketSeconds = bucketSeconds;
+            this.EventTypes = eventTypes;
         }
 
         /// <summary>

@@ -6,25 +6,25 @@ namespace Mixedbread
     /// <summary>
     /// Represents a filter with AND, OR, and NOT conditions.
     /// </summary>
-    public sealed partial class SearchFilter
+    public sealed partial class SearchFilterInput
     {
         /// <summary>
         /// List of conditions or filters to be ANDed together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("all")]
-        public global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition>>? All { get; set; }
+        public global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilterInput, global::Mixedbread.SearchFilterCondition>>? All { get; set; }
 
         /// <summary>
         /// List of conditions or filters to be ORed together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("any")]
-        public global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition>>? Any { get; set; }
+        public global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilterInput, global::Mixedbread.SearchFilterCondition>>? Any { get; set; }
 
         /// <summary>
         /// List of conditions or filters to be NOTed
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("none")]
-        public global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition>>? None { get; set; }
+        public global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilterInput, global::Mixedbread.SearchFilterCondition>>? None { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -33,7 +33,7 @@ namespace Mixedbread
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SearchFilter" /> class.
+        /// Initializes a new instance of the <see cref="SearchFilterInput" /> class.
         /// </summary>
         /// <param name="all">
         /// List of conditions or filters to be ANDed together
@@ -47,10 +47,10 @@ namespace Mixedbread
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public SearchFilter(
-            global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition>>? all,
-            global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition>>? any,
-            global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition>>? none)
+        public SearchFilterInput(
+            global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilterInput, global::Mixedbread.SearchFilterCondition>>? all,
+            global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilterInput, global::Mixedbread.SearchFilterCondition>>? any,
+            global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilterInput, global::Mixedbread.SearchFilterCondition>>? none)
         {
             this.All = all;
             this.Any = any;
@@ -58,9 +58,9 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SearchFilter" /> class.
+        /// Initializes a new instance of the <see cref="SearchFilterInput" /> class.
         /// </summary>
-        public SearchFilter()
+        public SearchFilterInput()
         {
         }
 

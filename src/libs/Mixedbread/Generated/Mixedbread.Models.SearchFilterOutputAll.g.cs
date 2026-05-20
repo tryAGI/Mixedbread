@@ -6,7 +6,7 @@ namespace Mixedbread
     /// <summary>
     /// List of conditions or filters to be ANDed together
     /// </summary>
-    public sealed partial class SearchFilterAll
+    public sealed partial class SearchFilterOutputAll
     {
 
         /// <summary>
