@@ -56,11 +56,43 @@ namespace Mixedbread
         public string? RewrittenQuery { get; set; }
 
         /// <summary>
+        /// Filters used after query rewriting
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("rewritten_filters")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<global::Mixedbread.SearchFilterOutput, global::Mixedbread.SearchFilterCondition, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilterOutput, global::Mixedbread.SearchFilterCondition>>, object>))]
+        public global::Mixedbread.AnyOf<global::Mixedbread.SearchFilterOutput, global::Mixedbread.SearchFilterCondition, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilterOutput, global::Mixedbread.SearchFilterCondition>>, object>? RewrittenFilters { get; set; }
+
+        /// <summary>
+        /// Metadata field used for ranking
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("rewrite_rank_by")]
+        public string? RewriteRankBy { get; set; }
+
+        /// <summary>
+        /// Ranking direction
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("rewrite_rank_direction")]
+        public global::Mixedbread.StoreSearchEventRewriteRankDirection2? RewriteRankDirection { get; set; }
+
+        /// <summary>
+        /// Ranking mode
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("rewrite_rank_mode")]
+        public global::Mixedbread.StoreSearchEventRewriteRankMode2? RewriteRankMode { get; set; }
+
+        /// <summary>
         /// Whether to rerank the results<br/>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("rerank")]
         public bool? Rerank { get; set; }
+
+        /// <summary>
+        /// Metadata filters submitted with the search request
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("filters")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<global::Mixedbread.SearchFilterOutput, global::Mixedbread.SearchFilterCondition, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilterOutput, global::Mixedbread.SearchFilterCondition>>, object>))]
+        public global::Mixedbread.AnyOf<global::Mixedbread.SearchFilterOutput, global::Mixedbread.SearchFilterCondition, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilterOutput, global::Mixedbread.SearchFilterCondition>>, object>? Filters { get; set; }
 
         /// <summary>
         /// Chunks returned by the search
@@ -99,9 +131,24 @@ namespace Mixedbread
         /// <param name="rewrittenQuery">
         /// Rewritten query if query rewriting was enabled
         /// </param>
+        /// <param name="rewrittenFilters">
+        /// Filters used after query rewriting
+        /// </param>
+        /// <param name="rewriteRankBy">
+        /// Metadata field used for ranking
+        /// </param>
+        /// <param name="rewriteRankDirection">
+        /// Ranking direction
+        /// </param>
+        /// <param name="rewriteRankMode">
+        /// Ranking mode
+        /// </param>
         /// <param name="rerank">
         /// Whether to rerank the results<br/>
         /// Default Value: false
+        /// </param>
+        /// <param name="filters">
+        /// Metadata filters submitted with the search request
         /// </param>
         /// <param name="results">
         /// Chunks returned by the search
@@ -117,7 +164,12 @@ namespace Mixedbread
             string? type,
             string? searchTime,
             string? rewrittenQuery,
+            global::Mixedbread.AnyOf<global::Mixedbread.SearchFilterOutput, global::Mixedbread.SearchFilterCondition, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilterOutput, global::Mixedbread.SearchFilterCondition>>, object>? rewrittenFilters,
+            string? rewriteRankBy,
+            global::Mixedbread.StoreSearchEventRewriteRankDirection2? rewriteRankDirection,
+            global::Mixedbread.StoreSearchEventRewriteRankMode2? rewriteRankMode,
             bool? rerank,
+            global::Mixedbread.AnyOf<global::Mixedbread.SearchFilterOutput, global::Mixedbread.SearchFilterCondition, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilterOutput, global::Mixedbread.SearchFilterCondition>>, object>? filters,
             global::System.Collections.Generic.IList<global::Mixedbread.StoreSearchEventResult>? results)
         {
             this.Id = id;
@@ -127,7 +179,12 @@ namespace Mixedbread
             this.SearchTime = searchTime;
             this.Query = query ?? throw new global::System.ArgumentNullException(nameof(query));
             this.RewrittenQuery = rewrittenQuery;
+            this.RewrittenFilters = rewrittenFilters;
+            this.RewriteRankBy = rewriteRankBy;
+            this.RewriteRankDirection = rewriteRankDirection;
+            this.RewriteRankMode = rewriteRankMode;
             this.Rerank = rerank;
+            this.Filters = filters;
             this.Results = results;
         }
 
@@ -137,5 +194,6 @@ namespace Mixedbread
         public StoreSearchEvent()
         {
         }
+
     }
 }

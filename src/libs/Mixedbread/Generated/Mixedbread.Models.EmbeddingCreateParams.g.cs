@@ -104,5 +104,6 @@ namespace Mixedbread
         public EmbeddingCreateParams()
         {
         }
+
     }
 }

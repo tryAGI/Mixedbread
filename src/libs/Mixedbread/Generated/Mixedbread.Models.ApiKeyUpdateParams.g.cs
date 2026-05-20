@@ -52,5 +52,6 @@ namespace Mixedbread
         public ApiKeyUpdateParams()
         {
         }
+
     }
 }

@@ -34,6 +34,26 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickText(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::Mixedbread.TextInputChunk? value)
+        {
+            value = Text;
+            return IsText;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Mixedbread.TextInputChunk PickText() => IsText
+            ? Text!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Text' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::Mixedbread.ImageUrlInputChunk? ImageUrl { get; init; }
 #else
@@ -47,6 +67,26 @@ namespace Mixedbread
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ImageUrl))]
 #endif
         public bool IsImageUrl => ImageUrl != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickImageUrl(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::Mixedbread.ImageUrlInputChunk? value)
+        {
+            value = ImageUrl;
+            return IsImageUrl;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Mixedbread.ImageUrlInputChunk PickImageUrl() => IsImageUrl
+            ? ImageUrl!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'ImageUrl' but the value was {ToString()}.");
 
         /// <summary>
         /// 
@@ -68,6 +108,26 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickAudioUrl(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::Mixedbread.AudioUrlInputChunk? value)
+        {
+            value = AudioUrl;
+            return IsAudioUrl;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Mixedbread.AudioUrlInputChunk PickAudioUrl() => IsAudioUrl
+            ? AudioUrl!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'AudioUrl' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::Mixedbread.VideoUrlInputChunk? VideoUrl { get; init; }
 #else
@@ -81,6 +141,26 @@ namespace Mixedbread
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(VideoUrl))]
 #endif
         public bool IsVideoUrl => VideoUrl != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickVideoUrl(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::Mixedbread.VideoUrlInputChunk? value)
+        {
+            value = VideoUrl;
+            return IsVideoUrl;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Mixedbread.VideoUrlInputChunk PickVideoUrl() => IsVideoUrl
+            ? VideoUrl!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'VideoUrl' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>
@@ -98,6 +178,11 @@ namespace Mixedbread
         {
             Text = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static ChunksVariant1Item2 FromText(global::Mixedbread.TextInputChunk? value) => new ChunksVariant1Item2(value);
 
         /// <summary>
         /// 
@@ -120,6 +205,11 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
+        public static ChunksVariant1Item2 FromImageUrl(global::Mixedbread.ImageUrlInputChunk? value) => new ChunksVariant1Item2(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator ChunksVariant1Item2(global::Mixedbread.AudioUrlInputChunk value) => new ChunksVariant1Item2((global::Mixedbread.AudioUrlInputChunk?)value);
 
         /// <summary>
@@ -138,6 +228,11 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
+        public static ChunksVariant1Item2 FromAudioUrl(global::Mixedbread.AudioUrlInputChunk? value) => new ChunksVariant1Item2(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator ChunksVariant1Item2(global::Mixedbread.VideoUrlInputChunk value) => new ChunksVariant1Item2((global::Mixedbread.VideoUrlInputChunk?)value);
 
         /// <summary>
@@ -152,6 +247,11 @@ namespace Mixedbread
         {
             VideoUrl = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static ChunksVariant1Item2 FromVideoUrl(global::Mixedbread.VideoUrlInputChunk? value) => new ChunksVariant1Item2(value);
 
         /// <summary>
         /// 
@@ -204,10 +304,10 @@ namespace Mixedbread
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::Mixedbread.TextInputChunk?, TResult>? text = null,
-            global::System.Func<global::Mixedbread.ImageUrlInputChunk?, TResult>? imageUrl = null,
-            global::System.Func<global::Mixedbread.AudioUrlInputChunk?, TResult>? audioUrl = null,
-            global::System.Func<global::Mixedbread.VideoUrlInputChunk?, TResult>? videoUrl = null,
+            global::System.Func<global::Mixedbread.TextInputChunk, TResult>? text = null,
+            global::System.Func<global::Mixedbread.ImageUrlInputChunk, TResult>? imageUrl = null,
+            global::System.Func<global::Mixedbread.AudioUrlInputChunk, TResult>? audioUrl = null,
+            global::System.Func<global::Mixedbread.VideoUrlInputChunk, TResult>? videoUrl = null,
             bool validate = true)
         {
             if (validate)
@@ -239,10 +339,46 @@ namespace Mixedbread
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::Mixedbread.TextInputChunk?>? text = null,
-            global::System.Action<global::Mixedbread.ImageUrlInputChunk?>? imageUrl = null,
-            global::System.Action<global::Mixedbread.AudioUrlInputChunk?>? audioUrl = null,
-            global::System.Action<global::Mixedbread.VideoUrlInputChunk?>? videoUrl = null,
+            global::System.Action<global::Mixedbread.TextInputChunk>? text = null,
+
+            global::System.Action<global::Mixedbread.ImageUrlInputChunk>? imageUrl = null,
+
+            global::System.Action<global::Mixedbread.AudioUrlInputChunk>? audioUrl = null,
+
+            global::System.Action<global::Mixedbread.VideoUrlInputChunk>? videoUrl = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsText)
+            {
+                text?.Invoke(Text!);
+            }
+            else if (IsImageUrl)
+            {
+                imageUrl?.Invoke(ImageUrl!);
+            }
+            else if (IsAudioUrl)
+            {
+                audioUrl?.Invoke(AudioUrl!);
+            }
+            else if (IsVideoUrl)
+            {
+                videoUrl?.Invoke(VideoUrl!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::Mixedbread.TextInputChunk>? text = null,
+            global::System.Action<global::Mixedbread.ImageUrlInputChunk>? imageUrl = null,
+            global::System.Action<global::Mixedbread.AudioUrlInputChunk>? audioUrl = null,
+            global::System.Action<global::Mixedbread.VideoUrlInputChunk>? videoUrl = null,
             bool validate = true)
         {
             if (validate)

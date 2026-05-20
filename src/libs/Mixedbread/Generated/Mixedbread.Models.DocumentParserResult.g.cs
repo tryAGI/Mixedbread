@@ -90,5 +90,6 @@ namespace Mixedbread
         public DocumentParserResult()
         {
         }
+
     }
 }

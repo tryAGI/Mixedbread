@@ -195,5 +195,6 @@ namespace Mixedbread
         public MxbaiOmniCoreStoreModelsChunkTypesScoredTextInputChunk()
         {
         }
+
     }
 }

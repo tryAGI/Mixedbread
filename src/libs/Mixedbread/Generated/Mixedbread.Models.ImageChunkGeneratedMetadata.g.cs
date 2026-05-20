@@ -88,5 +88,6 @@ namespace Mixedbread
         public ImageChunkGeneratedMetadata()
         {
         }
+
     }
 }

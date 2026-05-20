@@ -4,9 +4,9 @@
 namespace Mixedbread
 {
     /// <summary>
-    /// List of conditions or filters to be ORed together
+    /// Ranking direction
     /// </summary>
-    public sealed partial class SearchFilterAny
+    public sealed partial class StoreSearchEventRewriteRankDirection
     {
 
         /// <summary>
@@ -14,5 +14,6 @@ namespace Mixedbread
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
     }
 }

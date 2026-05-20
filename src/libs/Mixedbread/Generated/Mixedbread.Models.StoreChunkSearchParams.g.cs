@@ -9,15 +9,7 @@ namespace Mixedbread
     public sealed partial class StoreChunkSearchParams
     {
         /// <summary>
-        /// Search query text
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("query")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Mixedbread.JsonConverters.MultiModalQueryJsonConverter))]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Mixedbread.MultiModalQuery Query { get; set; }
-
-        /// <summary>
-        /// IDs or names of stores to search
+        /// IDs or names of stores
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("store_identifiers")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -34,8 +26,8 @@ namespace Mixedbread
         /// Optional filter conditions
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("filters")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition>>, object>))]
-        public global::Mixedbread.AnyOf<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition>>, object>? Filters { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<global::Mixedbread.SearchFilterInput, global::Mixedbread.SearchFilterCondition, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilterInput, global::Mixedbread.SearchFilterCondition>>, object>))]
+        public global::Mixedbread.AnyOf<global::Mixedbread.SearchFilterInput, global::Mixedbread.SearchFilterCondition, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilterInput, global::Mixedbread.SearchFilterCondition>>, object>? Filters { get; set; }
 
         /// <summary>
         /// Optional list of file IDs to filter chunks by (inclusion filter)
@@ -43,6 +35,14 @@ namespace Mixedbread
         [global::System.Text.Json.Serialization.JsonPropertyName("file_ids")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.ConditionOperator?, global::System.Collections.Generic.IList<global::System.Guid>>>, global::System.Collections.Generic.IList<global::System.Guid>, object>))]
         public global::Mixedbread.AnyOf<global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.ConditionOperator?, global::System.Collections.Generic.IList<global::System.Guid>>>, global::System.Collections.Generic.IList<global::System.Guid>, object>? FileIds { get; set; }
+
+        /// <summary>
+        /// Search query text
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("query")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Mixedbread.JsonConverters.MultiModalQueryJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::Mixedbread.MultiModalQuery Query { get; set; }
 
         /// <summary>
         /// Search configuration options
@@ -59,11 +59,11 @@ namespace Mixedbread
         /// <summary>
         /// Initializes a new instance of the <see cref="StoreChunkSearchParams" /> class.
         /// </summary>
+        /// <param name="storeIdentifiers">
+        /// IDs or names of stores
+        /// </param>
         /// <param name="query">
         /// Search query text
-        /// </param>
-        /// <param name="storeIdentifiers">
-        /// IDs or names of stores to search
         /// </param>
         /// <param name="topK">
         /// Number of results to return<br/>
@@ -82,18 +82,18 @@ namespace Mixedbread
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public StoreChunkSearchParams(
-            global::Mixedbread.MultiModalQuery query,
             global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<string, global::System.Guid?>> storeIdentifiers,
+            global::Mixedbread.MultiModalQuery query,
             int? topK,
-            global::Mixedbread.AnyOf<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition>>, object>? filters,
+            global::Mixedbread.AnyOf<global::Mixedbread.SearchFilterInput, global::Mixedbread.SearchFilterCondition, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilterInput, global::Mixedbread.SearchFilterCondition>>, object>? filters,
             global::Mixedbread.AnyOf<global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.ConditionOperator?, global::System.Collections.Generic.IList<global::System.Guid>>>, global::System.Collections.Generic.IList<global::System.Guid>, object>? fileIds,
             global::Mixedbread.StoreChunkSearchOptions? searchOptions)
         {
-            this.Query = query;
             this.StoreIdentifiers = storeIdentifiers ?? throw new global::System.ArgumentNullException(nameof(storeIdentifiers));
             this.TopK = topK;
             this.Filters = filters;
             this.FileIds = fileIds;
+            this.Query = query;
             this.SearchOptions = searchOptions;
         }
 
@@ -103,5 +103,6 @@ namespace Mixedbread
         public StoreChunkSearchParams()
         {
         }
+
     }
 }

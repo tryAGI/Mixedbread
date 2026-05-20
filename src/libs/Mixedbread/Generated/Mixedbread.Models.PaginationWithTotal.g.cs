@@ -69,5 +69,6 @@ namespace Mixedbread
         public PaginationWithTotal()
         {
         }
+
     }
 }

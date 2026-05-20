@@ -9,13 +9,7 @@ namespace Mixedbread
     public sealed partial class StoreQAParams
     {
         /// <summary>
-        /// Question to answer. If not provided, the question will be extracted from the passed messages.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("query")]
-        public string? Query { get; set; }
-
-        /// <summary>
-        /// IDs or names of stores to search
+        /// IDs or names of stores
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("store_identifiers")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -32,8 +26,8 @@ namespace Mixedbread
         /// Optional filter conditions
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("filters")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition>>, object>))]
-        public global::Mixedbread.AnyOf<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition>>, object>? Filters { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<global::Mixedbread.SearchFilterInput, global::Mixedbread.SearchFilterCondition, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilterInput, global::Mixedbread.SearchFilterCondition>>, object>))]
+        public global::Mixedbread.AnyOf<global::Mixedbread.SearchFilterInput, global::Mixedbread.SearchFilterCondition, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilterInput, global::Mixedbread.SearchFilterCondition>>, object>? Filters { get; set; }
 
         /// <summary>
         /// Optional list of file IDs to filter chunks by (inclusion filter)
@@ -41,6 +35,12 @@ namespace Mixedbread
         [global::System.Text.Json.Serialization.JsonPropertyName("file_ids")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.ConditionOperator?, global::System.Collections.Generic.IList<global::System.Guid>>>, global::System.Collections.Generic.IList<global::System.Guid>, object>))]
         public global::Mixedbread.AnyOf<global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.ConditionOperator?, global::System.Collections.Generic.IList<global::System.Guid>>>, global::System.Collections.Generic.IList<global::System.Guid>, object>? FileIds { get; set; }
+
+        /// <summary>
+        /// Question to answer. If not provided, the question will be extracted from the passed messages.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("query")]
+        public string? Query { get; set; }
 
         /// <summary>
         /// Search configuration options
@@ -77,10 +77,7 @@ namespace Mixedbread
         /// Initializes a new instance of the <see cref="StoreQAParams" /> class.
         /// </summary>
         /// <param name="storeIdentifiers">
-        /// IDs or names of stores to search
-        /// </param>
-        /// <param name="query">
-        /// Question to answer. If not provided, the question will be extracted from the passed messages.
+        /// IDs or names of stores
         /// </param>
         /// <param name="topK">
         /// Number of results to return<br/>
@@ -91,6 +88,9 @@ namespace Mixedbread
         /// </param>
         /// <param name="fileIds">
         /// Optional list of file IDs to filter chunks by (inclusion filter)
+        /// </param>
+        /// <param name="query">
+        /// Question to answer. If not provided, the question will be extracted from the passed messages.
         /// </param>
         /// <param name="searchOptions">
         /// Search configuration options
@@ -110,20 +110,20 @@ namespace Mixedbread
 #endif
         public StoreQAParams(
             global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<string, global::System.Guid?>> storeIdentifiers,
-            string? query,
             int? topK,
-            global::Mixedbread.AnyOf<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition>>, object>? filters,
+            global::Mixedbread.AnyOf<global::Mixedbread.SearchFilterInput, global::Mixedbread.SearchFilterCondition, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilterInput, global::Mixedbread.SearchFilterCondition>>, object>? filters,
             global::Mixedbread.AnyOf<global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.ConditionOperator?, global::System.Collections.Generic.IList<global::System.Guid>>>, global::System.Collections.Generic.IList<global::System.Guid>, object>? fileIds,
+            string? query,
             global::Mixedbread.StoreChunkSearchOptions? searchOptions,
             bool? stream,
             string? instructions,
             global::Mixedbread.QuestionAnsweringOptions? qaOptions)
         {
-            this.Query = query;
             this.StoreIdentifiers = storeIdentifiers ?? throw new global::System.ArgumentNullException(nameof(storeIdentifiers));
             this.TopK = topK;
             this.Filters = filters;
             this.FileIds = fileIds;
+            this.Query = query;
             this.SearchOptions = searchOptions;
             this.Stream = stream;
             this.Instructions = instructions;
@@ -136,5 +136,6 @@ namespace Mixedbread
         public StoreQAParams()
         {
         }
+
     }
 }

@@ -32,6 +32,26 @@ namespace Mixedbread
         public bool IsQueryString => QueryString != null;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickQueryString(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::Mixedbread.QueryStringSubstitutionRule? value)
+        {
+            value = QueryString;
+            return IsQueryString;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Mixedbread.QueryStringSubstitutionRule PickQueryString() => IsQueryString
+            ? QueryString!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'QueryString' but the value was {ToString()}.");
+
+        /// <summary>
         /// Represents a regex query substitution rule for a vector store search.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -47,6 +67,26 @@ namespace Mixedbread
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(QueryRegex))]
 #endif
         public bool IsQueryRegex => QueryRegex != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickQueryRegex(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::Mixedbread.QueryRegexSubstitutionRule? value)
+        {
+            value = QueryRegex;
+            return IsQueryRegex;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Mixedbread.QueryRegexSubstitutionRule PickQueryRegex() => IsQueryRegex
+            ? QueryRegex!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'QueryRegex' but the value was {ToString()}.");
 
         /// <summary>
         /// Represents a chunk search result rule for a vector store search.
@@ -66,6 +106,26 @@ namespace Mixedbread
         public bool IsChunkSearchResult => ChunkSearchResult != null;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickChunkSearchResult(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::Mixedbread.ChunkSearchResultRule? value)
+        {
+            value = ChunkSearchResult;
+            return IsChunkSearchResult;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Mixedbread.ChunkSearchResultRule PickChunkSearchResult() => IsChunkSearchResult
+            ? ChunkSearchResult!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'ChunkSearchResult' but the value was {ToString()}.");
+
+        /// <summary>
         /// Represents a file search result rule for a vector store search.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -81,6 +141,26 @@ namespace Mixedbread
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(FileSearchResult))]
 #endif
         public bool IsFileSearchResult => FileSearchResult != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickFileSearchResult(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::Mixedbread.FileSearchResultRule? value)
+        {
+            value = FileSearchResult;
+            return IsFileSearchResult;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Mixedbread.FileSearchResultRule PickFileSearchResult() => IsFileSearchResult
+            ? FileSearchResult!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'FileSearchResult' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>
@@ -98,6 +178,11 @@ namespace Mixedbread
         {
             QueryString = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static RulesItem4 FromQueryString(global::Mixedbread.QueryStringSubstitutionRule? value) => new RulesItem4(value);
 
         /// <summary>
         /// 
@@ -120,6 +205,11 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
+        public static RulesItem4 FromQueryRegex(global::Mixedbread.QueryRegexSubstitutionRule? value) => new RulesItem4(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator RulesItem4(global::Mixedbread.ChunkSearchResultRule value) => new RulesItem4((global::Mixedbread.ChunkSearchResultRule?)value);
 
         /// <summary>
@@ -138,6 +228,11 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
+        public static RulesItem4 FromChunkSearchResult(global::Mixedbread.ChunkSearchResultRule? value) => new RulesItem4(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator RulesItem4(global::Mixedbread.FileSearchResultRule value) => new RulesItem4((global::Mixedbread.FileSearchResultRule?)value);
 
         /// <summary>
@@ -152,6 +247,11 @@ namespace Mixedbread
         {
             FileSearchResult = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static RulesItem4 FromFileSearchResult(global::Mixedbread.FileSearchResultRule? value) => new RulesItem4(value);
 
         /// <summary>
         /// 
@@ -204,10 +304,10 @@ namespace Mixedbread
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::Mixedbread.QueryStringSubstitutionRule?, TResult>? queryString = null,
-            global::System.Func<global::Mixedbread.QueryRegexSubstitutionRule?, TResult>? queryRegex = null,
-            global::System.Func<global::Mixedbread.ChunkSearchResultRule?, TResult>? chunkSearchResult = null,
-            global::System.Func<global::Mixedbread.FileSearchResultRule?, TResult>? fileSearchResult = null,
+            global::System.Func<global::Mixedbread.QueryStringSubstitutionRule, TResult>? queryString = null,
+            global::System.Func<global::Mixedbread.QueryRegexSubstitutionRule, TResult>? queryRegex = null,
+            global::System.Func<global::Mixedbread.ChunkSearchResultRule, TResult>? chunkSearchResult = null,
+            global::System.Func<global::Mixedbread.FileSearchResultRule, TResult>? fileSearchResult = null,
             bool validate = true)
         {
             if (validate)
@@ -239,10 +339,46 @@ namespace Mixedbread
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::Mixedbread.QueryStringSubstitutionRule?>? queryString = null,
-            global::System.Action<global::Mixedbread.QueryRegexSubstitutionRule?>? queryRegex = null,
-            global::System.Action<global::Mixedbread.ChunkSearchResultRule?>? chunkSearchResult = null,
-            global::System.Action<global::Mixedbread.FileSearchResultRule?>? fileSearchResult = null,
+            global::System.Action<global::Mixedbread.QueryStringSubstitutionRule>? queryString = null,
+
+            global::System.Action<global::Mixedbread.QueryRegexSubstitutionRule>? queryRegex = null,
+
+            global::System.Action<global::Mixedbread.ChunkSearchResultRule>? chunkSearchResult = null,
+
+            global::System.Action<global::Mixedbread.FileSearchResultRule>? fileSearchResult = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsQueryString)
+            {
+                queryString?.Invoke(QueryString!);
+            }
+            else if (IsQueryRegex)
+            {
+                queryRegex?.Invoke(QueryRegex!);
+            }
+            else if (IsChunkSearchResult)
+            {
+                chunkSearchResult?.Invoke(ChunkSearchResult!);
+            }
+            else if (IsFileSearchResult)
+            {
+                fileSearchResult?.Invoke(FileSearchResult!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::Mixedbread.QueryStringSubstitutionRule>? queryString = null,
+            global::System.Action<global::Mixedbread.QueryRegexSubstitutionRule>? queryRegex = null,
+            global::System.Action<global::Mixedbread.ChunkSearchResultRule>? chunkSearchResult = null,
+            global::System.Action<global::Mixedbread.FileSearchResultRule>? fileSearchResult = null,
             bool validate = true)
         {
             if (validate)

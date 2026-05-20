@@ -117,5 +117,6 @@ namespace Mixedbread
         public RerankParams()
         {
         }
+
     }
 }
