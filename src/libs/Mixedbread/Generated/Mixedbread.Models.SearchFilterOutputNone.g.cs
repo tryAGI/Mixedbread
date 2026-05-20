@@ -6,7 +6,7 @@ namespace Mixedbread
     /// <summary>
     /// List of conditions or filters to be NOTed
     /// </summary>
-    public sealed partial class SearchFilterNone
+    public sealed partial class SearchFilterOutputNone
     {
 
         /// <summary>

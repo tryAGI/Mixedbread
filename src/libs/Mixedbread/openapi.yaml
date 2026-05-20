@@ -116,7 +116,7 @@
             "in": "query",
             "required": false,
             "schema": {
-              "anyOf": [{ "type": "string", "minLength": 1, "maxLength": 100 }, { "type": "null" }],
+              "anyOf": [{ "type": "string", "minLength": 1, "maxLength": 255 }, { "type": "null" }],
               "description": "Search query for fuzzy matching over name and description fields",
               "title": "Q"
             },
@@ -1797,7 +1797,7 @@
             "in": "query",
             "required": false,
             "schema": {
-              "anyOf": [{ "type": "string", "minLength": 1, "maxLength": 100 }, { "type": "null" }],
+              "anyOf": [{ "type": "string", "minLength": 1, "maxLength": 255 }, { "type": "null" }],
               "description": "Search query for fuzzy matching over name and description fields",
               "title": "Q"
             },
@@ -1963,6 +1963,40 @@
         "security": [{ "ApiKeyAuth": [] }]
       }
     },
+    "/v1/stores/grep": {
+      "post": {
+        "tags": ["stores"],
+        "summary": "Match store chunks against a regular expression",
+        "description": "Match store chunks against a regular expression.\n\nUnlike `/stores/search`, this performs exact text matching — no embeddings, no\nsemantic similarity, no reranking. Use it to find chunks containing a specific\ntoken, identifier, error code, or literal phrase.\n\ngrep targets a single store and does not support pagination; raise `top_k` to\nretrieve more matches.\n\nArgs:\n    grep_params: Grep configuration including:\n        - pattern: RE2 regular expression matched against chunk text\n        - targets: chunk content groups to match (`text`, `generated`)\n        - case_sensitive: whether the pattern is case-sensitive\n        - store_identifiers: the single store to grep\n        - file_ids: optional list of file IDs to filter chunks by\n        - filters: optional metadata filter conditions\n        - top_k: number of matches to return\n\nReturns:\n    StoreGrepResponse containing the list of matching chunks.\n\nRaises:\n    HTTPException (400): If grep parameters are invalid\n    HTTPException (404): If the store is not found",
+        "operationId": "grep_store_chunks",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StoreChunkGrepParams",
+                "description": "Grep parameters including the regular expression pattern, targets and filters"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "List of chunks whose text matches the pattern",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/StoreGrepResponse" } }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/HTTPValidationError" } }
+            }
+          }
+        },
+        "security": [{ "ApiKeyAuth": [] }]
+      }
+    },
     "/v1/stores/question-answering": {
       "post": {
         "tags": ["stores"],
@@ -1983,6 +2017,40 @@
           "200": {
             "description": "The answer to the question",
             "content": { "application/json": { "schema": { "$ref": "#/components/schemas/StoreQAResults" } } }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/HTTPValidationError" } }
+            }
+          }
+        },
+        "security": [{ "ApiKeyAuth": [] }]
+      }
+    },
+    "/v1/stores/queries/enhance": {
+      "post": {
+        "tags": ["stores"],
+        "summary": "Enhance a search query",
+        "description": "Extract metadata filters and ranking preferences from a search query.",
+        "operationId": "enhance_query",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QueryEnhanceParams",
+                "description": "Search query and enhancement options"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "A single enhanced query item",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/QueryEnhanceResults" } }
+            }
           },
           "422": {
             "description": "Validation Error",
@@ -2707,7 +2775,7 @@
             "in": "query",
             "required": false,
             "schema": {
-              "anyOf": [{ "type": "string", "minLength": 1, "maxLength": 100 }, { "type": "null" }],
+              "anyOf": [{ "type": "string", "minLength": 1, "maxLength": 255 }, { "type": "null" }],
               "description": "Search query for fuzzy matching over name and description fields",
               "title": "Q"
             },
@@ -3023,7 +3091,7 @@
             "in": "query",
             "required": false,
             "schema": {
-              "anyOf": [{ "type": "string", "minLength": 1, "maxLength": 100 }, { "type": "null" }],
+              "anyOf": [{ "type": "string", "minLength": 1, "maxLength": 255 }, { "type": "null" }],
               "description": "Search query to filter by",
               "title": "Q"
             },
@@ -4052,16 +4120,35 @@
           },
           "queries_per_round": {
             "type": "integer",
-            "maximum": 5,
+            "maximum": 10,
             "minimum": 1,
             "title": "Queries Per Round",
             "description": "Maximum queries per round",
-            "default": 3
+            "default": 4
+          },
+          "strict_top_k": {
+            "type": "boolean",
+            "title": "Strict Top K",
+            "description": "Whether the final retrieved chunk list must provide exactly top_k ranked chunks",
+            "default": false
+          },
+          "media_content": {
+            "type": "string",
+            "enum": ["auto", "never", "always"],
+            "title": "Media Content",
+            "description": "Controls when retrieved image content is provided to the agent. `auto` sends images only when no OCR text or summary is available, `never` disables image content, and `always` sends image content when available.",
+            "default": "auto"
           },
           "instructions": {
-            "anyOf": [{ "type": "string", "maxLength": 2000, "minLength": 1 }, { "type": "null" }],
+            "anyOf": [{ "type": "string", "maxLength": 5000, "minLength": 1 }, { "type": "null" }],
             "title": "Instructions",
             "description": "Additional custom instructions (followed only when not in conflict with existing rules)"
+          },
+          "verbose": {
+            "type": "boolean",
+            "title": "Verbose",
+            "description": "Internal: when set, the response includes a `trace` field with the full tool-call timeline. Used by the Mixedbread playground; not part of the documented public API.",
+            "default": false
           }
         },
         "type": "object",
@@ -4457,6 +4544,12 @@
             "title": "Transcription",
             "description": "speech recognition (sr) text of the audio",
             "examples": ["The year 2025 reports for .."]
+          },
+          "summary": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Summary",
+            "description": "summary of the audio",
+            "examples": ["A financial report audio for 2025"]
           },
           "audio_url": {
             "anyOf": [{ "$ref": "#/components/schemas/AudioUrl" }, { "type": "null" }],
@@ -5293,7 +5386,7 @@
             "description": "Configuration for adding the file"
           },
           "external_id": {
-            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "anyOf": [{ "type": "string", "maxLength": 256 }, { "type": "null" }],
             "title": "External Id",
             "description": "External identifier for this file in the store"
           },
@@ -6252,12 +6345,12 @@
           },
           "metadata_filter": {
             "anyOf": [
-              { "$ref": "#/components/schemas/SearchFilter" },
+              { "$ref": "#/components/schemas/SearchFilter-Input" },
               { "$ref": "#/components/schemas/SearchFilterCondition" },
               {
                 "items": {
                   "anyOf": [
-                    { "$ref": "#/components/schemas/SearchFilter" },
+                    { "$ref": "#/components/schemas/SearchFilter-Input" },
                     { "$ref": "#/components/schemas/SearchFilterCondition" }
                   ]
                 },
@@ -6292,19 +6385,13 @@
       },
       "MetadataFacetsParams": {
         "properties": {
-          "query": {
-            "anyOf": [{ "type": "string", "minLength": 1 }, { "type": "null" }],
-            "title": "Query",
-            "description": "Search query text",
-            "examples": ["how to configure SSL"]
-          },
           "store_identifiers": {
             "items": { "anyOf": [{ "type": "string" }, { "type": "string", "format": "uuid" }] },
             "type": "array",
-            "maxItems": 100,
+            "maxItems": 16,
             "minItems": 1,
             "title": "Store Identifiers",
-            "description": "IDs or names of stores to search"
+            "description": "IDs or names of stores"
           },
           "top_k": {
             "type": "integer",
@@ -6315,12 +6402,12 @@
           },
           "filters": {
             "anyOf": [
-              { "$ref": "#/components/schemas/SearchFilter" },
+              { "$ref": "#/components/schemas/SearchFilter-Input" },
               { "$ref": "#/components/schemas/SearchFilterCondition" },
               {
                 "items": {
                   "anyOf": [
-                    { "$ref": "#/components/schemas/SearchFilter" },
+                    { "$ref": "#/components/schemas/SearchFilter-Input" },
                     { "$ref": "#/components/schemas/SearchFilterCondition" }
                   ]
                 },
@@ -6353,6 +6440,12 @@
               ["not_in", ["123e4567-e89b-12d3-a456-426614174000"]]
             ]
           },
+          "query": {
+            "anyOf": [{ "type": "string", "minLength": 1 }, { "type": "null" }],
+            "title": "Query",
+            "description": "Search query text",
+            "examples": ["how to configure SSL"]
+          },
           "search_options": {
             "$ref": "#/components/schemas/StoreChunkSearchOptions",
             "description": "Search configuration options"
@@ -6362,6 +6455,30 @@
             "title": "Facets",
             "description": "Optional list of facets to return. Use dot for nested fields.",
             "examples": ["author", "year", "author.name"]
+          },
+          "max_fields": {
+            "type": "integer",
+            "maximum": 256,
+            "minimum": 1,
+            "title": "Max Fields",
+            "description": "Maximum number of distinct metadata fields (keys) to return.",
+            "default": 64
+          },
+          "max_values_per_field": {
+            "type": "integer",
+            "maximum": 256,
+            "minimum": 1,
+            "title": "Max Values Per Field",
+            "description": "Maximum number of distinct values returned per field, ranked by count.",
+            "default": 32
+          },
+          "max_files": {
+            "type": "integer",
+            "maximum": 100000,
+            "minimum": 1,
+            "title": "Max Files",
+            "description": "Maximum number of store files scanned to compute facets.",
+            "default": 10000
           }
         },
         "type": "object",
@@ -6904,6 +7021,218 @@
         "title": "ProductCostInfo",
         "description": "Cost information for a product."
       },
+      "QueryEnhanceMetadataFilter": {
+        "properties": {
+          "key": { "type": "string", "minLength": 1, "title": "Key", "description": "Metadata field key" },
+          "operator": {
+            "$ref": "#/components/schemas/ConditionOperator",
+            "description": "Comparison operator"
+          },
+          "value": {
+            "anyOf": [
+              { "type": "string" },
+              { "type": "integer" },
+              { "type": "number" },
+              { "type": "boolean" },
+              {
+                "items": {
+                  "anyOf": [
+                    { "type": "string" },
+                    { "type": "integer" },
+                    { "type": "number" },
+                    { "type": "boolean" }
+                  ]
+                },
+                "type": "array"
+              },
+              { "type": "null" }
+            ],
+            "title": "Value",
+            "description": "Value to compare against. Use a list for `in`/`not_in`."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": ["key", "operator", "value"],
+        "title": "QueryEnhanceMetadataFilter",
+        "description": "Metadata filter condition."
+      },
+      "QueryEnhanceParams": {
+        "properties": {
+          "store_identifiers": {
+            "items": { "anyOf": [{ "type": "string" }, { "type": "string", "format": "uuid" }] },
+            "type": "array",
+            "maxItems": 16,
+            "minItems": 1,
+            "title": "Store Identifiers",
+            "description": "IDs or names of stores"
+          },
+          "top_k": {
+            "type": "integer",
+            "minimum": 1,
+            "title": "Top K",
+            "description": "Number of results to return",
+            "default": 10
+          },
+          "filters": {
+            "anyOf": [
+              { "$ref": "#/components/schemas/SearchFilter-Input" },
+              { "$ref": "#/components/schemas/SearchFilterCondition" },
+              {
+                "items": {
+                  "anyOf": [
+                    { "$ref": "#/components/schemas/SearchFilter-Input" },
+                    { "$ref": "#/components/schemas/SearchFilterCondition" }
+                  ]
+                },
+                "type": "array"
+              },
+              { "type": "null" }
+            ],
+            "title": "Filters",
+            "description": "Optional filter conditions"
+          },
+          "file_ids": {
+            "anyOf": [
+              {
+                "prefixItems": [
+                  { "$ref": "#/components/schemas/ConditionOperator" },
+                  { "items": { "type": "string", "format": "uuid" }, "type": "array" }
+                ],
+                "type": "array",
+                "maxItems": 2,
+                "minItems": 2
+              },
+              { "items": { "type": "string", "format": "uuid" }, "type": "array" },
+              { "type": "null" }
+            ],
+            "title": "File Ids",
+            "description": "Optional list of file IDs to filter chunks by (inclusion filter)",
+            "examples": [
+              ["123e4567-e89b-12d3-a456-426614174000", "123e4567-e89b-12d3-a456-426614174001"],
+              ["in", ["123e4567-e89b-12d3-a456-426614174000"]],
+              ["not_in", ["123e4567-e89b-12d3-a456-426614174000"]]
+            ]
+          },
+          "query": {
+            "$ref": "#/components/schemas/MultiModalQuery",
+            "description": "Search query text",
+            "examples": ["how to configure SSL"]
+          },
+          "search_options": {
+            "$ref": "#/components/schemas/StoreChunkSearchOptions",
+            "description": "Search configuration options"
+          },
+          "instructions": {
+            "anyOf": [{ "type": "string", "maxLength": 2000 }, { "type": "null" }],
+            "title": "Instructions",
+            "description": "Optional guidance for query enhancement."
+          }
+        },
+        "type": "object",
+        "required": ["store_identifiers", "query"],
+        "title": "QueryEnhanceParams",
+        "description": "Parameters for enhancing a search query."
+      },
+      "QueryEnhanceQueryItem": {
+        "properties": {
+          "type": { "type": "string", "const": "query", "title": "Type", "default": "query" },
+          "query": { "type": "string", "minLength": 1, "title": "Query", "description": "Search query text" },
+          "metadata_filters": {
+            "anyOf": [
+              { "items": { "$ref": "#/components/schemas/QueryEnhanceMetadataFilter" }, "type": "array" },
+              { "type": "null" }
+            ],
+            "title": "Metadata Filters",
+            "description": "Metadata filters to apply"
+          },
+          "filter_mode": {
+            "type": "string",
+            "enum": ["all", "any"],
+            "title": "Filter Mode",
+            "description": "How to combine filters",
+            "default": "all"
+          },
+          "rank_by": {
+            "type": "null",
+            "title": "Rank By",
+            "description": "Always null for semantic query items. Use a sort item to rank by metadata."
+          },
+          "direction": {
+            "type": "null",
+            "title": "Direction",
+            "description": "Always null for semantic query items. Use a sort item to set rank direction."
+          }
+        },
+        "type": "object",
+        "required": ["query"],
+        "title": "QueryEnhanceQueryItem",
+        "description": "Enhanced semantic search query with optional filters."
+      },
+      "QueryEnhanceResults": {
+        "properties": {
+          "items": {
+            "items": {
+              "oneOf": [
+                { "$ref": "#/components/schemas/QueryEnhanceQueryItem" },
+                { "$ref": "#/components/schemas/QueryEnhanceSortItem" }
+              ],
+              "discriminator": {
+                "propertyName": "type",
+                "mapping": {
+                  "query": "#/components/schemas/QueryEnhanceQueryItem",
+                  "sort": "#/components/schemas/QueryEnhanceSortItem"
+                }
+              }
+            },
+            "type": "array",
+            "maxItems": 1,
+            "minItems": 1,
+            "title": "Items",
+            "description": "Enhanced query item"
+          }
+        },
+        "type": "object",
+        "required": ["items"],
+        "title": "QueryEnhanceResults",
+        "description": "Enhanced query response."
+      },
+      "QueryEnhanceSortItem": {
+        "properties": {
+          "type": { "type": "string", "const": "sort", "title": "Type", "default": "sort" },
+          "metadata_filters": {
+            "anyOf": [
+              { "items": { "$ref": "#/components/schemas/QueryEnhanceMetadataFilter" }, "type": "array" },
+              { "type": "null" }
+            ],
+            "title": "Metadata Filters",
+            "description": "Metadata filters to apply"
+          },
+          "filter_mode": {
+            "type": "string",
+            "enum": ["all", "any"],
+            "title": "Filter Mode",
+            "description": "How to combine filters",
+            "default": "all"
+          },
+          "rank_by": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Rank By",
+            "description": "Metadata field to rank results by"
+          },
+          "direction": {
+            "type": "string",
+            "enum": ["asc", "desc"],
+            "title": "Direction",
+            "description": "Ranking direction"
+          }
+        },
+        "type": "object",
+        "required": ["rank_by", "direction"],
+        "title": "QueryEnhanceSortItem",
+        "description": "Ranking request based on metadata."
+      },
       "QueryRegexSubstitutionRule": {
         "properties": {
           "query": { "type": "string", "title": "Query", "description": "The query to trigger the rule" },
@@ -7242,12 +7571,12 @@
           },
           "metadata_filter": {
             "anyOf": [
-              { "$ref": "#/components/schemas/SearchFilter" },
+              { "$ref": "#/components/schemas/SearchFilter-Input" },
               { "$ref": "#/components/schemas/SearchFilterCondition" },
               {
                 "items": {
                   "anyOf": [
-                    { "$ref": "#/components/schemas/SearchFilter" },
+                    { "$ref": "#/components/schemas/SearchFilter-Input" },
                     { "$ref": "#/components/schemas/SearchFilterCondition" }
                   ]
                 },
@@ -7259,7 +7588,7 @@
             "description": "Metadata filter to apply to the query"
           },
           "q": {
-            "anyOf": [{ "type": "string", "maxLength": 100, "minLength": 1 }, { "type": "null" }],
+            "anyOf": [{ "type": "string", "maxLength": 255, "minLength": 1 }, { "type": "null" }],
             "title": "Q",
             "description": "Search query for fuzzy matching over name and external_id fields"
           }
@@ -7268,14 +7597,14 @@
         "title": "SearchCursorPagination",
         "description": "Cursor pagination with status, metadata, and a search query."
       },
-      "SearchFilter": {
+      "SearchFilter-Input": {
         "properties": {
           "all": {
             "anyOf": [
               {
                 "items": {
                   "anyOf": [
-                    { "$ref": "#/components/schemas/SearchFilter" },
+                    { "$ref": "#/components/schemas/SearchFilter-Input" },
                     { "$ref": "#/components/schemas/SearchFilterCondition" }
                   ]
                 },
@@ -7298,7 +7627,7 @@
               {
                 "items": {
                   "anyOf": [
-                    { "$ref": "#/components/schemas/SearchFilter" },
+                    { "$ref": "#/components/schemas/SearchFilter-Input" },
                     { "$ref": "#/components/schemas/SearchFilterCondition" }
                   ]
                 },
@@ -7321,7 +7650,7 @@
               {
                 "items": {
                   "anyOf": [
-                    { "$ref": "#/components/schemas/SearchFilter" },
+                    { "$ref": "#/components/schemas/SearchFilter-Input" },
                     { "$ref": "#/components/schemas/SearchFilterCondition" }
                   ]
                 },
@@ -7337,8 +7666,83 @@
                 { "key": "color", "operator": "eq", "value": "red" }
               ],
               null
+            ]
+          }
+        },
+        "type": "object",
+        "title": "SearchFilter",
+        "description": "Represents a filter with AND, OR, and NOT conditions."
+      },
+      "SearchFilter-Output": {
+        "properties": {
+          "all": {
+            "anyOf": [
+              {
+                "items": {
+                  "anyOf": [
+                    { "$ref": "#/components/schemas/SearchFilter-Output" },
+                    { "$ref": "#/components/schemas/SearchFilterCondition" }
+                  ]
+                },
+                "type": "array"
+              },
+              { "type": "null" }
             ],
-            "x-stainless-naming": { "python": { "type_name": "none_type" } }
+            "title": "All",
+            "description": "List of conditions or filters to be ANDed together",
+            "examples": [
+              [
+                { "key": "price", "operator": "gt", "value": "100" },
+                { "key": "color", "operator": "eq", "value": "red" }
+              ],
+              null
+            ]
+          },
+          "any": {
+            "anyOf": [
+              {
+                "items": {
+                  "anyOf": [
+                    { "$ref": "#/components/schemas/SearchFilter-Output" },
+                    { "$ref": "#/components/schemas/SearchFilterCondition" }
+                  ]
+                },
+                "type": "array"
+              },
+              { "type": "null" }
+            ],
+            "title": "Any",
+            "description": "List of conditions or filters to be ORed together",
+            "examples": [
+              [
+                { "key": "price", "operator": "gt", "value": "100" },
+                { "key": "color", "operator": "eq", "value": "red" }
+              ],
+              null
+            ]
+          },
+          "none": {
+            "anyOf": [
+              {
+                "items": {
+                  "anyOf": [
+                    { "$ref": "#/components/schemas/SearchFilter-Output" },
+                    { "$ref": "#/components/schemas/SearchFilterCondition" }
+                  ]
+                },
+                "type": "array"
+              },
+              { "type": "null" }
+            ],
+            "title": "None",
+            "description": "List of conditions or filters to be NOTed",
+            "examples": [
+              [
+                { "key": "price", "operator": "gt", "value": "100" },
+                { "key": "color", "operator": "eq", "value": "red" }
+              ],
+              null
+            ]
           }
         },
         "type": "object",
@@ -7379,14 +7783,14 @@
           },
           "name": {
             "type": "string",
-            "maxLength": 100,
+            "maxLength": 128,
             "minLength": 1,
             "title": "Name",
             "description": "Name of the store",
-            "examples": ["Customer Support KB", "Product Documentation"]
+            "examples": ["customer-support-kb", "product-documentation"]
           },
           "description": {
-            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "anyOf": [{ "type": "string", "maxLength": 256 }, { "type": "null" }],
             "title": "Description",
             "description": "Detailed description of the store's purpose and contents",
             "examples": ["Contains customer support articles and FAQs"]
@@ -7522,11 +7926,39 @@
             "title": "Query",
             "description": "Original query submitted by the user"
           },
+          "instructions": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Instructions",
+            "description": "Custom instructions provided with the agentic search, if any"
+          },
+          "ranking_strategy": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Ranking Strategy",
+            "description": "Agent-submitted explanation of how chunks were ranked"
+          },
           "rounds_executed": {
             "type": "integer",
             "title": "Rounds Executed",
             "description": "Number of search rounds the agent executed",
             "default": 0
+          },
+          "filters": {
+            "anyOf": [
+              { "$ref": "#/components/schemas/SearchFilter-Output" },
+              { "$ref": "#/components/schemas/SearchFilterCondition" },
+              {
+                "items": {
+                  "anyOf": [
+                    { "$ref": "#/components/schemas/SearchFilter-Output" },
+                    { "$ref": "#/components/schemas/SearchFilterCondition" }
+                  ]
+                },
+                "type": "array"
+              },
+              { "type": "null" }
+            ],
+            "title": "Filters",
+            "description": "Metadata filters submitted with the search request"
           },
           "token_usage": {
             "$ref": "#/components/schemas/AgenticSearchTokenUsage",
@@ -7549,6 +7981,102 @@
         "required": ["id", "created_at", "store_ids", "started_at", "query"],
         "title": "StoreAgenticSearchEvent",
         "description": "Represents an agentic search trace in a vector store.\n\nUnlike StoreSearchEvent, this captures the full sequence of tool calls the\nagent issued (name, arguments, result) so developers can inspect what the\nagent did, along with the token usage and cost."
+      },
+      "StoreChunkGrepParams": {
+        "properties": {
+          "store_identifiers": {
+            "items": { "anyOf": [{ "type": "string" }, { "type": "string", "format": "uuid" }] },
+            "type": "array",
+            "maxItems": 16,
+            "minItems": 1,
+            "title": "Store Identifiers",
+            "description": "IDs or names of stores"
+          },
+          "top_k": {
+            "type": "integer",
+            "minimum": 1,
+            "title": "Top K",
+            "description": "Number of results to return",
+            "default": 10
+          },
+          "filters": {
+            "anyOf": [
+              { "$ref": "#/components/schemas/SearchFilter-Input" },
+              { "$ref": "#/components/schemas/SearchFilterCondition" },
+              {
+                "items": {
+                  "anyOf": [
+                    { "$ref": "#/components/schemas/SearchFilter-Input" },
+                    { "$ref": "#/components/schemas/SearchFilterCondition" }
+                  ]
+                },
+                "type": "array"
+              },
+              { "type": "null" }
+            ],
+            "title": "Filters",
+            "description": "Optional filter conditions"
+          },
+          "file_ids": {
+            "anyOf": [
+              {
+                "prefixItems": [
+                  { "$ref": "#/components/schemas/ConditionOperator" },
+                  { "items": { "type": "string", "format": "uuid" }, "type": "array" }
+                ],
+                "type": "array",
+                "maxItems": 2,
+                "minItems": 2
+              },
+              { "items": { "type": "string", "format": "uuid" }, "type": "array" },
+              { "type": "null" }
+            ],
+            "title": "File Ids",
+            "description": "Optional list of file IDs to filter chunks by (inclusion filter)",
+            "examples": [
+              ["123e4567-e89b-12d3-a456-426614174000", "123e4567-e89b-12d3-a456-426614174001"],
+              ["in", ["123e4567-e89b-12d3-a456-426614174000"]],
+              ["not_in", ["123e4567-e89b-12d3-a456-426614174000"]]
+            ]
+          },
+          "pattern": {
+            "type": "string",
+            "maxLength": 1024,
+            "minLength": 1,
+            "title": "Pattern",
+            "description": "Regular expression (RE2 syntax) matched against chunk text",
+            "examples": ["ERR-\\d{4}", "invoice|receipt"]
+          },
+          "targets": {
+            "items": { "$ref": "#/components/schemas/StoreChunkGrepTarget" },
+            "type": "array",
+            "minItems": 1,
+            "title": "Targets",
+            "description": "Chunk content groups to match against. `text` matches the original text of text chunks; `generated` matches ingestion-derived fields (transcription, OCR text, summaries)."
+          },
+          "case_sensitive": {
+            "type": "boolean",
+            "title": "Case Sensitive",
+            "description": "Whether the regular expression is case-sensitive",
+            "default": false
+          },
+          "return_metadata": {
+            "type": "boolean",
+            "title": "Return Metadata",
+            "description": "Whether to return file metadata",
+            "default": true
+          }
+        },
+        "type": "object",
+        "required": ["store_identifiers", "pattern"],
+        "title": "StoreChunkGrepParams",
+        "description": "Parameters for matching store chunks against a regular expression.\n\nUnlike semantic search, grep performs exact text matching — no embeddings, no\nreranking. It finds chunks whose literal text contains the pattern."
+      },
+      "StoreChunkGrepTarget": {
+        "type": "string",
+        "enum": ["text", "generated"],
+        "title": "StoreChunkGrepTarget",
+        "description": "Logical chunk content groups the grep tool can match against.\n\nThese map to one or more underlying chunk fields:\n\n- ``text``      → text chunks' ``text`` field (original text content).\n- ``generated`` → fields produced during ingestion (``transcription`` for audio/video,\n  ``ocr_text`` for images, and ``summary`` across modalities)."
       },
       "StoreChunkSearchOptions": {
         "properties": {
@@ -7603,18 +8131,13 @@
       },
       "StoreChunkSearchParams": {
         "properties": {
-          "query": {
-            "$ref": "#/components/schemas/MultiModalQuery",
-            "description": "Search query text",
-            "examples": ["how to configure SSL"]
-          },
           "store_identifiers": {
             "items": { "anyOf": [{ "type": "string" }, { "type": "string", "format": "uuid" }] },
             "type": "array",
-            "maxItems": 100,
+            "maxItems": 16,
             "minItems": 1,
             "title": "Store Identifiers",
-            "description": "IDs or names of stores to search"
+            "description": "IDs or names of stores"
           },
           "top_k": {
             "type": "integer",
@@ -7625,12 +8148,12 @@
           },
           "filters": {
             "anyOf": [
-              { "$ref": "#/components/schemas/SearchFilter" },
+              { "$ref": "#/components/schemas/SearchFilter-Input" },
               { "$ref": "#/components/schemas/SearchFilterCondition" },
               {
                 "items": {
                   "anyOf": [
-                    { "$ref": "#/components/schemas/SearchFilter" },
+                    { "$ref": "#/components/schemas/SearchFilter-Input" },
                     { "$ref": "#/components/schemas/SearchFilterCondition" }
                   ]
                 },
@@ -7663,13 +8186,18 @@
               ["not_in", ["123e4567-e89b-12d3-a456-426614174000"]]
             ]
           },
+          "query": {
+            "$ref": "#/components/schemas/MultiModalQuery",
+            "description": "Search query text",
+            "examples": ["how to configure SSL"]
+          },
           "search_options": {
             "$ref": "#/components/schemas/StoreChunkSearchOptions",
             "description": "Search configuration options"
           }
         },
         "type": "object",
-        "required": ["query", "store_identifiers"],
+        "required": ["store_identifiers", "query"],
         "title": "StoreChunkSearchParams",
         "description": "Query parameters for searching store chunks."
       },
@@ -7736,13 +8264,13 @@
       "StoreCreateParams": {
         "properties": {
           "name": {
-            "anyOf": [{ "type": "string", "minLength": 1 }, { "type": "null" }],
+            "anyOf": [{ "type": "string", "maxLength": 128, "minLength": 1 }, { "type": "null" }],
             "title": "Name",
             "description": "Name for the new store. Can only contain lowercase letters, numbers, periods (.), and hyphens (-).",
             "examples": ["technical-documentation"]
           },
           "description": {
-            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "anyOf": [{ "type": "string", "maxLength": 256 }, { "type": "null" }],
             "title": "Description",
             "description": "Description of the store",
             "examples": ["Contains technical specifications and guides"]
@@ -7904,6 +8432,17 @@
             "title": "Bucket Seconds",
             "description": "Number of seconds in each bucket",
             "default": 7200
+          },
+          "event_types": {
+            "anyOf": [
+              {
+                "items": { "type": "string", "enum": ["ingestion", "search", "agentic_search"] },
+                "type": "array"
+              },
+              { "type": "null" }
+            ],
+            "title": "Event Types",
+            "description": "Restrict the histogram to these event types. When omitted, includes search, agentic_search, and ingestion events."
           }
         },
         "type": "object",
@@ -8141,6 +8680,50 @@
         "enum": ["pending", "in_progress", "cancelled", "completed", "failed"],
         "title": "StoreFileStatus"
       },
+      "StoreGrepResponse": {
+        "properties": {
+          "object": {
+            "type": "string",
+            "const": "list",
+            "title": "Object",
+            "description": "The object type of the response",
+            "default": "list"
+          },
+          "data": {
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/mxbai_omni__core__store__models__chunk_types__ScoredTextInputChunk"
+                },
+                {
+                  "$ref": "#/components/schemas/mxbai_omni__core__store__models__chunk_types__ScoredImageUrlInputChunk"
+                },
+                {
+                  "$ref": "#/components/schemas/mxbai_omni__core__store__models__chunk_types__ScoredAudioUrlInputChunk"
+                },
+                {
+                  "$ref": "#/components/schemas/mxbai_omni__core__store__models__chunk_types__ScoredVideoUrlInputChunk"
+                }
+              ],
+              "discriminator": {
+                "propertyName": "type",
+                "mapping": {
+                  "audio_url": "#/components/schemas/mxbai_omni__core__store__models__chunk_types__ScoredAudioUrlInputChunk",
+                  "image_url": "#/components/schemas/mxbai_omni__core__store__models__chunk_types__ScoredImageUrlInputChunk",
+                  "text": "#/components/schemas/mxbai_omni__core__store__models__chunk_types__ScoredTextInputChunk",
+                  "video_url": "#/components/schemas/mxbai_omni__core__store__models__chunk_types__ScoredVideoUrlInputChunk"
+                }
+              }
+            },
+            "type": "array",
+            "title": "Data",
+            "description": "The list of chunks matching the pattern"
+          }
+        },
+        "type": "object",
+        "required": ["data"],
+        "title": "StoreGrepResponse"
+      },
       "StoreIngestionEvent": {
         "properties": {
           "id": {
@@ -8244,19 +8827,13 @@
       },
       "StoreQAParams": {
         "properties": {
-          "query": {
-            "type": "string",
-            "minLength": 1,
-            "title": "Query",
-            "description": "Question to answer. If not provided, the question will be extracted from the passed messages."
-          },
           "store_identifiers": {
             "items": { "anyOf": [{ "type": "string" }, { "type": "string", "format": "uuid" }] },
             "type": "array",
-            "maxItems": 100,
+            "maxItems": 16,
             "minItems": 1,
             "title": "Store Identifiers",
-            "description": "IDs or names of stores to search"
+            "description": "IDs or names of stores"
           },
           "top_k": {
             "type": "integer",
@@ -8267,12 +8844,12 @@
           },
           "filters": {
             "anyOf": [
-              { "$ref": "#/components/schemas/SearchFilter" },
+              { "$ref": "#/components/schemas/SearchFilter-Input" },
               { "$ref": "#/components/schemas/SearchFilterCondition" },
               {
                 "items": {
                   "anyOf": [
-                    { "$ref": "#/components/schemas/SearchFilter" },
+                    { "$ref": "#/components/schemas/SearchFilter-Input" },
                     { "$ref": "#/components/schemas/SearchFilterCondition" }
                   ]
                 },
@@ -8305,6 +8882,12 @@
               ["not_in", ["123e4567-e89b-12d3-a456-426614174000"]]
             ]
           },
+          "query": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Query",
+            "description": "Question to answer. If not provided, the question will be extracted from the passed messages."
+          },
           "search_options": {
             "$ref": "#/components/schemas/StoreChunkSearchOptions",
             "description": "Search configuration options"
@@ -8316,7 +8899,7 @@
             "default": false
           },
           "instructions": {
-            "anyOf": [{ "type": "string", "maxLength": 2000, "minLength": 1 }, { "type": "null" }],
+            "anyOf": [{ "type": "string", "maxLength": 8000, "minLength": 1 }, { "type": "null" }],
             "title": "Instructions",
             "description": "Additional custom instructions (followed only when not in conflict with existing rules)"
           },
@@ -8407,11 +8990,62 @@
             "title": "Rewritten Query",
             "description": "Rewritten query if query rewriting was enabled"
           },
+          "rewritten_filters": {
+            "anyOf": [
+              { "$ref": "#/components/schemas/SearchFilter-Output" },
+              { "$ref": "#/components/schemas/SearchFilterCondition" },
+              {
+                "items": {
+                  "anyOf": [
+                    { "$ref": "#/components/schemas/SearchFilter-Output" },
+                    { "$ref": "#/components/schemas/SearchFilterCondition" }
+                  ]
+                },
+                "type": "array"
+              },
+              { "type": "null" }
+            ],
+            "title": "Rewritten Filters",
+            "description": "Filters used after query rewriting"
+          },
+          "rewrite_rank_by": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Rewrite Rank By",
+            "description": "Metadata field used for ranking"
+          },
+          "rewrite_rank_direction": {
+            "anyOf": [{ "type": "string", "enum": ["asc", "desc"] }, { "type": "null" }],
+            "title": "Rewrite Rank Direction",
+            "description": "Ranking direction"
+          },
+          "rewrite_rank_mode": {
+            "anyOf": [{ "type": "string", "enum": ["post_search", "metadata"] }, { "type": "null" }],
+            "title": "Rewrite Rank Mode",
+            "description": "Ranking mode"
+          },
           "rerank": {
             "type": "boolean",
             "title": "Rerank",
             "description": "Whether to rerank the results",
             "default": false
+          },
+          "filters": {
+            "anyOf": [
+              { "$ref": "#/components/schemas/SearchFilter-Output" },
+              { "$ref": "#/components/schemas/SearchFilterCondition" },
+              {
+                "items": {
+                  "anyOf": [
+                    { "$ref": "#/components/schemas/SearchFilter-Output" },
+                    { "$ref": "#/components/schemas/SearchFilterCondition" }
+                  ]
+                },
+                "type": "array"
+              },
+              { "type": "null" }
+            ],
+            "title": "Filters",
+            "description": "Metadata filters submitted with the search request"
           },
           "results": {
             "items": { "$ref": "#/components/schemas/StoreSearchEventResult" },
@@ -8427,6 +9061,11 @@
       },
       "StoreSearchEventResult": {
         "properties": {
+          "store_id": {
+            "type": "string",
+            "title": "Store Id",
+            "description": "ID of the store the chunk belongs to"
+          },
           "file_id": {
             "type": "string",
             "title": "File Id",
@@ -8455,7 +9094,7 @@
           }
         },
         "type": "object",
-        "required": ["file_id", "chunk_index", "score"],
+        "required": ["store_id", "file_id", "chunk_index", "score"],
         "title": "StoreSearchEventResult",
         "description": "A single result captured on a search event."
       },
@@ -8499,6 +9138,7 @@
             "description": "The list of scored store file chunks"
           }
         },
+        "additionalProperties": true,
         "type": "object",
         "required": ["data"],
         "title": "StoreSearchResponse"
@@ -8512,12 +9152,12 @@
       "StoreUpdateParams": {
         "properties": {
           "name": {
-            "anyOf": [{ "type": "string", "minLength": 1 }, { "type": "null" }],
+            "anyOf": [{ "type": "string", "maxLength": 128, "minLength": 1 }, { "type": "null" }],
             "title": "Name",
             "description": "New name for the store. Can only contain lowercase letters, numbers, periods (.), and hyphens (-)."
           },
           "description": {
-            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "anyOf": [{ "type": "string", "maxLength": 256 }, { "type": "null" }],
             "title": "Description",
             "description": "New description"
           },
@@ -8783,14 +9423,14 @@
           },
           "name": {
             "type": "string",
-            "maxLength": 100,
+            "maxLength": 128,
             "minLength": 1,
             "title": "Name",
             "description": "Name of the vector store",
-            "examples": ["Customer Support KB", "Product Documentation"]
+            "examples": ["customer-support-kb", "product-documentation"]
           },
           "description": {
-            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "anyOf": [{ "type": "string", "maxLength": 256 }, { "type": "null" }],
             "title": "Description",
             "description": "Detailed description of the vector store's purpose and contents",
             "examples": ["Contains customer support articles and FAQs"]
@@ -8929,7 +9569,7 @@
           "vector_store_identifiers": {
             "items": { "anyOf": [{ "type": "string" }, { "type": "string", "format": "uuid" }] },
             "type": "array",
-            "maxItems": 100,
+            "maxItems": 16,
             "minItems": 1,
             "title": "Vector Store Identifiers",
             "description": "IDs or names of vector stores to search"
@@ -8943,12 +9583,12 @@
           },
           "filters": {
             "anyOf": [
-              { "$ref": "#/components/schemas/SearchFilter" },
+              { "$ref": "#/components/schemas/SearchFilter-Input" },
               { "$ref": "#/components/schemas/SearchFilterCondition" },
               {
                 "items": {
                   "anyOf": [
-                    { "$ref": "#/components/schemas/SearchFilter" },
+                    { "$ref": "#/components/schemas/SearchFilter-Input" },
                     { "$ref": "#/components/schemas/SearchFilterCondition" }
                   ]
                 },
@@ -8994,13 +9634,13 @@
       "VectorStoreCreateParams": {
         "properties": {
           "name": {
-            "anyOf": [{ "type": "string", "minLength": 1 }, { "type": "null" }],
+            "anyOf": [{ "type": "string", "maxLength": 128, "minLength": 1 }, { "type": "null" }],
             "title": "Name",
-            "description": "Name for the new vector store",
-            "examples": ["Technical Documentation"]
+            "description": "Name for the new vector store. Can only contain lowercase letters, numbers, periods (.), and hyphens (-).",
+            "examples": ["technical-documentation"]
           },
           "description": {
-            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "anyOf": [{ "type": "string", "maxLength": 256 }, { "type": "null" }],
             "title": "Description",
             "description": "Description of the vector store",
             "examples": ["Contains technical specifications and guides"]
@@ -9222,7 +9862,7 @@
           "vector_store_identifiers": {
             "items": { "anyOf": [{ "type": "string" }, { "type": "string", "format": "uuid" }] },
             "type": "array",
-            "maxItems": 100,
+            "maxItems": 16,
             "minItems": 1,
             "title": "Vector Store Identifiers",
             "description": "IDs or names of vector stores to search"
@@ -9236,12 +9876,12 @@
           },
           "filters": {
             "anyOf": [
-              { "$ref": "#/components/schemas/SearchFilter" },
+              { "$ref": "#/components/schemas/SearchFilter-Input" },
               { "$ref": "#/components/schemas/SearchFilterCondition" },
               {
                 "items": {
                   "anyOf": [
-                    { "$ref": "#/components/schemas/SearchFilter" },
+                    { "$ref": "#/components/schemas/SearchFilter-Input" },
                     { "$ref": "#/components/schemas/SearchFilterCondition" }
                   ]
                 },
@@ -9380,12 +10020,12 @@
       "VectorStoreUpdateParams": {
         "properties": {
           "name": {
-            "anyOf": [{ "type": "string", "minLength": 1 }, { "type": "null" }],
+            "anyOf": [{ "type": "string", "maxLength": 128, "minLength": 1 }, { "type": "null" }],
             "title": "Name",
-            "description": "New name for the store"
+            "description": "New name for the store. Can only contain lowercase letters, numbers, periods (.), and hyphens (-)."
           },
           "description": {
-            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "anyOf": [{ "type": "string", "maxLength": 256 }, { "type": "null" }],
             "title": "Description",
             "description": "New description"
           },
@@ -9632,6 +10272,12 @@
             "title": "Transcription",
             "description": "speech recognition (sr) text of the audio",
             "examples": ["The year 2025 reports for .."]
+          },
+          "summary": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Summary",
+            "description": "summary of the audio",
+            "examples": ["A financial report audio for 2025"]
           },
           "audio_url": {
             "anyOf": [{ "$ref": "#/components/schemas/AudioUrl" }, { "type": "null" }],
@@ -10545,6 +11191,12 @@
             "title": "Transcription",
             "description": "speech recognition (sr) text of the audio",
             "examples": ["The year 2025 reports for .."]
+          },
+          "summary": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Summary",
+            "description": "summary of the audio",
+            "examples": ["A financial report audio for 2025"]
           },
           "audio_url": {
             "anyOf": [{ "$ref": "#/components/schemas/AudioUrl" }, { "type": "null" }],

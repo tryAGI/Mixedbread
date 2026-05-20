@@ -60,11 +60,30 @@ namespace Mixedbread
         public required string Query { get; set; }
 
         /// <summary>
+        /// Custom instructions provided with the agentic search, if any
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("instructions")]
+        public string? Instructions { get; set; }
+
+        /// <summary>
+        /// Agent-submitted explanation of how chunks were ranked
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("ranking_strategy")]
+        public string? RankingStrategy { get; set; }
+
+        /// <summary>
         /// Number of search rounds the agent executed<br/>
         /// Default Value: 0
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("rounds_executed")]
         public int? RoundsExecuted { get; set; }
+
+        /// <summary>
+        /// Metadata filters submitted with the search request
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("filters")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<global::Mixedbread.SearchFilterOutput, global::Mixedbread.SearchFilterCondition, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilterOutput, global::Mixedbread.SearchFilterCondition>>, object>))]
+        public global::Mixedbread.AnyOf<global::Mixedbread.SearchFilterOutput, global::Mixedbread.SearchFilterCondition, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilterOutput, global::Mixedbread.SearchFilterCondition>>, object>? Filters { get; set; }
 
         /// <summary>
         /// Token usage and cost for LLM calls during the agentic search
@@ -115,9 +134,18 @@ namespace Mixedbread
         /// Total wall-clock time of the agent loop<br/>
         /// Default Value: PT0S
         /// </param>
+        /// <param name="instructions">
+        /// Custom instructions provided with the agentic search, if any
+        /// </param>
+        /// <param name="rankingStrategy">
+        /// Agent-submitted explanation of how chunks were ranked
+        /// </param>
         /// <param name="roundsExecuted">
         /// Number of search rounds the agent executed<br/>
         /// Default Value: 0
+        /// </param>
+        /// <param name="filters">
+        /// Metadata filters submitted with the search request
         /// </param>
         /// <param name="tokenUsage">
         /// Token usage and cost for LLM calls during the agentic search
@@ -139,7 +167,10 @@ namespace Mixedbread
             string query,
             string? type,
             string? searchTime,
+            string? instructions,
+            string? rankingStrategy,
             int? roundsExecuted,
+            global::Mixedbread.AnyOf<global::Mixedbread.SearchFilterOutput, global::Mixedbread.SearchFilterCondition, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilterOutput, global::Mixedbread.SearchFilterCondition>>, object>? filters,
             global::Mixedbread.AgenticSearchTokenUsage? tokenUsage,
             global::System.Collections.Generic.IList<global::Mixedbread.AgenticToolCall>? toolCalls,
             global::System.Collections.Generic.IList<global::Mixedbread.StoreSearchEventResult>? results)
@@ -151,7 +182,10 @@ namespace Mixedbread
             this.StartedAt = startedAt;
             this.SearchTime = searchTime;
             this.Query = query ?? throw new global::System.ArgumentNullException(nameof(query));
+            this.Instructions = instructions;
+            this.RankingStrategy = rankingStrategy;
             this.RoundsExecuted = roundsExecuted;
+            this.Filters = filters;
             this.TokenUsage = tokenUsage;
             this.ToolCalls = toolCalls;
             this.Results = results;

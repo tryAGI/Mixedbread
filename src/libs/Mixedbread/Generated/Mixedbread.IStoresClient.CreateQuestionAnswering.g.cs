@@ -31,11 +31,8 @@ namespace Mixedbread
         /// <summary>
         /// Question answering
         /// </summary>
-        /// <param name="query">
-        /// Question to answer. If not provided, the question will be extracted from the passed messages.
-        /// </param>
         /// <param name="storeIdentifiers">
-        /// IDs or names of stores to search
+        /// IDs or names of stores
         /// </param>
         /// <param name="topK">
         /// Number of results to return<br/>
@@ -46,6 +43,9 @@ namespace Mixedbread
         /// </param>
         /// <param name="fileIds">
         /// Optional list of file IDs to filter chunks by (inclusion filter)
+        /// </param>
+        /// <param name="query">
+        /// Question to answer. If not provided, the question will be extracted from the passed messages.
         /// </param>
         /// <param name="searchOptions">
         /// Search configuration options
@@ -65,10 +65,10 @@ namespace Mixedbread
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Mixedbread.StoreQAResults> CreateQuestionAnsweringAsync(
             global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<string, global::System.Guid?>> storeIdentifiers,
-            string? query = default,
             int? topK = default,
-            global::Mixedbread.AnyOf<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilter, global::Mixedbread.SearchFilterCondition>>, object>? filters = default,
+            global::Mixedbread.AnyOf<global::Mixedbread.SearchFilterInput, global::Mixedbread.SearchFilterCondition, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilterInput, global::Mixedbread.SearchFilterCondition>>, object>? filters = default,
             global::Mixedbread.AnyOf<global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.ConditionOperator?, global::System.Collections.Generic.IList<global::System.Guid>>>, global::System.Collections.Generic.IList<global::System.Guid>, object>? fileIds = default,
+            string? query = default,
             global::Mixedbread.StoreChunkSearchOptions? searchOptions = default,
             bool? stream = default,
             string? instructions = default,

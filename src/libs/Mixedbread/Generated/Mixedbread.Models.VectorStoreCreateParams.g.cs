@@ -9,7 +9,7 @@ namespace Mixedbread
     public sealed partial class VectorStoreCreateParams
     {
         /// <summary>
-        /// Name for the new vector store
+        /// Name for the new vector store. Can only contain lowercase letters, numbers, periods (.), and hyphens (-).
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         public string? Name { get; set; }
@@ -55,7 +55,7 @@ namespace Mixedbread
         /// Initializes a new instance of the <see cref="VectorStoreCreateParams" /> class.
         /// </summary>
         /// <param name="name">
-        /// Name for the new vector store
+        /// Name for the new vector store. Can only contain lowercase letters, numbers, periods (.), and hyphens (-).
         /// </param>
         /// <param name="description">
         /// Description of the vector store

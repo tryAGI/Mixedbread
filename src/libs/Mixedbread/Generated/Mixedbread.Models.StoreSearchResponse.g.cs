@@ -20,7 +20,7 @@ namespace Mixedbread
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("data")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::Mixedbread.DataItem2> Data { get; set; }
+        public required global::System.Collections.Generic.IList<global::Mixedbread.DataItem3> Data { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -42,7 +42,7 @@ namespace Mixedbread
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public StoreSearchResponse(
-            global::System.Collections.Generic.IList<global::Mixedbread.DataItem2> data,
+            global::System.Collections.Generic.IList<global::Mixedbread.DataItem3> data,
             string? @object)
         {
             this.Object = @object;

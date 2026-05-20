@@ -4,9 +4,9 @@
 namespace Mixedbread
 {
     /// <summary>
-    /// List of conditions or filters to be ORed together
+    /// Ranking direction
     /// </summary>
-    public sealed partial class SearchFilterAny
+    public sealed partial class StoreSearchEventRewriteRankDirection
     {
 
         /// <summary>
