@@ -12,7 +12,7 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.StoreSearchResponseDataItemDiscriminatorType? Type { get; }
+        public global::Mixedbread.StoreListChunksResponseDataItemDiscriminatorType? Type { get; }
 
         /// <summary>
         /// 
@@ -257,7 +257,7 @@ namespace Mixedbread
         /// 
         /// </summary>
         public DataItem3(
-            global::Mixedbread.StoreSearchResponseDataItemDiscriminatorType? type,
+            global::Mixedbread.StoreListChunksResponseDataItemDiscriminatorType? type,
             global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredTextInputChunk? text,
             global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredImageUrlInputChunk? imageUrl,
             global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredAudioUrlInputChunk? audioUrl,
