@@ -964,723 +964,759 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.StoreChunkGrepParams? Type234 { get; set; }
+        public global::Mixedbread.StoreChunkFilterParams? Type234 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Mixedbread.StoreChunkGrepTarget>? Type235 { get; set; }
+        public global::Mixedbread.AnyOf<string, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<string, bool?>>, object>? Type235 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.StoreChunkGrepTarget? Type236 { get; set; }
+        public global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<string, bool?>>? Type236 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.AnyOf<bool?, global::Mixedbread.RerankConfig, object>? Type237 { get; set; }
+        public global::Mixedbread.AnyOf<string, bool?>? Type237 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.AnyOf<bool?, global::Mixedbread.AgenticSearchConfig, object>? Type238 { get; set; }
+        public global::Mixedbread.StoreChunkGrepParams? Type238 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.StoreChunkSearchParams? Type239 { get; set; }
+        public global::System.Collections.Generic.IList<global::Mixedbread.StoreChunkGrepTarget>? Type239 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.AnyOf<bool?, global::Mixedbread.ContextualizationConfig>? Type240 { get; set; }
+        public global::Mixedbread.StoreChunkGrepTarget? Type240 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.StoreCostInfo? Type241 { get; set; }
+        public global::Mixedbread.AnyOf<bool?, global::Mixedbread.RerankConfig, object>? Type241 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.StoreCostListResponse? Type242 { get; set; }
+        public global::Mixedbread.AnyOf<bool?, global::Mixedbread.AgenticSearchConfig, object>? Type242 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Mixedbread.StoreCostInfo>? Type243 { get; set; }
+        public global::Mixedbread.StoreChunkSearchParams? Type243 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.StoreCreateParams? Type244 { get; set; }
+        public global::Mixedbread.AnyOf<bool?, global::Mixedbread.ContextualizationConfig>? Type244 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.StoreDeleted? Type245 { get; set; }
+        public global::Mixedbread.StoreCostInfo? Type245 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.StoreEventHistogramBucket? Type246 { get; set; }
+        public global::Mixedbread.StoreCostListResponse? Type246 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.StoreEventHistogramBucketType? Type247 { get; set; }
+        public global::System.Collections.Generic.IList<global::Mixedbread.StoreCostInfo>? Type247 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.StoreEventHistogramParams? Type248 { get; set; }
+        public global::Mixedbread.StoreCreateParams? Type248 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Mixedbread.StoreEventHistogramParamsEventTypesVariant1Item>? Type249 { get; set; }
+        public global::Mixedbread.StoreDeleted? Type249 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.StoreEventHistogramParamsEventTypesVariant1Item? Type250 { get; set; }
+        public global::Mixedbread.StoreEventHistogramBucket? Type250 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.StoreEventHistogramResponse? Type251 { get; set; }
+        public global::Mixedbread.StoreEventHistogramBucketType? Type251 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Mixedbread.StoreEventHistogramBucket>? Type252 { get; set; }
+        public global::Mixedbread.StoreEventHistogramParams? Type252 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.StoreEventListResponse? Type253 { get; set; }
+        public global::System.Collections.Generic.IList<global::Mixedbread.StoreEventHistogramParamsEventTypesVariant1Item>? Type253 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Mixedbread.DataItem>? Type254 { get; set; }
+        public global::Mixedbread.StoreEventHistogramParamsEventTypesVariant1Item? Type254 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.DataItem? Type255 { get; set; }
+        public global::Mixedbread.StoreEventHistogramResponse? Type255 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.StoreIngestionEvent? Type256 { get; set; }
+        public global::System.Collections.Generic.IList<global::Mixedbread.StoreEventHistogramBucket>? Type256 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.StoreSearchEvent? Type257 { get; set; }
+        public global::Mixedbread.StoreEventListResponse? Type257 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.StoreEventListResponseDataItemDiscriminator? Type258 { get; set; }
+        public global::System.Collections.Generic.IList<global::Mixedbread.DataItem>? Type258 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.StoreEventListResponseDataItemDiscriminatorType? Type259 { get; set; }
+        public global::Mixedbread.DataItem? Type259 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.StoreFile? Type260 { get; set; }
+        public global::Mixedbread.StoreIngestionEvent? Type260 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Mixedbread.ChunksVariant1Item>? Type261 { get; set; }
+        public global::Mixedbread.StoreSearchEvent? Type261 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.ChunksVariant1Item? Type262 { get; set; }
+        public global::Mixedbread.StoreEventListResponseDataItemDiscriminator? Type262 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.TextInputChunk? Type263 { get; set; }
+        public global::Mixedbread.StoreEventListResponseDataItemDiscriminatorType? Type263 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.VideoUrlInputChunk? Type264 { get; set; }
+        public global::Mixedbread.StoreFile? Type264 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.StoreFileChunksVariant1ItemDiscriminator? Type265 { get; set; }
+        public global::System.Collections.Generic.IList<global::Mixedbread.ChunksVariant1Item>? Type265 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.StoreFileChunksVariant1ItemDiscriminatorType? Type266 { get; set; }
+        public global::Mixedbread.ChunksVariant1Item? Type266 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.StoreFileParsingStrategy? Type267 { get; set; }
+        public global::Mixedbread.TextInputChunk? Type267 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.StoreFileDeleted? Type268 { get; set; }
+        public global::Mixedbread.VideoUrlInputChunk? Type268 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.StoreFileListResponse? Type269 { get; set; }
+        public global::Mixedbread.StoreFileChunksVariant1ItemDiscriminator? Type269 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Mixedbread.StoreFile>? Type270 { get; set; }
+        public global::Mixedbread.StoreFileChunksVariant1ItemDiscriminatorType? Type270 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.StoreFileMetadataUpdateParams? Type271 { get; set; }
+        public global::Mixedbread.StoreFileParsingStrategy? Type271 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.StoreGrepResponse? Type272 { get; set; }
+        public global::Mixedbread.StoreFileDeleted? Type272 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Mixedbread.DataItem2>? Type273 { get; set; }
+        public global::Mixedbread.StoreFileListResponse? Type273 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.DataItem2? Type274 { get; set; }
+        public global::System.Collections.Generic.IList<global::Mixedbread.StoreFile>? Type274 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredTextInputChunk? Type275 { get; set; }
+        public global::Mixedbread.StoreFileMetadataUpdateParams? Type275 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredImageUrlInputChunk? Type276 { get; set; }
+        public global::Mixedbread.StoreGrepResponse? Type276 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredAudioUrlInputChunk? Type277 { get; set; }
+        public global::System.Collections.Generic.IList<global::Mixedbread.DataItem2>? Type277 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredVideoUrlInputChunk? Type278 { get; set; }
+        public global::Mixedbread.DataItem2? Type278 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.StoreGrepResponseDataItemDiscriminator? Type279 { get; set; }
+        public global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredTextInputChunk? Type279 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.StoreGrepResponseDataItemDiscriminatorType? Type280 { get; set; }
+        public global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredImageUrlInputChunk? Type280 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.StoreListResponse? Type281 { get; set; }
+        public global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredAudioUrlInputChunk? Type281 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Mixedbread.Store>? Type282 { get; set; }
+        public global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredVideoUrlInputChunk? Type282 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.StoreQAParams? Type283 { get; set; }
+        public global::Mixedbread.StoreGrepResponseDataItemDiscriminator? Type283 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.StoreQAResults? Type284 { get; set; }
+        public global::Mixedbread.StoreGrepResponseDataItemDiscriminatorType? Type284 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Mixedbread.SourcesItem>? Type285 { get; set; }
+        public global::Mixedbread.StoreListChunksResponse? Type285 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.SourcesItem? Type286 { get; set; }
+        public global::System.Collections.Generic.IList<global::Mixedbread.DataItem3>? Type286 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.StoreQAResultsSourceDiscriminator? Type287 { get; set; }
+        public global::Mixedbread.DataItem3? Type287 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.StoreQAResultsSourceDiscriminatorType? Type288 { get; set; }
+        public global::Mixedbread.StoreListChunksResponseDataItemDiscriminator? Type288 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.StoreSearchEventRewriteRankDirection2? Type289 { get; set; }
+        public global::Mixedbread.StoreListChunksResponseDataItemDiscriminatorType? Type289 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.StoreSearchEventRewriteRankMode2? Type290 { get; set; }
+        public global::Mixedbread.StoreListResponse? Type290 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.StoreSearchEventResultFirstStageSource2? Type291 { get; set; }
+        public global::System.Collections.Generic.IList<global::Mixedbread.Store>? Type291 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.StoreSearchResponse? Type292 { get; set; }
+        public global::Mixedbread.StoreQAParams? Type292 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Mixedbread.DataItem3>? Type293 { get; set; }
+        public global::Mixedbread.StoreQAResults? Type293 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.DataItem3? Type294 { get; set; }
+        public global::System.Collections.Generic.IList<global::Mixedbread.SourcesItem>? Type294 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.StoreSearchResponseDataItemDiscriminator? Type295 { get; set; }
+        public global::Mixedbread.SourcesItem? Type295 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.StoreSearchResponseDataItemDiscriminatorType? Type296 { get; set; }
+        public global::Mixedbread.StoreQAResultsSourceDiscriminator? Type296 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.StoreUpdateParams? Type297 { get; set; }
+        public global::Mixedbread.StoreQAResultsSourceDiscriminatorType? Type297 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.GeneratedMetadataVariant13? Type298 { get; set; }
+        public global::Mixedbread.StoreSearchEventRewriteRankDirection2? Type298 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.TextInputChunkGeneratedMetadataVariant1Discriminator? Type299 { get; set; }
+        public global::Mixedbread.StoreSearchEventRewriteRankMode2? Type299 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.TextInputChunkGeneratedMetadataVariant1DiscriminatorType? Type300 { get; set; }
+        public global::Mixedbread.StoreSearchEventResultFirstStageSource2? Type300 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.ValidatedJsonSchema? Type301 { get; set; }
+        public global::Mixedbread.StoreSearchResponse? Type301 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<string, int?>>? Type302 { get; set; }
+        public global::System.Collections.Generic.IList<global::Mixedbread.DataItem4>? Type302 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.AnyOf<string, int?>? Type303 { get; set; }
+        public global::Mixedbread.DataItem4? Type303 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.VectorStore? Type304 { get; set; }
+        public global::Mixedbread.StoreSearchResponseDataItemDiscriminator? Type304 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.VectorStoreChunkSearchOptions? Type305 { get; set; }
+        public global::Mixedbread.StoreSearchResponseDataItemDiscriminatorType? Type305 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.VectorStoreChunkSearchParams? Type306 { get; set; }
+        public global::Mixedbread.StoreUpdateParams? Type306 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.VectorStoreCreateParams? Type307 { get; set; }
+        public global::Mixedbread.GeneratedMetadataVariant13? Type307 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.VectorStoreDeleted? Type308 { get; set; }
+        public global::Mixedbread.TextInputChunkGeneratedMetadataVariant1Discriminator? Type308 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.VectorStoreFile? Type309 { get; set; }
+        public global::Mixedbread.TextInputChunkGeneratedMetadataVariant1DiscriminatorType? Type309 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Mixedbread.ChunksVariant1Item2>? Type310 { get; set; }
+        public global::Mixedbread.ValidatedJsonSchema? Type310 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.ChunksVariant1Item2? Type311 { get; set; }
+        public global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<string, int?>>? Type311 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.VectorStoreFileChunksVariant1ItemDiscriminator? Type312 { get; set; }
+        public global::Mixedbread.AnyOf<string, int?>? Type312 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.VectorStoreFileChunksVariant1ItemDiscriminatorType? Type313 { get; set; }
+        public global::Mixedbread.VectorStore? Type313 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.VectorStoreFileDeleted? Type314 { get; set; }
+        public global::Mixedbread.VectorStoreChunkSearchOptions? Type314 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.VectorStoreFileListResponse? Type315 { get; set; }
+        public global::Mixedbread.VectorStoreChunkSearchParams? Type315 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Mixedbread.VectorStoreFile>? Type316 { get; set; }
+        public global::Mixedbread.VectorStoreCreateParams? Type316 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.VectorStoreFileStatus? Type317 { get; set; }
+        public global::Mixedbread.VectorStoreDeleted? Type317 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.VectorStoreListResponse? Type318 { get; set; }
+        public global::Mixedbread.VectorStoreFile? Type318 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Mixedbread.VectorStore>? Type319 { get; set; }
+        public global::System.Collections.Generic.IList<global::Mixedbread.ChunksVariant1Item2>? Type319 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.VectorStoreQAParams? Type320 { get; set; }
+        public global::Mixedbread.ChunksVariant1Item2? Type320 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.VectorStoreQAResults? Type321 { get; set; }
+        public global::Mixedbread.VectorStoreFileChunksVariant1ItemDiscriminator? Type321 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Mixedbread.SourcesItem2>? Type322 { get; set; }
+        public global::Mixedbread.VectorStoreFileChunksVariant1ItemDiscriminatorType? Type322 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.SourcesItem2? Type323 { get; set; }
+        public global::Mixedbread.VectorStoreFileDeleted? Type323 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredTextInputChunk? Type324 { get; set; }
+        public global::Mixedbread.VectorStoreFileListResponse? Type324 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredImageUrlInputChunk? Type325 { get; set; }
+        public global::System.Collections.Generic.IList<global::Mixedbread.VectorStoreFile>? Type325 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredAudioUrlInputChunk? Type326 { get; set; }
+        public global::Mixedbread.VectorStoreFileStatus? Type326 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredVideoUrlInputChunk? Type327 { get; set; }
+        public global::Mixedbread.VectorStoreListResponse? Type327 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.VectorStoreQAResultsSourceDiscriminator? Type328 { get; set; }
+        public global::System.Collections.Generic.IList<global::Mixedbread.VectorStore>? Type328 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.VectorStoreQAResultsSourceDiscriminatorType? Type329 { get; set; }
+        public global::Mixedbread.VectorStoreQAParams? Type329 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.VectorStoreSearchResponse? Type330 { get; set; }
+        public global::Mixedbread.VectorStoreQAResults? Type330 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Mixedbread.DataItem4>? Type331 { get; set; }
+        public global::System.Collections.Generic.IList<global::Mixedbread.SourcesItem2>? Type331 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.DataItem4? Type332 { get; set; }
+        public global::Mixedbread.SourcesItem2? Type332 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.VectorStoreSearchResponseDataItemDiscriminator? Type333 { get; set; }
+        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredTextInputChunk? Type333 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.VectorStoreSearchResponseDataItemDiscriminatorType? Type334 { get; set; }
+        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredImageUrlInputChunk? Type334 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.VectorStoreUpdateParams? Type335 { get; set; }
+        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredAudioUrlInputChunk? Type335 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.VideoUrl? Type336 { get; set; }
+        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredVideoUrlInputChunk? Type336 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.GeneratedMetadataVariant14? Type337 { get; set; }
+        public global::Mixedbread.VectorStoreQAResultsSourceDiscriminator? Type337 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.VideoUrlInputChunkGeneratedMetadataVariant1Discriminator? Type338 { get; set; }
+        public global::Mixedbread.VectorStoreQAResultsSourceDiscriminatorType? Type338 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.VideoUrlInputChunkGeneratedMetadataVariant1DiscriminatorType? Type339 { get; set; }
+        public global::Mixedbread.VectorStoreSearchResponse? Type339 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.GeneratedMetadataVariant15? Type340 { get; set; }
+        public global::System.Collections.Generic.IList<global::Mixedbread.DataItem5>? Type340 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredAudioUrlInputChunkGeneratedMetadataVariant1Discriminator? Type341 { get; set; }
+        public global::Mixedbread.DataItem5? Type341 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.GeneratedMetadataVariant16? Type342 { get; set; }
+        public global::Mixedbread.VectorStoreSearchResponseDataItemDiscriminator? Type342 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredImageUrlInputChunkGeneratedMetadataVariant1Discriminator? Type343 { get; set; }
+        public global::Mixedbread.VectorStoreSearchResponseDataItemDiscriminatorType? Type343 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.GeneratedMetadataVariant17? Type344 { get; set; }
+        public global::Mixedbread.VectorStoreUpdateParams? Type344 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredTextInputChunkGeneratedMetadataVariant1Discriminator? Type345 { get; set; }
+        public global::Mixedbread.VideoUrl? Type345 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredTextInputChunkGeneratedMetadataVariant1DiscriminatorType? Type346 { get; set; }
+        public global::Mixedbread.GeneratedMetadataVariant14? Type346 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.GeneratedMetadataVariant18? Type347 { get; set; }
+        public global::Mixedbread.VideoUrlInputChunkGeneratedMetadataVariant1Discriminator? Type347 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredVideoUrlInputChunkGeneratedMetadataVariant1Discriminator? Type348 { get; set; }
+        public global::Mixedbread.VideoUrlInputChunkGeneratedMetadataVariant1DiscriminatorType? Type348 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsSearchRuleCreateParams? Type349 { get; set; }
+        public global::Mixedbread.GeneratedMetadataVariant15? Type349 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Mixedbread.RulesItem>? Type350 { get; set; }
+        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredAudioUrlInputChunkGeneratedMetadataVariant1Discriminator? Type350 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.RulesItem? Type351 { get; set; }
+        public global::Mixedbread.GeneratedMetadataVariant16? Type351 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsSearchRuleCreateParamsRuleDiscriminator? Type352 { get; set; }
+        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredImageUrlInputChunkGeneratedMetadataVariant1Discriminator? Type352 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsSearchRuleCreateParamsRuleDiscriminatorType? Type353 { get; set; }
+        public global::Mixedbread.GeneratedMetadataVariant17? Type353 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsSearchRuleDeleted? Type354 { get; set; }
+        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredTextInputChunkGeneratedMetadataVariant1Discriminator? Type354 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsSearchRuleResponse? Type355 { get; set; }
+        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredTextInputChunkGeneratedMetadataVariant1DiscriminatorType? Type355 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Mixedbread.RulesItem2>? Type356 { get; set; }
+        public global::Mixedbread.GeneratedMetadataVariant18? Type356 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.RulesItem2? Type357 { get; set; }
+        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredVideoUrlInputChunkGeneratedMetadataVariant1Discriminator? Type357 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsSearchRuleResponseRuleDiscriminator? Type358 { get; set; }
+        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsSearchRuleCreateParams? Type358 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsSearchRuleResponseRuleDiscriminatorType? Type359 { get; set; }
+        public global::System.Collections.Generic.IList<global::Mixedbread.RulesItem>? Type359 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsSearchRuleSpecificDeleteParams? Type360 { get; set; }
+        public global::Mixedbread.RulesItem? Type360 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.Rule? Type361 { get; set; }
+        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsSearchRuleCreateParamsRuleDiscriminator? Type361 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsSearchRuleSpecificDeleteParamsRuleDiscriminator? Type362 { get; set; }
+        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsSearchRuleCreateParamsRuleDiscriminatorType? Type362 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsSearchRuleSpecificDeleteParamsRuleDiscriminatorType? Type363 { get; set; }
+        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsSearchRuleDeleted? Type363 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsSearchRuleSpecificDeleted? Type364 { get; set; }
+        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsSearchRuleResponse? Type364 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.DeletedRule? Type365 { get; set; }
+        public global::System.Collections.Generic.IList<global::Mixedbread.RulesItem2>? Type365 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsSearchRuleSpecificDeletedDeletedRuleDiscriminator? Type366 { get; set; }
+        public global::Mixedbread.RulesItem2? Type366 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsSearchRuleSpecificDeletedDeletedRuleDiscriminatorType? Type367 { get; set; }
+        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsSearchRuleResponseRuleDiscriminator? Type367 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsSearchRuleUpdateParams? Type368 { get; set; }
+        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsSearchRuleResponseRuleDiscriminatorType? Type368 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Mixedbread.RulesVariant1Item>? Type369 { get; set; }
+        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsSearchRuleSpecificDeleteParams? Type369 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.RulesVariant1Item? Type370 { get; set; }
+        public global::Mixedbread.Rule? Type370 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsSearchRuleUpdateParamsRulesVariant1ItemDiscriminator? Type371 { get; set; }
+        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsSearchRuleSpecificDeleteParamsRuleDiscriminator? Type371 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsSearchRuleUpdateParamsRulesVariant1ItemDiscriminatorType? Type372 { get; set; }
+        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsSearchRuleSpecificDeleteParamsRuleDiscriminatorType? Type372 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleCreateParams? Type373 { get; set; }
+        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsSearchRuleSpecificDeleted? Type373 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Mixedbread.RulesItem3>? Type374 { get; set; }
+        public global::Mixedbread.DeletedRule? Type374 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.RulesItem3? Type375 { get; set; }
+        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsSearchRuleSpecificDeletedDeletedRuleDiscriminator? Type375 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleCreateParamsRuleDiscriminator? Type376 { get; set; }
+        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsSearchRuleSpecificDeletedDeletedRuleDiscriminatorType? Type376 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleCreateParamsRuleDiscriminatorType? Type377 { get; set; }
+        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsSearchRuleUpdateParams? Type377 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleDeleted? Type378 { get; set; }
+        public global::System.Collections.Generic.IList<global::Mixedbread.RulesVariant1Item>? Type378 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleResponse? Type379 { get; set; }
+        public global::Mixedbread.RulesVariant1Item? Type379 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Mixedbread.RulesItem4>? Type380 { get; set; }
+        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsSearchRuleUpdateParamsRulesVariant1ItemDiscriminator? Type380 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.RulesItem4? Type381 { get; set; }
+        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsSearchRuleUpdateParamsRulesVariant1ItemDiscriminatorType? Type381 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleResponseRuleDiscriminator? Type382 { get; set; }
+        public global::Mixedbread.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleCreateParams? Type382 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleResponseRuleDiscriminatorType? Type383 { get; set; }
+        public global::System.Collections.Generic.IList<global::Mixedbread.RulesItem3>? Type383 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleSpecificDeleteParams? Type384 { get; set; }
+        public global::Mixedbread.RulesItem3? Type384 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.Rule2? Type385 { get; set; }
+        public global::Mixedbread.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleCreateParamsRuleDiscriminator? Type385 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleSpecificDeleteParamsRuleDiscriminator? Type386 { get; set; }
+        public global::Mixedbread.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleCreateParamsRuleDiscriminatorType? Type386 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleSpecificDeleteParamsRuleDiscriminatorType? Type387 { get; set; }
+        public global::Mixedbread.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleDeleted? Type387 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleSpecificDeleted? Type388 { get; set; }
+        public global::Mixedbread.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleResponse? Type388 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.DeletedRule2? Type389 { get; set; }
+        public global::System.Collections.Generic.IList<global::Mixedbread.RulesItem4>? Type389 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleSpecificDeletedDeletedRuleDiscriminator? Type390 { get; set; }
+        public global::Mixedbread.RulesItem4? Type390 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleSpecificDeletedDeletedRuleDiscriminatorType? Type391 { get; set; }
+        public global::Mixedbread.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleResponseRuleDiscriminator? Type391 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleUpdateParams? Type392 { get; set; }
+        public global::Mixedbread.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleResponseRuleDiscriminatorType? Type392 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Mixedbread.RulesVariant1Item2>? Type393 { get; set; }
+        public global::Mixedbread.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleSpecificDeleteParams? Type393 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.RulesVariant1Item2? Type394 { get; set; }
+        public global::Mixedbread.Rule2? Type394 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleUpdateParamsRulesVariant1ItemDiscriminator? Type395 { get; set; }
+        public global::Mixedbread.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleSpecificDeleteParamsRuleDiscriminator? Type395 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleUpdateParamsRulesVariant1ItemDiscriminatorType? Type396 { get; set; }
+        public global::Mixedbread.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleSpecificDeleteParamsRuleDiscriminatorType? Type396 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.GeneratedMetadataVariant19? Type397 { get; set; }
+        public global::Mixedbread.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleSpecificDeleted? Type397 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredAudioUrlInputChunkGeneratedMetadataVariant1Discriminator? Type398 { get; set; }
+        public global::Mixedbread.DeletedRule2? Type398 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredAudioUrlInputChunkGeneratedMetadataVariant1DiscriminatorType? Type399 { get; set; }
+        public global::Mixedbread.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleSpecificDeletedDeletedRuleDiscriminator? Type399 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.GeneratedMetadataVariant110? Type400 { get; set; }
+        public global::Mixedbread.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleSpecificDeletedDeletedRuleDiscriminatorType? Type400 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredImageUrlInputChunkGeneratedMetadataVariant1Discriminator? Type401 { get; set; }
+        public global::Mixedbread.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleUpdateParams? Type401 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredImageUrlInputChunkGeneratedMetadataVariant1DiscriminatorType? Type402 { get; set; }
+        public global::System.Collections.Generic.IList<global::Mixedbread.RulesVariant1Item2>? Type402 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.GeneratedMetadataVariant111? Type403 { get; set; }
+        public global::Mixedbread.RulesVariant1Item2? Type403 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredTextInputChunkGeneratedMetadataVariant1Discriminator? Type404 { get; set; }
+        public global::Mixedbread.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleUpdateParamsRulesVariant1ItemDiscriminator? Type404 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredTextInputChunkGeneratedMetadataVariant1DiscriminatorType? Type405 { get; set; }
+        public global::Mixedbread.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleUpdateParamsRulesVariant1ItemDiscriminatorType? Type405 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.GeneratedMetadataVariant112? Type406 { get; set; }
+        public global::Mixedbread.GeneratedMetadataVariant19? Type406 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredVideoUrlInputChunkGeneratedMetadataVariant1Discriminator? Type407 { get; set; }
+        public global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredAudioUrlInputChunkGeneratedMetadataVariant1Discriminator? Type407 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredVideoUrlInputChunkGeneratedMetadataVariant1DiscriminatorType? Type408 { get; set; }
+        public global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredAudioUrlInputChunkGeneratedMetadataVariant1DiscriminatorType? Type408 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.AnyOf<global::Mixedbread.NotionDataSourceCreateOrUpdateParams, global::Mixedbread.LinearDataSourceCreateOrUpdateParams>? Type409 { get; set; }
+        public global::Mixedbread.GeneratedMetadataVariant110? Type409 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Mixedbread.VectorStoreFileStatus>? Type410 { get; set; }
+        public global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredImageUrlInputChunkGeneratedMetadataVariant1Discriminator? Type410 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.ListStoreEventsEventType? Type411 { get; set; }
+        public global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredImageUrlInputChunkGeneratedMetadataVariant1DiscriminatorType? Type411 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.AnyOf<bool?, global::System.Collections.Generic.IList<int>>? Type412 { get; set; }
+        public global::Mixedbread.GeneratedMetadataVariant111? Type412 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Mixedbread.ParsingJobStatus>? Type413 { get; set; }
+        public global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredTextInputChunkGeneratedMetadataVariant1Discriminator? Type413 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredTextInputChunkGeneratedMetadataVariant1DiscriminatorType? Type414 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Mixedbread.GeneratedMetadataVariant112? Type415 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredVideoUrlInputChunkGeneratedMetadataVariant1Discriminator? Type416 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredVideoUrlInputChunkGeneratedMetadataVariant1DiscriminatorType? Type417 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Mixedbread.AnyOf<global::Mixedbread.NotionDataSourceCreateOrUpdateParams, global::Mixedbread.LinearDataSourceCreateOrUpdateParams>? Type418 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::System.Collections.Generic.IList<global::Mixedbread.VectorStoreFileStatus>? Type419 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Mixedbread.ListStoreEventsEventType? Type420 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Mixedbread.AnyOf<bool?, global::System.Collections.Generic.IList<int>>? Type421 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::System.Collections.Generic.IList<global::Mixedbread.ParsingJobStatus>? Type422 { get; set; }
 
         /// <summary>
         /// 
@@ -1889,43 +1925,43 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.List<global::Mixedbread.StoreChunkGrepTarget>? ListType51 { get; set; }
+        public global::Mixedbread.AnyOf<string, global::System.Collections.Generic.List<global::Mixedbread.AnyOf<string, bool?>>, object>? ListType51 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.List<global::Mixedbread.StoreCostInfo>? ListType52 { get; set; }
+        public global::System.Collections.Generic.List<global::Mixedbread.AnyOf<string, bool?>>? ListType52 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.List<global::Mixedbread.StoreEventHistogramParamsEventTypesVariant1Item>? ListType53 { get; set; }
+        public global::System.Collections.Generic.List<global::Mixedbread.StoreChunkGrepTarget>? ListType53 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.List<global::Mixedbread.StoreEventHistogramBucket>? ListType54 { get; set; }
+        public global::System.Collections.Generic.List<global::Mixedbread.StoreCostInfo>? ListType54 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.List<global::Mixedbread.DataItem>? ListType55 { get; set; }
+        public global::System.Collections.Generic.List<global::Mixedbread.StoreEventHistogramParamsEventTypesVariant1Item>? ListType55 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.List<global::Mixedbread.ChunksVariant1Item>? ListType56 { get; set; }
+        public global::System.Collections.Generic.List<global::Mixedbread.StoreEventHistogramBucket>? ListType56 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.List<global::Mixedbread.StoreFile>? ListType57 { get; set; }
+        public global::System.Collections.Generic.List<global::Mixedbread.DataItem>? ListType57 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.List<global::Mixedbread.DataItem2>? ListType58 { get; set; }
+        public global::System.Collections.Generic.List<global::Mixedbread.ChunksVariant1Item>? ListType58 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.List<global::Mixedbread.Store>? ListType59 { get; set; }
+        public global::System.Collections.Generic.List<global::Mixedbread.StoreFile>? ListType59 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.List<global::Mixedbread.SourcesItem>? ListType60 { get; set; }
+        public global::System.Collections.Generic.List<global::Mixedbread.DataItem2>? ListType60 { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -1933,62 +1969,74 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.List<global::Mixedbread.AnyOf<string, int?>>? ListType62 { get; set; }
+        public global::System.Collections.Generic.List<global::Mixedbread.Store>? ListType62 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.List<global::Mixedbread.ChunksVariant1Item2>? ListType63 { get; set; }
+        public global::System.Collections.Generic.List<global::Mixedbread.SourcesItem>? ListType63 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.List<global::Mixedbread.VectorStoreFile>? ListType64 { get; set; }
+        public global::System.Collections.Generic.List<global::Mixedbread.DataItem4>? ListType64 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.List<global::Mixedbread.VectorStore>? ListType65 { get; set; }
+        public global::System.Collections.Generic.List<global::Mixedbread.AnyOf<string, int?>>? ListType65 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.List<global::Mixedbread.SourcesItem2>? ListType66 { get; set; }
+        public global::System.Collections.Generic.List<global::Mixedbread.ChunksVariant1Item2>? ListType66 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.List<global::Mixedbread.DataItem4>? ListType67 { get; set; }
+        public global::System.Collections.Generic.List<global::Mixedbread.VectorStoreFile>? ListType67 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.List<global::Mixedbread.RulesItem>? ListType68 { get; set; }
+        public global::System.Collections.Generic.List<global::Mixedbread.VectorStore>? ListType68 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.List<global::Mixedbread.RulesItem2>? ListType69 { get; set; }
+        public global::System.Collections.Generic.List<global::Mixedbread.SourcesItem2>? ListType69 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.List<global::Mixedbread.RulesVariant1Item>? ListType70 { get; set; }
+        public global::System.Collections.Generic.List<global::Mixedbread.DataItem5>? ListType70 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.List<global::Mixedbread.RulesItem3>? ListType71 { get; set; }
+        public global::System.Collections.Generic.List<global::Mixedbread.RulesItem>? ListType71 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.List<global::Mixedbread.RulesItem4>? ListType72 { get; set; }
+        public global::System.Collections.Generic.List<global::Mixedbread.RulesItem2>? ListType72 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.List<global::Mixedbread.RulesVariant1Item2>? ListType73 { get; set; }
+        public global::System.Collections.Generic.List<global::Mixedbread.RulesVariant1Item>? ListType73 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.List<global::Mixedbread.VectorStoreFileStatus>? ListType74 { get; set; }
+        public global::System.Collections.Generic.List<global::Mixedbread.RulesItem3>? ListType74 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Mixedbread.AnyOf<bool?, global::System.Collections.Generic.List<int>>? ListType75 { get; set; }
+        public global::System.Collections.Generic.List<global::Mixedbread.RulesItem4>? ListType75 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.List<global::Mixedbread.ParsingJobStatus>? ListType76 { get; set; }
+        public global::System.Collections.Generic.List<global::Mixedbread.RulesVariant1Item2>? ListType76 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::System.Collections.Generic.List<global::Mixedbread.VectorStoreFileStatus>? ListType77 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Mixedbread.AnyOf<bool?, global::System.Collections.Generic.List<int>>? ListType78 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::System.Collections.Generic.List<global::Mixedbread.ParsingJobStatus>? ListType79 { get; set; }
     }
 }

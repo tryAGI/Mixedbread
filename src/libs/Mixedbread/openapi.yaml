@@ -1997,6 +1997,40 @@
         "security": [{ "ApiKeyAuth": [] }]
       }
     },
+    "/v1/stores/list-chunks": {
+      "post": {
+        "tags": ["stores"],
+        "summary": "List store chunks by metadata filter and numeric ranking",
+        "description": "List store chunks purely by metadata filters — no embeddings, no semantic similarity, no reranking.\n\nUnlike `/stores/search`, this endpoint does not require a query and never runs a vector lookup.\nIt returns chunks whose file and chunk metadata satisfy `filters`, optionally ordered by a\nnumeric metadata field via `sort_by`. Useful for ranked retrieval over numeric attributes\n(e.g. price, BPM) and for reproducing the agentic `filter_chunks` tool externally.\n\nlist-chunks targets a single store and does not support pagination; raise `top_k` to\nretrieve more chunks.\n\nArgs:\n    filter_params: Filter configuration including:\n        - store_identifiers: the single store to filter against\n        - filters: optional metadata filter conditions\n        - file_ids: optional list of file IDs to filter chunks by\n        - sort_by: optional metadata field path, or `(field, ascending)` tuple, for numeric ordering\n        - top_k: number of chunks to return\n\nReturns:\n    StoreListChunksResponse containing the list of matching chunks.\n\nRaises:\n    HTTPException (400): If filter parameters are invalid or multiple stores are passed\n    HTTPException (404): If the store is not found",
+        "operationId": "list_store_chunks",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StoreChunkFilterParams",
+                "description": "Filter parameters including metadata filters, optional numeric sort, and pagination options"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "List of chunks matching the metadata filters, optionally ordered by a numeric metadata field",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/StoreListChunksResponse" } }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/HTTPValidationError" } }
+            }
+          }
+        },
+        "security": [{ "ApiKeyAuth": [] }]
+      }
+    },
     "/v1/stores/question-answering": {
       "post": {
         "tags": ["stores"],
@@ -7982,6 +8016,88 @@
         "title": "StoreAgenticSearchEvent",
         "description": "Represents an agentic search trace in a vector store.\n\nUnlike StoreSearchEvent, this captures the full sequence of tool calls the\nagent issued (name, arguments, result) so developers can inspect what the\nagent did, along with the token usage and cost."
       },
+      "StoreChunkFilterParams": {
+        "properties": {
+          "store_identifiers": {
+            "items": { "anyOf": [{ "type": "string" }, { "type": "string", "format": "uuid" }] },
+            "type": "array",
+            "maxItems": 16,
+            "minItems": 1,
+            "title": "Store Identifiers",
+            "description": "IDs or names of stores"
+          },
+          "top_k": {
+            "type": "integer",
+            "minimum": 1,
+            "title": "Top K",
+            "description": "Number of results to return",
+            "default": 10
+          },
+          "filters": {
+            "anyOf": [
+              { "$ref": "#/components/schemas/SearchFilter-Input" },
+              { "$ref": "#/components/schemas/SearchFilterCondition" },
+              {
+                "items": {
+                  "anyOf": [
+                    { "$ref": "#/components/schemas/SearchFilter-Input" },
+                    { "$ref": "#/components/schemas/SearchFilterCondition" }
+                  ]
+                },
+                "type": "array"
+              },
+              { "type": "null" }
+            ],
+            "title": "Filters",
+            "description": "Optional filter conditions"
+          },
+          "file_ids": {
+            "anyOf": [
+              {
+                "prefixItems": [
+                  { "$ref": "#/components/schemas/ConditionOperator" },
+                  { "items": { "type": "string", "format": "uuid" }, "type": "array" }
+                ],
+                "type": "array",
+                "maxItems": 2,
+                "minItems": 2
+              },
+              { "items": { "type": "string", "format": "uuid" }, "type": "array" },
+              { "type": "null" }
+            ],
+            "title": "File Ids",
+            "description": "Optional list of file IDs to filter chunks by (inclusion filter)",
+            "examples": [
+              ["123e4567-e89b-12d3-a456-426614174000", "123e4567-e89b-12d3-a456-426614174001"],
+              ["in", ["123e4567-e89b-12d3-a456-426614174000"]],
+              ["not_in", ["123e4567-e89b-12d3-a456-426614174000"]]
+            ]
+          },
+          "sort_by": {
+            "anyOf": [
+              { "type": "string" },
+              {
+                "prefixItems": [{ "type": "string" }, { "type": "boolean" }],
+                "type": "array",
+                "maxItems": 2,
+                "minItems": 2
+              },
+              { "type": "null" }
+            ],
+            "title": "Sort By",
+            "description": "Optional sort applied to the returned chunks. Pass a metadata field path or a tuple of (field path, ascending). Unprefixed dot paths target file metadata; generated_metadata.* targets chunk metadata.",
+            "examples": ["price", ["price", false], "campaign.name", ["generated_metadata.bpm", true]]
+          },
+          "search_options": {
+            "$ref": "#/components/schemas/StoreChunkSearchOptions",
+            "description": "Search configuration options"
+          }
+        },
+        "type": "object",
+        "required": ["store_identifiers"],
+        "title": "StoreChunkFilterParams",
+        "description": "Parameters for listing store chunks by metadata filter."
+      },
       "StoreChunkGrepParams": {
         "properties": {
           "store_identifiers": {
@@ -8804,6 +8920,50 @@
         "title": "StoreIngestionEvent",
         "description": "Represents an ingestion event in a vector store."
       },
+      "StoreListChunksResponse": {
+        "properties": {
+          "object": {
+            "type": "string",
+            "const": "list",
+            "title": "Object",
+            "description": "The object type of the response",
+            "default": "list"
+          },
+          "data": {
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/mxbai_omni__core__store__models__chunk_types__ScoredTextInputChunk"
+                },
+                {
+                  "$ref": "#/components/schemas/mxbai_omni__core__store__models__chunk_types__ScoredImageUrlInputChunk"
+                },
+                {
+                  "$ref": "#/components/schemas/mxbai_omni__core__store__models__chunk_types__ScoredAudioUrlInputChunk"
+                },
+                {
+                  "$ref": "#/components/schemas/mxbai_omni__core__store__models__chunk_types__ScoredVideoUrlInputChunk"
+                }
+              ],
+              "discriminator": {
+                "propertyName": "type",
+                "mapping": {
+                  "audio_url": "#/components/schemas/mxbai_omni__core__store__models__chunk_types__ScoredAudioUrlInputChunk",
+                  "image_url": "#/components/schemas/mxbai_omni__core__store__models__chunk_types__ScoredImageUrlInputChunk",
+                  "text": "#/components/schemas/mxbai_omni__core__store__models__chunk_types__ScoredTextInputChunk",
+                  "video_url": "#/components/schemas/mxbai_omni__core__store__models__chunk_types__ScoredVideoUrlInputChunk"
+                }
+              }
+            },
+            "type": "array",
+            "title": "Data",
+            "description": "The list of chunks matching the metadata filters"
+          }
+        },
+        "type": "object",
+        "required": ["data"],
+        "title": "StoreListChunksResponse"
+      },
       "StoreListResponse": {
         "properties": {
           "pagination": { "$ref": "#/components/schemas/CursorPaginationResponse" },
@@ -9316,6 +9476,12 @@
             "title": "Context",
             "description": "LLM-generated context that situates this chunk within its source document",
             "examples": ["This chunk is from an SEC filing on ACME corp's Q2 2023 performance."]
+          },
+          "summary": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Summary",
+            "description": "summary of the text chunk",
+            "examples": ["A short overview of ACME's Q2 2023 performance."]
           }
         },
         "type": "object",
@@ -10527,6 +10693,12 @@
             "title": "Context",
             "description": "LLM-generated context that situates this chunk within its source document",
             "examples": ["This chunk is from an SEC filing on ACME corp's Q2 2023 performance."]
+          },
+          "summary": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Summary",
+            "description": "summary of the text chunk",
+            "examples": ["A short overview of ACME's Q2 2023 performance."]
           }
         },
         "type": "object",
@@ -11456,6 +11628,12 @@
             "title": "Context",
             "description": "LLM-generated context that situates this chunk within its source document",
             "examples": ["This chunk is from an SEC filing on ACME corp's Q2 2023 performance."]
+          },
+          "summary": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Summary",
+            "description": "summary of the text chunk",
+            "examples": ["A short overview of ACME's Q2 2023 performance."]
           }
         },
         "type": "object",
