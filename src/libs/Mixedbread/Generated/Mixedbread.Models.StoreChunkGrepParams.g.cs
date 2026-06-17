@@ -5,8 +5,8 @@ namespace Mixedbread
 {
     /// <summary>
     /// Parameters for matching store chunks against a regular expression.<br/>
-    /// Unlike semantic search, grep performs exact text matching — no embeddings, no<br/>
-    /// reranking. It finds chunks whose literal text contains the pattern.
+    /// Unlike semantic search, grep runs your regex against the literal text of each<br/>
+    /// chunk. It finds chunks whose text matches the pattern.
     /// </summary>
     public sealed partial class StoreChunkGrepParams
     {

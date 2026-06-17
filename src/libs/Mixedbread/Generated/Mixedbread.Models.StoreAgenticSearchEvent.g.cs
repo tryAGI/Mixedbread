@@ -7,7 +7,7 @@ namespace Mixedbread
     /// Represents an agentic search trace in a vector store.<br/>
     /// Unlike StoreSearchEvent, this captures the full sequence of tool calls the<br/>
     /// agent issued (name, arguments, result) so developers can inspect what the<br/>
-    /// agent did, along with the token usage and cost.
+    /// agent did, along with the token usage.
     /// </summary>
     public sealed partial class StoreAgenticSearchEvent
     {
@@ -56,8 +56,7 @@ namespace Mixedbread
         /// Original query submitted by the user
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("query")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Query { get; set; }
+        public string? Query { get; set; }
 
         /// <summary>
         /// Custom instructions provided with the agentic search, if any
@@ -86,7 +85,7 @@ namespace Mixedbread
         public global::Mixedbread.AnyOf<global::Mixedbread.SearchFilterOutput, global::Mixedbread.SearchFilterCondition, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilterOutput, global::Mixedbread.SearchFilterCondition>>, object>? Filters { get; set; }
 
         /// <summary>
-        /// Token usage and cost for LLM calls during the agentic search
+        /// Token usage for LLM calls during the agentic search
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("token_usage")]
         public global::Mixedbread.AgenticSearchTokenUsage? TokenUsage { get; set; }
@@ -124,15 +123,15 @@ namespace Mixedbread
         /// <param name="startedAt">
         /// Time when the agentic search began
         /// </param>
-        /// <param name="query">
-        /// Original query submitted by the user
-        /// </param>
         /// <param name="type">
         /// Default Value: agentic_search
         /// </param>
         /// <param name="searchTime">
         /// Total wall-clock time of the agent loop<br/>
         /// Default Value: PT0S
+        /// </param>
+        /// <param name="query">
+        /// Original query submitted by the user
         /// </param>
         /// <param name="instructions">
         /// Custom instructions provided with the agentic search, if any
@@ -148,7 +147,7 @@ namespace Mixedbread
         /// Metadata filters submitted with the search request
         /// </param>
         /// <param name="tokenUsage">
-        /// Token usage and cost for LLM calls during the agentic search
+        /// Token usage for LLM calls during the agentic search
         /// </param>
         /// <param name="toolCalls">
         /// Ordered tool calls issued by the agent
@@ -164,9 +163,9 @@ namespace Mixedbread
             global::System.DateTime createdAt,
             global::System.Collections.Generic.IList<global::System.Guid> storeIds,
             global::System.DateTime startedAt,
-            string query,
             string? type,
             string? searchTime,
+            string? query,
             string? instructions,
             string? rankingStrategy,
             int? roundsExecuted,
@@ -181,7 +180,7 @@ namespace Mixedbread
             this.StoreIds = storeIds ?? throw new global::System.ArgumentNullException(nameof(storeIds));
             this.StartedAt = startedAt;
             this.SearchTime = searchTime;
-            this.Query = query ?? throw new global::System.ArgumentNullException(nameof(query));
+            this.Query = query;
             this.Instructions = instructions;
             this.RankingStrategy = rankingStrategy;
             this.RoundsExecuted = roundsExecuted;

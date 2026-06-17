@@ -15,6 +15,10 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
+        Grep,
+        /// <summary>
+        /// 
+        /// </summary>
         Ingestion,
         /// <summary>
         /// 
@@ -35,6 +39,7 @@ namespace Mixedbread
             return value switch
             {
                 ListStoreEventsEventType.AgenticSearch => "agentic_search",
+                ListStoreEventsEventType.Grep => "grep",
                 ListStoreEventsEventType.Ingestion => "ingestion",
                 ListStoreEventsEventType.Search => "search",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
@@ -48,6 +53,7 @@ namespace Mixedbread
             return value switch
             {
                 "agentic_search" => ListStoreEventsEventType.AgenticSearch,
+                "grep" => ListStoreEventsEventType.Grep,
                 "ingestion" => ListStoreEventsEventType.Ingestion,
                 "search" => ListStoreEventsEventType.Search,
                 _ => null,

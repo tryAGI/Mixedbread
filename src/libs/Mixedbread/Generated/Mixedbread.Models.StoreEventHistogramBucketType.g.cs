@@ -163,6 +163,10 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
+        StoreGrep,
+        /// <summary>
+        /// 
+        /// </summary>
         StoreQuestionAnswer,
         /// <summary>
         /// 
@@ -232,6 +236,7 @@ namespace Mixedbread
                 StoreEventHistogramBucketType.StoreFileDeleted => "store.file.deleted",
                 StoreEventHistogramBucketType.StoreFileSearch => "store.file.search",
                 StoreEventHistogramBucketType.StoreFileUpdated => "store.file.updated",
+                StoreEventHistogramBucketType.StoreGrep => "store.grep",
                 StoreEventHistogramBucketType.StoreQuestionAnswer => "store.question_answer",
                 StoreEventHistogramBucketType.StoreReingestionCompleted => "store.reingestion.completed",
                 StoreEventHistogramBucketType.StoreSearch => "store.search",
@@ -285,6 +290,7 @@ namespace Mixedbread
                 "store.file.deleted" => StoreEventHistogramBucketType.StoreFileDeleted,
                 "store.file.search" => StoreEventHistogramBucketType.StoreFileSearch,
                 "store.file.updated" => StoreEventHistogramBucketType.StoreFileUpdated,
+                "store.grep" => StoreEventHistogramBucketType.StoreGrep,
                 "store.question_answer" => StoreEventHistogramBucketType.StoreQuestionAnswer,
                 "store.reingestion.completed" => StoreEventHistogramBucketType.StoreReingestionCompleted,
                 "store.search" => StoreEventHistogramBucketType.StoreSearch,

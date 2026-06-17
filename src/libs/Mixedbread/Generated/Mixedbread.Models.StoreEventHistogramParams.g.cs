@@ -28,7 +28,7 @@ namespace Mixedbread
         public int? BucketSeconds { get; set; }
 
         /// <summary>
-        /// Restrict the histogram to these event types. When omitted, includes search, agentic_search, and ingestion events.
+        /// Restrict the histogram to these event types. When omitted, includes search, agentic_search, grep, and ingestion events.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("event_types")]
         public global::System.Collections.Generic.IList<global::Mixedbread.StoreEventHistogramParamsEventTypesVariant1Item>? EventTypes { get; set; }
@@ -53,7 +53,7 @@ namespace Mixedbread
         /// Default Value: 7200
         /// </param>
         /// <param name="eventTypes">
-        /// Restrict the histogram to these event types. When omitted, includes search, agentic_search, and ingestion events.
+        /// Restrict the histogram to these event types. When omitted, includes search, agentic_search, grep, and ingestion events.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

@@ -83,6 +83,11 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
+        public BucketsClient Buckets { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public CompletionsClient Completions { get; }
 
         /// <summary>
@@ -99,6 +104,11 @@ namespace Mixedbread
         /// 
         /// </summary>
         public FilesClient Files { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public IntegrationsClient Integrations { get; }
 
         /// <summary>
         /// 

@@ -1,0 +1,569 @@
+
+#nullable enable
+
+namespace Mixedbread
+{
+    public partial class BucketsClient
+    {
+
+        private static readonly global::Mixedbread.AutoSDKServer[] s_RotateBucketCredentialsServers = new global::Mixedbread.AutoSDKServer[]
+        {            new global::Mixedbread.AutoSDKServer(
+                id: "https-api-mixedbread-com",
+                name: "mixedbread ai production server",
+                url: "https://api.mixedbread.com/",
+                description: "mixedbread ai production server"),
+            new global::Mixedbread.AutoSDKServer(
+                id: "https-api-dev-mixedbread-com",
+                name: "mixedbread ai development server",
+                url: "https://api.dev.mixedbread.com/",
+                description: "mixedbread ai development server"),
+            new global::Mixedbread.AutoSDKServer(
+                id: "http-127-0-0-1",
+                name: "mixedbread local server",
+                url: "http://127.0.0.1:8000/",
+                description: "mixedbread local server"),
+            new global::Mixedbread.AutoSDKServer(
+                id: "http-localhost",
+                name: "mixedbread local server",
+                url: "http://localhost:8000/",
+                description: "mixedbread local server"),
+        };
+
+
+        private static readonly global::Mixedbread.EndPointSecurityRequirement s_RotateBucketCredentialsSecurityRequirement0 =
+            new global::Mixedbread.EndPointSecurityRequirement
+            {
+                Authorizations = new global::Mixedbread.EndPointAuthorizationRequirement[]
+                {                    new global::Mixedbread.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        SchemeId = "HttpBearer",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::Mixedbread.EndPointSecurityRequirement[] s_RotateBucketCredentialsSecurityRequirements =
+            new global::Mixedbread.EndPointSecurityRequirement[]
+            {                s_RotateBucketCredentialsSecurityRequirement0,
+            };
+        partial void PrepareRotateBucketCredentialsArguments(
+            global::System.Net.Http.HttpClient httpClient,
+            ref global::System.Guid bucketId,
+            global::Mixedbread.BucketRotateCredentialsParams request);
+        partial void PrepareRotateBucketCredentialsRequest(
+            global::System.Net.Http.HttpClient httpClient,
+            global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            global::System.Guid bucketId,
+            global::Mixedbread.BucketRotateCredentialsParams request);
+        partial void ProcessRotateBucketCredentialsResponse(
+            global::System.Net.Http.HttpClient httpClient,
+            global::System.Net.Http.HttpResponseMessage httpResponseMessage);
+
+        partial void ProcessRotateBucketCredentialsResponseContent(
+            global::System.Net.Http.HttpClient httpClient,
+            global::System.Net.Http.HttpResponseMessage httpResponseMessage,
+            ref string content);
+
+        /// <summary>
+        /// Rotate bucket credentials<br/>
+        /// Replace a bucket's stored credentials.<br/>
+        /// Only available for `access_key` buckets — `assume_role` buckets store no<br/>
+        /// credentials (manage access via the role's trust policy instead). The new<br/>
+        /// credentials are re-validated against the bucket's existing (immutable) identity<br/>
+        /// before they are persisted. The credentials version is bumped so cached storage clients rebuild.<br/>
+        /// Args:<br/>
+        ///     bucket_id: The ID of the bucket to rotate credentials for.<br/>
+        ///     params: The new bucket access credentials.<br/>
+        /// Returns:<br/>
+        ///     Bucket: The updated bucket. Credentials are never returned.
+        /// </summary>
+        /// <param name="bucketId">
+        /// The ID of the bucket to rotate credentials for
+        /// </param>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::Mixedbread.ApiException"></exception>
+        public async global::System.Threading.Tasks.Task<global::Mixedbread.Bucket> RotateBucketCredentialsAsync(
+            global::System.Guid bucketId,
+
+            global::Mixedbread.BucketRotateCredentialsParams request,
+            global::Mixedbread.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            var __response = await RotateBucketCredentialsAsResponseAsync(
+                bucketId: bucketId,
+
+                request: request,
+                requestOptions: requestOptions,
+                cancellationToken: cancellationToken
+            ).ConfigureAwait(false);
+
+            return __response.Body;
+        }
+        /// <summary>
+        /// Rotate bucket credentials<br/>
+        /// Replace a bucket's stored credentials.<br/>
+        /// Only available for `access_key` buckets — `assume_role` buckets store no<br/>
+        /// credentials (manage access via the role's trust policy instead). The new<br/>
+        /// credentials are re-validated against the bucket's existing (immutable) identity<br/>
+        /// before they are persisted. The credentials version is bumped so cached storage clients rebuild.<br/>
+        /// Args:<br/>
+        ///     bucket_id: The ID of the bucket to rotate credentials for.<br/>
+        ///     params: The new bucket access credentials.<br/>
+        /// Returns:<br/>
+        ///     Bucket: The updated bucket. Credentials are never returned.
+        /// </summary>
+        /// <param name="bucketId">
+        /// The ID of the bucket to rotate credentials for
+        /// </param>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::Mixedbread.ApiException"></exception>
+        public async global::System.Threading.Tasks.Task<global::Mixedbread.AutoSDKHttpResponse<global::Mixedbread.Bucket>> RotateBucketCredentialsAsResponseAsync(
+            global::System.Guid bucketId,
+
+            global::Mixedbread.BucketRotateCredentialsParams request,
+            global::Mixedbread.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
+
+            PrepareArguments(
+                client: HttpClient);
+            PrepareRotateBucketCredentialsArguments(
+                httpClient: HttpClient,
+                bucketId: ref bucketId,
+                request: request);
+
+
+            var __authorizations = global::Mixedbread.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_RotateBucketCredentialsSecurityRequirements,
+                operationName: "RotateBucketCredentialsAsync");
+
+            using var __timeoutCancellationTokenSource = global::Mixedbread.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
+                clientOptions: Options,
+                requestOptions: requestOptions,
+                cancellationToken: cancellationToken);
+            var __effectiveCancellationToken = __timeoutCancellationTokenSource?.Token ?? cancellationToken;
+            var __effectiveReadResponseAsString = global::Mixedbread.AutoSDKRequestOptionsSupport.GetReadResponseAsString(
+                clientOptions: Options,
+                requestOptions: requestOptions,
+                fallbackValue: ReadResponseAsString);
+            var __maxAttempts = global::Mixedbread.AutoSDKRequestOptionsSupport.GetMaxAttempts(
+                clientOptions: Options,
+                requestOptions: requestOptions,
+                supportsRetry: true);
+
+            global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
+            {
+
+                            var __pathBuilder = new global::Mixedbread.PathBuilder(
+                                path: $"/v1/buckets/{bucketId}/credentials",
+                                baseUri: ResolveBaseUri(
+                                servers: s_RotateBucketCredentialsServers,
+                                defaultBaseUrl: "https://api.mixedbread.com/"));
+                            var __path = __pathBuilder.ToString();
+                __path = global::Mixedbread.AutoSDKRequestOptionsSupport.AppendQueryParameters(
+                    path: __path,
+                    clientParameters: Options.QueryParameters,
+                    requestParameters: requestOptions?.QueryParameters);
+                var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
+                    method: global::System.Net.Http.HttpMethod.Post,
+                    requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
+#if NET6_0_OR_GREATER
+                __httpRequest.Version = global::System.Net.HttpVersion.Version11;
+                __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
+#endif
+
+            foreach (var __authorization in __authorizations)
+            {
+                if (__authorization.Type == "Http" ||
+                    __authorization.Type == "OAuth2" ||
+                    __authorization.Type == "OpenIdConnect")
+                {
+                    __httpRequest.Headers.Authorization = new global::System.Net.Http.Headers.AuthenticationHeaderValue(
+                        scheme: __authorization.Name,
+                        parameter: __authorization.Value);
+                }
+                else if (__authorization.Type == "ApiKey" &&
+                         __authorization.Location == "Header")
+                {
+                    __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
+                } 
+            }
+                            var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
+                            var __httpRequestContent = new global::System.Net.Http.StringContent(
+                                content: __httpRequestContentBody,
+                                encoding: global::System.Text.Encoding.UTF8,
+                                mediaType: "application/json");
+                            __httpRequest.Content = __httpRequestContent;
+                global::Mixedbread.AutoSDKRequestOptionsSupport.ApplyHeaders(
+                    request: __httpRequest,
+                    clientHeaders: Options.Headers,
+                    requestHeaders: requestOptions?.Headers);
+
+                PrepareRequest(
+                    client: HttpClient,
+                    request: __httpRequest);
+                PrepareRotateBucketCredentialsRequest(
+                    httpClient: HttpClient,
+                    httpRequestMessage: __httpRequest,
+                    bucketId: bucketId!,
+                    request: request);
+
+                return __httpRequest;
+            }
+
+            global::System.Net.Http.HttpRequestMessage? __httpRequest = null;
+            global::System.Net.Http.HttpResponseMessage? __response = null;
+            var __attemptNumber = 0;
+            try
+            {
+                for (var __attempt = 1; __attempt <= __maxAttempts; __attempt++)
+                {
+                    __attemptNumber = __attempt;
+                    __httpRequest = __CreateHttpRequest();
+                    await global::Mixedbread.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
+                            clientOptions: Options,
+                            context: global::Mixedbread.AutoSDKRequestOptionsSupport.CreateHookContext(
+                                operationId: "RotateBucketCredentials",
+                                methodName: "RotateBucketCredentialsAsync",
+                                pathTemplate: "$\"/v1/buckets/{bucketId}/credentials\"",
+                                httpMethod: "POST",
+                                baseUri: BaseUri,
+                                request: __httpRequest!,
+                                response: null,
+                                exception: null,
+                                clientOptions: Options,
+                                requestOptions: requestOptions,
+                                attempt: __attempt,
+                                maxAttempts: __maxAttempts,
+                                willRetry: false,
+                                retryDelay: null,
+                                retryReason: global::System.String.Empty,
+                                cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
+                    try
+                    {
+                        __response = await HttpClient.SendAsync(
+                request: __httpRequest,
+                completionOption: global::System.Net.Http.HttpCompletionOption.ResponseContentRead,
+                cancellationToken: __effectiveCancellationToken).ConfigureAwait(false);
+                    }
+                    catch (global::System.Net.Http.HttpRequestException __exception)
+                    {
+                        var __retryDelay = global::Mixedbread.AutoSDKRequestOptionsSupport.GetRetryDelay(
+                            clientOptions: Options,
+                            requestOptions: requestOptions,
+                            response: null,
+                            attempt: __attempt);
+                        var __willRetry = __attempt < __maxAttempts && !__effectiveCancellationToken.IsCancellationRequested;
+                        await global::Mixedbread.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
+                            clientOptions: Options,
+                            context: global::Mixedbread.AutoSDKRequestOptionsSupport.CreateHookContext(
+                                operationId: "RotateBucketCredentials",
+                                methodName: "RotateBucketCredentialsAsync",
+                                pathTemplate: "$\"/v1/buckets/{bucketId}/credentials\"",
+                                httpMethod: "POST",
+                                baseUri: BaseUri,
+                                request: __httpRequest!,
+                                response: null,
+                                exception: __exception,
+                                clientOptions: Options,
+                                requestOptions: requestOptions,
+                                attempt: __attempt,
+                                maxAttempts: __maxAttempts,
+                                willRetry: __willRetry,
+                                retryDelay: __willRetry ? __retryDelay : (global::System.TimeSpan?)null,
+                                retryReason: "exception",
+                                cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
+                        if (!__willRetry)
+                        {
+                            throw;
+                        }
+
+                        __httpRequest.Dispose();
+                        __httpRequest = null;
+                        await global::Mixedbread.AutoSDKRequestOptionsSupport.DelayBeforeRetryAsync(
+                            retryDelay: __retryDelay,
+                            cancellationToken: __effectiveCancellationToken).ConfigureAwait(false);
+                        continue;
+                    }
+
+                    if (__response != null &&
+                        __attempt < __maxAttempts &&
+                        global::Mixedbread.AutoSDKRequestOptionsSupport.ShouldRetryStatusCode(__response.StatusCode))
+                    {
+                        var __retryDelay = global::Mixedbread.AutoSDKRequestOptionsSupport.GetRetryDelay(
+                            clientOptions: Options,
+                            requestOptions: requestOptions,
+                            response: __response,
+                            attempt: __attempt);
+                        await global::Mixedbread.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
+                            clientOptions: Options,
+                            context: global::Mixedbread.AutoSDKRequestOptionsSupport.CreateHookContext(
+                                operationId: "RotateBucketCredentials",
+                                methodName: "RotateBucketCredentialsAsync",
+                                pathTemplate: "$\"/v1/buckets/{bucketId}/credentials\"",
+                                httpMethod: "POST",
+                                baseUri: BaseUri,
+                                request: __httpRequest!,
+                                response: __response,
+                                exception: null,
+                                clientOptions: Options,
+                                requestOptions: requestOptions,
+                                attempt: __attempt,
+                                maxAttempts: __maxAttempts,
+                                willRetry: true,
+                                retryDelay: __retryDelay,
+                                retryReason: "status:" + ((int)__response.StatusCode).ToString(global::System.Globalization.CultureInfo.InvariantCulture),
+                                cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
+                        __response.Dispose();
+                        __response = null;
+                        __httpRequest.Dispose();
+                        __httpRequest = null;
+                        await global::Mixedbread.AutoSDKRequestOptionsSupport.DelayBeforeRetryAsync(
+                            retryDelay: __retryDelay,
+                            cancellationToken: __effectiveCancellationToken).ConfigureAwait(false);
+                        continue;
+                    }
+
+                    break;
+                }
+
+                if (__response == null)
+                {
+                    throw new global::System.InvalidOperationException("No response received.");
+                }
+
+                using (__response)
+                {
+
+                ProcessResponse(
+                    client: HttpClient,
+                    response: __response);
+                ProcessRotateBucketCredentialsResponse(
+                    httpClient: HttpClient,
+                    httpResponseMessage: __response);
+                if (__response.IsSuccessStatusCode)
+                {
+                    await global::Mixedbread.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
+                            clientOptions: Options,
+                            context: global::Mixedbread.AutoSDKRequestOptionsSupport.CreateHookContext(
+                                operationId: "RotateBucketCredentials",
+                                methodName: "RotateBucketCredentialsAsync",
+                                pathTemplate: "$\"/v1/buckets/{bucketId}/credentials\"",
+                                httpMethod: "POST",
+                                baseUri: BaseUri,
+                                request: __httpRequest!,
+                                response: __response,
+                                exception: null,
+                                clientOptions: Options,
+                                requestOptions: requestOptions,
+                                attempt: __attemptNumber,
+                                maxAttempts: __maxAttempts,
+                                willRetry: false,
+                                retryDelay: null,
+                                retryReason: global::System.String.Empty,
+                                cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
+                }
+                else
+                {
+                    await global::Mixedbread.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
+                            clientOptions: Options,
+                            context: global::Mixedbread.AutoSDKRequestOptionsSupport.CreateHookContext(
+                                operationId: "RotateBucketCredentials",
+                                methodName: "RotateBucketCredentialsAsync",
+                                pathTemplate: "$\"/v1/buckets/{bucketId}/credentials\"",
+                                httpMethod: "POST",
+                                baseUri: BaseUri,
+                                request: __httpRequest!,
+                                response: __response,
+                                exception: null,
+                                clientOptions: Options,
+                                requestOptions: requestOptions,
+                                attempt: __attemptNumber,
+                                maxAttempts: __maxAttempts,
+                                willRetry: false,
+                                retryDelay: null,
+                                retryReason: global::System.String.Empty,
+                                cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
+                }
+                            // Validation Error
+                            if ((int)__response.StatusCode == 422)
+                            {
+                                string? __content_422 = null;
+                                global::System.Exception? __exception_422 = null;
+                                global::Mixedbread.HTTPValidationError? __value_422 = null;
+                                try
+                                {
+                                    if (__effectiveReadResponseAsString)
+                                    {
+                                        __content_422 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                        __value_422 = global::Mixedbread.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
+                                    }
+                                    else
+                                    {
+                                        __content_422 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+
+                                        __value_422 = global::Mixedbread.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
+                                    }
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    __exception_422 = __ex;
+                                }
+
+
+                                throw global::Mixedbread.ApiException<global::Mixedbread.HTTPValidationError>.Create(
+                                    statusCode: __response.StatusCode,
+                                    message: __content_422 ?? __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __exception_422,
+                                    responseBody: __content_422,
+                                    responseObject: __value_422,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
+                                        __response.Headers,
+                                        h => h.Key,
+                                        h => h.Value));
+                            }
+
+                            if (__effectiveReadResponseAsString)
+                            {
+                                var __content = await __response.Content.ReadAsStringAsync(
+                #if NET5_0_OR_GREATER
+                                    __effectiveCancellationToken
+                #endif
+                                ).ConfigureAwait(false);
+
+                                ProcessResponseContent(
+                                    client: HttpClient,
+                                    response: __response,
+                                    content: ref __content);
+                                ProcessRotateBucketCredentialsResponseContent(
+                                    httpClient: HttpClient,
+                                    httpResponseMessage: __response,
+                                    content: ref __content);
+
+                                try
+                                {
+                                    __response.EnsureSuccessStatusCode();
+
+                                    var __value = global::Mixedbread.Bucket.FromJson(__content, JsonSerializerContext) ??
+                                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                                    return new global::Mixedbread.AutoSDKHttpResponse<global::Mixedbread.Bucket>(
+                                        statusCode: __response.StatusCode,
+                                        headers: global::Mixedbread.AutoSDKHttpResponse.CreateHeaders(__response),
+                                        requestUri: __response.RequestMessage?.RequestUri,
+                                        body: __value);
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    throw global::Mixedbread.ApiException.Create(
+                                        statusCode: __response.StatusCode,
+                                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
+                                        innerException: __ex,
+                                        responseBody: __content,
+                                        responseHeaders: global::System.Linq.Enumerable.ToDictionary(
+                                            __response.Headers,
+                                            h => h.Key,
+                                            h => h.Value));
+                                }
+                            }
+                            else
+                            {
+                                try
+                                {
+                                    __response.EnsureSuccessStatusCode();
+                                    using var __content = await __response.Content.ReadAsStreamAsync(
+                #if NET5_0_OR_GREATER
+                                        __effectiveCancellationToken
+                #endif
+                                    ).ConfigureAwait(false);
+
+                                    var __value = await global::Mixedbread.Bucket.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                        throw new global::System.InvalidOperationException("Response deserialization failed.");
+                                    return new global::Mixedbread.AutoSDKHttpResponse<global::Mixedbread.Bucket>(
+                                        statusCode: __response.StatusCode,
+                                        headers: global::Mixedbread.AutoSDKHttpResponse.CreateHeaders(__response),
+                                        requestUri: __response.RequestMessage?.RequestUri,
+                                        body: __value);
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    string? __content = null;
+                                    try
+                                    {
+                                        __content = await __response.Content.ReadAsStringAsync(
+                #if NET5_0_OR_GREATER
+                                            __effectiveCancellationToken
+                #endif
+                                        ).ConfigureAwait(false);
+                                    }
+                                    catch (global::System.Exception)
+                                    {
+                                    }
+
+                                    throw global::Mixedbread.ApiException.Create(
+                                        statusCode: __response.StatusCode,
+                                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
+                                        innerException: __ex,
+                                        responseBody: __content,
+                                        responseHeaders: global::System.Linq.Enumerable.ToDictionary(
+                                            __response.Headers,
+                                            h => h.Key,
+                                            h => h.Value));
+                                }
+                            }
+
+                }
+            }
+            finally
+            {
+                __httpRequest?.Dispose();
+            }
+        }
+        /// <summary>
+        /// Rotate bucket credentials<br/>
+        /// Replace a bucket's stored credentials.<br/>
+        /// Only available for `access_key` buckets — `assume_role` buckets store no<br/>
+        /// credentials (manage access via the role's trust policy instead). The new<br/>
+        /// credentials are re-validated against the bucket's existing (immutable) identity<br/>
+        /// before they are persisted. The credentials version is bumped so cached storage clients rebuild.<br/>
+        /// Args:<br/>
+        ///     bucket_id: The ID of the bucket to rotate credentials for.<br/>
+        ///     params: The new bucket access credentials.<br/>
+        /// Returns:<br/>
+        ///     Bucket: The updated bucket. Credentials are never returned.
+        /// </summary>
+        /// <param name="bucketId">
+        /// The ID of the bucket to rotate credentials for
+        /// </param>
+        /// <param name="credentials">
+        /// New bucket access credentials
+        /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::System.InvalidOperationException"></exception>
+        public async global::System.Threading.Tasks.Task<global::Mixedbread.Bucket> RotateBucketCredentialsAsync(
+            global::System.Guid bucketId,
+            global::Mixedbread.BucketAccessKeyCredentials credentials,
+            global::Mixedbread.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            var __request = new global::Mixedbread.BucketRotateCredentialsParams
+            {
+                Credentials = credentials,
+            };
+
+            return await RotateBucketCredentialsAsync(
+                bucketId: bucketId,
+                request: __request,
+                requestOptions: requestOptions,
+                cancellationToken: cancellationToken).ConfigureAwait(false);
+        }
+    }
+}

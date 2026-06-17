@@ -46,8 +46,7 @@ namespace Mixedbread
         /// Query used to search the vector store
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("query")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Query { get; set; }
+        public string? Query { get; set; }
 
         /// <summary>
         /// Rewritten query if query rewriting was enabled
@@ -118,15 +117,15 @@ namespace Mixedbread
         /// <param name="storeIds">
         /// IDs of the vector stores searched
         /// </param>
-        /// <param name="query">
-        /// Query used to search the vector store
-        /// </param>
         /// <param name="type">
         /// Default Value: search
         /// </param>
         /// <param name="searchTime">
         /// Time taken to search the vector store<br/>
         /// Default Value: PT0S
+        /// </param>
+        /// <param name="query">
+        /// Query used to search the vector store
         /// </param>
         /// <param name="rewrittenQuery">
         /// Rewritten query if query rewriting was enabled
@@ -160,9 +159,9 @@ namespace Mixedbread
             global::System.Guid id,
             global::System.DateTime createdAt,
             global::System.Collections.Generic.IList<global::System.Guid> storeIds,
-            string query,
             string? type,
             string? searchTime,
+            string? query,
             string? rewrittenQuery,
             global::Mixedbread.AnyOf<global::Mixedbread.SearchFilterOutput, global::Mixedbread.SearchFilterCondition, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilterOutput, global::Mixedbread.SearchFilterCondition>>, object>? rewrittenFilters,
             string? rewriteRankBy,
@@ -177,7 +176,7 @@ namespace Mixedbread
             this.Type = type;
             this.StoreIds = storeIds ?? throw new global::System.ArgumentNullException(nameof(storeIds));
             this.SearchTime = searchTime;
-            this.Query = query ?? throw new global::System.ArgumentNullException(nameof(query));
+            this.Query = query;
             this.RewrittenQuery = rewrittenQuery;
             this.RewrittenFilters = rewrittenFilters;
             this.RewriteRankBy = rewriteRankBy;
