@@ -19,8 +19,7 @@ namespace Mixedbread
         /// ID of the file the chunk belongs to
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file_id")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string FileId { get; set; }
+        public string? FileId { get; set; }
 
         /// <summary>
         /// Name of the file the chunk belongs to
@@ -66,14 +65,14 @@ namespace Mixedbread
         /// <param name="storeId">
         /// ID of the store the chunk belongs to
         /// </param>
-        /// <param name="fileId">
-        /// ID of the file the chunk belongs to
-        /// </param>
         /// <param name="chunkIndex">
         /// Index of the chunk within its file
         /// </param>
         /// <param name="score">
         /// Final score assigned to the chunk
+        /// </param>
+        /// <param name="fileId">
+        /// ID of the file the chunk belongs to
         /// </param>
         /// <param name="filename">
         /// Name of the file the chunk belongs to
@@ -89,15 +88,15 @@ namespace Mixedbread
 #endif
         public StoreSearchEventResult(
             string storeId,
-            string fileId,
             int chunkIndex,
             double score,
+            string? fileId,
             string? filename,
             int? firstStagePosition,
             global::Mixedbread.StoreSearchEventResultFirstStageSource2? firstStageSource)
         {
             this.StoreId = storeId ?? throw new global::System.ArgumentNullException(nameof(storeId));
-            this.FileId = fileId ?? throw new global::System.ArgumentNullException(nameof(fileId));
+            this.FileId = fileId;
             this.Filename = filename;
             this.ChunkIndex = chunkIndex;
             this.Score = score;

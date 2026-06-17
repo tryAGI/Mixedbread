@@ -42,6 +42,13 @@ namespace Mixedbread.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::Mixedbread.StoreAgenticSearchEvent)}");
                 agenticSearch = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
+            global::Mixedbread.StoreGrepEvent? grep = default;
+            if (discriminator?.Type == global::Mixedbread.StoreEventListResponseDataItemDiscriminatorType.Grep)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Mixedbread.StoreGrepEvent), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Mixedbread.StoreGrepEvent> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::Mixedbread.StoreGrepEvent)}");
+                grep = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
 
             var __value = new global::Mixedbread.DataItem(
                 discriminator?.Type,
@@ -49,7 +56,9 @@ namespace Mixedbread.JsonConverters
 
                 search,
 
-                agenticSearch
+                agenticSearch,
+
+                grep
                 );
 
             return __value;
@@ -81,6 +90,12 @@ namespace Mixedbread.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Mixedbread.StoreAgenticSearchEvent), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Mixedbread.StoreAgenticSearchEvent?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Mixedbread.StoreAgenticSearchEvent).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.AgenticSearch!, typeInfo);
+            }
+            else if (value.IsGrep)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Mixedbread.StoreGrepEvent), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Mixedbread.StoreGrepEvent?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Mixedbread.StoreGrepEvent).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Grep!, typeInfo);
             }
         }
     }

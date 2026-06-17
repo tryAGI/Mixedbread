@@ -541,7 +541,7 @@ namespace Mixedbread
         /// Default Value: 7200
         /// </param>
         /// <param name="eventTypes">
-        /// Restrict the histogram to these event types. When omitted, includes search, agentic_search, and ingestion events.
+        /// Restrict the histogram to these event types. When omitted, includes search, agentic_search, grep, and ingestion events.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>

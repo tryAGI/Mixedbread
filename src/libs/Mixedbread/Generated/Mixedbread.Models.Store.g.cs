@@ -54,6 +54,12 @@ namespace Mixedbread
         public global::Mixedbread.StoreConfig2? Config { get; set; }
 
         /// <summary>
+        /// Customer bucket backing this store's storage; null = platform default
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("bucket_id")]
+        public string? BucketId { get; set; }
+
+        /// <summary>
         /// Counts of files in different states
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file_counts")]
@@ -157,6 +163,9 @@ namespace Mixedbread
         /// <param name="config">
         /// Store-level configuration defaults
         /// </param>
+        /// <param name="bucketId">
+        /// Customer bucket backing this store's storage; null = platform default
+        /// </param>
         /// <param name="fileCounts">
         /// Counts of files in different states
         /// </param>
@@ -198,6 +207,7 @@ namespace Mixedbread
             string? license,
             object? metadata,
             global::Mixedbread.StoreConfig2? config,
+            string? bucketId,
             global::Mixedbread.FileCounts? fileCounts,
             global::Mixedbread.ExpiresAfter? expiresAfter,
             global::Mixedbread.StoreStatus? status,
@@ -214,6 +224,7 @@ namespace Mixedbread
             this.License = license;
             this.Metadata = metadata;
             this.Config = config;
+            this.BucketId = bucketId;
             this.FileCounts = fileCounts;
             this.ExpiresAfter = expiresAfter;
             this.Status = status;

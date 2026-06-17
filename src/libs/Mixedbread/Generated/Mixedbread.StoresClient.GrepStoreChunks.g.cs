@@ -67,9 +67,9 @@ namespace Mixedbread
         /// <summary>
         /// Match store chunks against a regular expression<br/>
         /// Match store chunks against a regular expression.<br/>
-        /// Unlike `/stores/search`, this performs exact text matching — no embeddings, no<br/>
-        /// semantic similarity, no reranking. Use it to find chunks containing a specific<br/>
-        /// token, identifier, error code, or literal phrase.<br/>
+        /// Unlike `/stores/search`, this runs your regex against the literal text of each<br/>
+        /// chunk. Use it to find chunks containing a specific token, identifier, error code,<br/>
+        /// or literal phrase.<br/>
         /// grep targets a single store and does not support pagination; raise `top_k` to<br/>
         /// retrieve more matches.<br/>
         /// Args:<br/>
@@ -109,9 +109,9 @@ namespace Mixedbread
         /// <summary>
         /// Match store chunks against a regular expression<br/>
         /// Match store chunks against a regular expression.<br/>
-        /// Unlike `/stores/search`, this performs exact text matching — no embeddings, no<br/>
-        /// semantic similarity, no reranking. Use it to find chunks containing a specific<br/>
-        /// token, identifier, error code, or literal phrase.<br/>
+        /// Unlike `/stores/search`, this runs your regex against the literal text of each<br/>
+        /// chunk. Use it to find chunks containing a specific token, identifier, error code,<br/>
+        /// or literal phrase.<br/>
         /// grep targets a single store and does not support pagination; raise `top_k` to<br/>
         /// retrieve more matches.<br/>
         /// Args:<br/>
@@ -536,9 +536,9 @@ namespace Mixedbread
         /// <summary>
         /// Match store chunks against a regular expression<br/>
         /// Match store chunks against a regular expression.<br/>
-        /// Unlike `/stores/search`, this performs exact text matching — no embeddings, no<br/>
-        /// semantic similarity, no reranking. Use it to find chunks containing a specific<br/>
-        /// token, identifier, error code, or literal phrase.<br/>
+        /// Unlike `/stores/search`, this runs your regex against the literal text of each<br/>
+        /// chunk. Use it to find chunks containing a specific token, identifier, error code,<br/>
+        /// or literal phrase.<br/>
         /// grep targets a single store and does not support pagination; raise `top_k` to<br/>
         /// retrieve more matches.<br/>
         /// Args:<br/>

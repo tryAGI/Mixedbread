@@ -810,6 +810,149 @@
         "security": [{ "ApiKeyAuth": [] }]
       }
     },
+    "/v1/buckets": {
+      "get": {
+        "tags": ["buckets"],
+        "summary": "List buckets",
+        "description": "List the organization's connected buckets.\n\nNon-secret auth metadata (auth type, role ARN, external ID) is included;\naccess-key credentials are never returned.\n\nArgs:\n    options: The pagination options.\n\nReturns:\n    BucketListResponse: The list of buckets.",
+        "operationId": "list_buckets",
+        "security": [{ "ApiKeyAuth": [] }],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "Maximum number of items to return per page (1-100)",
+              "examples": [10, 20, 50],
+              "default": 20,
+              "title": "Limit"
+            },
+            "description": "Maximum number of items to return per page (1-100)"
+          },
+          {
+            "name": "after",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [{ "type": "string" }, { "type": "null" }],
+              "description": "Cursor for forward pagination - get items after this position. Use last_cursor from previous response.",
+              "examples": ["eyJjcmVhdGVkX2F0IjoiMjAyNC0xMi0zMVQyMzo1OTo1OS4wMDBaIiwiaWQiOiJhYmMxMjMifQ=="],
+              "title": "After"
+            },
+            "description": "Cursor for forward pagination - get items after this position. Use last_cursor from previous response."
+          },
+          {
+            "name": "before",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [{ "type": "string" }, { "type": "null" }],
+              "description": "Cursor for backward pagination - get items before this position. Use first_cursor from previous response.",
+              "examples": ["eyJjcmVhdGVkX2F0IjoiMjAyNC0xMi0zMVQyMzo1OTo1OS4wMDBaIiwiaWQiOiJhYmMxMjMifQ=="],
+              "title": "Before"
+            },
+            "description": "Cursor for backward pagination - get items before this position. Use first_cursor from previous response."
+          },
+          {
+            "name": "include_total",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "description": "Whether to include total count in response (expensive operation)",
+              "examples": [false, true],
+              "default": false,
+              "title": "Include Total"
+            },
+            "description": "Whether to include total count in response (expensive operation)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The organization's buckets",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/BucketListResponse" } }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/HTTPValidationError" } }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["buckets"],
+        "summary": "Add a bucket",
+        "description": "Attach a customer-owned storage bucket to the organization.\n\nAccess is validated against the bucket (reachability + write/delete probe) before\nanything is stored, so an unreachable or unwritable bucket is rejected here.\nWith `assume_role` credentials (recommended for AWS) the probe performs the actual\nSTS AssumeRole and nothing secret is persisted — only the role ARN and the\norganization's external ID. With `access_key` credentials (S3-compatible\nendpoints) the keys are encrypted before they are stored.\n\nArgs:\n    params: The bucket connection details and credentials.\n\nReturns:\n    Bucket: The attached bucket. Credentials are never returned.",
+        "operationId": "create_bucket",
+        "security": [{ "ApiKeyAuth": [] }],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/BucketCreateParams" } }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "The attached bucket details",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Bucket" } } }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/HTTPValidationError" } }
+            }
+          }
+        }
+      }
+    },
+    "/v1/buckets/{bucket_id}/credentials": {
+      "post": {
+        "tags": ["buckets"],
+        "summary": "Rotate bucket credentials",
+        "description": "Replace a bucket's stored credentials.\n\nOnly available for `access_key` buckets — `assume_role` buckets store no\ncredentials (manage access via the role's trust policy instead). The new\ncredentials are re-validated against the bucket's existing (immutable) identity\nbefore they are persisted. The credentials version is bumped so cached storage clients rebuild.\n\nArgs:\n    bucket_id: The ID of the bucket to rotate credentials for.\n    params: The new bucket access credentials.\n\nReturns:\n    Bucket: The updated bucket. Credentials are never returned.",
+        "operationId": "rotate_bucket_credentials",
+        "security": [{ "ApiKeyAuth": [] }],
+        "parameters": [
+          {
+            "name": "bucket_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "description": "The ID of the bucket to rotate credentials for",
+              "title": "Bucket Id"
+            },
+            "description": "The ID of the bucket to rotate credentials for"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/BucketRotateCredentialsParams" } }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The bucket with rotated credentials",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Bucket" } } }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/HTTPValidationError" } }
+            }
+          }
+        }
+      }
+    },
     "/v1/admin/stores/{organization_id}/{store_identifier}/reingest": {
       "post": {
         "tags": ["admin"],
@@ -969,10 +1112,10 @@
             "in": "query",
             "required": true,
             "schema": {
-              "enum": ["ingestion", "search", "agentic_search"],
+              "enum": ["ingestion", "search", "agentic_search", "grep"],
               "type": "string",
               "description": "The type of event to list",
-              "examples": ["ingestion", "search", "agentic_search"],
+              "examples": ["ingestion", "search", "agentic_search", "grep"],
               "title": "Event Type"
             },
             "description": "The type of event to list"
@@ -1967,7 +2110,7 @@
       "post": {
         "tags": ["stores"],
         "summary": "Match store chunks against a regular expression",
-        "description": "Match store chunks against a regular expression.\n\nUnlike `/stores/search`, this performs exact text matching — no embeddings, no\nsemantic similarity, no reranking. Use it to find chunks containing a specific\ntoken, identifier, error code, or literal phrase.\n\ngrep targets a single store and does not support pagination; raise `top_k` to\nretrieve more matches.\n\nArgs:\n    grep_params: Grep configuration including:\n        - pattern: RE2 regular expression matched against chunk text\n        - targets: chunk content groups to match (`text`, `generated`)\n        - case_sensitive: whether the pattern is case-sensitive\n        - store_identifiers: the single store to grep\n        - file_ids: optional list of file IDs to filter chunks by\n        - filters: optional metadata filter conditions\n        - top_k: number of matches to return\n\nReturns:\n    StoreGrepResponse containing the list of matching chunks.\n\nRaises:\n    HTTPException (400): If grep parameters are invalid\n    HTTPException (404): If the store is not found",
+        "description": "Match store chunks against a regular expression.\n\nUnlike `/stores/search`, this runs your regex against the literal text of each\nchunk. Use it to find chunks containing a specific token, identifier, error code,\nor literal phrase.\n\ngrep targets a single store and does not support pagination; raise `top_k` to\nretrieve more matches.\n\nArgs:\n    grep_params: Grep configuration including:\n        - pattern: RE2 regular expression matched against chunk text\n        - targets: chunk content groups to match (`text`, `generated`)\n        - case_sensitive: whether the pattern is case-sensitive\n        - store_identifiers: the single store to grep\n        - file_ids: optional list of file IDs to filter chunks by\n        - filters: optional metadata filter conditions\n        - top_k: number of matches to return\n\nReturns:\n    StoreGrepResponse containing the list of matching chunks.\n\nRaises:\n    HTTPException (400): If grep parameters are invalid\n    HTTPException (404): If the store is not found",
         "operationId": "grep_store_chunks",
         "requestBody": {
           "content": {
@@ -4138,6 +4281,835 @@
           }
         }
       }
+    },
+    "/v1/integrations/providers": {
+      "get": {
+        "tags": ["integrations"],
+        "summary": "List integration providers",
+        "description": "List supported integration provider manifests.",
+        "operationId": "list_integration_providers",
+        "responses": {
+          "200": {
+            "description": "The supported integration providers",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/IntegrationProviderListResponse" }
+              }
+            }
+          }
+        },
+        "security": [{ "ApiKeyAuth": [] }]
+      }
+    },
+    "/v1/integrations/installations": {
+      "get": {
+        "tags": ["integrations"],
+        "summary": "List integration installations",
+        "description": "List installed provider integrations for the current organization.",
+        "operationId": "list_integration_installations",
+        "security": [{ "ApiKeyAuth": [] }],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "Maximum number of items to return per page (1-100)",
+              "examples": [10, 20, 50],
+              "default": 20,
+              "title": "Limit"
+            },
+            "description": "Maximum number of items to return per page (1-100)"
+          },
+          {
+            "name": "after",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [{ "type": "string" }, { "type": "null" }],
+              "description": "Cursor for forward pagination - get items after this position. Use last_cursor from previous response.",
+              "examples": ["eyJjcmVhdGVkX2F0IjoiMjAyNC0xMi0zMVQyMzo1OTo1OS4wMDBaIiwiaWQiOiJhYmMxMjMifQ=="],
+              "title": "After"
+            },
+            "description": "Cursor for forward pagination - get items after this position. Use last_cursor from previous response."
+          },
+          {
+            "name": "before",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [{ "type": "string" }, { "type": "null" }],
+              "description": "Cursor for backward pagination - get items before this position. Use first_cursor from previous response.",
+              "examples": ["eyJjcmVhdGVkX2F0IjoiMjAyNC0xMi0zMVQyMzo1OTo1OS4wMDBaIiwiaWQiOiJhYmMxMjMifQ=="],
+              "title": "Before"
+            },
+            "description": "Cursor for backward pagination - get items before this position. Use first_cursor from previous response."
+          },
+          {
+            "name": "include_total",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "description": "Whether to include total count in response (expensive operation)",
+              "examples": [false, true],
+              "default": false,
+              "title": "Include Total"
+            },
+            "description": "Whether to include total count in response (expensive operation)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The installed provider integrations",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/IntegrationInstallationListResponse" }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/HTTPValidationError" } }
+            }
+          }
+        }
+      }
+    },
+    "/v1/integrations/data-sources": {
+      "get": {
+        "tags": ["integrations"],
+        "summary": "List connected data sources",
+        "description": "List every connected data source across providers for the current organization.",
+        "operationId": "list_data_source_installations",
+        "responses": {
+          "200": {
+            "description": "Connected data sources across providers",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/DataSourceInstallationListResponse" }
+              }
+            }
+          }
+        },
+        "security": [{ "ApiKeyAuth": [] }]
+      }
+    },
+    "/v1/integrations/slack/installations": {
+      "get": {
+        "tags": ["integrations"],
+        "summary": "List connected Slack workspaces",
+        "description": "List connected Slack workspaces with their selected ingestion channel counts.",
+        "operationId": "list_slack_installations",
+        "responses": {
+          "200": {
+            "description": "Connected Slack workspaces for the organization",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/SlackInstallationOverviewListResponse" }
+              }
+            }
+          }
+        },
+        "security": [{ "ApiKeyAuth": [] }]
+      }
+    },
+    "/v1/integrations/slack/channels": {
+      "get": {
+        "tags": ["integrations"],
+        "summary": "List Slack channels for store ingestion",
+        "description": "List public Slack channels and whether each channel is selected for store ingestion.",
+        "operationId": "get_slack_channel_selection",
+        "security": [{ "ApiKeyAuth": [] }],
+        "parameters": [
+          {
+            "name": "installation_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "description": "Slack installation ID",
+              "title": "Installation Id"
+            },
+            "description": "Slack installation ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Slack channel selection for a workspace",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/SlackChannelSelectionResponse" }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/HTTPValidationError" } }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["integrations"],
+        "summary": "Update Slack channels for store ingestion",
+        "description": "Replace the Slack channels selected for ingestion into a store.",
+        "operationId": "update_slack_channel_selection",
+        "security": [{ "ApiKeyAuth": [] }],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SlackChannelSelectionUpdateParams",
+                "description": "The Slack channel selection"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Updated Slack channel selection",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/SlackChannelSelectionUpdateResponse" }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/HTTPValidationError" } }
+            }
+          }
+        }
+      }
+    },
+    "/v1/integrations/slack/channels/sync": {
+      "post": {
+        "tags": ["integrations"],
+        "summary": "Sync selected Slack channels",
+        "description": "Queue historical ingestion for selected Slack channels.",
+        "operationId": "sync_slack_channels",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SlackChannelSyncParams",
+                "description": "The Slack channels to sync"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Queued Slack channel sync jobs",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/SlackChannelSyncResponse" } }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/HTTPValidationError" } }
+            }
+          }
+        },
+        "security": [{ "ApiKeyAuth": [] }]
+      }
+    },
+    "/v1/integrations/slack/installations/{installation_id}": {
+      "delete": {
+        "tags": ["integrations"],
+        "summary": "Disconnect Slack",
+        "description": "Disconnect a specific Slack installation from the current organization.",
+        "operationId": "disconnect_slack_installation",
+        "security": [{ "ApiKeyAuth": [] }],
+        "parameters": [
+          {
+            "name": "installation_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "description": "Slack installation ID",
+              "title": "Installation Id"
+            },
+            "description": "Slack installation ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The deleted Slack installation",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/IntegrationInstallationResponse" }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/HTTPValidationError" } }
+            }
+          }
+        }
+      }
+    },
+    "/v1/integrations/slack/installations/{installation_id}/config": {
+      "put": {
+        "tags": ["integrations"],
+        "summary": "Update Slack data source config",
+        "description": "Update a Slack data source config (auto-sync-all). Enabling it syncs every channel.",
+        "operationId": "update_slack_installation_config",
+        "security": [{ "ApiKeyAuth": [] }],
+        "parameters": [
+          {
+            "name": "installation_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "description": "Slack installation ID",
+              "title": "Installation Id"
+            },
+            "description": "Slack installation ID"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SlackInstallationConfigUpdateBody",
+                "description": "The Slack data source config"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Updated Slack channel selection",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/SlackChannelSelectionResponse" }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/HTTPValidationError" } }
+            }
+          }
+        }
+      }
+    },
+    "/v1/integrations/slack/oauth/authorize": {
+      "get": {
+        "tags": ["integrations"],
+        "summary": "Authorize Slack integration",
+        "description": "Start Slack OAuth for the current organization.",
+        "operationId": "authorize_slack_integration",
+        "security": [{ "ApiKeyAuth": [] }],
+        "parameters": [
+          {
+            "name": "store_name",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [{ "type": "string" }, { "type": "null" }],
+              "description": "Optional ingestion store name",
+              "title": "Store Name"
+            },
+            "description": "Optional ingestion store name"
+          },
+          {
+            "name": "auto_sync_all",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "description": "Automatically sync all current and future channels",
+              "default": false,
+              "title": "Auto Sync All"
+            },
+            "description": "Automatically sync all current and future channels"
+          }
+        ],
+        "responses": {
+          "307": {
+            "description": "Redirect to Slack OAuth",
+            "content": { "application/json": { "schema": {} } }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/HTTPValidationError" } }
+            }
+          }
+        }
+      }
+    },
+    "/v1/integrations/slack/manifest": {
+      "get": {
+        "tags": ["integrations"],
+        "summary": "Get Slack app manifest",
+        "description": "Return the Slack app manifest pre-filled with this deployment's public URLs.",
+        "operationId": "get_slack_manifest",
+        "responses": {
+          "200": {
+            "description": "Slack app manifest for bring-your-own-app setup",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/SlackManifestResponse" } }
+            }
+          }
+        },
+        "security": [{ "ApiKeyAuth": [] }]
+      }
+    },
+    "/v1/integrations/slack/connect": {
+      "post": {
+        "tags": ["integrations"],
+        "summary": "Connect Slack with a customer-provided app",
+        "description": "Connect a Slack workspace using a customer-created app's bot token and signing secret.",
+        "operationId": "connect_slack_manual",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SlackManualConnectBody",
+                "description": "Slack bot token and signing secret"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The connected Slack installation",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/IntegrationInstallationResponse" }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/HTTPValidationError" } }
+            }
+          }
+        },
+        "security": [{ "ApiKeyAuth": [] }]
+      }
+    },
+    "/v1/integrations/slack/oauth/callback": {
+      "get": {
+        "tags": ["integrations"],
+        "summary": "Slack OAuth callback",
+        "description": "Complete Slack OAuth and persist the workspace installation.",
+        "operationId": "slack_oauth_callback",
+        "security": [{ "ApiKeyAuth": [] }],
+        "parameters": [
+          {
+            "name": "state",
+            "in": "query",
+            "required": true,
+            "schema": { "type": "string", "description": "Slack OAuth state", "title": "State" },
+            "description": "Slack OAuth state"
+          },
+          {
+            "name": "code",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [{ "type": "string" }, { "type": "null" }],
+              "description": "Slack OAuth authorization code",
+              "title": "Code"
+            },
+            "description": "Slack OAuth authorization code"
+          },
+          {
+            "name": "error",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [{ "type": "string" }, { "type": "null" }],
+              "description": "Slack OAuth error",
+              "title": "Error"
+            },
+            "description": "Slack OAuth error"
+          }
+        ],
+        "responses": {
+          "307": {
+            "description": "Redirect after Slack installation",
+            "content": { "application/json": { "schema": {} } }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/HTTPValidationError" } }
+            }
+          }
+        }
+      }
+    },
+    "/v1/integrations/slack/events": {
+      "post": {
+        "tags": ["integrations"],
+        "summary": "Slack events webhook",
+        "description": "Receive signed Slack Events API requests.",
+        "operationId": "handle_slack_event",
+        "responses": {
+          "200": {
+            "description": "Slack event acknowledgement",
+            "content": { "application/json": { "schema": {} } }
+          }
+        },
+        "security": [{ "ApiKeyAuth": [] }]
+      }
+    },
+    "/v1/integrations/slack/commands": {
+      "post": {
+        "tags": ["integrations"],
+        "summary": "Slack slash command webhook",
+        "description": "Receive signed Slack slash command requests.",
+        "operationId": "handle_slack_command",
+        "responses": {
+          "200": {
+            "description": "Slack command acknowledgement",
+            "content": { "application/json": { "schema": {} } }
+          }
+        },
+        "security": [{ "ApiKeyAuth": [] }]
+      }
+    },
+    "/v1/integrations/google_drive/oauth/authorize": {
+      "get": {
+        "tags": ["integrations"],
+        "summary": "Authorize Google Drive integration",
+        "description": "Start Google Drive OAuth for the current organization.",
+        "operationId": "authorize_google_drive_integration",
+        "security": [{ "ApiKeyAuth": [] }],
+        "parameters": [
+          {
+            "name": "store_name",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [{ "type": "string" }, { "type": "null" }],
+              "description": "Optional ingestion store name",
+              "title": "Store Name"
+            },
+            "description": "Optional ingestion store name"
+          }
+        ],
+        "responses": {
+          "307": {
+            "description": "Redirect to Google OAuth",
+            "content": { "application/json": { "schema": {} } }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/HTTPValidationError" } }
+            }
+          }
+        }
+      }
+    },
+    "/v1/integrations/google_drive/oauth/callback": {
+      "get": {
+        "tags": ["integrations"],
+        "summary": "Google Drive OAuth callback",
+        "description": "Complete Google Drive OAuth and persist the installation.",
+        "operationId": "google_drive_oauth_callback",
+        "security": [{ "ApiKeyAuth": [] }],
+        "parameters": [
+          {
+            "name": "state",
+            "in": "query",
+            "required": true,
+            "schema": { "type": "string", "description": "Google OAuth state", "title": "State" },
+            "description": "Google OAuth state"
+          },
+          {
+            "name": "code",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [{ "type": "string" }, { "type": "null" }],
+              "description": "Google OAuth authorization code",
+              "title": "Code"
+            },
+            "description": "Google OAuth authorization code"
+          },
+          {
+            "name": "error",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [{ "type": "string" }, { "type": "null" }],
+              "description": "Google OAuth error",
+              "title": "Error"
+            },
+            "description": "Google OAuth error"
+          }
+        ],
+        "responses": {
+          "307": {
+            "description": "Redirect after Google Drive installation",
+            "content": { "application/json": { "schema": {} } }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/HTTPValidationError" } }
+            }
+          }
+        }
+      }
+    },
+    "/v1/integrations/google_drive/installations": {
+      "get": {
+        "tags": ["integrations"],
+        "summary": "List connected Google Drive accounts",
+        "description": "List connected Google Drive accounts with their selected folder counts.",
+        "operationId": "list_google_drive_installations",
+        "responses": {
+          "200": {
+            "description": "Connected Google Drive accounts for the organization",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/GoogleDriveInstallationOverviewListResponse" }
+              }
+            }
+          }
+        },
+        "security": [{ "ApiKeyAuth": [] }]
+      }
+    },
+    "/v1/integrations/google_drive/folders": {
+      "get": {
+        "tags": ["integrations"],
+        "summary": "List Google Drive folders for store ingestion",
+        "description": "List Google Drive folders and whether each is selected for store ingestion.",
+        "operationId": "get_google_drive_folder_selection",
+        "security": [{ "ApiKeyAuth": [] }],
+        "parameters": [
+          {
+            "name": "installation_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "description": "Google Drive installation ID",
+              "title": "Installation Id"
+            },
+            "description": "Google Drive installation ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Google Drive folder selection for an account",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/GoogleDriveFolderSelectionResponse" }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/HTTPValidationError" } }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["integrations"],
+        "summary": "Update Google Drive folders for store ingestion",
+        "description": "Replace the Google Drive folders selected for ingestion into a store.",
+        "operationId": "update_google_drive_folder_selection",
+        "security": [{ "ApiKeyAuth": [] }],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GoogleDriveFolderSelectionUpdateParams",
+                "description": "The Google Drive folder selection"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Updated Google Drive folder selection",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/GoogleDriveFolderSelectionUpdateResponse" }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/HTTPValidationError" } }
+            }
+          }
+        }
+      }
+    },
+    "/v1/integrations/google_drive/sync": {
+      "post": {
+        "tags": ["integrations"],
+        "summary": "Sync a Google Drive connector",
+        "description": "Queue an incremental Google Drive change sync.",
+        "operationId": "sync_google_drive",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GoogleDriveSyncParams",
+                "description": "The Google Drive connector to sync"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Queued Google Drive sync",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/GoogleDriveSyncResponse" } }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/HTTPValidationError" } }
+            }
+          }
+        },
+        "security": [{ "ApiKeyAuth": [] }]
+      }
+    },
+    "/v1/integrations/google_drive/installations/{installation_id}": {
+      "delete": {
+        "tags": ["integrations"],
+        "summary": "Disconnect Google Drive",
+        "description": "Disconnect a specific Google Drive installation from the current organization.",
+        "operationId": "disconnect_google_drive_installation",
+        "security": [{ "ApiKeyAuth": [] }],
+        "parameters": [
+          {
+            "name": "installation_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "description": "Google Drive installation ID",
+              "title": "Installation Id"
+            },
+            "description": "Google Drive installation ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The deleted Google Drive installation",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/IntegrationInstallationResponse" }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/HTTPValidationError" } }
+            }
+          }
+        }
+      }
+    },
+    "/v1/integrations/google_drive/installations/{installation_id}/config": {
+      "put": {
+        "tags": ["integrations"],
+        "summary": "Update Google Drive data source config",
+        "description": "Update a Google Drive data source config (sync entire Drive). Enabling syncs the whole Drive.",
+        "operationId": "update_google_drive_installation_config",
+        "security": [{ "ApiKeyAuth": [] }],
+        "parameters": [
+          {
+            "name": "installation_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "description": "Google Drive installation ID",
+              "title": "Installation Id"
+            },
+            "description": "Google Drive installation ID"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GoogleDriveInstallationConfigUpdateBody",
+                "description": "The Google Drive data source config"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Updated Google Drive folder selection",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/GoogleDriveFolderSelectionResponse" }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/HTTPValidationError" } }
+            }
+          }
+        }
+      }
+    },
+    "/v1/integrations/google_drive/events": {
+      "post": {
+        "tags": ["integrations"],
+        "summary": "Google Drive push webhook",
+        "description": "Receive Google Drive push notifications and enqueue an incremental sync.",
+        "operationId": "google_drive_events",
+        "responses": {
+          "200": {
+            "description": "Google Drive change notification acknowledgement",
+            "content": { "application/json": { "schema": {} } }
+          }
+        },
+        "security": [{ "ApiKeyAuth": [] }]
+      }
     }
   },
   "components": {
@@ -4208,17 +5180,11 @@
             "title": "Total Tokens",
             "description": "Total tokens consumed (prompt + completion)",
             "default": 0
-          },
-          "cost_usd": {
-            "type": "number",
-            "title": "Cost Usd",
-            "description": "Estimated cost in USD",
-            "default": 0
           }
         },
         "type": "object",
         "title": "AgenticSearchTokenUsage",
-        "description": "Token usage and cost for LLM calls made during an agentic search."
+        "description": "Token usage for LLM calls made during an agentic search."
       },
       "AgenticToolCall": {
         "properties": {
@@ -4253,8 +5219,7 @@
             "description": "Time taken to execute the tool call"
           },
           "arguments": {
-            "additionalProperties": true,
-            "type": "object",
+            "anyOf": [{ "additionalProperties": true, "type": "object" }, { "type": "null" }],
             "title": "Arguments",
             "description": "Arguments passed to the tool (gen_ai.tool.call.arguments)"
           },
@@ -4683,6 +5648,250 @@
         "type": "object",
         "required": ["file"],
         "title": "Body_upload_store_file"
+      },
+      "Bucket": {
+        "properties": {
+          "id": { "type": "string", "title": "Id", "description": "The ID of the bucket" },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At",
+            "description": "Creation time"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Updated At",
+            "description": "Last update time"
+          },
+          "name": { "type": "string", "title": "Name", "description": "Display name" },
+          "provider": {
+            "$ref": "#/components/schemas/BucketProvider",
+            "description": "Object storage provider"
+          },
+          "bucket": { "type": "string", "title": "Bucket", "description": "The bucket name" },
+          "region": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Region",
+            "description": "The bucket region"
+          },
+          "endpoint_url": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Endpoint Url",
+            "description": "Custom S3-compatible endpoint"
+          },
+          "prefix": { "type": "string", "title": "Prefix", "description": "Key prefix within the bucket" },
+          "sse_kms_key_id": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Sse Kms Key Id",
+            "description": "KMS key id/ARN used to encrypt writes (SSE-KMS)"
+          },
+          "auth_type": {
+            "$ref": "#/components/schemas/BucketAuthType",
+            "description": "Authentication type"
+          },
+          "role_arn": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Role Arn",
+            "description": "IAM role Mixedbread assumes (auth_type=assume_role); not a secret"
+          },
+          "external_id": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "External Id",
+            "description": "sts:ExternalId the role's trust policy must require (auth_type=assume_role); not a secret"
+          },
+          "status": { "$ref": "#/components/schemas/BucketStatus", "description": "Validation status" },
+          "last_validated_at": {
+            "anyOf": [{ "type": "string", "format": "date-time" }, { "type": "null" }],
+            "title": "Last Validated At",
+            "description": "When the bucket was last validated"
+          },
+          "has_credentials": {
+            "type": "boolean",
+            "title": "Has Credentials",
+            "description": "Whether secret credentials are stored (always false for assume-role buckets)"
+          },
+          "credentials_version": {
+            "type": "integer",
+            "title": "Credentials Version",
+            "description": "Increments on every credential rotation"
+          },
+          "object": {
+            "type": "string",
+            "const": "bucket",
+            "title": "Object",
+            "description": "The type of the object",
+            "default": "bucket"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "created_at",
+          "updated_at",
+          "name",
+          "provider",
+          "bucket",
+          "region",
+          "endpoint_url",
+          "prefix",
+          "sse_kms_key_id",
+          "auth_type",
+          "role_arn",
+          "external_id",
+          "status",
+          "last_validated_at",
+          "has_credentials",
+          "credentials_version"
+        ],
+        "title": "Bucket",
+        "description": "Service-level representation of a bucket. Credentials are never returned."
+      },
+      "BucketAccessKeyCredentials": {
+        "properties": {
+          "type": { "type": "string", "const": "access_key", "title": "Type", "default": "access_key" },
+          "access_key_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Access Key Id",
+            "description": "Access key id"
+          },
+          "secret_access_key": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Secret Access Key",
+            "description": "Secret access key"
+          }
+        },
+        "type": "object",
+        "required": ["access_key_id", "secret_access_key"],
+        "title": "BucketAccessKeyCredentials",
+        "description": "AWS-style access key credentials for a customer bucket (write-only, never returned)."
+      },
+      "BucketAssumeRoleCredentials": {
+        "properties": {
+          "type": { "type": "string", "const": "assume_role", "title": "Type", "default": "assume_role" },
+          "role_arn": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Role Arn",
+            "description": "ARN of the IAM role Mixedbread assumes"
+          }
+        },
+        "type": "object",
+        "required": ["role_arn"],
+        "title": "BucketAssumeRoleCredentials",
+        "description": "Cross-account IAM role the platform assumes via STS (recommended for AWS).\n\nNothing secret is stored: the role ARN and the server-generated external id\nare plain metadata, and access is granted/revoked entirely through the\nrole's trust policy in the customer's account."
+      },
+      "BucketAuthType": {
+        "type": "string",
+        "enum": ["assume_role", "access_key"],
+        "title": "BucketAuthType",
+        "description": "How omni authenticates against a customer bucket.\n\nASSUME_ROLE is the recommended default for AWS: nothing secret is stored,\nevery service assumes the customer's IAM role via STS on use. ACCESS_KEY\nremains for S3-compatible providers that have no STS."
+      },
+      "BucketCreateParams": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 255,
+            "minLength": 1,
+            "title": "Name",
+            "description": "Display name for the bucket"
+          },
+          "provider": {
+            "type": "string",
+            "const": "aws_s3",
+            "title": "Provider",
+            "description": "Object storage provider",
+            "default": "aws_s3"
+          },
+          "bucket": { "type": "string", "minLength": 1, "title": "Bucket", "description": "The bucket name" },
+          "region": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Region",
+            "description": "The bucket region"
+          },
+          "endpoint_url": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Endpoint Url",
+            "description": "Custom S3-compatible endpoint (omit for AWS)"
+          },
+          "prefix": {
+            "type": "string",
+            "title": "Prefix",
+            "description": "Key prefix within the bucket",
+            "default": ""
+          },
+          "sse_kms_key_id": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Sse Kms Key Id",
+            "description": "KMS key id/ARN to encrypt writes with (SSE-KMS); omit for the bucket's default encryption"
+          },
+          "credentials": {
+            "oneOf": [
+              { "$ref": "#/components/schemas/BucketAssumeRoleCredentials" },
+              { "$ref": "#/components/schemas/BucketAccessKeyCredentials" }
+            ],
+            "title": "Credentials",
+            "description": "How Mixedbread authenticates against the bucket. `assume_role` is the recommended default for AWS; `access_key` is for S3-compatible providers with a custom endpoint.",
+            "discriminator": {
+              "propertyName": "type",
+              "mapping": {
+                "access_key": "#/components/schemas/BucketAccessKeyCredentials",
+                "assume_role": "#/components/schemas/BucketAssumeRoleCredentials"
+              }
+            }
+          }
+        },
+        "type": "object",
+        "required": ["name", "bucket", "credentials"],
+        "title": "BucketCreateParams",
+        "description": "Parameters for attaching a customer-owned bucket."
+      },
+      "BucketListResponse": {
+        "properties": {
+          "pagination": { "$ref": "#/components/schemas/CursorPaginationResponse" },
+          "object": {
+            "type": "string",
+            "const": "list",
+            "title": "Object",
+            "description": "The object type of the response",
+            "default": "list"
+          },
+          "data": {
+            "items": { "$ref": "#/components/schemas/Bucket" },
+            "type": "array",
+            "title": "Data",
+            "description": "The list of buckets"
+          }
+        },
+        "type": "object",
+        "required": ["pagination", "data"],
+        "title": "BucketListResponse"
+      },
+      "BucketProvider": {
+        "type": "string",
+        "enum": ["aws_s3"],
+        "title": "BucketProvider",
+        "description": "Object-storage provider backing a bring-your-own bucket."
+      },
+      "BucketRotateCredentialsParams": {
+        "properties": {
+          "credentials": {
+            "$ref": "#/components/schemas/BucketAccessKeyCredentials",
+            "description": "New bucket access credentials"
+          }
+        },
+        "type": "object",
+        "required": ["credentials"],
+        "title": "BucketRotateCredentialsParams",
+        "description": "Parameters for rotating a bucket's credentials."
+      },
+      "BucketStatus": {
+        "type": "string",
+        "enum": ["pending", "active", "error"],
+        "title": "BucketStatus",
+        "description": "Validation lifecycle of a customer bucket."
       },
       "Chunk": {
         "properties": {
@@ -5339,6 +6548,60 @@
         "required": ["id"],
         "title": "DataSourceDeleted",
         "description": "Deleted data source."
+      },
+      "DataSourceInstallation": {
+        "properties": {
+          "installation_id": {
+            "type": "string",
+            "title": "Installation Id",
+            "description": "Integration installation ID"
+          },
+          "provider": {
+            "type": "string",
+            "title": "Provider",
+            "description": "The integration provider identifier"
+          },
+          "display_name": {
+            "type": "string",
+            "title": "Display Name",
+            "description": "Human-readable connected account/workspace name"
+          },
+          "status": { "type": "string", "title": "Status", "description": "The installation status" },
+          "store_id": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Store Id",
+            "description": "Mixedbread ingestion store ID"
+          },
+          "store_name": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Store Name",
+            "description": "Mixedbread ingestion store name"
+          },
+          "item_count": {
+            "type": "integer",
+            "title": "Item Count",
+            "description": "Number of selected ingestion items (channels/folders)",
+            "default": 0
+          }
+        },
+        "type": "object",
+        "required": ["installation_id", "provider", "display_name", "status"],
+        "title": "DataSourceInstallation",
+        "description": "Provider-agnostic summary of a connected data source for the overview list."
+      },
+      "DataSourceInstallationListResponse": {
+        "properties": {
+          "data": {
+            "items": { "$ref": "#/components/schemas/DataSourceInstallation" },
+            "type": "array",
+            "title": "Data",
+            "description": "Connected data sources"
+          }
+        },
+        "type": "object",
+        "required": ["data"],
+        "title": "DataSourceInstallationListResponse",
+        "description": "List of all connected data sources across providers."
       },
       "DataSourceListResponse": {
         "properties": {
@@ -6021,6 +7284,265 @@
         "title": "FileSearchResultRule",
         "description": "Represents a file search result rule for a vector store search."
       },
+      "GoogleDriveFolder": {
+        "properties": {
+          "id": { "type": "string", "title": "Id", "description": "Google Drive folder ID" },
+          "name": { "type": "string", "title": "Name", "description": "Google Drive folder name" },
+          "is_selected": {
+            "type": "boolean",
+            "title": "Is Selected",
+            "description": "Whether this folder is selected for store ingestion",
+            "default": false
+          },
+          "web_view_link": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Web View Link",
+            "description": "Google Drive web view link"
+          },
+          "last_synced_at": {
+            "anyOf": [{ "type": "string", "format": "date-time" }, { "type": "null" }],
+            "title": "Last Synced At",
+            "description": "Last successful sync time"
+          }
+        },
+        "type": "object",
+        "required": ["id", "name"],
+        "title": "GoogleDriveFolder",
+        "description": "Google Drive folder exposed for connector configuration."
+      },
+      "GoogleDriveFolderSelection": {
+        "properties": {
+          "is_installed": {
+            "type": "boolean",
+            "title": "Is Installed",
+            "description": "Whether Google Drive is installed for the organization"
+          },
+          "installation_id": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Installation Id",
+            "description": "Google Drive installation ID"
+          },
+          "account_email": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Account Email",
+            "description": "Connected Google account email"
+          },
+          "store_id": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Store Id",
+            "description": "Mixedbread store ID"
+          },
+          "store_name": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Store Name",
+            "description": "Mixedbread store name"
+          },
+          "auto_sync_all": {
+            "type": "boolean",
+            "title": "Auto Sync All",
+            "description": "Whether the entire Drive (all current and future files) is synced automatically",
+            "default": false
+          },
+          "folders": {
+            "items": { "$ref": "#/components/schemas/GoogleDriveFolder" },
+            "type": "array",
+            "title": "Folders",
+            "description": "Available Google Drive folders"
+          }
+        },
+        "type": "object",
+        "required": ["is_installed", "folders"],
+        "title": "GoogleDriveFolderSelection",
+        "description": "Google Drive folder selection for a store connector."
+      },
+      "GoogleDriveFolderSelectionResponse": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/GoogleDriveFolderSelection",
+            "description": "Google Drive folder selection"
+          }
+        },
+        "type": "object",
+        "required": ["data"],
+        "title": "GoogleDriveFolderSelectionResponse",
+        "description": "Google Drive folder selection response."
+      },
+      "GoogleDriveFolderSelectionUpdate": {
+        "properties": {
+          "store_id": { "type": "string", "title": "Store Id", "description": "Mixedbread store ID" },
+          "selected_folder_ids": {
+            "items": { "type": "string" },
+            "type": "array",
+            "title": "Selected Folder Ids",
+            "description": "Selected Google Drive folder IDs"
+          },
+          "backfill_folder_ids": {
+            "items": { "type": "string" },
+            "type": "array",
+            "title": "Backfill Folder Ids",
+            "description": "Folders queued for backfill ingestion"
+          },
+          "skipped_folders": {
+            "additionalProperties": { "type": "string" },
+            "type": "object",
+            "title": "Skipped Folders",
+            "description": "Folder IDs skipped with a reason"
+          }
+        },
+        "type": "object",
+        "required": ["store_id", "selected_folder_ids", "backfill_folder_ids", "skipped_folders"],
+        "title": "GoogleDriveFolderSelectionUpdate",
+        "description": "Result of updating Google Drive folder selection."
+      },
+      "GoogleDriveFolderSelectionUpdateParams": {
+        "properties": {
+          "installation_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Installation Id",
+            "description": "Google Drive installation ID"
+          },
+          "folder_ids": {
+            "items": { "type": "string" },
+            "type": "array",
+            "title": "Folder Ids",
+            "description": "Google Drive folder IDs to ingest into the store"
+          }
+        },
+        "type": "object",
+        "required": ["installation_id", "folder_ids"],
+        "title": "GoogleDriveFolderSelectionUpdateParams",
+        "description": "Parameters for selecting Google Drive folders for store ingestion."
+      },
+      "GoogleDriveFolderSelectionUpdateResponse": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/GoogleDriveFolderSelectionUpdate",
+            "description": "Google Drive folder selection update"
+          }
+        },
+        "type": "object",
+        "required": ["data"],
+        "title": "GoogleDriveFolderSelectionUpdateResponse",
+        "description": "Google Drive folder selection update response."
+      },
+      "GoogleDriveInstallationConfigUpdateBody": {
+        "properties": {
+          "auto_sync_all": {
+            "type": "boolean",
+            "title": "Auto Sync All",
+            "description": "Whether the entire Drive (all current and future files) is synced automatically"
+          }
+        },
+        "type": "object",
+        "required": ["auto_sync_all"],
+        "title": "GoogleDriveInstallationConfigUpdateBody",
+        "description": "Request body for updating a Google Drive installation's data source config."
+      },
+      "GoogleDriveInstallationOverview": {
+        "properties": {
+          "installation_id": {
+            "type": "string",
+            "title": "Installation Id",
+            "description": "Google Drive installation ID"
+          },
+          "account_email": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Account Email",
+            "description": "Connected Google account email"
+          },
+          "account_name": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Account Name",
+            "description": "Connected Google account name"
+          },
+          "status": { "type": "string", "title": "Status", "description": "The installation status" },
+          "store_id": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Store Id",
+            "description": "Mixedbread ingestion store ID"
+          },
+          "store_name": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Store Name",
+            "description": "Mixedbread ingestion store name"
+          },
+          "syncing_folder_count": {
+            "type": "integer",
+            "title": "Syncing Folder Count",
+            "description": "Number of Google Drive folders selected for ingestion",
+            "default": 0
+          },
+          "auto_sync_all": {
+            "type": "boolean",
+            "title": "Auto Sync All",
+            "description": "Whether the entire Drive is synced automatically",
+            "default": false
+          }
+        },
+        "type": "object",
+        "required": ["installation_id", "account_email", "account_name", "status"],
+        "title": "GoogleDriveInstallationOverview",
+        "description": "Summary of a connected Google Drive account for the data sources overview."
+      },
+      "GoogleDriveInstallationOverviewListResponse": {
+        "properties": {
+          "data": {
+            "items": { "$ref": "#/components/schemas/GoogleDriveInstallationOverview" },
+            "type": "array",
+            "title": "Data",
+            "description": "Connected Google Drive accounts"
+          }
+        },
+        "type": "object",
+        "required": ["data"],
+        "title": "GoogleDriveInstallationOverviewListResponse",
+        "description": "List of connected Google Drive accounts for the data sources overview."
+      },
+      "GoogleDriveSync": {
+        "properties": {
+          "installation_id": {
+            "type": "string",
+            "title": "Installation Id",
+            "description": "Google Drive installation ID"
+          },
+          "queued": {
+            "type": "boolean",
+            "title": "Queued",
+            "description": "Whether an incremental sync was queued"
+          }
+        },
+        "type": "object",
+        "required": ["installation_id", "queued"],
+        "title": "GoogleDriveSync",
+        "description": "Result of triggering a Google Drive sync."
+      },
+      "GoogleDriveSyncParams": {
+        "properties": {
+          "installation_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Installation Id",
+            "description": "Google Drive installation ID"
+          }
+        },
+        "type": "object",
+        "required": ["installation_id"],
+        "title": "GoogleDriveSyncParams",
+        "description": "Parameters for manually syncing a Google Drive connector."
+      },
+      "GoogleDriveSyncResponse": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/GoogleDriveSync",
+            "description": "Google Drive manual sync result"
+          }
+        },
+        "type": "object",
+        "required": ["data"],
+        "title": "GoogleDriveSyncResponse",
+        "description": "Google Drive manual sync response."
+      },
       "HTTPValidationError": {
         "properties": {
           "detail": {
@@ -6219,6 +7741,165 @@
         "required": ["message", "code", "type"],
         "title": "InnerErrorResponse",
         "description": "Inner Error Pydantic Response Service Message"
+      },
+      "IntegrationInstallation": {
+        "properties": {
+          "id": { "type": "string", "title": "Id", "description": "The integration installation ID" },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At",
+            "description": "The creation time"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Updated At",
+            "description": "The last update time"
+          },
+          "organization_id": {
+            "type": "string",
+            "title": "Organization Id",
+            "description": "The organization ID"
+          },
+          "provider": {
+            "type": "string",
+            "title": "Provider",
+            "description": "The integration provider identifier"
+          },
+          "external_account_id": {
+            "type": "string",
+            "title": "External Account Id",
+            "description": "The provider workspace/account ID"
+          },
+          "external_account_name": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "External Account Name",
+            "description": "The provider workspace/account name"
+          },
+          "installed_by_user_id": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Installed By User Id",
+            "description": "The Mixedbread user who installed the provider"
+          },
+          "status": { "type": "string", "title": "Status", "description": "The installation status" },
+          "scopes": {
+            "anyOf": [{ "items": { "type": "string" }, "type": "array" }, { "type": "null" }],
+            "title": "Scopes",
+            "description": "Granted provider scopes"
+          },
+          "metadata": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Metadata",
+            "description": "Provider-specific metadata"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "created_at",
+          "updated_at",
+          "organization_id",
+          "provider",
+          "external_account_id",
+          "external_account_name",
+          "installed_by_user_id",
+          "status",
+          "scopes",
+          "metadata"
+        ],
+        "title": "IntegrationInstallation",
+        "description": "Service-level representation of an installed provider integration."
+      },
+      "IntegrationInstallationListResponse": {
+        "properties": {
+          "data": {
+            "items": { "$ref": "#/components/schemas/IntegrationInstallation" },
+            "type": "array",
+            "title": "Data",
+            "description": "Integration installations"
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/CursorPaginationResponse",
+            "description": "Pagination information"
+          }
+        },
+        "type": "object",
+        "required": ["data", "pagination"],
+        "title": "IntegrationInstallationListResponse",
+        "description": "List of integration installations with pagination."
+      },
+      "IntegrationInstallationResponse": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/IntegrationInstallation",
+            "description": "Integration installation"
+          }
+        },
+        "type": "object",
+        "required": ["data"],
+        "title": "IntegrationInstallationResponse",
+        "description": "Integration installation response."
+      },
+      "IntegrationProviderListResponse": {
+        "properties": {
+          "data": {
+            "items": { "$ref": "#/components/schemas/IntegrationProviderManifest" },
+            "type": "array",
+            "title": "Data",
+            "description": "Supported integration providers"
+          }
+        },
+        "type": "object",
+        "required": ["data"],
+        "title": "IntegrationProviderListResponse",
+        "description": "List of supported integration providers."
+      },
+      "IntegrationProviderManifest": {
+        "properties": {
+          "provider": {
+            "type": "string",
+            "enum": ["slack", "notion", "linear", "google_drive"],
+            "title": "Provider",
+            "description": "The integration provider identifier"
+          },
+          "display_name": {
+            "type": "string",
+            "title": "Display Name",
+            "description": "Human-readable provider name"
+          },
+          "auth_type": {
+            "type": "string",
+            "enum": ["oauth2", "bot_token", "api_key"],
+            "title": "Auth Type",
+            "description": "Primary authorization method"
+          },
+          "capabilities": {
+            "items": { "type": "string", "enum": ["ingest_to_store", "notify", "external_action"] },
+            "type": "array",
+            "title": "Capabilities",
+            "description": "Supported integration capabilities"
+          },
+          "required_scopes": {
+            "items": { "type": "string" },
+            "type": "array",
+            "title": "Required Scopes",
+            "description": "Provider scopes required for the initial install"
+          },
+          "ingestion_backing": {
+            "anyOf": [
+              { "type": "string", "enum": ["data_source_connector", "integration_job"] },
+              { "type": "null" }
+            ],
+            "title": "Ingestion Backing",
+            "description": "The backend subsystem used for ingestion, if ingestion is supported"
+          }
+        },
+        "type": "object",
+        "required": ["provider", "display_name", "auth_type", "capabilities", "required_scopes"],
+        "title": "IntegrationProviderManifest",
+        "description": "Provider metadata exposed to product surfaces."
       },
       "JsonSchemaCreateParams": {
         "properties": {
@@ -7807,6 +9488,413 @@
         "title": "SearchFilterCondition",
         "description": "Represents a condition with a field, operator, and value."
       },
+      "SlackChannel": {
+        "properties": {
+          "id": { "type": "string", "title": "Id", "description": "Slack channel ID" },
+          "name": { "type": "string", "title": "Name", "description": "Slack channel name" },
+          "is_archived": {
+            "type": "boolean",
+            "title": "Is Archived",
+            "description": "Whether the Slack channel is archived"
+          },
+          "is_member": {
+            "type": "boolean",
+            "title": "Is Member",
+            "description": "Whether the Slack app bot is a member"
+          },
+          "is_selected": {
+            "type": "boolean",
+            "title": "Is Selected",
+            "description": "Whether this channel is selected for store ingestion"
+          },
+          "num_members": {
+            "anyOf": [{ "type": "integer" }, { "type": "null" }],
+            "title": "Num Members",
+            "description": "Approximate Slack channel member count"
+          },
+          "sync_status": {
+            "type": "string",
+            "enum": ["syncing", "not_syncing", "error"],
+            "title": "Sync Status",
+            "description": "Current Slack ingestion status",
+            "default": "not_syncing"
+          },
+          "last_synced_at": {
+            "anyOf": [{ "type": "string", "format": "date-time" }, { "type": "null" }],
+            "title": "Last Synced At",
+            "description": "Last successful Slack sync time"
+          },
+          "sync_error": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Sync Error",
+            "description": "Last Slack sync error"
+          },
+          "last_sync_status": {
+            "anyOf": [
+              { "type": "string", "enum": ["queued", "in_progress", "completed", "skipped", "error"] },
+              { "type": "null" }
+            ],
+            "title": "Last Sync Status",
+            "description": "Most recent Slack history import status"
+          },
+          "last_sync_started_at": {
+            "anyOf": [{ "type": "string", "format": "date-time" }, { "type": "null" }],
+            "title": "Last Sync Started At",
+            "description": "Most recent Slack history import start time"
+          },
+          "last_sync_completed_at": {
+            "anyOf": [{ "type": "string", "format": "date-time" }, { "type": "null" }],
+            "title": "Last Sync Completed At",
+            "description": "Most recent Slack history import completion time"
+          },
+          "last_sync_message_count": {
+            "anyOf": [{ "type": "integer" }, { "type": "null" }],
+            "title": "Last Sync Message Count",
+            "description": "Messages fetched in the last Slack history import"
+          },
+          "last_sync_store_file_count": {
+            "anyOf": [{ "type": "integer" }, { "type": "null" }],
+            "title": "Last Sync Store File Count",
+            "description": "Store files written in the last Slack history import"
+          },
+          "last_sync_run_id": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Last Sync Run Id",
+            "description": "Most recent Slack history import run ID"
+          },
+          "syncs_in_progress": {
+            "type": "integer",
+            "title": "Syncs In Progress",
+            "description": "Number of active Slack history imports for this channel",
+            "default": 0
+          },
+          "last_sync_warning": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Last Sync Warning",
+            "description": "Most recent Slack item-level sync warning"
+          },
+          "last_sync_failed_item_count": {
+            "type": "integer",
+            "title": "Last Sync Failed Item Count",
+            "description": "Number of Slack items that failed in the most recent import",
+            "default": 0
+          },
+          "last_sync_failed_items": {
+            "items": { "additionalProperties": true, "type": "object" },
+            "type": "array",
+            "title": "Last Sync Failed Items",
+            "description": "Bounded Slack item failures from the most recent import"
+          }
+        },
+        "type": "object",
+        "required": ["id", "name", "is_archived", "is_member", "is_selected"],
+        "title": "SlackChannel",
+        "description": "Slack public channel exposed for connector configuration."
+      },
+      "SlackChannelSelection": {
+        "properties": {
+          "is_installed": {
+            "type": "boolean",
+            "title": "Is Installed",
+            "description": "Whether Slack is installed for the organization"
+          },
+          "installation_id": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Installation Id",
+            "description": "Slack installation ID"
+          },
+          "team_id": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Team Id",
+            "description": "Slack team ID"
+          },
+          "team_name": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Team Name",
+            "description": "Slack team name"
+          },
+          "store_id": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Store Id",
+            "description": "Mixedbread store ID"
+          },
+          "store_name": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Store Name",
+            "description": "Mixedbread store name"
+          },
+          "auto_sync_all_channels": {
+            "type": "boolean",
+            "title": "Auto Sync All Channels",
+            "description": "Whether all current and future Slack channels are synced automatically",
+            "default": false
+          },
+          "channels": {
+            "items": { "$ref": "#/components/schemas/SlackChannel" },
+            "type": "array",
+            "title": "Channels",
+            "description": "Available public Slack channels"
+          }
+        },
+        "type": "object",
+        "required": ["is_installed", "channels"],
+        "title": "SlackChannelSelection",
+        "description": "Slack channel selection for a store connector."
+      },
+      "SlackChannelSelectionResponse": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/SlackChannelSelection",
+            "description": "Slack channel selection"
+          }
+        },
+        "type": "object",
+        "required": ["data"],
+        "title": "SlackChannelSelectionResponse",
+        "description": "Slack channel selection response."
+      },
+      "SlackChannelSelectionUpdate": {
+        "properties": {
+          "store_id": { "type": "string", "title": "Store Id", "description": "Mixedbread store ID" },
+          "selected_channel_ids": {
+            "items": { "type": "string" },
+            "type": "array",
+            "title": "Selected Channel Ids",
+            "description": "Selected Slack channel IDs"
+          },
+          "joined_channel_ids": {
+            "items": { "type": "string" },
+            "type": "array",
+            "title": "Joined Channel Ids",
+            "description": "Slack channels the app joined while saving"
+          },
+          "backfill_channel_ids": {
+            "items": { "type": "string" },
+            "type": "array",
+            "title": "Backfill Channel Ids",
+            "description": "Slack channels queued for historical ingestion"
+          },
+          "skipped_channels": {
+            "additionalProperties": { "type": "string" },
+            "type": "object",
+            "title": "Skipped Channels",
+            "description": "Slack channel IDs skipped by Slack error"
+          }
+        },
+        "type": "object",
+        "required": [
+          "store_id",
+          "selected_channel_ids",
+          "joined_channel_ids",
+          "backfill_channel_ids",
+          "skipped_channels"
+        ],
+        "title": "SlackChannelSelectionUpdate",
+        "description": "Result of updating Slack channel selection."
+      },
+      "SlackChannelSelectionUpdateParams": {
+        "properties": {
+          "installation_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Installation Id",
+            "description": "Slack installation ID"
+          },
+          "channel_ids": {
+            "items": { "type": "string" },
+            "type": "array",
+            "title": "Channel Ids",
+            "description": "Slack channel IDs to ingest into the store"
+          }
+        },
+        "type": "object",
+        "required": ["installation_id", "channel_ids"],
+        "title": "SlackChannelSelectionUpdateParams",
+        "description": "Parameters for selecting Slack channels for store ingestion."
+      },
+      "SlackChannelSelectionUpdateResponse": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/SlackChannelSelectionUpdate",
+            "description": "Slack channel selection update"
+          }
+        },
+        "type": "object",
+        "required": ["data"],
+        "title": "SlackChannelSelectionUpdateResponse",
+        "description": "Slack channel selection update response."
+      },
+      "SlackChannelSync": {
+        "properties": {
+          "store_id": { "type": "string", "title": "Store Id", "description": "Mixedbread store ID" },
+          "queued_channel_ids": {
+            "items": { "type": "string" },
+            "type": "array",
+            "title": "Queued Channel Ids",
+            "description": "Slack channel IDs queued for historical sync"
+          },
+          "skipped_channels": {
+            "additionalProperties": { "type": "string" },
+            "type": "object",
+            "title": "Skipped Channels",
+            "description": "Slack channel IDs skipped by validation"
+          }
+        },
+        "type": "object",
+        "required": ["store_id", "queued_channel_ids", "skipped_channels"],
+        "title": "SlackChannelSync",
+        "description": "Result of manually syncing selected Slack channels."
+      },
+      "SlackChannelSyncParams": {
+        "properties": {
+          "installation_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Installation Id",
+            "description": "Slack installation ID"
+          },
+          "channel_ids": {
+            "anyOf": [{ "items": { "type": "string" }, "type": "array" }, { "type": "null" }],
+            "title": "Channel Ids",
+            "description": "Slack channel IDs to sync. Defaults to all selected channels."
+          },
+          "retry_failed_only": {
+            "type": "boolean",
+            "title": "Retry Failed Only",
+            "description": "Only retry Slack items that failed in the most recent import.",
+            "default": false
+          }
+        },
+        "type": "object",
+        "required": ["installation_id"],
+        "title": "SlackChannelSyncParams",
+        "description": "Parameters for manually syncing selected Slack channels."
+      },
+      "SlackChannelSyncResponse": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/SlackChannelSync",
+            "description": "Slack channel manual sync result"
+          }
+        },
+        "type": "object",
+        "required": ["data"],
+        "title": "SlackChannelSyncResponse",
+        "description": "Slack channel manual sync response."
+      },
+      "SlackInstallationConfigUpdateBody": {
+        "properties": {
+          "auto_sync_all_channels": {
+            "type": "boolean",
+            "title": "Auto Sync All Channels",
+            "description": "Whether all current and future Slack channels are synced automatically"
+          }
+        },
+        "type": "object",
+        "required": ["auto_sync_all_channels"],
+        "title": "SlackInstallationConfigUpdateBody",
+        "description": "Request body for updating a Slack installation's data source config."
+      },
+      "SlackInstallationOverview": {
+        "properties": {
+          "installation_id": {
+            "type": "string",
+            "title": "Installation Id",
+            "description": "Slack installation ID"
+          },
+          "team_id": { "type": "string", "title": "Team Id", "description": "Slack team ID" },
+          "team_name": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Team Name",
+            "description": "Slack team name"
+          },
+          "status": { "type": "string", "title": "Status", "description": "The installation status" },
+          "store_id": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Store Id",
+            "description": "Mixedbread ingestion store ID"
+          },
+          "store_name": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Store Name",
+            "description": "Mixedbread ingestion store name"
+          },
+          "syncing_channel_count": {
+            "type": "integer",
+            "title": "Syncing Channel Count",
+            "description": "Number of Slack channels selected for ingestion",
+            "default": 0
+          },
+          "auto_sync_all_channels": {
+            "type": "boolean",
+            "title": "Auto Sync All Channels",
+            "description": "Whether all current and future Slack channels are synced automatically",
+            "default": false
+          }
+        },
+        "type": "object",
+        "required": ["installation_id", "team_id", "team_name", "status"],
+        "title": "SlackInstallationOverview",
+        "description": "Summary of a connected Slack workspace for the data sources overview."
+      },
+      "SlackInstallationOverviewListResponse": {
+        "properties": {
+          "data": {
+            "items": { "$ref": "#/components/schemas/SlackInstallationOverview" },
+            "type": "array",
+            "title": "Data",
+            "description": "Connected Slack workspaces"
+          }
+        },
+        "type": "object",
+        "required": ["data"],
+        "title": "SlackInstallationOverviewListResponse",
+        "description": "List of connected Slack workspaces for the data sources overview."
+      },
+      "SlackManifestResponse": {
+        "properties": {
+          "manifest": {
+            "type": "string",
+            "title": "Manifest",
+            "description": "Slack app manifest YAML pre-filled with this deployment's URLs"
+          }
+        },
+        "type": "object",
+        "required": ["manifest"],
+        "title": "SlackManifestResponse",
+        "description": "Rendered Slack app manifest for bring-your-own-app setup."
+      },
+      "SlackManualConnectBody": {
+        "properties": {
+          "bot_token": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Bot Token",
+            "description": "Slack bot user OAuth token (xoxb-…)"
+          },
+          "signing_secret": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Signing Secret",
+            "description": "Slack app signing secret"
+          },
+          "store_name": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Store Name",
+            "description": "Optional ingestion store name"
+          },
+          "auto_sync_all": {
+            "type": "boolean",
+            "title": "Auto Sync All",
+            "description": "Automatically sync all current and future channels",
+            "default": false
+          }
+        },
+        "type": "object",
+        "required": ["bot_token", "signing_secret"],
+        "title": "SlackManualConnectBody",
+        "description": "Request body for connecting Slack with a customer-provided app (bot token + signing secret)."
+      },
       "Store": {
         "properties": {
           "id": {
@@ -7850,6 +9938,11 @@
           "config": {
             "anyOf": [{ "$ref": "#/components/schemas/StoreConfig" }, { "type": "null" }],
             "description": "Store-level configuration defaults"
+          },
+          "bucket_id": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Bucket Id",
+            "description": "Customer bucket backing this store's storage; null = platform default"
           },
           "file_counts": {
             "$ref": "#/components/schemas/FileCounts",
@@ -7956,7 +10049,7 @@
             "default": "PT0S"
           },
           "query": {
-            "type": "string",
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
             "title": "Query",
             "description": "Original query submitted by the user"
           },
@@ -7996,7 +10089,7 @@
           },
           "token_usage": {
             "$ref": "#/components/schemas/AgenticSearchTokenUsage",
-            "description": "Token usage and cost for LLM calls during the agentic search"
+            "description": "Token usage for LLM calls during the agentic search"
           },
           "tool_calls": {
             "items": { "$ref": "#/components/schemas/AgenticToolCall" },
@@ -8014,7 +10107,7 @@
         "type": "object",
         "required": ["id", "created_at", "store_ids", "started_at", "query"],
         "title": "StoreAgenticSearchEvent",
-        "description": "Represents an agentic search trace in a vector store.\n\nUnlike StoreSearchEvent, this captures the full sequence of tool calls the\nagent issued (name, arguments, result) so developers can inspect what the\nagent did, along with the token usage and cost."
+        "description": "Represents an agentic search trace in a vector store.\n\nUnlike StoreSearchEvent, this captures the full sequence of tool calls the\nagent issued (name, arguments, result) so developers can inspect what the\nagent did, along with the token usage."
       },
       "StoreChunkFilterParams": {
         "properties": {
@@ -8186,7 +10279,7 @@
         "type": "object",
         "required": ["store_identifiers", "pattern"],
         "title": "StoreChunkGrepParams",
-        "description": "Parameters for matching store chunks against a regular expression.\n\nUnlike semantic search, grep performs exact text matching — no embeddings, no\nreranking. It finds chunks whose literal text contains the pattern."
+        "description": "Parameters for matching store chunks against a regular expression.\n\nUnlike semantic search, grep runs your regex against the literal text of each\nchunk. It finds chunks whose text matches the pattern."
       },
       "StoreChunkGrepTarget": {
         "type": "string",
@@ -8479,6 +10572,7 @@
               "store.deleted",
               "store.updated",
               "store.search",
+              "store.grep",
               "store.web_search",
               "store.file.created",
               "store.file.deleted",
@@ -8552,13 +10646,13 @@
           "event_types": {
             "anyOf": [
               {
-                "items": { "type": "string", "enum": ["ingestion", "search", "agentic_search"] },
+                "items": { "type": "string", "enum": ["ingestion", "search", "agentic_search", "grep"] },
                 "type": "array"
               },
               { "type": "null" }
             ],
             "title": "Event Types",
-            "description": "Restrict the histogram to these event types. When omitted, includes search, agentic_search, and ingestion events."
+            "description": "Restrict the histogram to these event types. When omitted, includes search, agentic_search, grep, and ingestion events."
           }
         },
         "type": "object",
@@ -8600,12 +10694,14 @@
               "oneOf": [
                 { "$ref": "#/components/schemas/StoreIngestionEvent" },
                 { "$ref": "#/components/schemas/StoreSearchEvent" },
-                { "$ref": "#/components/schemas/StoreAgenticSearchEvent" }
+                { "$ref": "#/components/schemas/StoreAgenticSearchEvent" },
+                { "$ref": "#/components/schemas/StoreGrepEvent" }
               ],
               "discriminator": {
                 "propertyName": "type",
                 "mapping": {
                   "agentic_search": "#/components/schemas/StoreAgenticSearchEvent",
+                  "grep": "#/components/schemas/StoreGrepEvent",
                   "ingestion": "#/components/schemas/StoreIngestionEvent",
                   "search": "#/components/schemas/StoreSearchEvent"
                 }
@@ -8795,6 +10891,75 @@
         "type": "string",
         "enum": ["pending", "in_progress", "cancelled", "completed", "failed"],
         "title": "StoreFileStatus"
+      },
+      "StoreGrepEvent": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Id",
+            "description": "Unique identifier for the event"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At",
+            "description": "Timestamp when the event was created"
+          },
+          "type": { "type": "string", "const": "grep", "title": "Type", "default": "grep" },
+          "store_ids": {
+            "items": { "type": "string", "format": "uuid" },
+            "type": "array",
+            "title": "Store Ids",
+            "description": "IDs of the vector stores grepped"
+          },
+          "pattern": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Pattern",
+            "description": "Regular expression matched against chunk text"
+          },
+          "case_sensitive": {
+            "type": "boolean",
+            "title": "Case Sensitive",
+            "description": "Whether the pattern was matched case-sensitively",
+            "default": false
+          },
+          "search_time": {
+            "type": "string",
+            "format": "duration",
+            "title": "Search Time",
+            "description": "Time taken to grep the vector store",
+            "default": "PT0S"
+          },
+          "filters": {
+            "anyOf": [
+              { "$ref": "#/components/schemas/SearchFilter-Output" },
+              { "$ref": "#/components/schemas/SearchFilterCondition" },
+              {
+                "items": {
+                  "anyOf": [
+                    { "$ref": "#/components/schemas/SearchFilter-Output" },
+                    { "$ref": "#/components/schemas/SearchFilterCondition" }
+                  ]
+                },
+                "type": "array"
+              },
+              { "type": "null" }
+            ],
+            "title": "Filters",
+            "description": "Metadata filters submitted with the grep request"
+          },
+          "results": {
+            "items": { "$ref": "#/components/schemas/StoreSearchEventResult" },
+            "type": "array",
+            "title": "Results",
+            "description": "Chunks that matched the pattern"
+          }
+        },
+        "type": "object",
+        "required": ["id", "created_at", "store_ids", "pattern"],
+        "title": "StoreGrepEvent",
+        "description": "Represents a grep event in a vector store.\n\nGrep matches chunks against a regular expression rather than running a\nsemantic search, so it has no ranking, rewrite, or rerank fields."
       },
       "StoreGrepResponse": {
         "properties": {
@@ -9141,7 +11306,7 @@
             "default": "PT0S"
           },
           "query": {
-            "type": "string",
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
             "title": "Query",
             "description": "Query used to search the vector store"
           },
@@ -9227,7 +11392,7 @@
             "description": "ID of the store the chunk belongs to"
           },
           "file_id": {
-            "type": "string",
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
             "title": "File Id",
             "description": "ID of the file the chunk belongs to"
           },

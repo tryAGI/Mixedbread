@@ -4,7 +4,7 @@
 namespace Mixedbread
 {
     /// <summary>
-    /// Restrict the histogram to these event types. When omitted, includes search, agentic_search, and ingestion events.
+    /// Restrict the histogram to these event types. When omitted, includes search, agentic_search, grep, and ingestion events.
     /// </summary>
     public sealed partial class StoreEventHistogramParamsEventTypes
     {

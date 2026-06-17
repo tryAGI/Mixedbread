@@ -50,8 +50,7 @@ namespace Mixedbread
         /// Arguments passed to the tool (gen_ai.tool.call.arguments)
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("arguments")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required object Arguments { get; set; }
+        public object? Arguments { get; set; }
 
         /// <summary>
         /// Result returned to the model (gen_ai.tool.call.result). None if the tool errored.
@@ -86,12 +85,12 @@ namespace Mixedbread
         /// <param name="duration">
         /// Time taken to execute the tool call
         /// </param>
-        /// <param name="arguments">
-        /// Arguments passed to the tool (gen_ai.tool.call.arguments)
-        /// </param>
         /// <param name="toolType">
         /// Category of the tool (gen_ai.tool.type)<br/>
         /// Default Value: function
+        /// </param>
+        /// <param name="arguments">
+        /// Arguments passed to the tool (gen_ai.tool.call.arguments)
         /// </param>
         /// <param name="result">
         /// Result returned to the model (gen_ai.tool.call.result). None if the tool errored.
@@ -107,8 +106,8 @@ namespace Mixedbread
             string toolName,
             global::System.DateTime startedAt,
             string duration,
-            object arguments,
             global::Mixedbread.AgenticToolCallToolType? toolType,
+            object? arguments,
             object? result,
             string? error)
         {
@@ -117,7 +116,7 @@ namespace Mixedbread
             this.ToolType = toolType;
             this.StartedAt = startedAt;
             this.Duration = duration ?? throw new global::System.ArgumentNullException(nameof(duration));
-            this.Arguments = arguments ?? throw new global::System.ArgumentNullException(nameof(arguments));
+            this.Arguments = arguments;
             this.Result = result;
             this.Error = error;
         }

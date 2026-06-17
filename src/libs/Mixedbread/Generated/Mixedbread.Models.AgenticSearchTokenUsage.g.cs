@@ -4,7 +4,7 @@
 namespace Mixedbread
 {
     /// <summary>
-    /// Token usage and cost for LLM calls made during an agentic search.
+    /// Token usage for LLM calls made during an agentic search.
     /// </summary>
     public sealed partial class AgenticSearchTokenUsage
     {
@@ -30,13 +30,6 @@ namespace Mixedbread
         public int? TotalTokens { get; set; }
 
         /// <summary>
-        /// Estimated cost in USD<br/>
-        /// Default Value: 0
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("cost_usd")]
-        public double? CostUsd { get; set; }
-
-        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -57,23 +50,17 @@ namespace Mixedbread
         /// Total tokens consumed (prompt + completion)<br/>
         /// Default Value: 0
         /// </param>
-        /// <param name="costUsd">
-        /// Estimated cost in USD<br/>
-        /// Default Value: 0
-        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public AgenticSearchTokenUsage(
             int? promptTokens,
             int? completionTokens,
-            int? totalTokens,
-            double? costUsd)
+            int? totalTokens)
         {
             this.PromptTokens = promptTokens;
             this.CompletionTokens = completionTokens;
             this.TotalTokens = totalTokens;
-            this.CostUsd = costUsd;
         }
 
         /// <summary>

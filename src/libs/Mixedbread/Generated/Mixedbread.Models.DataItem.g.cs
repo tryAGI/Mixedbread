@@ -92,7 +92,7 @@ namespace Mixedbread
         /// Represents an agentic search trace in a vector store.<br/>
         /// Unlike StoreSearchEvent, this captures the full sequence of tool calls the<br/>
         /// agent issued (name, arguments, result) so developers can inspect what the<br/>
-        /// agent did, along with the token usage and cost.
+        /// agent did, along with the token usage.
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::Mixedbread.StoreAgenticSearchEvent? AgenticSearch { get; init; }
@@ -127,6 +127,45 @@ namespace Mixedbread
         public global::Mixedbread.StoreAgenticSearchEvent PickAgenticSearch() => IsAgenticSearch
             ? AgenticSearch!
             : throw new global::System.InvalidOperationException($"Expected union variant 'AgenticSearch' but the value was {ToString()}.");
+
+        /// <summary>
+        /// Represents a grep event in a vector store.<br/>
+        /// Grep matches chunks against a regular expression rather than running a<br/>
+        /// semantic search, so it has no ranking, rewrite, or rerank fields.
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::Mixedbread.StoreGrepEvent? Grep { get; init; }
+#else
+        public global::Mixedbread.StoreGrepEvent? Grep { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Grep))]
+#endif
+        public bool IsGrep => Grep != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickGrep(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::Mixedbread.StoreGrepEvent? value)
+        {
+            value = Grep;
+            return IsGrep;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Mixedbread.StoreGrepEvent PickGrep() => IsGrep
+            ? Grep!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Grep' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>
@@ -199,11 +238,35 @@ namespace Mixedbread
         /// <summary>
         /// 
         /// </summary>
+        public static implicit operator DataItem(global::Mixedbread.StoreGrepEvent value) => new DataItem((global::Mixedbread.StoreGrepEvent?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::Mixedbread.StoreGrepEvent?(DataItem @this) => @this.Grep;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public DataItem(global::Mixedbread.StoreGrepEvent? value)
+        {
+            Grep = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static DataItem FromGrep(global::Mixedbread.StoreGrepEvent? value) => new DataItem(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public DataItem(
             global::Mixedbread.StoreEventListResponseDataItemDiscriminatorType? type,
             global::Mixedbread.StoreIngestionEvent? ingestion,
             global::Mixedbread.StoreSearchEvent? search,
-            global::Mixedbread.StoreAgenticSearchEvent? agenticSearch
+            global::Mixedbread.StoreAgenticSearchEvent? agenticSearch,
+            global::Mixedbread.StoreGrepEvent? grep
             )
         {
             Type = type;
@@ -211,12 +274,14 @@ namespace Mixedbread
             Ingestion = ingestion;
             Search = search;
             AgenticSearch = agenticSearch;
+            Grep = grep;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public object? Object =>
+            Grep as object ??
             AgenticSearch as object ??
             Search as object ??
             Ingestion as object 
@@ -228,7 +293,8 @@ namespace Mixedbread
         public override string? ToString() =>
             Ingestion?.ToString() ??
             Search?.ToString() ??
-            AgenticSearch?.ToString() 
+            AgenticSearch?.ToString() ??
+            Grep?.ToString() 
             ;
 
         /// <summary>
@@ -236,7 +302,7 @@ namespace Mixedbread
         /// </summary>
         public bool Validate()
         {
-            return IsIngestion && !IsSearch && !IsAgenticSearch || !IsIngestion && IsSearch && !IsAgenticSearch || !IsIngestion && !IsSearch && IsAgenticSearch;
+            return IsIngestion && !IsSearch && !IsAgenticSearch && !IsGrep || !IsIngestion && IsSearch && !IsAgenticSearch && !IsGrep || !IsIngestion && !IsSearch && IsAgenticSearch && !IsGrep || !IsIngestion && !IsSearch && !IsAgenticSearch && IsGrep;
         }
 
         /// <summary>
@@ -246,6 +312,7 @@ namespace Mixedbread
             global::System.Func<global::Mixedbread.StoreIngestionEvent, TResult>? ingestion = null,
             global::System.Func<global::Mixedbread.StoreSearchEvent, TResult>? search = null,
             global::System.Func<global::Mixedbread.StoreAgenticSearchEvent, TResult>? agenticSearch = null,
+            global::System.Func<global::Mixedbread.StoreGrepEvent, TResult>? grep = null,
             bool validate = true)
         {
             if (validate)
@@ -265,6 +332,10 @@ namespace Mixedbread
             {
                 return agenticSearch(AgenticSearch!);
             }
+            else if (IsGrep && grep != null)
+            {
+                return grep(Grep!);
+            }
 
             return default(TResult);
         }
@@ -278,6 +349,8 @@ namespace Mixedbread
             global::System.Action<global::Mixedbread.StoreSearchEvent>? search = null,
 
             global::System.Action<global::Mixedbread.StoreAgenticSearchEvent>? agenticSearch = null,
+
+            global::System.Action<global::Mixedbread.StoreGrepEvent>? grep = null,
             bool validate = true)
         {
             if (validate)
@@ -296,6 +369,10 @@ namespace Mixedbread
             else if (IsAgenticSearch)
             {
                 agenticSearch?.Invoke(AgenticSearch!);
+            }
+            else if (IsGrep)
+            {
+                grep?.Invoke(Grep!);
             }
         }
 
@@ -306,6 +383,7 @@ namespace Mixedbread
             global::System.Action<global::Mixedbread.StoreIngestionEvent>? ingestion = null,
             global::System.Action<global::Mixedbread.StoreSearchEvent>? search = null,
             global::System.Action<global::Mixedbread.StoreAgenticSearchEvent>? agenticSearch = null,
+            global::System.Action<global::Mixedbread.StoreGrepEvent>? grep = null,
             bool validate = true)
         {
             if (validate)
@@ -324,6 +402,10 @@ namespace Mixedbread
             else if (IsAgenticSearch)
             {
                 agenticSearch?.Invoke(AgenticSearch!);
+            }
+            else if (IsGrep)
+            {
+                grep?.Invoke(Grep!);
             }
         }
 
@@ -340,6 +422,8 @@ namespace Mixedbread
                 typeof(global::Mixedbread.StoreSearchEvent),
                 AgenticSearch,
                 typeof(global::Mixedbread.StoreAgenticSearchEvent),
+                Grep,
+                typeof(global::Mixedbread.StoreGrepEvent),
             };
             const int offset = unchecked((int)2166136261);
             const int prime = 16777619;
@@ -358,7 +442,8 @@ namespace Mixedbread
             return
                 global::System.Collections.Generic.EqualityComparer<global::Mixedbread.StoreIngestionEvent?>.Default.Equals(Ingestion, other.Ingestion) &&
                 global::System.Collections.Generic.EqualityComparer<global::Mixedbread.StoreSearchEvent?>.Default.Equals(Search, other.Search) &&
-                global::System.Collections.Generic.EqualityComparer<global::Mixedbread.StoreAgenticSearchEvent?>.Default.Equals(AgenticSearch, other.AgenticSearch) 
+                global::System.Collections.Generic.EqualityComparer<global::Mixedbread.StoreAgenticSearchEvent?>.Default.Equals(AgenticSearch, other.AgenticSearch) &&
+                global::System.Collections.Generic.EqualityComparer<global::Mixedbread.StoreGrepEvent?>.Default.Equals(Grep, other.Grep) 
                 ;
         }
 
