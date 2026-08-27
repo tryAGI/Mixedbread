@@ -4,7 +4,7 @@
 namespace Mixedbread
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class MarkdownChunkGeneratedMetadata
     {
@@ -21,31 +21,31 @@ namespace Mixedbread
         public string? FileType { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("language")]
         public string? Language { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("word_count")]
         public int? WordCount { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file_size")]
         public int? FileSize { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("chunk_headings")]
         public global::System.Collections.Generic.IList<global::Mixedbread.MarkdownHeading>? ChunkHeadings { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("heading_context")]
         public global::System.Collections.Generic.IList<global::Mixedbread.MarkdownHeading>? HeadingContext { get; set; }
@@ -63,13 +63,13 @@ namespace Mixedbread
         public int? NumLines { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file_extension")]
         public string? FileExtension { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("frontmatter")]
         public object? Frontmatter { get; set; }

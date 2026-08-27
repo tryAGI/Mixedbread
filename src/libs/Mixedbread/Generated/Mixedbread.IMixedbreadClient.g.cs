@@ -60,68 +60,68 @@ namespace Mixedbread
 
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         global::System.Text.Json.Serialization.JsonSerializerContext JsonSerializerContext { get; set; }
 
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public AdminClient Admin { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ApiKeysClient ApiKeys { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public BillingClient Billing { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public BucketsClient Buckets { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public CompletionsClient Completions { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public DataSourcesClient DataSources { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ExtractionsClient Extractions { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public FilesClient Files { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public IntegrationsClient Integrations { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ParsingClient Parsing { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public SchemasClient Schemas { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public StoresClient Stores { get; }
 

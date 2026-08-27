@@ -4,20 +4,20 @@
 namespace Mixedbread
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum StoreSearchEventResultFirstStageSource2
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Both,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Dense,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Sparse,
     }

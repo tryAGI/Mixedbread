@@ -9,27 +9,27 @@ namespace Mixedbread
     public enum RegexFlag
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Ascii,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Dotall,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Ignorecase,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Multiline,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Unicode,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Verbose,
     }

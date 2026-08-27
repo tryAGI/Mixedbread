@@ -4,16 +4,16 @@
 namespace Mixedbread
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum DataSourceType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Linear,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Notion,
     }

@@ -40,7 +40,7 @@ namespace Mixedbread
         internal global::System.Lazy<global::System.Text.Json.Serialization.JsonSerializerContext> JsonSerializerContextProvider { get; set; } = new(() => global::Mixedbread.SourceGenerationContext.Default);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::System.Text.Json.Serialization.JsonSerializerContext JsonSerializerContext
         {
@@ -50,7 +50,7 @@ namespace Mixedbread
 
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public AdminClient Admin => new AdminClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -60,7 +60,7 @@ namespace Mixedbread
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ApiKeysClient ApiKeys => new ApiKeysClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -70,7 +70,7 @@ namespace Mixedbread
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public BillingClient Billing => new BillingClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -80,7 +80,7 @@ namespace Mixedbread
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public BucketsClient Buckets => new BucketsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -90,7 +90,7 @@ namespace Mixedbread
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public CompletionsClient Completions => new CompletionsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -100,7 +100,7 @@ namespace Mixedbread
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public DataSourcesClient DataSources => new DataSourcesClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -110,7 +110,7 @@ namespace Mixedbread
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ExtractionsClient Extractions => new ExtractionsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -120,7 +120,7 @@ namespace Mixedbread
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public FilesClient Files => new FilesClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -130,7 +130,7 @@ namespace Mixedbread
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public IntegrationsClient Integrations => new IntegrationsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -140,7 +140,7 @@ namespace Mixedbread
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ParsingClient Parsing => new ParsingClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -150,7 +150,7 @@ namespace Mixedbread
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public SchemasClient Schemas => new SchemasClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -160,7 +160,7 @@ namespace Mixedbread
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public StoresClient Stores => new StoresClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {

@@ -4,16 +4,16 @@
 namespace Mixedbread
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum IntegrationProviderManifestIngestionBacking2
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DataSourceConnector,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         IntegrationJob,
     }

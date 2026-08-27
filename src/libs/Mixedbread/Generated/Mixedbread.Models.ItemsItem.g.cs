@@ -5,12 +5,12 @@
 namespace Mixedbread
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct ItemsItem : global::System.IEquatable<ItemsItem>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Mixedbread.QueryEnhanceResultsItemDiscriminatorType? Type { get; }
 
@@ -24,7 +24,7 @@ namespace Mixedbread
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Query))]
@@ -32,7 +32,7 @@ namespace Mixedbread
         public bool IsQuery => Query != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickQuery(
 #if NET6_0_OR_GREATER
@@ -45,7 +45,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Mixedbread.QueryEnhanceQueryItem PickQuery() => IsQuery
             ? Query!
@@ -61,7 +61,7 @@ namespace Mixedbread
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Sort))]
@@ -69,7 +69,7 @@ namespace Mixedbread
         public bool IsSort => Sort != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickSort(
 #if NET6_0_OR_GREATER
@@ -82,23 +82,23 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Mixedbread.QueryEnhanceSortItem PickSort() => IsSort
             ? Sort!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Sort' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ItemsItem(global::Mixedbread.QueryEnhanceQueryItem value) => new ItemsItem((global::Mixedbread.QueryEnhanceQueryItem?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Mixedbread.QueryEnhanceQueryItem?(ItemsItem @this) => @this.Query;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ItemsItem(global::Mixedbread.QueryEnhanceQueryItem? value)
         {
@@ -106,22 +106,22 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ItemsItem FromQuery(global::Mixedbread.QueryEnhanceQueryItem? value) => new ItemsItem(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ItemsItem(global::Mixedbread.QueryEnhanceSortItem value) => new ItemsItem((global::Mixedbread.QueryEnhanceSortItem?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Mixedbread.QueryEnhanceSortItem?(ItemsItem @this) => @this.Sort;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ItemsItem(global::Mixedbread.QueryEnhanceSortItem? value)
         {
@@ -129,12 +129,12 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ItemsItem FromSort(global::Mixedbread.QueryEnhanceSortItem? value) => new ItemsItem(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ItemsItem(
             global::Mixedbread.QueryEnhanceResultsItemDiscriminatorType? type,
@@ -149,23 +149,23 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             Sort as object ??
-            Query as object 
+            Query as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             Query?.ToString() ??
-            Sort?.ToString() 
+            Sort?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -173,7 +173,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::Mixedbread.QueryEnhanceQueryItem, TResult>? query = null,
@@ -198,7 +198,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::Mixedbread.QueryEnhanceQueryItem>? query = null,
@@ -222,7 +222,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::Mixedbread.QueryEnhanceQueryItem>? query = null,
@@ -245,7 +245,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -266,18 +266,18 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(ItemsItem other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::Mixedbread.QueryEnhanceQueryItem?>.Default.Equals(Query, other.Query) &&
-                global::System.Collections.Generic.EqualityComparer<global::Mixedbread.QueryEnhanceSortItem?>.Default.Equals(Sort, other.Sort) 
+                global::System.Collections.Generic.EqualityComparer<global::Mixedbread.QueryEnhanceSortItem?>.Default.Equals(Sort, other.Sort)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(ItemsItem obj1, ItemsItem obj2)
         {
@@ -285,7 +285,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(ItemsItem obj1, ItemsItem obj2)
         {
@@ -293,7 +293,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

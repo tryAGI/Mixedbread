@@ -13,11 +13,11 @@ namespace Mixedbread
     public enum StoreChunkGrepTarget
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Generated,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Text,
     }

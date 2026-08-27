@@ -9,11 +9,11 @@ namespace Mixedbread
     public enum StoreFileParsingStrategy
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Fast,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         HighQuality,
     }

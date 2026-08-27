@@ -5,12 +5,12 @@
 namespace Mixedbread
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct AuthParamsVariant1 : global::System.IEquatable<AuthParamsVariant1>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Mixedbread.DataSourceAuthParamsVariant1DiscriminatorType? Type { get; }
 
@@ -24,7 +24,7 @@ namespace Mixedbread
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Oauth2))]
@@ -32,7 +32,7 @@ namespace Mixedbread
         public bool IsOauth2 => Oauth2 != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickOauth2(
 #if NET6_0_OR_GREATER
@@ -45,7 +45,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Mixedbread.DataSourceOAuth2Params PickOauth2() => IsOauth2
             ? Oauth2!
@@ -61,7 +61,7 @@ namespace Mixedbread
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ApiKey))]
@@ -69,7 +69,7 @@ namespace Mixedbread
         public bool IsApiKey => ApiKey != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickApiKey(
 #if NET6_0_OR_GREATER
@@ -82,23 +82,23 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Mixedbread.DataSourceApiKeyParams PickApiKey() => IsApiKey
             ? ApiKey!
             : throw new global::System.InvalidOperationException($"Expected union variant 'ApiKey' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator AuthParamsVariant1(global::Mixedbread.DataSourceOAuth2Params value) => new AuthParamsVariant1((global::Mixedbread.DataSourceOAuth2Params?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Mixedbread.DataSourceOAuth2Params?(AuthParamsVariant1 @this) => @this.Oauth2;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public AuthParamsVariant1(global::Mixedbread.DataSourceOAuth2Params? value)
         {
@@ -106,22 +106,22 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static AuthParamsVariant1 FromOauth2(global::Mixedbread.DataSourceOAuth2Params? value) => new AuthParamsVariant1(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator AuthParamsVariant1(global::Mixedbread.DataSourceApiKeyParams value) => new AuthParamsVariant1((global::Mixedbread.DataSourceApiKeyParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Mixedbread.DataSourceApiKeyParams?(AuthParamsVariant1 @this) => @this.ApiKey;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public AuthParamsVariant1(global::Mixedbread.DataSourceApiKeyParams? value)
         {
@@ -129,12 +129,12 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static AuthParamsVariant1 FromApiKey(global::Mixedbread.DataSourceApiKeyParams? value) => new AuthParamsVariant1(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public AuthParamsVariant1(
             global::Mixedbread.DataSourceAuthParamsVariant1DiscriminatorType? type,
@@ -149,23 +149,23 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             ApiKey as object ??
-            Oauth2 as object 
+            Oauth2 as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             Oauth2?.ToString() ??
-            ApiKey?.ToString() 
+            ApiKey?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -173,7 +173,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::Mixedbread.DataSourceOAuth2Params, TResult>? oauth2 = null,
@@ -198,7 +198,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::Mixedbread.DataSourceOAuth2Params>? oauth2 = null,
@@ -222,7 +222,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::Mixedbread.DataSourceOAuth2Params>? oauth2 = null,
@@ -245,7 +245,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -266,18 +266,18 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(AuthParamsVariant1 other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::Mixedbread.DataSourceOAuth2Params?>.Default.Equals(Oauth2, other.Oauth2) &&
-                global::System.Collections.Generic.EqualityComparer<global::Mixedbread.DataSourceApiKeyParams?>.Default.Equals(ApiKey, other.ApiKey) 
+                global::System.Collections.Generic.EqualityComparer<global::Mixedbread.DataSourceApiKeyParams?>.Default.Equals(ApiKey, other.ApiKey)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(AuthParamsVariant1 obj1, AuthParamsVariant1 obj2)
         {
@@ -285,7 +285,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(AuthParamsVariant1 obj1, AuthParamsVariant1 obj2)
         {
@@ -293,7 +293,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

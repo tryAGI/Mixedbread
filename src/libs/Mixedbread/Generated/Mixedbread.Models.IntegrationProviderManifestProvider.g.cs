@@ -9,19 +9,19 @@ namespace Mixedbread
     public enum IntegrationProviderManifestProvider
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         GoogleDrive,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Linear,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Notion,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Slack,
     }

@@ -4,24 +4,24 @@
 namespace Mixedbread
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsSearchRuleSpecificDeletedDeletedRuleDiscriminatorType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ChunkSearchResult,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         FileSearchResult,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         QueryRegex,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         QueryString,
     }

@@ -9,15 +9,15 @@ namespace Mixedbread
     public enum ReturnFormat
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Html,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Markdown,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Plain,
     }

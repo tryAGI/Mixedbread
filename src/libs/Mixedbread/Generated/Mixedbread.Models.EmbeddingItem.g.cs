@@ -10,7 +10,7 @@ namespace Mixedbread
     public readonly partial struct EmbeddingItem : global::System.IEquatable<EmbeddingItem>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::System.Collections.Generic.IList<double>? EmbeddingItemVariant1 { get; init; }
@@ -19,7 +19,7 @@ namespace Mixedbread
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(EmbeddingItemVariant1))]
@@ -27,7 +27,7 @@ namespace Mixedbread
         public bool IsEmbeddingItemVariant1 => EmbeddingItemVariant1 != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickEmbeddingItemVariant1(
 #if NET6_0_OR_GREATER
@@ -40,14 +40,14 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::System.Collections.Generic.IList<double> PickEmbeddingItemVariant1() => IsEmbeddingItemVariant1
             ? EmbeddingItemVariant1!
             : throw new global::System.InvalidOperationException($"Expected union variant 'EmbeddingItemVariant1' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::System.Collections.Generic.IList<int>? EmbeddingItemVariant2 { get; init; }
@@ -56,7 +56,7 @@ namespace Mixedbread
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(EmbeddingItemVariant2))]
@@ -64,7 +64,7 @@ namespace Mixedbread
         public bool IsEmbeddingItemVariant2 => EmbeddingItemVariant2 != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickEmbeddingItemVariant2(
 #if NET6_0_OR_GREATER
@@ -77,14 +77,14 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::System.Collections.Generic.IList<int> PickEmbeddingItemVariant2() => IsEmbeddingItemVariant2
             ? EmbeddingItemVariant2!
             : throw new global::System.InvalidOperationException($"Expected union variant 'EmbeddingItemVariant2' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public string? EmbeddingItemVariant3 { get; init; }
@@ -93,7 +93,7 @@ namespace Mixedbread
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(EmbeddingItemVariant3))]
@@ -101,7 +101,7 @@ namespace Mixedbread
         public bool IsEmbeddingItemVariant3 => EmbeddingItemVariant3 != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickEmbeddingItemVariant3(
 #if NET6_0_OR_GREATER
@@ -114,23 +114,23 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public string PickEmbeddingItemVariant3() => IsEmbeddingItemVariant3
             ? EmbeddingItemVariant3!
             : throw new global::System.InvalidOperationException($"Expected union variant 'EmbeddingItemVariant3' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator EmbeddingItem(string value) => new EmbeddingItem((string?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator string?(EmbeddingItem @this) => @this.EmbeddingItemVariant3;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public EmbeddingItem(string? value)
         {
@@ -138,12 +138,12 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static EmbeddingItem FromEmbeddingItemVariant3(string? value) => new EmbeddingItem(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public EmbeddingItem(
             global::System.Collections.Generic.IList<double>? embeddingItemVariant1,
@@ -157,25 +157,25 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             EmbeddingItemVariant3 as object ??
             EmbeddingItemVariant2 as object ??
-            EmbeddingItemVariant1 as object 
+            EmbeddingItemVariant1 as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             EmbeddingItemVariant1?.ToString() ??
             EmbeddingItemVariant2?.ToString() ??
-            EmbeddingItemVariant3?.ToString() 
+            EmbeddingItemVariant3?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -183,7 +183,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::System.Collections.Generic.IList<double>, TResult>? embeddingItemVariant1 = null,
@@ -213,7 +213,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::System.Collections.Generic.IList<double>>? embeddingItemVariant1 = null,
@@ -243,7 +243,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::System.Collections.Generic.IList<double>>? embeddingItemVariant1 = null,
@@ -271,7 +271,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -294,19 +294,19 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(EmbeddingItem other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::System.Collections.Generic.IList<double>?>.Default.Equals(EmbeddingItemVariant1, other.EmbeddingItemVariant1) &&
                 global::System.Collections.Generic.EqualityComparer<global::System.Collections.Generic.IList<int>?>.Default.Equals(EmbeddingItemVariant2, other.EmbeddingItemVariant2) &&
-                global::System.Collections.Generic.EqualityComparer<string?>.Default.Equals(EmbeddingItemVariant3, other.EmbeddingItemVariant3) 
+                global::System.Collections.Generic.EqualityComparer<string?>.Default.Equals(EmbeddingItemVariant3, other.EmbeddingItemVariant3)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(EmbeddingItem obj1, EmbeddingItem obj2)
         {
@@ -314,7 +314,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(EmbeddingItem obj1, EmbeddingItem obj2)
         {
@@ -322,7 +322,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

@@ -9,11 +9,11 @@ namespace Mixedbread
     public enum Mode
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Fast,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         HighQuality,
     }

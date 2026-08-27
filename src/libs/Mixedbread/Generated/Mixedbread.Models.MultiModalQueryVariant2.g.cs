@@ -10,7 +10,7 @@ namespace Mixedbread
     public readonly partial struct MultiModalQueryVariant2 : global::System.IEquatable<MultiModalQueryVariant2>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Mixedbread.MultiModalQueryVariant2DiscriminatorType? Type { get; }
 
@@ -24,7 +24,7 @@ namespace Mixedbread
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ImageUrl))]
@@ -32,7 +32,7 @@ namespace Mixedbread
         public bool IsImageUrl => ImageUrl != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickImageUrl(
 #if NET6_0_OR_GREATER
@@ -45,7 +45,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Mixedbread.ImageUrlInput2 PickImageUrl() => IsImageUrl
             ? ImageUrl!
@@ -64,7 +64,7 @@ namespace Mixedbread
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Text))]
@@ -72,7 +72,7 @@ namespace Mixedbread
         public bool IsText => Text != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickText(
 #if NET6_0_OR_GREATER
@@ -85,23 +85,23 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Mixedbread.TextInput PickText() => IsText
             ? Text!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Text' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator MultiModalQueryVariant2(global::Mixedbread.ImageUrlInput2 value) => new MultiModalQueryVariant2((global::Mixedbread.ImageUrlInput2?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Mixedbread.ImageUrlInput2?(MultiModalQueryVariant2 @this) => @this.ImageUrl;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public MultiModalQueryVariant2(global::Mixedbread.ImageUrlInput2? value)
         {
@@ -109,22 +109,22 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static MultiModalQueryVariant2 FromImageUrl(global::Mixedbread.ImageUrlInput2? value) => new MultiModalQueryVariant2(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator MultiModalQueryVariant2(global::Mixedbread.TextInput value) => new MultiModalQueryVariant2((global::Mixedbread.TextInput?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Mixedbread.TextInput?(MultiModalQueryVariant2 @this) => @this.Text;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public MultiModalQueryVariant2(global::Mixedbread.TextInput? value)
         {
@@ -132,12 +132,12 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static MultiModalQueryVariant2 FromText(global::Mixedbread.TextInput? value) => new MultiModalQueryVariant2(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public MultiModalQueryVariant2(
             global::Mixedbread.MultiModalQueryVariant2DiscriminatorType? type,
@@ -152,23 +152,23 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             Text as object ??
-            ImageUrl as object 
+            ImageUrl as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             ImageUrl?.ToString() ??
-            Text?.ToString() 
+            Text?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -176,7 +176,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::Mixedbread.ImageUrlInput2, TResult>? imageUrl = null,
@@ -201,7 +201,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::Mixedbread.ImageUrlInput2>? imageUrl = null,
@@ -225,7 +225,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::Mixedbread.ImageUrlInput2>? imageUrl = null,
@@ -248,7 +248,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -269,18 +269,18 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(MultiModalQueryVariant2 other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::Mixedbread.ImageUrlInput2?>.Default.Equals(ImageUrl, other.ImageUrl) &&
-                global::System.Collections.Generic.EqualityComparer<global::Mixedbread.TextInput?>.Default.Equals(Text, other.Text) 
+                global::System.Collections.Generic.EqualityComparer<global::Mixedbread.TextInput?>.Default.Equals(Text, other.Text)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(MultiModalQueryVariant2 obj1, MultiModalQueryVariant2 obj2)
         {
@@ -288,7 +288,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(MultiModalQueryVariant2 obj1, MultiModalQueryVariant2 obj2)
         {
@@ -296,7 +296,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

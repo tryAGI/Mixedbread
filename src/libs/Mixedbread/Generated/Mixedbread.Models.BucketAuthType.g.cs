@@ -12,11 +12,11 @@ namespace Mixedbread
     public enum BucketAuthType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AccessKey,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AssumeRole,
     }

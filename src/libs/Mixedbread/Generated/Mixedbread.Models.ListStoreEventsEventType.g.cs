@@ -9,19 +9,19 @@ namespace Mixedbread
     public enum ListStoreEventsEventType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AgenticSearch,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Grep,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Ingestion,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Search,
     }
