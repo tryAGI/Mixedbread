@@ -4,7 +4,7 @@
 namespace Mixedbread
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class PDFChunkGeneratedMetadata
     {
@@ -21,19 +21,19 @@ namespace Mixedbread
         public string? FileType { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("total_pages")]
         public int? TotalPages { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("total_size")]
         public int? TotalSize { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file_extension")]
         public string? FileExtension { get; set; }

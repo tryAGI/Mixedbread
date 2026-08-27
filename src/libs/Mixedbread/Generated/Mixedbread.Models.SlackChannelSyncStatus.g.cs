@@ -10,15 +10,15 @@ namespace Mixedbread
     public enum SlackChannelSyncStatus
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Error,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         NotSyncing,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Syncing,
     }

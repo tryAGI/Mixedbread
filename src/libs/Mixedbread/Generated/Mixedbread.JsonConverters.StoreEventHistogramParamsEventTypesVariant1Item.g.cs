@@ -20,7 +20,7 @@ namespace Mixedbread.JsonConverters
                     {
                         return global::Mixedbread.StoreEventHistogramParamsEventTypesVariant1ItemExtensions.ToEnum(stringValue) ?? default;
                     }
-                    
+
                     break;
                 }
                 case global::System.Text.Json.JsonTokenType.Number:

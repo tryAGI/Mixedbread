@@ -9,31 +9,31 @@ namespace Mixedbread
     public enum EncodingFormat3
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Base64,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Binary,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Float,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Float16,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Int8,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Ubinary,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Uint8,
     }

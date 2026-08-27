@@ -5,12 +5,12 @@
 namespace Mixedbread
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct DataItem : global::System.IEquatable<DataItem>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Mixedbread.StoreEventListResponseDataItemDiscriminatorType? Type { get; }
 
@@ -24,7 +24,7 @@ namespace Mixedbread
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Ingestion))]
@@ -32,7 +32,7 @@ namespace Mixedbread
         public bool IsIngestion => Ingestion != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickIngestion(
 #if NET6_0_OR_GREATER
@@ -45,7 +45,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Mixedbread.StoreIngestionEvent PickIngestion() => IsIngestion
             ? Ingestion!
@@ -61,7 +61,7 @@ namespace Mixedbread
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Search))]
@@ -69,7 +69,7 @@ namespace Mixedbread
         public bool IsSearch => Search != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickSearch(
 #if NET6_0_OR_GREATER
@@ -82,7 +82,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Mixedbread.StoreSearchEvent PickSearch() => IsSearch
             ? Search!
@@ -101,7 +101,7 @@ namespace Mixedbread
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(AgenticSearch))]
@@ -109,7 +109,7 @@ namespace Mixedbread
         public bool IsAgenticSearch => AgenticSearch != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickAgenticSearch(
 #if NET6_0_OR_GREATER
@@ -122,7 +122,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Mixedbread.StoreAgenticSearchEvent PickAgenticSearch() => IsAgenticSearch
             ? AgenticSearch!
@@ -140,7 +140,7 @@ namespace Mixedbread
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Grep))]
@@ -148,7 +148,7 @@ namespace Mixedbread
         public bool IsGrep => Grep != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickGrep(
 #if NET6_0_OR_GREATER
@@ -161,23 +161,23 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Mixedbread.StoreGrepEvent PickGrep() => IsGrep
             ? Grep!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Grep' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator DataItem(global::Mixedbread.StoreIngestionEvent value) => new DataItem((global::Mixedbread.StoreIngestionEvent?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Mixedbread.StoreIngestionEvent?(DataItem @this) => @this.Ingestion;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public DataItem(global::Mixedbread.StoreIngestionEvent? value)
         {
@@ -185,22 +185,22 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static DataItem FromIngestion(global::Mixedbread.StoreIngestionEvent? value) => new DataItem(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator DataItem(global::Mixedbread.StoreSearchEvent value) => new DataItem((global::Mixedbread.StoreSearchEvent?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Mixedbread.StoreSearchEvent?(DataItem @this) => @this.Search;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public DataItem(global::Mixedbread.StoreSearchEvent? value)
         {
@@ -208,22 +208,22 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static DataItem FromSearch(global::Mixedbread.StoreSearchEvent? value) => new DataItem(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator DataItem(global::Mixedbread.StoreAgenticSearchEvent value) => new DataItem((global::Mixedbread.StoreAgenticSearchEvent?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Mixedbread.StoreAgenticSearchEvent?(DataItem @this) => @this.AgenticSearch;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public DataItem(global::Mixedbread.StoreAgenticSearchEvent? value)
         {
@@ -231,22 +231,22 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static DataItem FromAgenticSearch(global::Mixedbread.StoreAgenticSearchEvent? value) => new DataItem(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator DataItem(global::Mixedbread.StoreGrepEvent value) => new DataItem((global::Mixedbread.StoreGrepEvent?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Mixedbread.StoreGrepEvent?(DataItem @this) => @this.Grep;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public DataItem(global::Mixedbread.StoreGrepEvent? value)
         {
@@ -254,12 +254,12 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static DataItem FromGrep(global::Mixedbread.StoreGrepEvent? value) => new DataItem(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public DataItem(
             global::Mixedbread.StoreEventListResponseDataItemDiscriminatorType? type,
@@ -278,27 +278,27 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             Grep as object ??
             AgenticSearch as object ??
             Search as object ??
-            Ingestion as object 
+            Ingestion as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             Ingestion?.ToString() ??
             Search?.ToString() ??
             AgenticSearch?.ToString() ??
-            Grep?.ToString() 
+            Grep?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -306,7 +306,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::Mixedbread.StoreIngestionEvent, TResult>? ingestion = null,
@@ -341,7 +341,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::Mixedbread.StoreIngestionEvent>? ingestion = null,
@@ -377,7 +377,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::Mixedbread.StoreIngestionEvent>? ingestion = null,
@@ -410,7 +410,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -435,7 +435,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(DataItem other)
         {
@@ -443,12 +443,12 @@ namespace Mixedbread
                 global::System.Collections.Generic.EqualityComparer<global::Mixedbread.StoreIngestionEvent?>.Default.Equals(Ingestion, other.Ingestion) &&
                 global::System.Collections.Generic.EqualityComparer<global::Mixedbread.StoreSearchEvent?>.Default.Equals(Search, other.Search) &&
                 global::System.Collections.Generic.EqualityComparer<global::Mixedbread.StoreAgenticSearchEvent?>.Default.Equals(AgenticSearch, other.AgenticSearch) &&
-                global::System.Collections.Generic.EqualityComparer<global::Mixedbread.StoreGrepEvent?>.Default.Equals(Grep, other.Grep) 
+                global::System.Collections.Generic.EqualityComparer<global::Mixedbread.StoreGrepEvent?>.Default.Equals(Grep, other.Grep)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(DataItem obj1, DataItem obj2)
         {
@@ -456,7 +456,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(DataItem obj1, DataItem obj2)
         {
@@ -464,7 +464,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

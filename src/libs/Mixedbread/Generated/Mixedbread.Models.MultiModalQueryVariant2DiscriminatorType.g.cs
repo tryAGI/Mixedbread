@@ -4,16 +4,16 @@
 namespace Mixedbread
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum MultiModalQueryVariant2DiscriminatorType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ImageUrl,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Text,
     }

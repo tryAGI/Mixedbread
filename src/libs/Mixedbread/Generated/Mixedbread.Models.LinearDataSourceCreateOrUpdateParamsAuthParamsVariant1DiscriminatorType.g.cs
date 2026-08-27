@@ -4,12 +4,12 @@
 namespace Mixedbread
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum LinearDataSourceCreateOrUpdateParamsAuthParamsVariant1DiscriminatorType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Oauth2,
     }

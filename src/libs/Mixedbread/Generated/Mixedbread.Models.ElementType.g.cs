@@ -9,47 +9,47 @@ namespace Mixedbread
     public enum ElementType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Figure,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Footer,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Footnote,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Form,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Header,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ListItem,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         PageNumber,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SectionHeader,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Table,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Text,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Title,
     }

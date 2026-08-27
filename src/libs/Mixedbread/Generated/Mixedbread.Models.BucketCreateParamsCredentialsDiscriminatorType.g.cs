@@ -4,16 +4,16 @@
 namespace Mixedbread
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum BucketCreateParamsCredentialsDiscriminatorType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AccessKey,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AssumeRole,
     }

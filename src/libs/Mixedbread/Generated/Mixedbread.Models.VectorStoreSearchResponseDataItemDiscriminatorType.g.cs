@@ -4,24 +4,24 @@
 namespace Mixedbread
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum VectorStoreSearchResponseDataItemDiscriminatorType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AudioUrl,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ImageUrl,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Text,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         VideoUrl,
     }

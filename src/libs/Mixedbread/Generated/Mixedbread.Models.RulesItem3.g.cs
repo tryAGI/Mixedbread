@@ -10,7 +10,7 @@ namespace Mixedbread
     public readonly partial struct RulesItem3 : global::System.IEquatable<RulesItem3>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Mixedbread.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleCreateParamsRuleDiscriminatorType? Type { get; }
 
@@ -24,7 +24,7 @@ namespace Mixedbread
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(QueryString))]
@@ -32,7 +32,7 @@ namespace Mixedbread
         public bool IsQueryString => QueryString != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickQueryString(
 #if NET6_0_OR_GREATER
@@ -45,7 +45,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Mixedbread.QueryStringSubstitutionRule PickQueryString() => IsQueryString
             ? QueryString!
@@ -61,7 +61,7 @@ namespace Mixedbread
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(QueryRegex))]
@@ -69,7 +69,7 @@ namespace Mixedbread
         public bool IsQueryRegex => QueryRegex != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickQueryRegex(
 #if NET6_0_OR_GREATER
@@ -82,7 +82,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Mixedbread.QueryRegexSubstitutionRule PickQueryRegex() => IsQueryRegex
             ? QueryRegex!
@@ -98,7 +98,7 @@ namespace Mixedbread
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ChunkSearchResult))]
@@ -106,7 +106,7 @@ namespace Mixedbread
         public bool IsChunkSearchResult => ChunkSearchResult != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickChunkSearchResult(
 #if NET6_0_OR_GREATER
@@ -119,7 +119,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Mixedbread.ChunkSearchResultRule PickChunkSearchResult() => IsChunkSearchResult
             ? ChunkSearchResult!
@@ -135,7 +135,7 @@ namespace Mixedbread
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(FileSearchResult))]
@@ -143,7 +143,7 @@ namespace Mixedbread
         public bool IsFileSearchResult => FileSearchResult != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickFileSearchResult(
 #if NET6_0_OR_GREATER
@@ -156,23 +156,23 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Mixedbread.FileSearchResultRule PickFileSearchResult() => IsFileSearchResult
             ? FileSearchResult!
             : throw new global::System.InvalidOperationException($"Expected union variant 'FileSearchResult' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator RulesItem3(global::Mixedbread.QueryStringSubstitutionRule value) => new RulesItem3((global::Mixedbread.QueryStringSubstitutionRule?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Mixedbread.QueryStringSubstitutionRule?(RulesItem3 @this) => @this.QueryString;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public RulesItem3(global::Mixedbread.QueryStringSubstitutionRule? value)
         {
@@ -180,22 +180,22 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static RulesItem3 FromQueryString(global::Mixedbread.QueryStringSubstitutionRule? value) => new RulesItem3(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator RulesItem3(global::Mixedbread.QueryRegexSubstitutionRule value) => new RulesItem3((global::Mixedbread.QueryRegexSubstitutionRule?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Mixedbread.QueryRegexSubstitutionRule?(RulesItem3 @this) => @this.QueryRegex;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public RulesItem3(global::Mixedbread.QueryRegexSubstitutionRule? value)
         {
@@ -203,22 +203,22 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static RulesItem3 FromQueryRegex(global::Mixedbread.QueryRegexSubstitutionRule? value) => new RulesItem3(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator RulesItem3(global::Mixedbread.ChunkSearchResultRule value) => new RulesItem3((global::Mixedbread.ChunkSearchResultRule?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Mixedbread.ChunkSearchResultRule?(RulesItem3 @this) => @this.ChunkSearchResult;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public RulesItem3(global::Mixedbread.ChunkSearchResultRule? value)
         {
@@ -226,22 +226,22 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static RulesItem3 FromChunkSearchResult(global::Mixedbread.ChunkSearchResultRule? value) => new RulesItem3(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator RulesItem3(global::Mixedbread.FileSearchResultRule value) => new RulesItem3((global::Mixedbread.FileSearchResultRule?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Mixedbread.FileSearchResultRule?(RulesItem3 @this) => @this.FileSearchResult;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public RulesItem3(global::Mixedbread.FileSearchResultRule? value)
         {
@@ -249,12 +249,12 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static RulesItem3 FromFileSearchResult(global::Mixedbread.FileSearchResultRule? value) => new RulesItem3(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public RulesItem3(
             global::Mixedbread.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleCreateParamsRuleDiscriminatorType? type,
@@ -273,27 +273,27 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             FileSearchResult as object ??
             ChunkSearchResult as object ??
             QueryRegex as object ??
-            QueryString as object 
+            QueryString as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             QueryString?.ToString() ??
             QueryRegex?.ToString() ??
             ChunkSearchResult?.ToString() ??
-            FileSearchResult?.ToString() 
+            FileSearchResult?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -301,7 +301,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::Mixedbread.QueryStringSubstitutionRule, TResult>? queryString = null,
@@ -336,7 +336,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::Mixedbread.QueryStringSubstitutionRule>? queryString = null,
@@ -372,7 +372,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::Mixedbread.QueryStringSubstitutionRule>? queryString = null,
@@ -405,7 +405,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -430,7 +430,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(RulesItem3 other)
         {
@@ -438,12 +438,12 @@ namespace Mixedbread
                 global::System.Collections.Generic.EqualityComparer<global::Mixedbread.QueryStringSubstitutionRule?>.Default.Equals(QueryString, other.QueryString) &&
                 global::System.Collections.Generic.EqualityComparer<global::Mixedbread.QueryRegexSubstitutionRule?>.Default.Equals(QueryRegex, other.QueryRegex) &&
                 global::System.Collections.Generic.EqualityComparer<global::Mixedbread.ChunkSearchResultRule?>.Default.Equals(ChunkSearchResult, other.ChunkSearchResult) &&
-                global::System.Collections.Generic.EqualityComparer<global::Mixedbread.FileSearchResultRule?>.Default.Equals(FileSearchResult, other.FileSearchResult) 
+                global::System.Collections.Generic.EqualityComparer<global::Mixedbread.FileSearchResultRule?>.Default.Equals(FileSearchResult, other.FileSearchResult)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(RulesItem3 obj1, RulesItem3 obj2)
         {
@@ -451,7 +451,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(RulesItem3 obj1, RulesItem3 obj2)
         {
@@ -459,7 +459,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

@@ -4,24 +4,24 @@
 namespace Mixedbread
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum StoreEventListResponseDataItemDiscriminatorType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AgenticSearch,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Grep,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Ingestion,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Search,
     }

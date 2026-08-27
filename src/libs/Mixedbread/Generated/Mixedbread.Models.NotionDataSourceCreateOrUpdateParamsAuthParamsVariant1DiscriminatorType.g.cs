@@ -4,16 +4,16 @@
 namespace Mixedbread
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum NotionDataSourceCreateOrUpdateParamsAuthParamsVariant1DiscriminatorType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ApiKey,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Oauth2,
     }

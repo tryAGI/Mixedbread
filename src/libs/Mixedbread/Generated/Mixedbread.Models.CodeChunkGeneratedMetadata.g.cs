@@ -4,7 +4,7 @@
 namespace Mixedbread
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class CodeChunkGeneratedMetadata
     {
@@ -15,26 +15,26 @@ namespace Mixedbread
         public string? Type { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file_type")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string FileType { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("language")]
         public string? Language { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("word_count")]
         public int? WordCount { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file_size")]
         public int? FileSize { get; set; }
@@ -52,7 +52,7 @@ namespace Mixedbread
         public int? NumLines { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file_extension")]
         public string? FileExtension { get; set; }

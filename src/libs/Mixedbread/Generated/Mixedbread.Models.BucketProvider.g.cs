@@ -9,7 +9,7 @@ namespace Mixedbread
     public enum BucketProvider
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AwsS3,
     }

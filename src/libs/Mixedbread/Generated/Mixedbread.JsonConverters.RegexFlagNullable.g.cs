@@ -20,7 +20,7 @@ namespace Mixedbread.JsonConverters
                     {
                         return global::Mixedbread.RegexFlagExtensions.ToEnum(stringValue);
                     }
-                    
+
                     break;
                 }
                 case global::System.Text.Json.JsonTokenType.Number:

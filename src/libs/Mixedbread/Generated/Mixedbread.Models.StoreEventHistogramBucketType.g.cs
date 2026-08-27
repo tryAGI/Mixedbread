@@ -9,179 +9,179 @@ namespace Mixedbread
     public enum StoreEventHistogramBucketType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ApiKeyCreated,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ApiKeyDeleted,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ApiKeyRerolled,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ApiKeyRevoked,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ApiKeyUpdated,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AuthError,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AuthInvalidToken,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AuthSuccess,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DataSourceConnectorJobCompleted,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DataSourceCreated,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DataSourceDeleted,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DataSourceOauth2Authorized,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DataSourceOauth2Requested,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DataSourceUpdated,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ExtractionJobCancelled,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ExtractionJobCompleted,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ExtractionJobCreated,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ExtractionJobDeleted,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         FileDeleted,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         FileDownloaded,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         FileUpdated,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         FileUploaded,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         InferenceEmbeddings,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         InferenceReranking,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         InternalError,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ModelRequest,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ParsingJobCancelled,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ParsingJobCompleted,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ParsingJobCreated,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ParsingJobDeleted,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         StoreCreated,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         StoreDeleted,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         StoreFileCancelled,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         StoreFileCompleted,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         StoreFileCreated,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         StoreFileDeleted,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         StoreFileSearch,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         StoreFileUpdated,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         StoreGrep,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         StoreQuestionAnswer,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         StoreReingestionCompleted,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         StoreSearch,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         StoreUpdated,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         StoreWebSearch,
     }

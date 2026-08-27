@@ -224,7 +224,7 @@ namespace Mixedbread
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                 global::Mixedbread.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
@@ -456,7 +456,7 @@ namespace Mixedbread
                                         h => h.Key,
                                         h => h.Value));
                             }
-                            // 
+                            //
                             if ((int)__response.StatusCode == 400)
                             {
                                 string? __content_400 = null;
@@ -488,7 +488,7 @@ namespace Mixedbread
                                         h => h.Key,
                                         h => h.Value));
                             }
-                            // 
+                            //
                             if ((int)__response.StatusCode == 404)
                             {
                                 string? __content_404 = null;

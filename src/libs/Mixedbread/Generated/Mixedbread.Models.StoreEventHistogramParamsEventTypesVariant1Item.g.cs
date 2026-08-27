@@ -4,24 +4,24 @@
 namespace Mixedbread
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum StoreEventHistogramParamsEventTypesVariant1Item
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AgenticSearch,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Grep,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Ingestion,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Search,
     }

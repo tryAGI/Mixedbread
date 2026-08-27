@@ -10,15 +10,15 @@ namespace Mixedbread
     public enum AgenticSearchConfigMediaContent
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Always,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Auto,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Never,
     }

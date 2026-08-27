@@ -4,16 +4,16 @@
 namespace Mixedbread
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum QueryEnhanceResultsItemDiscriminatorType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Query,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Sort,
     }

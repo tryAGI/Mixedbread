@@ -5,17 +5,17 @@
 namespace Mixedbread
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct ChunksVariant1Item2 : global::System.IEquatable<ChunksVariant1Item2>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Mixedbread.VectorStoreFileChunksVariant1ItemDiscriminatorType? Type { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::Mixedbread.TextInputChunk? Text { get; init; }
@@ -24,7 +24,7 @@ namespace Mixedbread
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Text))]
@@ -32,7 +32,7 @@ namespace Mixedbread
         public bool IsText => Text != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickText(
 #if NET6_0_OR_GREATER
@@ -45,14 +45,14 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Mixedbread.TextInputChunk PickText() => IsText
             ? Text!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Text' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::Mixedbread.ImageUrlInputChunk? ImageUrl { get; init; }
@@ -61,7 +61,7 @@ namespace Mixedbread
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ImageUrl))]
@@ -69,7 +69,7 @@ namespace Mixedbread
         public bool IsImageUrl => ImageUrl != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickImageUrl(
 #if NET6_0_OR_GREATER
@@ -82,14 +82,14 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Mixedbread.ImageUrlInputChunk PickImageUrl() => IsImageUrl
             ? ImageUrl!
             : throw new global::System.InvalidOperationException($"Expected union variant 'ImageUrl' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::Mixedbread.AudioUrlInputChunk? AudioUrl { get; init; }
@@ -98,7 +98,7 @@ namespace Mixedbread
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(AudioUrl))]
@@ -106,7 +106,7 @@ namespace Mixedbread
         public bool IsAudioUrl => AudioUrl != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickAudioUrl(
 #if NET6_0_OR_GREATER
@@ -119,14 +119,14 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Mixedbread.AudioUrlInputChunk PickAudioUrl() => IsAudioUrl
             ? AudioUrl!
             : throw new global::System.InvalidOperationException($"Expected union variant 'AudioUrl' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::Mixedbread.VideoUrlInputChunk? VideoUrl { get; init; }
@@ -135,7 +135,7 @@ namespace Mixedbread
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(VideoUrl))]
@@ -143,7 +143,7 @@ namespace Mixedbread
         public bool IsVideoUrl => VideoUrl != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickVideoUrl(
 #if NET6_0_OR_GREATER
@@ -156,23 +156,23 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Mixedbread.VideoUrlInputChunk PickVideoUrl() => IsVideoUrl
             ? VideoUrl!
             : throw new global::System.InvalidOperationException($"Expected union variant 'VideoUrl' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ChunksVariant1Item2(global::Mixedbread.TextInputChunk value) => new ChunksVariant1Item2((global::Mixedbread.TextInputChunk?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Mixedbread.TextInputChunk?(ChunksVariant1Item2 @this) => @this.Text;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ChunksVariant1Item2(global::Mixedbread.TextInputChunk? value)
         {
@@ -180,22 +180,22 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ChunksVariant1Item2 FromText(global::Mixedbread.TextInputChunk? value) => new ChunksVariant1Item2(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ChunksVariant1Item2(global::Mixedbread.ImageUrlInputChunk value) => new ChunksVariant1Item2((global::Mixedbread.ImageUrlInputChunk?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Mixedbread.ImageUrlInputChunk?(ChunksVariant1Item2 @this) => @this.ImageUrl;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ChunksVariant1Item2(global::Mixedbread.ImageUrlInputChunk? value)
         {
@@ -203,22 +203,22 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ChunksVariant1Item2 FromImageUrl(global::Mixedbread.ImageUrlInputChunk? value) => new ChunksVariant1Item2(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ChunksVariant1Item2(global::Mixedbread.AudioUrlInputChunk value) => new ChunksVariant1Item2((global::Mixedbread.AudioUrlInputChunk?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Mixedbread.AudioUrlInputChunk?(ChunksVariant1Item2 @this) => @this.AudioUrl;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ChunksVariant1Item2(global::Mixedbread.AudioUrlInputChunk? value)
         {
@@ -226,22 +226,22 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ChunksVariant1Item2 FromAudioUrl(global::Mixedbread.AudioUrlInputChunk? value) => new ChunksVariant1Item2(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ChunksVariant1Item2(global::Mixedbread.VideoUrlInputChunk value) => new ChunksVariant1Item2((global::Mixedbread.VideoUrlInputChunk?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Mixedbread.VideoUrlInputChunk?(ChunksVariant1Item2 @this) => @this.VideoUrl;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ChunksVariant1Item2(global::Mixedbread.VideoUrlInputChunk? value)
         {
@@ -249,12 +249,12 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ChunksVariant1Item2 FromVideoUrl(global::Mixedbread.VideoUrlInputChunk? value) => new ChunksVariant1Item2(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ChunksVariant1Item2(
             global::Mixedbread.VectorStoreFileChunksVariant1ItemDiscriminatorType? type,
@@ -273,27 +273,27 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             VideoUrl as object ??
             AudioUrl as object ??
             ImageUrl as object ??
-            Text as object 
+            Text as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             Text?.ToString() ??
             ImageUrl?.ToString() ??
             AudioUrl?.ToString() ??
-            VideoUrl?.ToString() 
+            VideoUrl?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -301,7 +301,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::Mixedbread.TextInputChunk, TResult>? text = null,
@@ -336,7 +336,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::Mixedbread.TextInputChunk>? text = null,
@@ -372,7 +372,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::Mixedbread.TextInputChunk>? text = null,
@@ -405,7 +405,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -430,7 +430,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(ChunksVariant1Item2 other)
         {
@@ -438,12 +438,12 @@ namespace Mixedbread
                 global::System.Collections.Generic.EqualityComparer<global::Mixedbread.TextInputChunk?>.Default.Equals(Text, other.Text) &&
                 global::System.Collections.Generic.EqualityComparer<global::Mixedbread.ImageUrlInputChunk?>.Default.Equals(ImageUrl, other.ImageUrl) &&
                 global::System.Collections.Generic.EqualityComparer<global::Mixedbread.AudioUrlInputChunk?>.Default.Equals(AudioUrl, other.AudioUrl) &&
-                global::System.Collections.Generic.EqualityComparer<global::Mixedbread.VideoUrlInputChunk?>.Default.Equals(VideoUrl, other.VideoUrl) 
+                global::System.Collections.Generic.EqualityComparer<global::Mixedbread.VideoUrlInputChunk?>.Default.Equals(VideoUrl, other.VideoUrl)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(ChunksVariant1Item2 obj1, ChunksVariant1Item2 obj2)
         {
@@ -451,7 +451,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(ChunksVariant1Item2 obj1, ChunksVariant1Item2 obj2)
         {
@@ -459,7 +459,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

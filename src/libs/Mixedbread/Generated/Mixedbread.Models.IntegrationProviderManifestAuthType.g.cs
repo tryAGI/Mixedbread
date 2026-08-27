@@ -9,15 +9,15 @@ namespace Mixedbread
     public enum IntegrationProviderManifestAuthType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ApiKey,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         BotToken,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Oauth2,
     }

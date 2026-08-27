@@ -5,17 +5,17 @@
 namespace Mixedbread
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct GeneratedMetadataVariant17 : global::System.IEquatable<GeneratedMetadataVariant17>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredTextInputChunkGeneratedMetadataVariant1DiscriminatorType? Type { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::Mixedbread.MarkdownChunkGeneratedMetadata? Markdown { get; init; }
@@ -24,7 +24,7 @@ namespace Mixedbread
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Markdown))]
@@ -32,7 +32,7 @@ namespace Mixedbread
         public bool IsMarkdown => Markdown != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickMarkdown(
 #if NET6_0_OR_GREATER
@@ -45,14 +45,14 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Mixedbread.MarkdownChunkGeneratedMetadata PickMarkdown() => IsMarkdown
             ? Markdown!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Markdown' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::Mixedbread.TextChunkGeneratedMetadata? Text { get; init; }
@@ -61,7 +61,7 @@ namespace Mixedbread
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Text))]
@@ -69,7 +69,7 @@ namespace Mixedbread
         public bool IsText => Text != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickText(
 #if NET6_0_OR_GREATER
@@ -82,14 +82,14 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Mixedbread.TextChunkGeneratedMetadata PickText() => IsText
             ? Text!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Text' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::Mixedbread.PDFChunkGeneratedMetadata? Pdf { get; init; }
@@ -98,7 +98,7 @@ namespace Mixedbread
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Pdf))]
@@ -106,7 +106,7 @@ namespace Mixedbread
         public bool IsPdf => Pdf != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickPdf(
 #if NET6_0_OR_GREATER
@@ -119,14 +119,14 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Mixedbread.PDFChunkGeneratedMetadata PickPdf() => IsPdf
             ? Pdf!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Pdf' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::Mixedbread.CodeChunkGeneratedMetadata? Code { get; init; }
@@ -135,7 +135,7 @@ namespace Mixedbread
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Code))]
@@ -143,7 +143,7 @@ namespace Mixedbread
         public bool IsCode => Code != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickCode(
 #if NET6_0_OR_GREATER
@@ -156,14 +156,14 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Mixedbread.CodeChunkGeneratedMetadata PickCode() => IsCode
             ? Code!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Code' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::Mixedbread.AudioChunkGeneratedMetadata? Audio { get; init; }
@@ -172,7 +172,7 @@ namespace Mixedbread
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Audio))]
@@ -180,7 +180,7 @@ namespace Mixedbread
         public bool IsAudio => Audio != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickAudio(
 #if NET6_0_OR_GREATER
@@ -193,14 +193,14 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Mixedbread.AudioChunkGeneratedMetadata PickAudio() => IsAudio
             ? Audio!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Audio' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::Mixedbread.VideoChunkGeneratedMetadata? Video { get; init; }
@@ -209,7 +209,7 @@ namespace Mixedbread
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Video))]
@@ -217,7 +217,7 @@ namespace Mixedbread
         public bool IsVideo => Video != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickVideo(
 #if NET6_0_OR_GREATER
@@ -230,14 +230,14 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Mixedbread.VideoChunkGeneratedMetadata PickVideo() => IsVideo
             ? Video!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Video' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::Mixedbread.ImageChunkGeneratedMetadata? Image { get; init; }
@@ -246,7 +246,7 @@ namespace Mixedbread
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Image))]
@@ -254,7 +254,7 @@ namespace Mixedbread
         public bool IsImage => Image != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickImage(
 #if NET6_0_OR_GREATER
@@ -267,23 +267,23 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Mixedbread.ImageChunkGeneratedMetadata PickImage() => IsImage
             ? Image!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Image' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator GeneratedMetadataVariant17(global::Mixedbread.MarkdownChunkGeneratedMetadata value) => new GeneratedMetadataVariant17((global::Mixedbread.MarkdownChunkGeneratedMetadata?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Mixedbread.MarkdownChunkGeneratedMetadata?(GeneratedMetadataVariant17 @this) => @this.Markdown;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public GeneratedMetadataVariant17(global::Mixedbread.MarkdownChunkGeneratedMetadata? value)
         {
@@ -291,22 +291,22 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static GeneratedMetadataVariant17 FromMarkdown(global::Mixedbread.MarkdownChunkGeneratedMetadata? value) => new GeneratedMetadataVariant17(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator GeneratedMetadataVariant17(global::Mixedbread.TextChunkGeneratedMetadata value) => new GeneratedMetadataVariant17((global::Mixedbread.TextChunkGeneratedMetadata?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Mixedbread.TextChunkGeneratedMetadata?(GeneratedMetadataVariant17 @this) => @this.Text;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public GeneratedMetadataVariant17(global::Mixedbread.TextChunkGeneratedMetadata? value)
         {
@@ -314,22 +314,22 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static GeneratedMetadataVariant17 FromText(global::Mixedbread.TextChunkGeneratedMetadata? value) => new GeneratedMetadataVariant17(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator GeneratedMetadataVariant17(global::Mixedbread.PDFChunkGeneratedMetadata value) => new GeneratedMetadataVariant17((global::Mixedbread.PDFChunkGeneratedMetadata?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Mixedbread.PDFChunkGeneratedMetadata?(GeneratedMetadataVariant17 @this) => @this.Pdf;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public GeneratedMetadataVariant17(global::Mixedbread.PDFChunkGeneratedMetadata? value)
         {
@@ -337,22 +337,22 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static GeneratedMetadataVariant17 FromPdf(global::Mixedbread.PDFChunkGeneratedMetadata? value) => new GeneratedMetadataVariant17(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator GeneratedMetadataVariant17(global::Mixedbread.CodeChunkGeneratedMetadata value) => new GeneratedMetadataVariant17((global::Mixedbread.CodeChunkGeneratedMetadata?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Mixedbread.CodeChunkGeneratedMetadata?(GeneratedMetadataVariant17 @this) => @this.Code;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public GeneratedMetadataVariant17(global::Mixedbread.CodeChunkGeneratedMetadata? value)
         {
@@ -360,22 +360,22 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static GeneratedMetadataVariant17 FromCode(global::Mixedbread.CodeChunkGeneratedMetadata? value) => new GeneratedMetadataVariant17(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator GeneratedMetadataVariant17(global::Mixedbread.AudioChunkGeneratedMetadata value) => new GeneratedMetadataVariant17((global::Mixedbread.AudioChunkGeneratedMetadata?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Mixedbread.AudioChunkGeneratedMetadata?(GeneratedMetadataVariant17 @this) => @this.Audio;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public GeneratedMetadataVariant17(global::Mixedbread.AudioChunkGeneratedMetadata? value)
         {
@@ -383,22 +383,22 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static GeneratedMetadataVariant17 FromAudio(global::Mixedbread.AudioChunkGeneratedMetadata? value) => new GeneratedMetadataVariant17(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator GeneratedMetadataVariant17(global::Mixedbread.VideoChunkGeneratedMetadata value) => new GeneratedMetadataVariant17((global::Mixedbread.VideoChunkGeneratedMetadata?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Mixedbread.VideoChunkGeneratedMetadata?(GeneratedMetadataVariant17 @this) => @this.Video;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public GeneratedMetadataVariant17(global::Mixedbread.VideoChunkGeneratedMetadata? value)
         {
@@ -406,22 +406,22 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static GeneratedMetadataVariant17 FromVideo(global::Mixedbread.VideoChunkGeneratedMetadata? value) => new GeneratedMetadataVariant17(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator GeneratedMetadataVariant17(global::Mixedbread.ImageChunkGeneratedMetadata value) => new GeneratedMetadataVariant17((global::Mixedbread.ImageChunkGeneratedMetadata?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Mixedbread.ImageChunkGeneratedMetadata?(GeneratedMetadataVariant17 @this) => @this.Image;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public GeneratedMetadataVariant17(global::Mixedbread.ImageChunkGeneratedMetadata? value)
         {
@@ -429,12 +429,12 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static GeneratedMetadataVariant17 FromImage(global::Mixedbread.ImageChunkGeneratedMetadata? value) => new GeneratedMetadataVariant17(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public GeneratedMetadataVariant17(
             global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredTextInputChunkGeneratedMetadataVariant1DiscriminatorType? type,
@@ -459,7 +459,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             Image as object ??
@@ -468,11 +468,11 @@ namespace Mixedbread
             Code as object ??
             Pdf as object ??
             Text as object ??
-            Markdown as object 
+            Markdown as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             Markdown?.ToString() ??
@@ -481,11 +481,11 @@ namespace Mixedbread
             Code?.ToString() ??
             Audio?.ToString() ??
             Video?.ToString() ??
-            Image?.ToString() 
+            Image?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -493,7 +493,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::Mixedbread.MarkdownChunkGeneratedMetadata, TResult>? markdown = null,
@@ -543,7 +543,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::Mixedbread.MarkdownChunkGeneratedMetadata>? markdown = null,
@@ -597,7 +597,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::Mixedbread.MarkdownChunkGeneratedMetadata>? markdown = null,
@@ -645,7 +645,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -676,7 +676,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(GeneratedMetadataVariant17 other)
         {
@@ -687,12 +687,12 @@ namespace Mixedbread
                 global::System.Collections.Generic.EqualityComparer<global::Mixedbread.CodeChunkGeneratedMetadata?>.Default.Equals(Code, other.Code) &&
                 global::System.Collections.Generic.EqualityComparer<global::Mixedbread.AudioChunkGeneratedMetadata?>.Default.Equals(Audio, other.Audio) &&
                 global::System.Collections.Generic.EqualityComparer<global::Mixedbread.VideoChunkGeneratedMetadata?>.Default.Equals(Video, other.Video) &&
-                global::System.Collections.Generic.EqualityComparer<global::Mixedbread.ImageChunkGeneratedMetadata?>.Default.Equals(Image, other.Image) 
+                global::System.Collections.Generic.EqualityComparer<global::Mixedbread.ImageChunkGeneratedMetadata?>.Default.Equals(Image, other.Image)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(GeneratedMetadataVariant17 obj1, GeneratedMetadataVariant17 obj2)
         {
@@ -700,7 +700,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(GeneratedMetadataVariant17 obj1, GeneratedMetadataVariant17 obj2)
         {
@@ -708,7 +708,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

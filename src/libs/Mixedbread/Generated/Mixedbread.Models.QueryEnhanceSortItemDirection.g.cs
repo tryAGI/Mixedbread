@@ -9,11 +9,11 @@ namespace Mixedbread
     public enum QueryEnhanceSortItemDirection
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Asc,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Desc,
     }

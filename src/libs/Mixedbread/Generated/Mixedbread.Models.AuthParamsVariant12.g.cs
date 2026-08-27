@@ -5,12 +5,12 @@
 namespace Mixedbread
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct AuthParamsVariant12 : global::System.IEquatable<AuthParamsVariant12>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Mixedbread.LinearDataSourceCreateOrUpdateParamsAuthParamsVariant1DiscriminatorType? Type { get; }
 
@@ -24,7 +24,7 @@ namespace Mixedbread
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Oauth2))]
@@ -32,7 +32,7 @@ namespace Mixedbread
         public bool IsOauth2 => Oauth2 != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickOauth2(
 #if NET6_0_OR_GREATER
@@ -45,23 +45,23 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Mixedbread.OAuth2CreateOrUpdateParams PickOauth2() => IsOauth2
             ? Oauth2!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Oauth2' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator AuthParamsVariant12(global::Mixedbread.OAuth2CreateOrUpdateParams value) => new AuthParamsVariant12((global::Mixedbread.OAuth2CreateOrUpdateParams?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Mixedbread.OAuth2CreateOrUpdateParams?(AuthParamsVariant12 @this) => @this.Oauth2;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public AuthParamsVariant12(global::Mixedbread.OAuth2CreateOrUpdateParams? value)
         {
@@ -69,12 +69,12 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static AuthParamsVariant12 FromOauth2(global::Mixedbread.OAuth2CreateOrUpdateParams? value) => new AuthParamsVariant12(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public AuthParamsVariant12(
             global::Mixedbread.LinearDataSourceCreateOrUpdateParamsAuthParamsVariant1DiscriminatorType? type,
@@ -87,21 +87,21 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
-            Oauth2 as object 
+            Oauth2 as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
-            Oauth2?.ToString() 
+            Oauth2?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -109,7 +109,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::Mixedbread.OAuth2CreateOrUpdateParams, TResult>? oauth2 = null,
@@ -129,7 +129,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::Mixedbread.OAuth2CreateOrUpdateParams>? oauth2 = null,
@@ -147,7 +147,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::Mixedbread.OAuth2CreateOrUpdateParams>? oauth2 = null,
@@ -165,7 +165,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -184,17 +184,17 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(AuthParamsVariant12 other)
         {
             return
-                global::System.Collections.Generic.EqualityComparer<global::Mixedbread.OAuth2CreateOrUpdateParams?>.Default.Equals(Oauth2, other.Oauth2) 
+                global::System.Collections.Generic.EqualityComparer<global::Mixedbread.OAuth2CreateOrUpdateParams?>.Default.Equals(Oauth2, other.Oauth2)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(AuthParamsVariant12 obj1, AuthParamsVariant12 obj2)
         {
@@ -202,7 +202,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(AuthParamsVariant12 obj1, AuthParamsVariant12 obj2)
         {
@@ -210,7 +210,7 @@ namespace Mixedbread
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

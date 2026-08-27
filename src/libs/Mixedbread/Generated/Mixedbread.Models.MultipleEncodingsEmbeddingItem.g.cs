@@ -4,42 +4,42 @@
 namespace Mixedbread
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class MultipleEncodingsEmbeddingItem
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("float")]
         public global::System.Collections.Generic.IList<double>? Float { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("int8")]
         public global::System.Collections.Generic.IList<int>? Int8 { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("uint8")]
         public global::System.Collections.Generic.IList<int>? Uint8 { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("binary")]
         public global::System.Collections.Generic.IList<int>? Binary { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("ubinary")]
         public global::System.Collections.Generic.IList<int>? Ubinary { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("base64")]
         public string? Base64 { get; set; }

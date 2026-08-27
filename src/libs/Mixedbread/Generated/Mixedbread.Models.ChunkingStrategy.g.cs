@@ -9,7 +9,7 @@ namespace Mixedbread
     public enum ChunkingStrategy
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Page,
     }

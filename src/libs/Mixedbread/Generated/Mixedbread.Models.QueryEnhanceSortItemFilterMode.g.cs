@@ -10,11 +10,11 @@ namespace Mixedbread
     public enum QueryEnhanceSortItemFilterMode
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         All,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Any,
     }

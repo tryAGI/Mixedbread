@@ -10,15 +10,15 @@ namespace Mixedbread
     public enum AgenticToolCallToolType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Datastore,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Extension,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Function,
     }

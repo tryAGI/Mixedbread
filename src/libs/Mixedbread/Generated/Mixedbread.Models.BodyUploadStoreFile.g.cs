@@ -4,7 +4,7 @@
 namespace Mixedbread
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class BodyUploadStoreFile
     {
@@ -23,7 +23,7 @@ namespace Mixedbread
         public required string Filename { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("params")]
         public string? Params { get; set; }

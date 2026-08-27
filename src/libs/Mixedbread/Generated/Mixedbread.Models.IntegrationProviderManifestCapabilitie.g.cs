@@ -4,20 +4,20 @@
 namespace Mixedbread
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum IntegrationProviderManifestCapabilitie
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ExternalAction,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         IngestToStore,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Notify,
     }

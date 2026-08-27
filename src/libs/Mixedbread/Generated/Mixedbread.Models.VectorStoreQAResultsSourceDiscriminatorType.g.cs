@@ -4,24 +4,24 @@
 namespace Mixedbread
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum VectorStoreQAResultsSourceDiscriminatorType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AudioUrl,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ImageUrl,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Text,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         VideoUrl,
     }
