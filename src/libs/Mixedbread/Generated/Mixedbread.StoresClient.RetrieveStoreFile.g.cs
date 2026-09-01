@@ -175,7 +175,10 @@ namespace Mixedbread
                                 servers: s_RetrieveStoreFileServers,
                                 defaultBaseUrl: "https://api.mixedbread.com/"));
                             __pathBuilder
-                                .AddOptionalParameter("return_chunks", returnChunks?.ToString())
+                                .AddOptionalParameter("return_chunks", returnChunks?.Match(
+                static x => (global::System.Collections.Generic.IEnumerable<string?>)new string?[] { x?.ToString().ToLowerInvariant() },
+                static x => (global::System.Collections.Generic.IEnumerable<string?>)global::System.Linq.Enumerable.Select(x, static item => item.ToString()!),
+                validate: false), delimiter: ",", explode: true)
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::Mixedbread.AutoSDKRequestOptionsSupport.AppendQueryParameters(
