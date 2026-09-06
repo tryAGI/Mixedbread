@@ -4,7 +4,7 @@
 namespace Mixedbread
 {
     /// <summary>
-    /// file metadata
+    ///
     /// </summary>
     public sealed partial class MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredTextInputChunkMetadata
     {

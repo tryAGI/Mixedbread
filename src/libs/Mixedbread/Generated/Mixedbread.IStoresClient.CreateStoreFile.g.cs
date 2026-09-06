@@ -85,7 +85,7 @@ namespace Mixedbread
             global::Mixedbread.AnyOf<string, global::System.Guid?> storeIdentifier,
             global::System.Guid fileId,
             object? metadata = default,
-            global::Mixedbread.StoreFileConfig2? config = default,
+            global::Mixedbread.StoreFileConfig? config = default,
             string? externalId = default,
             bool? overwrite = default,
             global::Mixedbread.AutoSDKRequestOptions? requestOptions = default,

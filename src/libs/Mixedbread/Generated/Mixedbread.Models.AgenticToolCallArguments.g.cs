@@ -4,7 +4,7 @@
 namespace Mixedbread
 {
     /// <summary>
-    /// Arguments passed to the tool (gen_ai.tool.call.arguments)
+    ///
     /// </summary>
     public sealed partial class AgenticToolCallArguments
     {

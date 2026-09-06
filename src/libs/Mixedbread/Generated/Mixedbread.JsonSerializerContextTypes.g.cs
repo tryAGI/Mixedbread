@@ -465,7 +465,7 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.StoreFileConfig2? Type108 { get; set; }
+        public global::Mixedbread.StoreFileConfig? Type108 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -769,7 +769,7 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.IntegrationProviderManifestIngestionBacking2? Type184 { get; set; }
+        public global::Mixedbread.IntegrationProviderManifestIngestionBacking? Type184 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -1113,7 +1113,7 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.SlackChannelLastSyncStatus2? Type270 { get; set; }
+        public global::Mixedbread.SlackChannelLastSyncStatus? Type270 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -1181,7 +1181,7 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.StoreConfig2? Type287 { get; set; }
+        public global::Mixedbread.StoreConfig? Type287 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -1469,15 +1469,15 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.StoreSearchEventRewriteRankDirection2? Type359 { get; set; }
+        public global::Mixedbread.StoreSearchEventRewriteRankDirection? Type359 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.StoreSearchEventRewriteRankMode2? Type360 { get; set; }
+        public global::Mixedbread.StoreSearchEventRewriteRankMode? Type360 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.StoreSearchEventResultFirstStageSource2? Type361 { get; set; }
+        public global::Mixedbread.StoreSearchEventResultFirstStageSource? Type361 { get; set; }
         /// <summary>
         ///
         /// </summary>

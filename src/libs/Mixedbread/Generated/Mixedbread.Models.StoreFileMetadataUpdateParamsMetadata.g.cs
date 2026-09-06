@@ -4,7 +4,7 @@
 namespace Mixedbread
 {
     /// <summary>
-    /// Updated metadata for the file
+    ///
     /// </summary>
     public sealed partial class StoreFileMetadataUpdateParamsMetadata
     {

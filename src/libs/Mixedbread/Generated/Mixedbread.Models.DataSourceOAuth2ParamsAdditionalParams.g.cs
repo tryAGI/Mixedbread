@@ -4,7 +4,7 @@
 namespace Mixedbread
 {
     /// <summary>
-    /// Additional parameters for the OAuth2 flow
+    ///
     /// </summary>
     public sealed partial class DataSourceOAuth2ParamsAdditionalParams
     {

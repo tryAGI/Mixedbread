@@ -49,7 +49,7 @@ namespace Mixedbread
         /// Store-level configuration defaults
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("config")]
-        public global::Mixedbread.StoreConfig2? Config { get; set; }
+        public global::Mixedbread.StoreConfig? Config { get; set; }
 
         /// <summary>
         /// Optional list of file IDs
@@ -101,7 +101,7 @@ namespace Mixedbread
             string? license,
             global::Mixedbread.ExpiresAfter? expiresAfter,
             object? metadata,
-            global::Mixedbread.StoreConfig2? config,
+            global::Mixedbread.StoreConfig? config,
             global::System.Collections.Generic.IList<global::System.Guid>? fileIds)
         {
             this.Name = name;

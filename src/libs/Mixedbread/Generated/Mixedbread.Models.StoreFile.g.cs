@@ -83,7 +83,7 @@ namespace Mixedbread
         /// Configuration for the file
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("config")]
-        public global::Mixedbread.StoreFileConfig2? Config { get; set; }
+        public global::Mixedbread.StoreFileConfig? Config { get; set; }
 
         /// <summary>
         /// Type of the object<br/>
@@ -177,7 +177,7 @@ namespace Mixedbread
             int? version,
             long? usageBytes,
             int? usageTokens,
-            global::Mixedbread.StoreFileConfig2? config,
+            global::Mixedbread.StoreFileConfig? config,
             string? @object,
             global::System.Collections.Generic.IList<global::Mixedbread.ChunksVariant1Item>? chunks)
         {

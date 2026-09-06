@@ -51,7 +51,7 @@ namespace Mixedbread
         /// Store-level configuration defaults
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("config")]
-        public global::Mixedbread.StoreConfig2? Config { get; set; }
+        public global::Mixedbread.StoreConfig? Config { get; set; }
 
         /// <summary>
         /// Customer bucket backing this store's storage; null = platform default
@@ -206,7 +206,7 @@ namespace Mixedbread
             bool? isPublic,
             string? license,
             object? metadata,
-            global::Mixedbread.StoreConfig2? config,
+            global::Mixedbread.StoreConfig? config,
             string? bucketId,
             global::Mixedbread.FileCounts? fileCounts,
             global::Mixedbread.ExpiresAfter? expiresAfter,

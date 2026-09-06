@@ -51,7 +51,7 @@ namespace Mixedbread
         /// Which first-stage retriever surfaced the chunk
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("first_stage_source")]
-        public global::Mixedbread.StoreSearchEventResultFirstStageSource2? FirstStageSource { get; set; }
+        public global::Mixedbread.StoreSearchEventResultFirstStageSource? FirstStageSource { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -93,7 +93,7 @@ namespace Mixedbread
             string? fileId,
             string? filename,
             int? firstStagePosition,
-            global::Mixedbread.StoreSearchEventResultFirstStageSource2? firstStageSource)
+            global::Mixedbread.StoreSearchEventResultFirstStageSource? firstStageSource)
         {
             this.StoreId = storeId ?? throw new global::System.ArgumentNullException(nameof(storeId));
             this.FileId = fileId;

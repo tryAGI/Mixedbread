@@ -4,7 +4,7 @@
 namespace Mixedbread
 {
     /// <summary>
-    /// The input document.
+    ///
     /// </summary>
     public sealed partial class RankedDocumentInput
     {

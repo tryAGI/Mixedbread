@@ -4,7 +4,7 @@
 namespace Mixedbread
 {
     /// <summary>
-    /// The metadata of the connector
+    ///
     /// </summary>
     public sealed partial class DataSourceConnectorCreateParamsMetadata
     {

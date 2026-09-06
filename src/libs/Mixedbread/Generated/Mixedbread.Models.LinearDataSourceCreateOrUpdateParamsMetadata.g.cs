@@ -4,7 +4,7 @@
 namespace Mixedbread
 {
     /// <summary>
-    /// The metadata of the data source
+    ///
     /// </summary>
     public sealed partial class LinearDataSourceCreateOrUpdateParamsMetadata
     {
