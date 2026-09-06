@@ -4,7 +4,7 @@
 namespace Mixedbread
 {
     /// <summary>
-    /// The error of the job
+    ///
     /// </summary>
     public sealed partial class ParsingJobError
     {

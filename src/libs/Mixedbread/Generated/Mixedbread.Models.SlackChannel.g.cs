@@ -73,7 +73,7 @@ namespace Mixedbread
         /// Most recent Slack history import status
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("last_sync_status")]
-        public global::Mixedbread.SlackChannelLastSyncStatus2? LastSyncStatus { get; set; }
+        public global::Mixedbread.SlackChannelLastSyncStatus? LastSyncStatus { get; set; }
 
         /// <summary>
         /// Most recent Slack history import start time
@@ -213,7 +213,7 @@ namespace Mixedbread
             global::Mixedbread.SlackChannelSyncStatus? syncStatus,
             global::System.DateTime? lastSyncedAt,
             string? syncError,
-            global::Mixedbread.SlackChannelLastSyncStatus2? lastSyncStatus,
+            global::Mixedbread.SlackChannelLastSyncStatus? lastSyncStatus,
             global::System.DateTime? lastSyncStartedAt,
             global::System.DateTime? lastSyncCompletedAt,
             int? lastSyncMessageCount,

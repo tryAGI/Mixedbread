@@ -4,7 +4,7 @@
 namespace Mixedbread
 {
     /// <summary>
-    /// Last error message if processing failed
+    ///
     /// </summary>
     public sealed partial class VectorStoreFileLastError
     {

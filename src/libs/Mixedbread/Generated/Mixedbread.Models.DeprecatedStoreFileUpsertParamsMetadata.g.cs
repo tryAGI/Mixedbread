@@ -4,7 +4,7 @@
 namespace Mixedbread
 {
     /// <summary>
-    /// Optional metadata for the file
+    ///
     /// </summary>
     public sealed partial class DeprecatedStoreFileUpsertParamsMetadata
     {

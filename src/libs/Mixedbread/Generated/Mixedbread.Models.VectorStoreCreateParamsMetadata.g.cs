@@ -4,7 +4,7 @@
 namespace Mixedbread
 {
     /// <summary>
-    /// Optional metadata key-value pairs
+    ///
     /// </summary>
     public sealed partial class VectorStoreCreateParamsMetadata
     {

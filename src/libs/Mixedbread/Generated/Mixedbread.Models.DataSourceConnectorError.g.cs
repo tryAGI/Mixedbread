@@ -4,7 +4,7 @@
 namespace Mixedbread
 {
     /// <summary>
-    /// The sync error of the connector
+    ///
     /// </summary>
     public sealed partial class DataSourceConnectorError
     {

@@ -20,7 +20,7 @@ namespace Mixedbread
         /// Configuration for adding the file
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("config")]
-        public global::Mixedbread.StoreFileConfig2? Config { get; set; }
+        public global::Mixedbread.StoreFileConfig? Config { get; set; }
 
         /// <summary>
         /// External identifier for this file in the store
@@ -47,7 +47,7 @@ namespace Mixedbread
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("experimental")]
         [global::System.Obsolete("This property marked as deprecated.")]
-        public global::Mixedbread.StoreFileConfig2? Experimental { get; set; }
+        public global::Mixedbread.StoreFileConfig? Experimental { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -80,7 +80,7 @@ namespace Mixedbread
         public DeprecatedStoreFileUpsertParams(
             global::System.Guid fileId,
             object? metadata,
-            global::Mixedbread.StoreFileConfig2? config,
+            global::Mixedbread.StoreFileConfig? config,
             string? externalId,
             bool? overwrite)
         {

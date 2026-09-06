@@ -4,7 +4,7 @@
 namespace Mixedbread
 {
     /// <summary>
-    /// Error information if failed
+    ///
     /// </summary>
     public sealed partial class ExtractionJobError
     {

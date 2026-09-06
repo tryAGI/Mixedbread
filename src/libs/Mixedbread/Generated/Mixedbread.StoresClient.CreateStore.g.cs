@@ -546,7 +546,7 @@ namespace Mixedbread
             string? license = default,
             global::Mixedbread.ExpiresAfter? expiresAfter = default,
             object? metadata = default,
-            global::Mixedbread.StoreConfig2? config = default,
+            global::Mixedbread.StoreConfig? config = default,
             global::System.Collections.Generic.IList<global::System.Guid>? fileIds = default,
             global::Mixedbread.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)

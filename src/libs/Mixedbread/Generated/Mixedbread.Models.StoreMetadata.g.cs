@@ -4,7 +4,7 @@
 namespace Mixedbread
 {
     /// <summary>
-    /// Additional metadata associated with the store
+    ///
     /// </summary>
     public sealed partial class StoreMetadata
     {

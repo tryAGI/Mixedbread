@@ -49,7 +49,7 @@ namespace Mixedbread
         /// The backend subsystem used for ingestion, if ingestion is supported
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("ingestion_backing")]
-        public global::Mixedbread.IntegrationProviderManifestIngestionBacking2? IngestionBacking { get; set; }
+        public global::Mixedbread.IntegrationProviderManifestIngestionBacking? IngestionBacking { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -87,7 +87,7 @@ namespace Mixedbread
             global::Mixedbread.IntegrationProviderManifestAuthType authType,
             global::System.Collections.Generic.IList<global::Mixedbread.IntegrationProviderManifestCapabilitie> capabilities,
             global::System.Collections.Generic.IList<string> requiredScopes,
-            global::Mixedbread.IntegrationProviderManifestIngestionBacking2? ingestionBacking)
+            global::Mixedbread.IntegrationProviderManifestIngestionBacking? ingestionBacking)
         {
             this.Provider = provider;
             this.DisplayName = displayName ?? throw new global::System.ArgumentNullException(nameof(displayName));

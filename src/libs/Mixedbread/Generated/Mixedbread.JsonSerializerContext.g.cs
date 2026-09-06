@@ -128,7 +128,7 @@ namespace Mixedbread
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.DataSourceListResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Mixedbread.DataSource>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.DeprecatedStoreFileUpsertParams))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.StoreFileConfig2))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.StoreFileConfig))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Guid))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.DocumentParserResult))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.ReturnFormat), TypeInfoPropertyName = "ReturnFormat2")]
@@ -204,7 +204,7 @@ namespace Mixedbread
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.IntegrationProviderManifestAuthType), TypeInfoPropertyName = "IntegrationProviderManifestAuthType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Mixedbread.IntegrationProviderManifestCapabilitie>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.IntegrationProviderManifestCapabilitie), TypeInfoPropertyName = "IntegrationProviderManifestCapabilitie2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.IntegrationProviderManifestIngestionBacking2), TypeInfoPropertyName = "IntegrationProviderManifestIngestionBacking22")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.IntegrationProviderManifestIngestionBacking), TypeInfoPropertyName = "IntegrationProviderManifestIngestionBacking2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.JsonSchemaCreateParams))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.JsonSchemaEnhanceParams))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.JsonSchemaValidateParams))]
@@ -289,7 +289,7 @@ namespace Mixedbread
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.AnyOf<global::Mixedbread.SearchFilterOutput, global::Mixedbread.SearchFilterCondition>), TypeInfoPropertyName = "AnyOfSearchFilterOutputSearchFilterCondition2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.SlackChannel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.SlackChannelSyncStatus), TypeInfoPropertyName = "SlackChannelSyncStatus2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.SlackChannelLastSyncStatus2), TypeInfoPropertyName = "SlackChannelLastSyncStatus22")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.SlackChannelLastSyncStatus), TypeInfoPropertyName = "SlackChannelLastSyncStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.SlackChannelSelection))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Mixedbread.SlackChannel>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.SlackChannelSelectionResponse))]
@@ -306,7 +306,7 @@ namespace Mixedbread
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.SlackManifestResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.SlackManualConnectBody))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.Store))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.StoreConfig2))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.StoreConfig))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.StoreStatus), TypeInfoPropertyName = "StoreStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.StoreAgenticSearchEvent))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.AnyOf<global::Mixedbread.SearchFilterOutput, global::Mixedbread.SearchFilterCondition, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilterOutput, global::Mixedbread.SearchFilterCondition>>, object>), TypeInfoPropertyName = "AnyOfSearchFilterOutputSearchFilterConditionIListAnyOfSearchFilterOutputSearchFilterConditionObject2")]
@@ -378,9 +378,9 @@ namespace Mixedbread
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.SourcesItem), TypeInfoPropertyName = "SourcesItem2_3")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.StoreQAResultsSourceDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.StoreQAResultsSourceDiscriminatorType), TypeInfoPropertyName = "StoreQAResultsSourceDiscriminatorType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.StoreSearchEventRewriteRankDirection2), TypeInfoPropertyName = "StoreSearchEventRewriteRankDirection22")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.StoreSearchEventRewriteRankMode2), TypeInfoPropertyName = "StoreSearchEventRewriteRankMode22")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.StoreSearchEventResultFirstStageSource2), TypeInfoPropertyName = "StoreSearchEventResultFirstStageSource22")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.StoreSearchEventRewriteRankDirection), TypeInfoPropertyName = "StoreSearchEventRewriteRankDirection2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.StoreSearchEventRewriteRankMode), TypeInfoPropertyName = "StoreSearchEventRewriteRankMode2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.StoreSearchEventResultFirstStageSource), TypeInfoPropertyName = "StoreSearchEventResultFirstStageSource2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.StoreSearchResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Mixedbread.DataItem4>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.DataItem4), TypeInfoPropertyName = "DataItem42")]
@@ -555,7 +555,7 @@ namespace Mixedbread
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.IntegrationProviderManifestProvider?), TypeInfoPropertyName = "NullableIntegrationProviderManifestProvider2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.IntegrationProviderManifestAuthType?), TypeInfoPropertyName = "NullableIntegrationProviderManifestAuthType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.IntegrationProviderManifestCapabilitie?), TypeInfoPropertyName = "NullableIntegrationProviderManifestCapabilitie2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.IntegrationProviderManifestIngestionBacking2?), TypeInfoPropertyName = "NullableIntegrationProviderManifestIngestionBacking22")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.IntegrationProviderManifestIngestionBacking?), TypeInfoPropertyName = "NullableIntegrationProviderManifestIngestionBacking2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.LinearDataSourceCreateOrUpdateParamsAuthParamsVariant1DiscriminatorType?), TypeInfoPropertyName = "NullableLinearDataSourceCreateOrUpdateParamsAuthParamsVariant1DiscriminatorType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.StoreFileStatus?), TypeInfoPropertyName = "NullableStoreFileStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.AnyOf<global::Mixedbread.SearchFilterInput, global::Mixedbread.SearchFilterCondition, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilterInput, global::Mixedbread.SearchFilterCondition>>, object>?), TypeInfoPropertyName = "NullableAnyOfSearchFilterInputSearchFilterConditionIListAnyOfSearchFilterInputSearchFilterConditionObject2")]
@@ -581,7 +581,7 @@ namespace Mixedbread
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.AnyOf<string, global::System.Guid?, object>?), TypeInfoPropertyName = "NullableAnyOfStringGuidObject2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.AnyOf<global::Mixedbread.SearchFilterOutput, global::Mixedbread.SearchFilterCondition>?), TypeInfoPropertyName = "NullableAnyOfSearchFilterOutputSearchFilterCondition2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.SlackChannelSyncStatus?), TypeInfoPropertyName = "NullableSlackChannelSyncStatus2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.SlackChannelLastSyncStatus2?), TypeInfoPropertyName = "NullableSlackChannelLastSyncStatus22")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.SlackChannelLastSyncStatus?), TypeInfoPropertyName = "NullableSlackChannelLastSyncStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.StoreStatus?), TypeInfoPropertyName = "NullableStoreStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.AnyOf<global::Mixedbread.SearchFilterOutput, global::Mixedbread.SearchFilterCondition, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilterOutput, global::Mixedbread.SearchFilterCondition>>, object>?), TypeInfoPropertyName = "NullableAnyOfSearchFilterOutputSearchFilterConditionIListAnyOfSearchFilterOutputSearchFilterConditionObject2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.AnyOf<string, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<string, bool?>>, object>?), TypeInfoPropertyName = "NullableAnyOfStringIListAnyOfStringBooleanObject2")]
@@ -603,9 +603,9 @@ namespace Mixedbread
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.StoreListChunksResponseDataItemDiscriminatorType?), TypeInfoPropertyName = "NullableStoreListChunksResponseDataItemDiscriminatorType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.SourcesItem?), TypeInfoPropertyName = "NullableSourcesItem2_3")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.StoreQAResultsSourceDiscriminatorType?), TypeInfoPropertyName = "NullableStoreQAResultsSourceDiscriminatorType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.StoreSearchEventRewriteRankDirection2?), TypeInfoPropertyName = "NullableStoreSearchEventRewriteRankDirection22")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.StoreSearchEventRewriteRankMode2?), TypeInfoPropertyName = "NullableStoreSearchEventRewriteRankMode22")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.StoreSearchEventResultFirstStageSource2?), TypeInfoPropertyName = "NullableStoreSearchEventResultFirstStageSource22")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.StoreSearchEventRewriteRankDirection?), TypeInfoPropertyName = "NullableStoreSearchEventRewriteRankDirection2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.StoreSearchEventRewriteRankMode?), TypeInfoPropertyName = "NullableStoreSearchEventRewriteRankMode2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.StoreSearchEventResultFirstStageSource?), TypeInfoPropertyName = "NullableStoreSearchEventResultFirstStageSource2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.DataItem4?), TypeInfoPropertyName = "NullableDataItem42")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.StoreSearchResponseDataItemDiscriminatorType?), TypeInfoPropertyName = "NullableStoreSearchResponseDataItemDiscriminatorType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.TextInputChunkGeneratedMetadataVariant1DiscriminatorType?), TypeInfoPropertyName = "NullableTextInputChunkGeneratedMetadataVariant1DiscriminatorType2")]
@@ -1017,9 +1017,9 @@ namespace Mixedbread
 
                     || typeToConvert == typeof(global::Mixedbread.IntegrationProviderManifestCapabilitie?)
 
-                    || typeToConvert == typeof(global::Mixedbread.IntegrationProviderManifestIngestionBacking2)
+                    || typeToConvert == typeof(global::Mixedbread.IntegrationProviderManifestIngestionBacking)
 
-                    || typeToConvert == typeof(global::Mixedbread.IntegrationProviderManifestIngestionBacking2?)
+                    || typeToConvert == typeof(global::Mixedbread.IntegrationProviderManifestIngestionBacking?)
 
                     || typeToConvert == typeof(global::Mixedbread.LinearDataSourceCreateOrUpdateParamsAuthParamsVariant1DiscriminatorType)
 
@@ -1073,9 +1073,9 @@ namespace Mixedbread
 
                     || typeToConvert == typeof(global::Mixedbread.SlackChannelSyncStatus?)
 
-                    || typeToConvert == typeof(global::Mixedbread.SlackChannelLastSyncStatus2)
+                    || typeToConvert == typeof(global::Mixedbread.SlackChannelLastSyncStatus)
 
-                    || typeToConvert == typeof(global::Mixedbread.SlackChannelLastSyncStatus2?)
+                    || typeToConvert == typeof(global::Mixedbread.SlackChannelLastSyncStatus?)
 
                     || typeToConvert == typeof(global::Mixedbread.StoreChunkGrepTarget)
 
@@ -1117,17 +1117,17 @@ namespace Mixedbread
 
                     || typeToConvert == typeof(global::Mixedbread.StoreQAResultsSourceDiscriminatorType?)
 
-                    || typeToConvert == typeof(global::Mixedbread.StoreSearchEventRewriteRankDirection2)
+                    || typeToConvert == typeof(global::Mixedbread.StoreSearchEventRewriteRankDirection)
 
-                    || typeToConvert == typeof(global::Mixedbread.StoreSearchEventRewriteRankDirection2?)
+                    || typeToConvert == typeof(global::Mixedbread.StoreSearchEventRewriteRankDirection?)
 
-                    || typeToConvert == typeof(global::Mixedbread.StoreSearchEventRewriteRankMode2)
+                    || typeToConvert == typeof(global::Mixedbread.StoreSearchEventRewriteRankMode)
 
-                    || typeToConvert == typeof(global::Mixedbread.StoreSearchEventRewriteRankMode2?)
+                    || typeToConvert == typeof(global::Mixedbread.StoreSearchEventRewriteRankMode?)
 
-                    || typeToConvert == typeof(global::Mixedbread.StoreSearchEventResultFirstStageSource2)
+                    || typeToConvert == typeof(global::Mixedbread.StoreSearchEventResultFirstStageSource)
 
-                    || typeToConvert == typeof(global::Mixedbread.StoreSearchEventResultFirstStageSource2?)
+                    || typeToConvert == typeof(global::Mixedbread.StoreSearchEventResultFirstStageSource?)
 
                     || typeToConvert == typeof(global::Mixedbread.StoreSearchResponseDataItemDiscriminatorType)
 
@@ -1416,14 +1416,14 @@ namespace Mixedbread
                     return new global::Mixedbread.JsonConverters.IntegrationProviderManifestCapabilitieNullableJsonConverter();
                 }
 
-                if (typeToConvert == typeof(global::Mixedbread.IntegrationProviderManifestIngestionBacking2))
+                if (typeToConvert == typeof(global::Mixedbread.IntegrationProviderManifestIngestionBacking))
                 {
-                    return new global::Mixedbread.JsonConverters.IntegrationProviderManifestIngestionBacking2JsonConverter();
+                    return new global::Mixedbread.JsonConverters.IntegrationProviderManifestIngestionBackingJsonConverter();
                 }
 
-                if (typeToConvert == typeof(global::Mixedbread.IntegrationProviderManifestIngestionBacking2?))
+                if (typeToConvert == typeof(global::Mixedbread.IntegrationProviderManifestIngestionBacking?))
                 {
-                    return new global::Mixedbread.JsonConverters.IntegrationProviderManifestIngestionBacking2NullableJsonConverter();
+                    return new global::Mixedbread.JsonConverters.IntegrationProviderManifestIngestionBackingNullableJsonConverter();
                 }
 
                 if (typeToConvert == typeof(global::Mixedbread.LinearDataSourceCreateOrUpdateParamsAuthParamsVariant1DiscriminatorType))
@@ -1556,14 +1556,14 @@ namespace Mixedbread
                     return new global::Mixedbread.JsonConverters.SlackChannelSyncStatusNullableJsonConverter();
                 }
 
-                if (typeToConvert == typeof(global::Mixedbread.SlackChannelLastSyncStatus2))
+                if (typeToConvert == typeof(global::Mixedbread.SlackChannelLastSyncStatus))
                 {
-                    return new global::Mixedbread.JsonConverters.SlackChannelLastSyncStatus2JsonConverter();
+                    return new global::Mixedbread.JsonConverters.SlackChannelLastSyncStatusJsonConverter();
                 }
 
-                if (typeToConvert == typeof(global::Mixedbread.SlackChannelLastSyncStatus2?))
+                if (typeToConvert == typeof(global::Mixedbread.SlackChannelLastSyncStatus?))
                 {
-                    return new global::Mixedbread.JsonConverters.SlackChannelLastSyncStatus2NullableJsonConverter();
+                    return new global::Mixedbread.JsonConverters.SlackChannelLastSyncStatusNullableJsonConverter();
                 }
 
                 if (typeToConvert == typeof(global::Mixedbread.StoreChunkGrepTarget))
@@ -1666,34 +1666,34 @@ namespace Mixedbread
                     return new global::Mixedbread.JsonConverters.StoreQAResultsSourceDiscriminatorTypeNullableJsonConverter();
                 }
 
-                if (typeToConvert == typeof(global::Mixedbread.StoreSearchEventRewriteRankDirection2))
+                if (typeToConvert == typeof(global::Mixedbread.StoreSearchEventRewriteRankDirection))
                 {
-                    return new global::Mixedbread.JsonConverters.StoreSearchEventRewriteRankDirection2JsonConverter();
+                    return new global::Mixedbread.JsonConverters.StoreSearchEventRewriteRankDirectionJsonConverter();
                 }
 
-                if (typeToConvert == typeof(global::Mixedbread.StoreSearchEventRewriteRankDirection2?))
+                if (typeToConvert == typeof(global::Mixedbread.StoreSearchEventRewriteRankDirection?))
                 {
-                    return new global::Mixedbread.JsonConverters.StoreSearchEventRewriteRankDirection2NullableJsonConverter();
+                    return new global::Mixedbread.JsonConverters.StoreSearchEventRewriteRankDirectionNullableJsonConverter();
                 }
 
-                if (typeToConvert == typeof(global::Mixedbread.StoreSearchEventRewriteRankMode2))
+                if (typeToConvert == typeof(global::Mixedbread.StoreSearchEventRewriteRankMode))
                 {
-                    return new global::Mixedbread.JsonConverters.StoreSearchEventRewriteRankMode2JsonConverter();
+                    return new global::Mixedbread.JsonConverters.StoreSearchEventRewriteRankModeJsonConverter();
                 }
 
-                if (typeToConvert == typeof(global::Mixedbread.StoreSearchEventRewriteRankMode2?))
+                if (typeToConvert == typeof(global::Mixedbread.StoreSearchEventRewriteRankMode?))
                 {
-                    return new global::Mixedbread.JsonConverters.StoreSearchEventRewriteRankMode2NullableJsonConverter();
+                    return new global::Mixedbread.JsonConverters.StoreSearchEventRewriteRankModeNullableJsonConverter();
                 }
 
-                if (typeToConvert == typeof(global::Mixedbread.StoreSearchEventResultFirstStageSource2))
+                if (typeToConvert == typeof(global::Mixedbread.StoreSearchEventResultFirstStageSource))
                 {
-                    return new global::Mixedbread.JsonConverters.StoreSearchEventResultFirstStageSource2JsonConverter();
+                    return new global::Mixedbread.JsonConverters.StoreSearchEventResultFirstStageSourceJsonConverter();
                 }
 
-                if (typeToConvert == typeof(global::Mixedbread.StoreSearchEventResultFirstStageSource2?))
+                if (typeToConvert == typeof(global::Mixedbread.StoreSearchEventResultFirstStageSource?))
                 {
-                    return new global::Mixedbread.JsonConverters.StoreSearchEventResultFirstStageSource2NullableJsonConverter();
+                    return new global::Mixedbread.JsonConverters.StoreSearchEventResultFirstStageSourceNullableJsonConverter();
                 }
 
                 if (typeToConvert == typeof(global::Mixedbread.StoreSearchResponseDataItemDiscriminatorType))

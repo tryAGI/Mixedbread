@@ -71,13 +71,13 @@ namespace Mixedbread
         /// Ranking direction
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("rewrite_rank_direction")]
-        public global::Mixedbread.StoreSearchEventRewriteRankDirection2? RewriteRankDirection { get; set; }
+        public global::Mixedbread.StoreSearchEventRewriteRankDirection? RewriteRankDirection { get; set; }
 
         /// <summary>
         /// Ranking mode
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("rewrite_rank_mode")]
-        public global::Mixedbread.StoreSearchEventRewriteRankMode2? RewriteRankMode { get; set; }
+        public global::Mixedbread.StoreSearchEventRewriteRankMode? RewriteRankMode { get; set; }
 
         /// <summary>
         /// Whether to rerank the results<br/>
@@ -165,8 +165,8 @@ namespace Mixedbread
             string? rewrittenQuery,
             global::Mixedbread.AnyOf<global::Mixedbread.SearchFilterOutput, global::Mixedbread.SearchFilterCondition, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilterOutput, global::Mixedbread.SearchFilterCondition>>, object>? rewrittenFilters,
             string? rewriteRankBy,
-            global::Mixedbread.StoreSearchEventRewriteRankDirection2? rewriteRankDirection,
-            global::Mixedbread.StoreSearchEventRewriteRankMode2? rewriteRankMode,
+            global::Mixedbread.StoreSearchEventRewriteRankDirection? rewriteRankDirection,
+            global::Mixedbread.StoreSearchEventRewriteRankMode? rewriteRankMode,
             bool? rerank,
             global::Mixedbread.AnyOf<global::Mixedbread.SearchFilterOutput, global::Mixedbread.SearchFilterCondition, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.SearchFilterOutput, global::Mixedbread.SearchFilterCondition>>, object>? filters,
             global::System.Collections.Generic.IList<global::Mixedbread.StoreSearchEventResult>? results)

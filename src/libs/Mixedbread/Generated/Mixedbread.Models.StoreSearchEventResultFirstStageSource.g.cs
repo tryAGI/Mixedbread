@@ -4,16 +4,54 @@
 namespace Mixedbread
 {
     /// <summary>
-    /// Which first-stage retriever surfaced the chunk
+    ///
     /// </summary>
-    public sealed partial class StoreSearchEventResultFirstStageSource
+    public enum StoreSearchEventResultFirstStageSource
     {
-
         /// <summary>
-        /// Additional properties that are not explicitly defined in the schema
+        ///
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonExtensionData]
-        public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+        Both,
+        /// <summary>
+        ///
+        /// </summary>
+        Dense,
+        /// <summary>
+        ///
+        /// </summary>
+        Sparse,
+    }
 
+    /// <summary>
+    /// Enum extensions to do fast conversions without the reflection.
+    /// </summary>
+    public static class StoreSearchEventResultFirstStageSourceExtensions
+    {
+        /// <summary>
+        /// Converts an enum to a string.
+        /// </summary>
+        public static string ToValueString(this StoreSearchEventResultFirstStageSource value)
+        {
+            return value switch
+            {
+                StoreSearchEventResultFirstStageSource.Both => "both",
+                StoreSearchEventResultFirstStageSource.Dense => "dense",
+                StoreSearchEventResultFirstStageSource.Sparse => "sparse",
+                _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
+            };
+        }
+        /// <summary>
+        /// Converts an string to a enum.
+        /// </summary>
+        public static StoreSearchEventResultFirstStageSource? ToEnum(string value)
+        {
+            return value switch
+            {
+                "both" => StoreSearchEventResultFirstStageSource.Both,
+                "dense" => StoreSearchEventResultFirstStageSource.Dense,
+                "sparse" => StoreSearchEventResultFirstStageSource.Sparse,
+                _ => null,
+            };
+        }
     }
 }

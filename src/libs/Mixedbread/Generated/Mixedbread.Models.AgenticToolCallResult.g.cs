@@ -4,7 +4,7 @@
 namespace Mixedbread
 {
     /// <summary>
-    /// Result returned to the model (gen_ai.tool.call.result). None if the tool errored.
+    ///
     /// </summary>
     public sealed partial class AgenticToolCallResult
     {
