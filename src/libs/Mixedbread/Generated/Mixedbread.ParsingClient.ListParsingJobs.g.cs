@@ -215,7 +215,7 @@ namespace Mixedbread
                                 .AddOptionalParameter("after", after)
                                 .AddOptionalParameter("before", before)
                                 .AddOptionalParameter("include_total", includeTotal?.ToString().ToLowerInvariant())
-                                .AddOptionalParameter("statuses", statuses?.ToString())
+                                .AddOptionalParameter("statuses", statuses, selector: static x => x.ToValueString(), delimiter: ",", explode: true)
                                 .AddOptionalParameter("q", q)
                                 ;
                             var __path = __pathBuilder.ToString();
