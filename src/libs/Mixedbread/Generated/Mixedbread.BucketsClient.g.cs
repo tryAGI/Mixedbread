@@ -37,7 +37,7 @@ namespace Mixedbread
 
         internal global::Mixedbread.AutoSDKServerConfiguration AutoSDKServerConfiguration { get; set; } = new global::Mixedbread.AutoSDKServerConfiguration();
 
-        internal global::System.Lazy<global::System.Text.Json.Serialization.JsonSerializerContext> JsonSerializerContextProvider { get; set; } = new(() => global::Mixedbread.SourceGenerationContext.Default);
+        internal global::System.Lazy<global::System.Text.Json.Serialization.JsonSerializerContext> JsonSerializerContextProvider { get; set; } = new(() => global::Mixedbread.BucketsSourceGenerationContext.Default);
 
         /// <summary>
         ///
