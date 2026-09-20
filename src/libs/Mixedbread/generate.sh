@@ -20,17 +20,16 @@ fetch_spec() {
 readonly stats_url="https://raw.githubusercontent.com/mixedbread-ai/mixedbread-python/main/.stats.yml"
 
 echo "Fetching latest spec URL from .stats.yml..."
-openapi_url=$(fetch_spec --fail --silent --show-error --location "$stats_url" | grep 'openapi_spec_url:' | sed 's/openapi_spec_url: *//')
+openapi_url=$(fetch_spec --fail --silent --show-error --location "$stats_url" | awk '/openapi_spec_url:/ {sub(/^[^:]*:[[:space:]]*/, ""); print; exit}')
 
-if [ -z "$openapi_url" ]; then
-  echo "ERROR: Could not extract openapi_spec_url from .stats.yml"
-  exit 1
-fi
-
-echo "Spec URL: $openapi_url"
 install_autosdk_cli
+if [ -n "$openapi_url" ]; then
+  echo "Spec URL: $openapi_url"
+  fetch_spec --fail --silent --show-error --location "$openapi_url" -o openapi.yaml
+else
+  echo "WARNING: .stats.yml does not publish openapi_spec_url; regenerating from the pinned openapi.yaml."
+fi
 rm -rf Generated
-fetch_spec --fail --silent --show-error --location "$openapi_url" -o openapi.yaml
 
 # Auth: --security-scheme overrides the spec's per-operation-only ApiKeyAuth with top-level security.
 autosdk generate openapi.yaml \
