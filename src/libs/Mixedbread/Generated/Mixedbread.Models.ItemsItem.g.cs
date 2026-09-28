@@ -47,8 +47,8 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.QueryEnhanceQueryItem PickQuery() => IsQuery
-            ? Query!
+        public global::Mixedbread.QueryEnhanceQueryItem PickQuery() => Query is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Query' but the value was {ToString()}.");
 
         /// <summary>
@@ -84,8 +84,8 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.QueryEnhanceSortItem PickSort() => IsSort
-            ? Sort!
+        public global::Mixedbread.QueryEnhanceSortItem PickSort() => Sort is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Sort' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -185,13 +185,13 @@ namespace Mixedbread
                 Validate();
             }
 
-            if (IsQuery && query != null)
+            if (Query is { } __value0 && query != null)
             {
-                return query(Query!);
+                return query(__value0);
             }
-            else if (IsSort && sort != null)
+            else if (Sort is { } __value1 && sort != null)
             {
-                return sort(Sort!);
+                return sort(__value1);
             }
 
             return default(TResult);
@@ -211,13 +211,13 @@ namespace Mixedbread
                 Validate();
             }
 
-            if (IsQuery)
+            if (Query is { } __value0)
             {
-                query?.Invoke(Query!);
+                query?.Invoke(__value0);
             }
-            else if (IsSort)
+            else if (Sort is { } __value1)
             {
-                sort?.Invoke(Sort!);
+                sort?.Invoke(__value1);
             }
         }
 
@@ -234,13 +234,13 @@ namespace Mixedbread
                 Validate();
             }
 
-            if (IsQuery)
+            if (Query is { } __value0)
             {
-                query?.Invoke(Query!);
+                query?.Invoke(__value0);
             }
-            else if (IsSort)
+            else if (Sort is { } __value1)
             {
-                sort?.Invoke(Sort!);
+                sort?.Invoke(__value1);
             }
         }
 

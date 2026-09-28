@@ -59,13 +59,13 @@ namespace Mixedbread.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Mixedbread.BucketAssumeRoleCredentials), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Mixedbread.BucketAssumeRoleCredentials?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Mixedbread.BucketAssumeRoleCredentials).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.AssumeRole!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickAssumeRole(), typeInfo);
             }
             else if (value.IsAccessKey)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Mixedbread.BucketAccessKeyCredentials), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Mixedbread.BucketAccessKeyCredentials?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Mixedbread.BucketAccessKeyCredentials).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.AccessKey!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickAccessKey(), typeInfo);
             }
         }
     }

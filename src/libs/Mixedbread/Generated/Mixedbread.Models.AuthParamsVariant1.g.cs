@@ -47,8 +47,8 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.DataSourceOAuth2Params PickOauth2() => IsOauth2
-            ? Oauth2!
+        public global::Mixedbread.DataSourceOAuth2Params PickOauth2() => Oauth2 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Oauth2' but the value was {ToString()}.");
 
         /// <summary>
@@ -84,8 +84,8 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.DataSourceApiKeyParams PickApiKey() => IsApiKey
-            ? ApiKey!
+        public global::Mixedbread.DataSourceApiKeyParams PickApiKey() => ApiKey is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'ApiKey' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -185,13 +185,13 @@ namespace Mixedbread
                 Validate();
             }
 
-            if (IsOauth2 && oauth2 != null)
+            if (Oauth2 is { } __value0 && oauth2 != null)
             {
-                return oauth2(Oauth2!);
+                return oauth2(__value0);
             }
-            else if (IsApiKey && apiKey != null)
+            else if (ApiKey is { } __value1 && apiKey != null)
             {
-                return apiKey(ApiKey!);
+                return apiKey(__value1);
             }
 
             return default(TResult);
@@ -211,13 +211,13 @@ namespace Mixedbread
                 Validate();
             }
 
-            if (IsOauth2)
+            if (Oauth2 is { } __value0)
             {
-                oauth2?.Invoke(Oauth2!);
+                oauth2?.Invoke(__value0);
             }
-            else if (IsApiKey)
+            else if (ApiKey is { } __value1)
             {
-                apiKey?.Invoke(ApiKey!);
+                apiKey?.Invoke(__value1);
             }
         }
 
@@ -234,13 +234,13 @@ namespace Mixedbread
                 Validate();
             }
 
-            if (IsOauth2)
+            if (Oauth2 is { } __value0)
             {
-                oauth2?.Invoke(Oauth2!);
+                oauth2?.Invoke(__value0);
             }
-            else if (IsApiKey)
+            else if (ApiKey is { } __value1)
             {
-                apiKey?.Invoke(ApiKey!);
+                apiKey?.Invoke(__value1);
             }
         }
 

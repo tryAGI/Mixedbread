@@ -42,8 +42,8 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public string PickMultiModalQueryVariant1() => IsMultiModalQueryVariant1
-            ? MultiModalQueryVariant1!
+        public string PickMultiModalQueryVariant1() => MultiModalQueryVariant1 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'MultiModalQueryVariant1' but the value was {ToString()}.");
 
         /// <summary>
@@ -79,8 +79,8 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.MultiModalQueryVariant2 PickMultiModalQueryVariant2() => IsMultiModalQueryVariant2
-            ? MultiModalQueryVariant2!.Value
+        public global::Mixedbread.MultiModalQueryVariant2 PickMultiModalQueryVariant2() => MultiModalQueryVariant2 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'MultiModalQueryVariant2' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -177,13 +177,13 @@ namespace Mixedbread
                 Validate();
             }
 
-            if (IsMultiModalQueryVariant1 && multiModalQueryVariant1 != null)
+            if (MultiModalQueryVariant1 is { } __value0 && multiModalQueryVariant1 != null)
             {
-                return multiModalQueryVariant1(MultiModalQueryVariant1!);
+                return multiModalQueryVariant1(__value0);
             }
-            else if (IsMultiModalQueryVariant2 && multiModalQueryVariant2 != null)
+            else if (MultiModalQueryVariant2 is { } __value1 && multiModalQueryVariant2 != null)
             {
-                return multiModalQueryVariant2(MultiModalQueryVariant2!);
+                return multiModalQueryVariant2(__value1);
             }
 
             return default(TResult);
@@ -203,13 +203,13 @@ namespace Mixedbread
                 Validate();
             }
 
-            if (IsMultiModalQueryVariant1)
+            if (MultiModalQueryVariant1 is { } __value0)
             {
-                multiModalQueryVariant1?.Invoke(MultiModalQueryVariant1!);
+                multiModalQueryVariant1?.Invoke(__value0);
             }
-            else if (IsMultiModalQueryVariant2)
+            else if (MultiModalQueryVariant2 is { } __value1)
             {
-                multiModalQueryVariant2?.Invoke(MultiModalQueryVariant2!);
+                multiModalQueryVariant2?.Invoke(__value1);
             }
         }
 
@@ -226,13 +226,13 @@ namespace Mixedbread
                 Validate();
             }
 
-            if (IsMultiModalQueryVariant1)
+            if (MultiModalQueryVariant1 is { } __value0)
             {
-                multiModalQueryVariant1?.Invoke(MultiModalQueryVariant1!);
+                multiModalQueryVariant1?.Invoke(__value0);
             }
-            else if (IsMultiModalQueryVariant2)
+            else if (MultiModalQueryVariant2 is { } __value1)
             {
-                multiModalQueryVariant2?.Invoke(MultiModalQueryVariant2!);
+                multiModalQueryVariant2?.Invoke(__value1);
             }
         }
 

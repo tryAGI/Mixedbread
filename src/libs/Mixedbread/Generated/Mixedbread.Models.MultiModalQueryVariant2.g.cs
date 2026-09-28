@@ -47,8 +47,8 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.ImageUrlInput2 PickImageUrl() => IsImageUrl
-            ? ImageUrl!
+        public global::Mixedbread.ImageUrlInput2 PickImageUrl() => ImageUrl is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'ImageUrl' but the value was {ToString()}.");
 
         /// <summary>
@@ -87,8 +87,8 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.TextInput PickText() => IsText
-            ? Text!
+        public global::Mixedbread.TextInput PickText() => Text is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Text' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -188,13 +188,13 @@ namespace Mixedbread
                 Validate();
             }
 
-            if (IsImageUrl && imageUrl != null)
+            if (ImageUrl is { } __value0 && imageUrl != null)
             {
-                return imageUrl(ImageUrl!);
+                return imageUrl(__value0);
             }
-            else if (IsText && text != null)
+            else if (Text is { } __value1 && text != null)
             {
-                return text(Text!);
+                return text(__value1);
             }
 
             return default(TResult);
@@ -214,13 +214,13 @@ namespace Mixedbread
                 Validate();
             }
 
-            if (IsImageUrl)
+            if (ImageUrl is { } __value0)
             {
-                imageUrl?.Invoke(ImageUrl!);
+                imageUrl?.Invoke(__value0);
             }
-            else if (IsText)
+            else if (Text is { } __value1)
             {
-                text?.Invoke(Text!);
+                text?.Invoke(__value1);
             }
         }
 
@@ -237,13 +237,13 @@ namespace Mixedbread
                 Validate();
             }
 
-            if (IsImageUrl)
+            if (ImageUrl is { } __value0)
             {
-                imageUrl?.Invoke(ImageUrl!);
+                imageUrl?.Invoke(__value0);
             }
-            else if (IsText)
+            else if (Text is { } __value1)
             {
-                text?.Invoke(Text!);
+                text?.Invoke(__value1);
             }
         }
 

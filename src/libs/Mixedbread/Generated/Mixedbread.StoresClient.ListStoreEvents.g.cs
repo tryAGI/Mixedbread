@@ -283,14 +283,14 @@ namespace Mixedbread
                 PrepareListStoreEventsRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    storeIdentifier: storeIdentifier!,
+                    storeIdentifier: storeIdentifier,
                     limit: limit,
                     after: after,
                     before: before,
                     includeTotal: includeTotal,
                     filterBefore: filterBefore,
                     filterAfter: filterAfter,
-                    eventType: eventType!);
+                    eventType: eventType);
 
                 return __httpRequest;
             }
@@ -312,7 +312,7 @@ namespace Mixedbread
                                 pathTemplate: "$\"/v1/stores/{storeIdentifier}/events\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
                                 exception: null,
                                 clientOptions: Options,
@@ -346,7 +346,7 @@ namespace Mixedbread
                                 pathTemplate: "$\"/v1/stores/{storeIdentifier}/events\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
                                 exception: __exception,
                                 clientOptions: Options,
@@ -387,7 +387,7 @@ namespace Mixedbread
                                 pathTemplate: "$\"/v1/stores/{storeIdentifier}/events\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,
@@ -435,7 +435,7 @@ namespace Mixedbread
                                 pathTemplate: "$\"/v1/stores/{storeIdentifier}/events\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,
@@ -457,7 +457,7 @@ namespace Mixedbread
                                 pathTemplate: "$\"/v1/stores/{storeIdentifier}/events\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,

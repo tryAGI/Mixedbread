@@ -47,8 +47,8 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredTextInputChunk PickText() => IsText
-            ? Text!
+        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredTextInputChunk PickText() => Text is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Text' but the value was {ToString()}.");
 
         /// <summary>
@@ -84,8 +84,8 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredImageUrlInputChunk PickImageUrl() => IsImageUrl
-            ? ImageUrl!
+        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredImageUrlInputChunk PickImageUrl() => ImageUrl is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'ImageUrl' but the value was {ToString()}.");
 
         /// <summary>
@@ -121,8 +121,8 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredAudioUrlInputChunk PickAudioUrl() => IsAudioUrl
-            ? AudioUrl!
+        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredAudioUrlInputChunk PickAudioUrl() => AudioUrl is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'AudioUrl' but the value was {ToString()}.");
 
         /// <summary>
@@ -158,8 +158,8 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredVideoUrlInputChunk PickVideoUrl() => IsVideoUrl
-            ? VideoUrl!
+        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredVideoUrlInputChunk PickVideoUrl() => VideoUrl is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'VideoUrl' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -315,21 +315,21 @@ namespace Mixedbread
                 Validate();
             }
 
-            if (IsText && text != null)
+            if (Text is { } __value0 && text != null)
             {
-                return text(Text!);
+                return text(__value0);
             }
-            else if (IsImageUrl && imageUrl != null)
+            else if (ImageUrl is { } __value1 && imageUrl != null)
             {
-                return imageUrl(ImageUrl!);
+                return imageUrl(__value1);
             }
-            else if (IsAudioUrl && audioUrl != null)
+            else if (AudioUrl is { } __value2 && audioUrl != null)
             {
-                return audioUrl(AudioUrl!);
+                return audioUrl(__value2);
             }
-            else if (IsVideoUrl && videoUrl != null)
+            else if (VideoUrl is { } __value3 && videoUrl != null)
             {
-                return videoUrl(VideoUrl!);
+                return videoUrl(__value3);
             }
 
             return default(TResult);
@@ -353,21 +353,21 @@ namespace Mixedbread
                 Validate();
             }
 
-            if (IsText)
+            if (Text is { } __value0)
             {
-                text?.Invoke(Text!);
+                text?.Invoke(__value0);
             }
-            else if (IsImageUrl)
+            else if (ImageUrl is { } __value1)
             {
-                imageUrl?.Invoke(ImageUrl!);
+                imageUrl?.Invoke(__value1);
             }
-            else if (IsAudioUrl)
+            else if (AudioUrl is { } __value2)
             {
-                audioUrl?.Invoke(AudioUrl!);
+                audioUrl?.Invoke(__value2);
             }
-            else if (IsVideoUrl)
+            else if (VideoUrl is { } __value3)
             {
-                videoUrl?.Invoke(VideoUrl!);
+                videoUrl?.Invoke(__value3);
             }
         }
 
@@ -386,21 +386,21 @@ namespace Mixedbread
                 Validate();
             }
 
-            if (IsText)
+            if (Text is { } __value0)
             {
-                text?.Invoke(Text!);
+                text?.Invoke(__value0);
             }
-            else if (IsImageUrl)
+            else if (ImageUrl is { } __value1)
             {
-                imageUrl?.Invoke(ImageUrl!);
+                imageUrl?.Invoke(__value1);
             }
-            else if (IsAudioUrl)
+            else if (AudioUrl is { } __value2)
             {
-                audioUrl?.Invoke(AudioUrl!);
+                audioUrl?.Invoke(__value2);
             }
-            else if (IsVideoUrl)
+            else if (VideoUrl is { } __value3)
             {
-                videoUrl?.Invoke(VideoUrl!);
+                videoUrl?.Invoke(__value3);
             }
         }
 
