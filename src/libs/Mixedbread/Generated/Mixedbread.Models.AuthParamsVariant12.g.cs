@@ -47,8 +47,8 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.OAuth2CreateOrUpdateParams PickOauth2() => IsOauth2
-            ? Oauth2!
+        public global::Mixedbread.OAuth2CreateOrUpdateParams PickOauth2() => Oauth2 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Oauth2' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -120,9 +120,9 @@ namespace Mixedbread
                 Validate();
             }
 
-            if (IsOauth2 && oauth2 != null)
+            if (Oauth2 is { } __value0 && oauth2 != null)
             {
-                return oauth2(Oauth2!);
+                return oauth2(__value0);
             }
 
             return default(TResult);
@@ -140,9 +140,9 @@ namespace Mixedbread
                 Validate();
             }
 
-            if (IsOauth2)
+            if (Oauth2 is { } __value0)
             {
-                oauth2?.Invoke(Oauth2!);
+                oauth2?.Invoke(__value0);
             }
         }
 
@@ -158,9 +158,9 @@ namespace Mixedbread
                 Validate();
             }
 
-            if (IsOauth2)
+            if (Oauth2 is { } __value0)
             {
-                oauth2?.Invoke(Oauth2!);
+                oauth2?.Invoke(__value0);
             }
         }
 

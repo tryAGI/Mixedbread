@@ -50,8 +50,8 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.BucketAssumeRoleCredentials PickAssumeRole() => IsAssumeRole
-            ? AssumeRole!
+        public global::Mixedbread.BucketAssumeRoleCredentials PickAssumeRole() => AssumeRole is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'AssumeRole' but the value was {ToString()}.");
 
         /// <summary>
@@ -87,8 +87,8 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.BucketAccessKeyCredentials PickAccessKey() => IsAccessKey
-            ? AccessKey!
+        public global::Mixedbread.BucketAccessKeyCredentials PickAccessKey() => AccessKey is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'AccessKey' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -188,13 +188,13 @@ namespace Mixedbread
                 Validate();
             }
 
-            if (IsAssumeRole && assumeRole != null)
+            if (AssumeRole is { } __value0 && assumeRole != null)
             {
-                return assumeRole(AssumeRole!);
+                return assumeRole(__value0);
             }
-            else if (IsAccessKey && accessKey != null)
+            else if (AccessKey is { } __value1 && accessKey != null)
             {
-                return accessKey(AccessKey!);
+                return accessKey(__value1);
             }
 
             return default(TResult);
@@ -214,13 +214,13 @@ namespace Mixedbread
                 Validate();
             }
 
-            if (IsAssumeRole)
+            if (AssumeRole is { } __value0)
             {
-                assumeRole?.Invoke(AssumeRole!);
+                assumeRole?.Invoke(__value0);
             }
-            else if (IsAccessKey)
+            else if (AccessKey is { } __value1)
             {
-                accessKey?.Invoke(AccessKey!);
+                accessKey?.Invoke(__value1);
             }
         }
 
@@ -237,13 +237,13 @@ namespace Mixedbread
                 Validate();
             }
 
-            if (IsAssumeRole)
+            if (AssumeRole is { } __value0)
             {
-                assumeRole?.Invoke(AssumeRole!);
+                assumeRole?.Invoke(__value0);
             }
-            else if (IsAccessKey)
+            else if (AccessKey is { } __value1)
             {
-                accessKey?.Invoke(AccessKey!);
+                accessKey?.Invoke(__value1);
             }
         }
 

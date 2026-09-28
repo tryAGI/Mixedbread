@@ -47,8 +47,8 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.StoreIngestionEvent PickIngestion() => IsIngestion
-            ? Ingestion!
+        public global::Mixedbread.StoreIngestionEvent PickIngestion() => Ingestion is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Ingestion' but the value was {ToString()}.");
 
         /// <summary>
@@ -84,8 +84,8 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.StoreSearchEvent PickSearch() => IsSearch
-            ? Search!
+        public global::Mixedbread.StoreSearchEvent PickSearch() => Search is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Search' but the value was {ToString()}.");
 
         /// <summary>
@@ -124,8 +124,8 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.StoreAgenticSearchEvent PickAgenticSearch() => IsAgenticSearch
-            ? AgenticSearch!
+        public global::Mixedbread.StoreAgenticSearchEvent PickAgenticSearch() => AgenticSearch is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'AgenticSearch' but the value was {ToString()}.");
 
         /// <summary>
@@ -163,8 +163,8 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.StoreGrepEvent PickGrep() => IsGrep
-            ? Grep!
+        public global::Mixedbread.StoreGrepEvent PickGrep() => Grep is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Grep' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -320,21 +320,21 @@ namespace Mixedbread
                 Validate();
             }
 
-            if (IsIngestion && ingestion != null)
+            if (Ingestion is { } __value0 && ingestion != null)
             {
-                return ingestion(Ingestion!);
+                return ingestion(__value0);
             }
-            else if (IsSearch && search != null)
+            else if (Search is { } __value1 && search != null)
             {
-                return search(Search!);
+                return search(__value1);
             }
-            else if (IsAgenticSearch && agenticSearch != null)
+            else if (AgenticSearch is { } __value2 && agenticSearch != null)
             {
-                return agenticSearch(AgenticSearch!);
+                return agenticSearch(__value2);
             }
-            else if (IsGrep && grep != null)
+            else if (Grep is { } __value3 && grep != null)
             {
-                return grep(Grep!);
+                return grep(__value3);
             }
 
             return default(TResult);
@@ -358,21 +358,21 @@ namespace Mixedbread
                 Validate();
             }
 
-            if (IsIngestion)
+            if (Ingestion is { } __value0)
             {
-                ingestion?.Invoke(Ingestion!);
+                ingestion?.Invoke(__value0);
             }
-            else if (IsSearch)
+            else if (Search is { } __value1)
             {
-                search?.Invoke(Search!);
+                search?.Invoke(__value1);
             }
-            else if (IsAgenticSearch)
+            else if (AgenticSearch is { } __value2)
             {
-                agenticSearch?.Invoke(AgenticSearch!);
+                agenticSearch?.Invoke(__value2);
             }
-            else if (IsGrep)
+            else if (Grep is { } __value3)
             {
-                grep?.Invoke(Grep!);
+                grep?.Invoke(__value3);
             }
         }
 
@@ -391,21 +391,21 @@ namespace Mixedbread
                 Validate();
             }
 
-            if (IsIngestion)
+            if (Ingestion is { } __value0)
             {
-                ingestion?.Invoke(Ingestion!);
+                ingestion?.Invoke(__value0);
             }
-            else if (IsSearch)
+            else if (Search is { } __value1)
             {
-                search?.Invoke(Search!);
+                search?.Invoke(__value1);
             }
-            else if (IsAgenticSearch)
+            else if (AgenticSearch is { } __value2)
             {
-                agenticSearch?.Invoke(AgenticSearch!);
+                agenticSearch?.Invoke(__value2);
             }
-            else if (IsGrep)
+            else if (Grep is { } __value3)
             {
-                grep?.Invoke(Grep!);
+                grep?.Invoke(__value3);
             }
         }
 

@@ -198,8 +198,8 @@ namespace Mixedbread
                 PrepareDeleteConnectorRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    dataSourceId: dataSourceId!,
-                    connectorId: connectorId!);
+                    dataSourceId: dataSourceId,
+                    connectorId: connectorId);
 
                 return __httpRequest;
             }
@@ -221,7 +221,7 @@ namespace Mixedbread
                                 pathTemplate: "$\"/v1/data_sources/{dataSourceId}/connectors/{connectorId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
                                 exception: null,
                                 clientOptions: Options,
@@ -255,7 +255,7 @@ namespace Mixedbread
                                 pathTemplate: "$\"/v1/data_sources/{dataSourceId}/connectors/{connectorId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
                                 exception: __exception,
                                 clientOptions: Options,
@@ -296,7 +296,7 @@ namespace Mixedbread
                                 pathTemplate: "$\"/v1/data_sources/{dataSourceId}/connectors/{connectorId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,
@@ -344,7 +344,7 @@ namespace Mixedbread
                                 pathTemplate: "$\"/v1/data_sources/{dataSourceId}/connectors/{connectorId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,
@@ -366,7 +366,7 @@ namespace Mixedbread
                                 pathTemplate: "$\"/v1/data_sources/{dataSourceId}/connectors/{connectorId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,

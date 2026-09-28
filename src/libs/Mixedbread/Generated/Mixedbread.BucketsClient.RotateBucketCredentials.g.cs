@@ -213,7 +213,7 @@ namespace Mixedbread
                 PrepareRotateBucketCredentialsRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    bucketId: bucketId!,
+                    bucketId: bucketId,
                     request: request);
 
                 return __httpRequest;
@@ -236,7 +236,7 @@ namespace Mixedbread
                                 pathTemplate: "$\"/v1/buckets/{bucketId}/credentials\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
                                 exception: null,
                                 clientOptions: Options,
@@ -270,7 +270,7 @@ namespace Mixedbread
                                 pathTemplate: "$\"/v1/buckets/{bucketId}/credentials\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
                                 exception: __exception,
                                 clientOptions: Options,
@@ -311,7 +311,7 @@ namespace Mixedbread
                                 pathTemplate: "$\"/v1/buckets/{bucketId}/credentials\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,
@@ -359,7 +359,7 @@ namespace Mixedbread
                                 pathTemplate: "$\"/v1/buckets/{bucketId}/credentials\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,
@@ -381,7 +381,7 @@ namespace Mixedbread
                                 pathTemplate: "$\"/v1/buckets/{bucketId}/credentials\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,

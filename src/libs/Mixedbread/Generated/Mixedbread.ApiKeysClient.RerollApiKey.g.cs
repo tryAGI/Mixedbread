@@ -186,7 +186,7 @@ namespace Mixedbread
                 PrepareRerollApiKeyRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    apiKeyId: apiKeyId!);
+                    apiKeyId: apiKeyId);
 
                 return __httpRequest;
             }
@@ -208,7 +208,7 @@ namespace Mixedbread
                                 pathTemplate: "$\"/v1/api-keys/{apiKeyId}/reroll\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
                                 exception: null,
                                 clientOptions: Options,
@@ -242,7 +242,7 @@ namespace Mixedbread
                                 pathTemplate: "$\"/v1/api-keys/{apiKeyId}/reroll\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
                                 exception: __exception,
                                 clientOptions: Options,
@@ -283,7 +283,7 @@ namespace Mixedbread
                                 pathTemplate: "$\"/v1/api-keys/{apiKeyId}/reroll\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,
@@ -331,7 +331,7 @@ namespace Mixedbread
                                 pathTemplate: "$\"/v1/api-keys/{apiKeyId}/reroll\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,
@@ -353,7 +353,7 @@ namespace Mixedbread
                                 pathTemplate: "$\"/v1/api-keys/{apiKeyId}/reroll\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,

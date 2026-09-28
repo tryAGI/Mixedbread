@@ -137,7 +137,7 @@ namespace Mixedbread
                                 servers: s_GetSlackChannelSelectionServers,
                                 defaultBaseUrl: "https://api.mixedbread.com/"));
                             __pathBuilder
-                                .AddRequiredParameter("installation_id", installationId.ToString()!)
+                                .AddRequiredParameter("installation_id", installationId.ToString() ?? throw new global::System.InvalidOperationException("A required query parameter returned null from ToString()."))
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::Mixedbread.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -179,7 +179,7 @@ namespace Mixedbread
                 PrepareGetSlackChannelSelectionRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    installationId: installationId!);
+                    installationId: installationId);
 
                 return __httpRequest;
             }
@@ -201,7 +201,7 @@ namespace Mixedbread
                                 pathTemplate: "\"/v1/integrations/slack/channels\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
                                 exception: null,
                                 clientOptions: Options,
@@ -235,7 +235,7 @@ namespace Mixedbread
                                 pathTemplate: "\"/v1/integrations/slack/channels\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
                                 exception: __exception,
                                 clientOptions: Options,
@@ -276,7 +276,7 @@ namespace Mixedbread
                                 pathTemplate: "\"/v1/integrations/slack/channels\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,
@@ -324,7 +324,7 @@ namespace Mixedbread
                                 pathTemplate: "\"/v1/integrations/slack/channels\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,
@@ -346,7 +346,7 @@ namespace Mixedbread
                                 pathTemplate: "\"/v1/integrations/slack/channels\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,
