@@ -26,8 +26,8 @@ namespace Mixedbread
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("resource_id")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?, object>))]
-        public global::Mixedbread.AnyOf<string, global::System.Guid?, object>? ResourceId { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?>))]
+        public global::Mixedbread.AnyOf<string, global::System.Guid?>? ResourceId { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -47,7 +47,7 @@ namespace Mixedbread
         public Scope(
             global::Mixedbread.ScopeMethod method,
             string? resourceType,
-            global::Mixedbread.AnyOf<string, global::System.Guid?, object>? resourceId)
+            global::Mixedbread.AnyOf<string, global::System.Guid?>? resourceId)
         {
             this.Method = method;
             this.ResourceType = resourceType;
