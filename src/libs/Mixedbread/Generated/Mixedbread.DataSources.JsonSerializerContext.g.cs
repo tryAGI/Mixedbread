@@ -32,7 +32,7 @@ namespace Mixedbread
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.DataSourceAuthParamsVariant1DiscriminatorType), TypeInfoPropertyName = "DataSourceAuthParamsVariant1DiscriminatorType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.SyncStatus), TypeInfoPropertyName = "SyncStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.DataSourceConnectorCreateParams))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.AnyOf<int?, string, object>), TypeInfoPropertyName = "AnyOfInt32StringObject2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.AnyOf<int?, string>), TypeInfoPropertyName = "AnyOfInt32String2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.DataSourceConnectorDeleted))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.DataSourceConnectorUpdateParams))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.DataSourceDeleted))]
@@ -60,7 +60,7 @@ namespace Mixedbread
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.DataSourceType?), TypeInfoPropertyName = "NullableDataSourceType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.DataSourceAuthParamsVariant1DiscriminatorType?), TypeInfoPropertyName = "NullableDataSourceAuthParamsVariant1DiscriminatorType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.SyncStatus?), TypeInfoPropertyName = "NullableSyncStatus2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.AnyOf<int?, string, object>?), TypeInfoPropertyName = "NullableAnyOfInt32StringObject2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.AnyOf<int?, string>?), TypeInfoPropertyName = "NullableAnyOfInt32String2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Guid?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.LinearDataSourceCreateOrUpdateParamsAuthParamsVariant1DiscriminatorType?), TypeInfoPropertyName = "NullableLinearDataSourceCreateOrUpdateParamsAuthParamsVariant1DiscriminatorType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.NotionDataSourceCreateOrUpdateParamsAuthParamsVariant1DiscriminatorType?), TypeInfoPropertyName = "NullableNotionDataSourceCreateOrUpdateParamsAuthParamsVariant1DiscriminatorType2")]
@@ -121,18 +121,18 @@ namespace Mixedbread
             options.Converters.Add(new global::Mixedbread.JsonConverters.AuthParamsVariant12JsonConverter());
             options.Converters.Add(new global::Mixedbread.JsonConverters.AuthParamsVariant13JsonConverter());
             options.Converters.Add(new global::Mixedbread.JsonConverters.AnyOfJsonConverter<bool?, global::System.Collections.Generic.IList<string>>());
-            options.Converters.Add(new global::Mixedbread.JsonConverters.AnyOfJsonConverter<int?, string, object>());
-            options.Converters.Add(new global::Mixedbread.JsonConverters.AnyOfJsonConverter<int?, string, object>());
+            options.Converters.Add(new global::Mixedbread.JsonConverters.AnyOfJsonConverter<int?, string>());
+            options.Converters.Add(new global::Mixedbread.JsonConverters.AnyOfJsonConverter<int?, string>());
             options.Converters.Add(new global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
             options.Converters.Add(new global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?>());
-            options.Converters.Add(new global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, int?, double?, bool?, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<string, int?, double?, bool?>>, object>());
+            options.Converters.Add(new global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, int?, double?, bool?, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<string, int?, double?, bool?>>>());
             options.Converters.Add(new global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, int?, double?, bool?>());
             options.Converters.Add(new global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?>());
             options.Converters.Add(new global::Mixedbread.JsonConverters.AnyOfJsonConverter<bool?, global::System.Collections.Generic.IList<string>>());
             options.Converters.Add(new global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, object, global::System.Collections.Generic.IList<object>>());
-            options.Converters.Add(new global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?, object>());
             options.Converters.Add(new global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?>());
-            options.Converters.Add(new global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<string, bool?>>, object>());
+            options.Converters.Add(new global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?>());
+            options.Converters.Add(new global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<string, bool?>>>());
             options.Converters.Add(new global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, bool?>());
             options.Converters.Add(new global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?>());
             options.Converters.Add(new global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?>());

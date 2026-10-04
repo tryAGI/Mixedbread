@@ -42,8 +42,8 @@ namespace Mixedbread
         /// Valid range: 15 seconds to 30 days
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("polling_interval")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<int?, string, object>))]
-        public global::Mixedbread.AnyOf<int?, string, object>? PollingInterval { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<int?, string>))]
+        public global::Mixedbread.AnyOf<int?, string>? PollingInterval { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -82,7 +82,7 @@ namespace Mixedbread
             string? name,
             bool? triggerSync,
             object? metadata,
-            global::Mixedbread.AnyOf<int?, string, object>? pollingInterval)
+            global::Mixedbread.AnyOf<int?, string>? pollingInterval)
         {
             this.StoreId = storeId ?? throw new global::System.ArgumentNullException(nameof(storeId));
             this.Name = name;

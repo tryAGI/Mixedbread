@@ -573,7 +573,7 @@ namespace Mixedbread
             string? name = default,
             object? metadata = default,
             bool? triggerSync = default,
-            global::Mixedbread.AnyOf<int?, string, object>? pollingInterval = default,
+            global::Mixedbread.AnyOf<int?, string>? pollingInterval = default,
             global::Mixedbread.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {

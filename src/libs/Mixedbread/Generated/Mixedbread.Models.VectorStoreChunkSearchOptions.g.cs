@@ -26,15 +26,15 @@ namespace Mixedbread
         /// Whether to rerank results and optional reranking configuration. Ignored when agentic is enabled (the agent handles ranking).
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("rerank")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<bool?, global::Mixedbread.RerankConfig, object>))]
-        public global::Mixedbread.AnyOf<bool?, global::Mixedbread.RerankConfig, object>? Rerank { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<bool?, global::Mixedbread.RerankConfig>))]
+        public global::Mixedbread.AnyOf<bool?, global::Mixedbread.RerankConfig>? Rerank { get; set; }
 
         /// <summary>
         /// Whether to use agentic multi-query search with automatic query decomposition and ranking. When enabled, rewrite_query and rerank options are ignored.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agentic")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<bool?, global::Mixedbread.AgenticSearchConfig, object>))]
-        public global::Mixedbread.AnyOf<bool?, global::Mixedbread.AgenticSearchConfig, object>? Agentic { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<bool?, global::Mixedbread.AgenticSearchConfig>))]
+        public global::Mixedbread.AnyOf<bool?, global::Mixedbread.AgenticSearchConfig>? Agentic { get; set; }
 
         /// <summary>
         /// Whether to return file metadata<br/>
@@ -87,8 +87,8 @@ namespace Mixedbread
         public VectorStoreChunkSearchOptions(
             double? scoreThreshold,
             bool? rewriteQuery,
-            global::Mixedbread.AnyOf<bool?, global::Mixedbread.RerankConfig, object>? rerank,
-            global::Mixedbread.AnyOf<bool?, global::Mixedbread.AgenticSearchConfig, object>? agentic,
+            global::Mixedbread.AnyOf<bool?, global::Mixedbread.RerankConfig>? rerank,
+            global::Mixedbread.AnyOf<bool?, global::Mixedbread.AgenticSearchConfig>? agentic,
             bool? returnMetadata,
             bool? applySearchRules)
         {
