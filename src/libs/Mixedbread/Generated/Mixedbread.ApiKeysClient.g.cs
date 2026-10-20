@@ -37,14 +37,14 @@ namespace Mixedbread
 
         internal global::Mixedbread.AutoSDKServerConfiguration AutoSDKServerConfiguration { get; set; } = new global::Mixedbread.AutoSDKServerConfiguration();
 
-        internal global::System.Lazy<global::System.Text.Json.Serialization.JsonSerializerContext> JsonSerializerContextProvider { get; set; } = new(() => global::Mixedbread.ApiKeysSourceGenerationContext.Default);
+        internal global::System.Lazy<global::System.Text.Json.Serialization.JsonSerializerContext>? JsonSerializerContextProvider { get; set; }
 
         /// <summary>
         ///
         /// </summary>
         public global::System.Text.Json.Serialization.JsonSerializerContext JsonSerializerContext
         {
-            get => JsonSerializerContextProvider.Value;
+            get => JsonSerializerContextProvider?.Value ?? global::Mixedbread.ApiKeysSourceGenerationContext.Default;
             set => JsonSerializerContextProvider = new(() => value);
         }
 
