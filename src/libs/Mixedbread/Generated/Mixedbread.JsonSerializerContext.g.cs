@@ -15,6 +15,7 @@ namespace Mixedbread
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, string>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, object>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<object>), TypeInfoPropertyName = "SystemCollectionsGeneric_ObjectList")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(string[]))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Text.Json.JsonElement?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.AgenticSearchConfig))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(int))]
@@ -505,10 +506,9 @@ namespace Mixedbread
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.AgenticSearchConfigMediaContent?), TypeInfoPropertyName = "NullableAgenticSearchConfigMediaContent2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.AgenticToolCallToolType?), TypeInfoPropertyName = "NullableAgenticToolCallToolType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.DateTime?))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(double?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.AudioUrlInputChunkGeneratedMetadataVariant1DiscriminatorType?), TypeInfoPropertyName = "NullableAudioUrlInputChunkGeneratedMetadataVariant1DiscriminatorType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.BucketProvider?), TypeInfoPropertyName = "NullableBucketProvider2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.BucketAuthType?), TypeInfoPropertyName = "NullableBucketAuthType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.BucketStatus?), TypeInfoPropertyName = "NullableBucketStatus2")]
     internal sealed partial class SourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -522,6 +522,8 @@ namespace Mixedbread
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredAudioUrlInputChunkGeneratedMetadataVariant1DiscriminatorType?), TypeInfoPropertyName = "MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredAudioUrlInputChunkGeneratedMetadataVariant1Discri_3c2191d673db2d33")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredImageUrlInputChunkGeneratedMetadataVariant1DiscriminatorType?), TypeInfoPropertyName = "MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredImageUrlInputChunkGeneratedMetadataVariant1Discri_aff54a326955d8df")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredVideoUrlInputChunkGeneratedMetadataVariant1DiscriminatorType?), TypeInfoPropertyName = "MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredVideoUrlInputChunkGeneratedMetadataVariant1Discri_59284f7c8f26921d")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.BucketAuthType?), TypeInfoPropertyName = "NullableBucketAuthType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.BucketStatus?), TypeInfoPropertyName = "NullableBucketStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.Credentials?), TypeInfoPropertyName = "NullableCredentials2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.BucketCreateParamsCredentialsDiscriminatorType?), TypeInfoPropertyName = "NullableBucketCreateParamsCredentialsDiscriminatorType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.ElementType?), TypeInfoPropertyName = "NullableElementType2")]
