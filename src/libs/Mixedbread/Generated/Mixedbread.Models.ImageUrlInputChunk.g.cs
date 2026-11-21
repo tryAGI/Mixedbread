@@ -26,7 +26,7 @@ namespace Mixedbread
         /// metadata of the chunk
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("generated_metadata")]
-        public global::Mixedbread.GeneratedMetadataVariant12? GeneratedMetadata { get; set; }
+        public global::Mixedbread.GeneratedMetadataVariant13? GeneratedMetadata { get; set; }
 
         /// <summary>
         /// model used for this chunk
@@ -100,7 +100,7 @@ namespace Mixedbread
         public ImageUrlInputChunk(
             int chunkIndex,
             string? mimeType,
-            global::Mixedbread.GeneratedMetadataVariant12? generatedMetadata,
+            global::Mixedbread.GeneratedMetadataVariant13? generatedMetadata,
             string? model,
             string? type,
             string? ocrText,

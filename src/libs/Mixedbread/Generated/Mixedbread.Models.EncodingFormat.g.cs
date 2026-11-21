@@ -6,7 +6,7 @@ namespace Mixedbread
     /// <summary>
     /// Enumeration of encoding formats.
     /// </summary>
-    public enum EncodingFormat3
+    public enum EncodingFormat
     {
         /// <summary>
         ///
@@ -41,39 +41,39 @@ namespace Mixedbread
     /// <summary>
     /// Enum extensions to do fast conversions without the reflection.
     /// </summary>
-    public static class EncodingFormat3Extensions
+    public static class EncodingFormatExtensions
     {
         /// <summary>
         /// Converts an enum to a string.
         /// </summary>
-        public static string ToValueString(this EncodingFormat3 value)
+        public static string ToValueString(this EncodingFormat value)
         {
             return value switch
             {
-                EncodingFormat3.Base64 => "base64",
-                EncodingFormat3.Binary => "binary",
-                EncodingFormat3.Float => "float",
-                EncodingFormat3.Float16 => "float16",
-                EncodingFormat3.Int8 => "int8",
-                EncodingFormat3.Ubinary => "ubinary",
-                EncodingFormat3.Uint8 => "uint8",
+                EncodingFormat.Base64 => "base64",
+                EncodingFormat.Binary => "binary",
+                EncodingFormat.Float => "float",
+                EncodingFormat.Float16 => "float16",
+                EncodingFormat.Int8 => "int8",
+                EncodingFormat.Ubinary => "ubinary",
+                EncodingFormat.Uint8 => "uint8",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
         /// <summary>
         /// Converts an string to a enum.
         /// </summary>
-        public static EncodingFormat3? ToEnum(string value)
+        public static EncodingFormat? ToEnum(string value)
         {
             return value switch
             {
-                "base64" => EncodingFormat3.Base64,
-                "binary" => EncodingFormat3.Binary,
-                "float" => EncodingFormat3.Float,
-                "float16" => EncodingFormat3.Float16,
-                "int8" => EncodingFormat3.Int8,
-                "ubinary" => EncodingFormat3.Ubinary,
-                "uint8" => EncodingFormat3.Uint8,
+                "base64" => EncodingFormat.Base64,
+                "binary" => EncodingFormat.Binary,
+                "float" => EncodingFormat.Float,
+                "float16" => EncodingFormat.Float16,
+                "int8" => EncodingFormat.Int8,
+                "ubinary" => EncodingFormat.Ubinary,
+                "uint8" => EncodingFormat.Uint8,
                 _ => null,
             };
         }

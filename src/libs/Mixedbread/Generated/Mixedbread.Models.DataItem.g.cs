@@ -12,289 +12,284 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.StoreEventListResponseDataItemDiscriminatorType? Type { get; }
+        public global::Mixedbread.StoreGrepResponseDataItemDiscriminatorType? Type { get; }
 
         /// <summary>
-        /// Represents an ingestion event in a vector store.
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
-        public global::Mixedbread.StoreIngestionEvent? Ingestion { get; init; }
+        public global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredTextInputChunk? Text { get; init; }
 #else
-        public global::Mixedbread.StoreIngestionEvent? Ingestion { get; }
+        public global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredTextInputChunk? Text { get; }
 #endif
 
         /// <summary>
         ///
         /// </summary>
 #if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Ingestion))]
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Text))]
 #endif
-        public bool IsIngestion => Ingestion != null;
+        public bool IsText => Text != null;
 
         /// <summary>
         ///
         /// </summary>
-        public bool TryPickIngestion(
+        public bool TryPickText(
 #if NET6_0_OR_GREATER
             [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
 #endif
-            out global::Mixedbread.StoreIngestionEvent? value)
+            out global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredTextInputChunk? value)
         {
-            value = Ingestion;
-            return IsIngestion;
+            value = Text;
+            return IsText;
         }
 
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.StoreIngestionEvent PickIngestion() => Ingestion is { } value
+        public global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredTextInputChunk PickText() => Text is { } value
             ? value
-            : throw new global::System.InvalidOperationException($"Expected union variant 'Ingestion' but the value was {ToString()}.");
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Text' but the value was {ToString()}.");
 
         /// <summary>
-        /// Represents a search event in a vector store.
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
-        public global::Mixedbread.StoreSearchEvent? Search { get; init; }
+        public global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredImageUrlInputChunk? ImageUrl { get; init; }
 #else
-        public global::Mixedbread.StoreSearchEvent? Search { get; }
+        public global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredImageUrlInputChunk? ImageUrl { get; }
 #endif
 
         /// <summary>
         ///
         /// </summary>
 #if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Search))]
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ImageUrl))]
 #endif
-        public bool IsSearch => Search != null;
+        public bool IsImageUrl => ImageUrl != null;
 
         /// <summary>
         ///
         /// </summary>
-        public bool TryPickSearch(
+        public bool TryPickImageUrl(
 #if NET6_0_OR_GREATER
             [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
 #endif
-            out global::Mixedbread.StoreSearchEvent? value)
+            out global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredImageUrlInputChunk? value)
         {
-            value = Search;
-            return IsSearch;
+            value = ImageUrl;
+            return IsImageUrl;
         }
 
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.StoreSearchEvent PickSearch() => Search is { } value
+        public global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredImageUrlInputChunk PickImageUrl() => ImageUrl is { } value
             ? value
-            : throw new global::System.InvalidOperationException($"Expected union variant 'Search' but the value was {ToString()}.");
+            : throw new global::System.InvalidOperationException($"Expected union variant 'ImageUrl' but the value was {ToString()}.");
 
         /// <summary>
-        /// Represents an agentic search trace in a vector store.<br/>
-        /// Unlike StoreSearchEvent, this captures the full sequence of tool calls the<br/>
-        /// agent issued (name, arguments, result) so developers can inspect what the<br/>
-        /// agent did, along with the token usage.
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
-        public global::Mixedbread.StoreAgenticSearchEvent? AgenticSearch { get; init; }
+        public global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredAudioUrlInputChunk? AudioUrl { get; init; }
 #else
-        public global::Mixedbread.StoreAgenticSearchEvent? AgenticSearch { get; }
+        public global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredAudioUrlInputChunk? AudioUrl { get; }
 #endif
 
         /// <summary>
         ///
         /// </summary>
 #if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(AgenticSearch))]
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(AudioUrl))]
 #endif
-        public bool IsAgenticSearch => AgenticSearch != null;
+        public bool IsAudioUrl => AudioUrl != null;
 
         /// <summary>
         ///
         /// </summary>
-        public bool TryPickAgenticSearch(
+        public bool TryPickAudioUrl(
 #if NET6_0_OR_GREATER
             [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
 #endif
-            out global::Mixedbread.StoreAgenticSearchEvent? value)
+            out global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredAudioUrlInputChunk? value)
         {
-            value = AgenticSearch;
-            return IsAgenticSearch;
+            value = AudioUrl;
+            return IsAudioUrl;
         }
 
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.StoreAgenticSearchEvent PickAgenticSearch() => AgenticSearch is { } value
+        public global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredAudioUrlInputChunk PickAudioUrl() => AudioUrl is { } value
             ? value
-            : throw new global::System.InvalidOperationException($"Expected union variant 'AgenticSearch' but the value was {ToString()}.");
+            : throw new global::System.InvalidOperationException($"Expected union variant 'AudioUrl' but the value was {ToString()}.");
 
         /// <summary>
-        /// Represents a grep event in a vector store.<br/>
-        /// Grep matches chunks against a regular expression rather than running a<br/>
-        /// semantic search, so it has no ranking, rewrite, or rerank fields.
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
-        public global::Mixedbread.StoreGrepEvent? Grep { get; init; }
+        public global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredVideoUrlInputChunk? VideoUrl { get; init; }
 #else
-        public global::Mixedbread.StoreGrepEvent? Grep { get; }
+        public global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredVideoUrlInputChunk? VideoUrl { get; }
 #endif
 
         /// <summary>
         ///
         /// </summary>
 #if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Grep))]
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(VideoUrl))]
 #endif
-        public bool IsGrep => Grep != null;
+        public bool IsVideoUrl => VideoUrl != null;
 
         /// <summary>
         ///
         /// </summary>
-        public bool TryPickGrep(
+        public bool TryPickVideoUrl(
 #if NET6_0_OR_GREATER
             [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
 #endif
-            out global::Mixedbread.StoreGrepEvent? value)
+            out global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredVideoUrlInputChunk? value)
         {
-            value = Grep;
-            return IsGrep;
+            value = VideoUrl;
+            return IsVideoUrl;
         }
 
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.StoreGrepEvent PickGrep() => Grep is { } value
+        public global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredVideoUrlInputChunk PickVideoUrl() => VideoUrl is { } value
             ? value
-            : throw new global::System.InvalidOperationException($"Expected union variant 'Grep' but the value was {ToString()}.");
+            : throw new global::System.InvalidOperationException($"Expected union variant 'VideoUrl' but the value was {ToString()}.");
         /// <summary>
         ///
         /// </summary>
-        public static implicit operator DataItem(global::Mixedbread.StoreIngestionEvent value) => new DataItem((global::Mixedbread.StoreIngestionEvent?)value);
+        public static implicit operator DataItem(global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredTextInputChunk value) => new DataItem((global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredTextInputChunk?)value);
 
         /// <summary>
         ///
         /// </summary>
-        public static implicit operator global::Mixedbread.StoreIngestionEvent?(DataItem @this) => @this.Ingestion;
+        public static implicit operator global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredTextInputChunk?(DataItem @this) => @this.Text;
 
         /// <summary>
         ///
         /// </summary>
-        public DataItem(global::Mixedbread.StoreIngestionEvent? value)
+        public DataItem(global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredTextInputChunk? value)
         {
-            Ingestion = value;
+            Text = value;
         }
 
         /// <summary>
         ///
         /// </summary>
-        public static DataItem FromIngestion(global::Mixedbread.StoreIngestionEvent? value) => new DataItem(value);
+        public static DataItem FromText(global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredTextInputChunk? value) => new DataItem(value);
 
         /// <summary>
         ///
         /// </summary>
-        public static implicit operator DataItem(global::Mixedbread.StoreSearchEvent value) => new DataItem((global::Mixedbread.StoreSearchEvent?)value);
+        public static implicit operator DataItem(global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredImageUrlInputChunk value) => new DataItem((global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredImageUrlInputChunk?)value);
 
         /// <summary>
         ///
         /// </summary>
-        public static implicit operator global::Mixedbread.StoreSearchEvent?(DataItem @this) => @this.Search;
+        public static implicit operator global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredImageUrlInputChunk?(DataItem @this) => @this.ImageUrl;
 
         /// <summary>
         ///
         /// </summary>
-        public DataItem(global::Mixedbread.StoreSearchEvent? value)
+        public DataItem(global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredImageUrlInputChunk? value)
         {
-            Search = value;
+            ImageUrl = value;
         }
 
         /// <summary>
         ///
         /// </summary>
-        public static DataItem FromSearch(global::Mixedbread.StoreSearchEvent? value) => new DataItem(value);
+        public static DataItem FromImageUrl(global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredImageUrlInputChunk? value) => new DataItem(value);
 
         /// <summary>
         ///
         /// </summary>
-        public static implicit operator DataItem(global::Mixedbread.StoreAgenticSearchEvent value) => new DataItem((global::Mixedbread.StoreAgenticSearchEvent?)value);
+        public static implicit operator DataItem(global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredAudioUrlInputChunk value) => new DataItem((global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredAudioUrlInputChunk?)value);
 
         /// <summary>
         ///
         /// </summary>
-        public static implicit operator global::Mixedbread.StoreAgenticSearchEvent?(DataItem @this) => @this.AgenticSearch;
+        public static implicit operator global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredAudioUrlInputChunk?(DataItem @this) => @this.AudioUrl;
 
         /// <summary>
         ///
         /// </summary>
-        public DataItem(global::Mixedbread.StoreAgenticSearchEvent? value)
+        public DataItem(global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredAudioUrlInputChunk? value)
         {
-            AgenticSearch = value;
+            AudioUrl = value;
         }
 
         /// <summary>
         ///
         /// </summary>
-        public static DataItem FromAgenticSearch(global::Mixedbread.StoreAgenticSearchEvent? value) => new DataItem(value);
+        public static DataItem FromAudioUrl(global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredAudioUrlInputChunk? value) => new DataItem(value);
 
         /// <summary>
         ///
         /// </summary>
-        public static implicit operator DataItem(global::Mixedbread.StoreGrepEvent value) => new DataItem((global::Mixedbread.StoreGrepEvent?)value);
+        public static implicit operator DataItem(global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredVideoUrlInputChunk value) => new DataItem((global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredVideoUrlInputChunk?)value);
 
         /// <summary>
         ///
         /// </summary>
-        public static implicit operator global::Mixedbread.StoreGrepEvent?(DataItem @this) => @this.Grep;
+        public static implicit operator global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredVideoUrlInputChunk?(DataItem @this) => @this.VideoUrl;
 
         /// <summary>
         ///
         /// </summary>
-        public DataItem(global::Mixedbread.StoreGrepEvent? value)
+        public DataItem(global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredVideoUrlInputChunk? value)
         {
-            Grep = value;
+            VideoUrl = value;
         }
 
         /// <summary>
         ///
         /// </summary>
-        public static DataItem FromGrep(global::Mixedbread.StoreGrepEvent? value) => new DataItem(value);
+        public static DataItem FromVideoUrl(global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredVideoUrlInputChunk? value) => new DataItem(value);
 
         /// <summary>
         ///
         /// </summary>
         public DataItem(
-            global::Mixedbread.StoreEventListResponseDataItemDiscriminatorType? type,
-            global::Mixedbread.StoreIngestionEvent? ingestion,
-            global::Mixedbread.StoreSearchEvent? search,
-            global::Mixedbread.StoreAgenticSearchEvent? agenticSearch,
-            global::Mixedbread.StoreGrepEvent? grep
+            global::Mixedbread.StoreGrepResponseDataItemDiscriminatorType? type,
+            global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredTextInputChunk? text,
+            global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredImageUrlInputChunk? imageUrl,
+            global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredAudioUrlInputChunk? audioUrl,
+            global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredVideoUrlInputChunk? videoUrl
             )
         {
             Type = type;
 
-            Ingestion = ingestion;
-            Search = search;
-            AgenticSearch = agenticSearch;
-            Grep = grep;
+            Text = text;
+            ImageUrl = imageUrl;
+            AudioUrl = audioUrl;
+            VideoUrl = videoUrl;
         }
 
         /// <summary>
         ///
         /// </summary>
         public object? Object =>
-            Grep as object ??
-            AgenticSearch as object ??
-            Search as object ??
-            Ingestion as object
+            VideoUrl as object ??
+            AudioUrl as object ??
+            ImageUrl as object ??
+            Text as object
             ;
 
         /// <summary>
         ///
         /// </summary>
         public override string? ToString() =>
-            Ingestion?.ToString() ??
-            Search?.ToString() ??
-            AgenticSearch?.ToString() ??
-            Grep?.ToString()
+            Text?.ToString() ??
+            ImageUrl?.ToString() ??
+            AudioUrl?.ToString() ??
+            VideoUrl?.ToString()
             ;
 
         /// <summary>
@@ -302,17 +297,17 @@ namespace Mixedbread
         /// </summary>
         public bool Validate()
         {
-            return IsIngestion && !IsSearch && !IsAgenticSearch && !IsGrep || !IsIngestion && IsSearch && !IsAgenticSearch && !IsGrep || !IsIngestion && !IsSearch && IsAgenticSearch && !IsGrep || !IsIngestion && !IsSearch && !IsAgenticSearch && IsGrep;
+            return IsText && !IsImageUrl && !IsAudioUrl && !IsVideoUrl || !IsText && IsImageUrl && !IsAudioUrl && !IsVideoUrl || !IsText && !IsImageUrl && IsAudioUrl && !IsVideoUrl || !IsText && !IsImageUrl && !IsAudioUrl && IsVideoUrl;
         }
 
         /// <summary>
         ///
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::Mixedbread.StoreIngestionEvent, TResult>? ingestion = null,
-            global::System.Func<global::Mixedbread.StoreSearchEvent, TResult>? search = null,
-            global::System.Func<global::Mixedbread.StoreAgenticSearchEvent, TResult>? agenticSearch = null,
-            global::System.Func<global::Mixedbread.StoreGrepEvent, TResult>? grep = null,
+            global::System.Func<global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredTextInputChunk, TResult>? text = null,
+            global::System.Func<global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredImageUrlInputChunk, TResult>? imageUrl = null,
+            global::System.Func<global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredAudioUrlInputChunk, TResult>? audioUrl = null,
+            global::System.Func<global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredVideoUrlInputChunk, TResult>? videoUrl = null,
             bool validate = true)
         {
             if (validate)
@@ -320,21 +315,21 @@ namespace Mixedbread
                 Validate();
             }
 
-            if (Ingestion is { } __value0 && ingestion != null)
+            if (Text is { } __value0 && text != null)
             {
-                return ingestion(__value0);
+                return text(__value0);
             }
-            else if (Search is { } __value1 && search != null)
+            else if (ImageUrl is { } __value1 && imageUrl != null)
             {
-                return search(__value1);
+                return imageUrl(__value1);
             }
-            else if (AgenticSearch is { } __value2 && agenticSearch != null)
+            else if (AudioUrl is { } __value2 && audioUrl != null)
             {
-                return agenticSearch(__value2);
+                return audioUrl(__value2);
             }
-            else if (Grep is { } __value3 && grep != null)
+            else if (VideoUrl is { } __value3 && videoUrl != null)
             {
-                return grep(__value3);
+                return videoUrl(__value3);
             }
 
             return default(TResult);
@@ -344,13 +339,13 @@ namespace Mixedbread
         ///
         /// </summary>
         public void Match(
-            global::System.Action<global::Mixedbread.StoreIngestionEvent>? ingestion = null,
+            global::System.Action<global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredTextInputChunk>? text = null,
 
-            global::System.Action<global::Mixedbread.StoreSearchEvent>? search = null,
+            global::System.Action<global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredImageUrlInputChunk>? imageUrl = null,
 
-            global::System.Action<global::Mixedbread.StoreAgenticSearchEvent>? agenticSearch = null,
+            global::System.Action<global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredAudioUrlInputChunk>? audioUrl = null,
 
-            global::System.Action<global::Mixedbread.StoreGrepEvent>? grep = null,
+            global::System.Action<global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredVideoUrlInputChunk>? videoUrl = null,
             bool validate = true)
         {
             if (validate)
@@ -358,21 +353,21 @@ namespace Mixedbread
                 Validate();
             }
 
-            if (Ingestion is { } __value0)
+            if (Text is { } __value0)
             {
-                ingestion?.Invoke(__value0);
+                text?.Invoke(__value0);
             }
-            else if (Search is { } __value1)
+            else if (ImageUrl is { } __value1)
             {
-                search?.Invoke(__value1);
+                imageUrl?.Invoke(__value1);
             }
-            else if (AgenticSearch is { } __value2)
+            else if (AudioUrl is { } __value2)
             {
-                agenticSearch?.Invoke(__value2);
+                audioUrl?.Invoke(__value2);
             }
-            else if (Grep is { } __value3)
+            else if (VideoUrl is { } __value3)
             {
-                grep?.Invoke(__value3);
+                videoUrl?.Invoke(__value3);
             }
         }
 
@@ -380,10 +375,10 @@ namespace Mixedbread
         ///
         /// </summary>
         public void Switch(
-            global::System.Action<global::Mixedbread.StoreIngestionEvent>? ingestion = null,
-            global::System.Action<global::Mixedbread.StoreSearchEvent>? search = null,
-            global::System.Action<global::Mixedbread.StoreAgenticSearchEvent>? agenticSearch = null,
-            global::System.Action<global::Mixedbread.StoreGrepEvent>? grep = null,
+            global::System.Action<global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredTextInputChunk>? text = null,
+            global::System.Action<global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredImageUrlInputChunk>? imageUrl = null,
+            global::System.Action<global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredAudioUrlInputChunk>? audioUrl = null,
+            global::System.Action<global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredVideoUrlInputChunk>? videoUrl = null,
             bool validate = true)
         {
             if (validate)
@@ -391,21 +386,21 @@ namespace Mixedbread
                 Validate();
             }
 
-            if (Ingestion is { } __value0)
+            if (Text is { } __value0)
             {
-                ingestion?.Invoke(__value0);
+                text?.Invoke(__value0);
             }
-            else if (Search is { } __value1)
+            else if (ImageUrl is { } __value1)
             {
-                search?.Invoke(__value1);
+                imageUrl?.Invoke(__value1);
             }
-            else if (AgenticSearch is { } __value2)
+            else if (AudioUrl is { } __value2)
             {
-                agenticSearch?.Invoke(__value2);
+                audioUrl?.Invoke(__value2);
             }
-            else if (Grep is { } __value3)
+            else if (VideoUrl is { } __value3)
             {
-                grep?.Invoke(__value3);
+                videoUrl?.Invoke(__value3);
             }
         }
 
@@ -416,14 +411,14 @@ namespace Mixedbread
         {
             var fields = new object?[]
             {
-                Ingestion,
-                typeof(global::Mixedbread.StoreIngestionEvent),
-                Search,
-                typeof(global::Mixedbread.StoreSearchEvent),
-                AgenticSearch,
-                typeof(global::Mixedbread.StoreAgenticSearchEvent),
-                Grep,
-                typeof(global::Mixedbread.StoreGrepEvent),
+                Text,
+                typeof(global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredTextInputChunk),
+                ImageUrl,
+                typeof(global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredImageUrlInputChunk),
+                AudioUrl,
+                typeof(global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredAudioUrlInputChunk),
+                VideoUrl,
+                typeof(global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredVideoUrlInputChunk),
             };
             const int offset = unchecked((int)2166136261);
             const int prime = 16777619;
@@ -440,10 +435,10 @@ namespace Mixedbread
         public bool Equals(DataItem other)
         {
             return
-                global::System.Collections.Generic.EqualityComparer<global::Mixedbread.StoreIngestionEvent?>.Default.Equals(Ingestion, other.Ingestion) &&
-                global::System.Collections.Generic.EqualityComparer<global::Mixedbread.StoreSearchEvent?>.Default.Equals(Search, other.Search) &&
-                global::System.Collections.Generic.EqualityComparer<global::Mixedbread.StoreAgenticSearchEvent?>.Default.Equals(AgenticSearch, other.AgenticSearch) &&
-                global::System.Collections.Generic.EqualityComparer<global::Mixedbread.StoreGrepEvent?>.Default.Equals(Grep, other.Grep)
+                global::System.Collections.Generic.EqualityComparer<global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredTextInputChunk?>.Default.Equals(Text, other.Text) &&
+                global::System.Collections.Generic.EqualityComparer<global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredImageUrlInputChunk?>.Default.Equals(ImageUrl, other.ImageUrl) &&
+                global::System.Collections.Generic.EqualityComparer<global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredAudioUrlInputChunk?>.Default.Equals(AudioUrl, other.AudioUrl) &&
+                global::System.Collections.Generic.EqualityComparer<global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredVideoUrlInputChunk?>.Default.Equals(VideoUrl, other.VideoUrl)
                 ;
         }
 

@@ -96,7 +96,7 @@ namespace Mixedbread
         /// chunks
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("chunks")]
-        public global::System.Collections.Generic.IList<global::Mixedbread.ChunksVariant1Item>? Chunks { get; set; }
+        public global::System.Collections.Generic.IList<global::Mixedbread.ChunksVariant1Item2>? Chunks { get; set; }
 
         /// <summary>
         /// Presigned URL for file content
@@ -179,7 +179,7 @@ namespace Mixedbread
             int? usageTokens,
             global::Mixedbread.StoreFileConfig? config,
             string? @object,
-            global::System.Collections.Generic.IList<global::Mixedbread.ChunksVariant1Item>? chunks)
+            global::System.Collections.Generic.IList<global::Mixedbread.ChunksVariant1Item2>? chunks)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Filename = filename;

@@ -12,9 +12,9 @@ namespace Mixedbread
         /// The specific rule to delete from the rules array
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("rule")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Mixedbread.JsonConverters.Rule2JsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Mixedbread.JsonConverters.RuleJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Mixedbread.Rule2 Rule { get; set; }
+        public required global::Mixedbread.Rule Rule { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -32,7 +32,7 @@ namespace Mixedbread
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleSpecificDeleteParams(
-            global::Mixedbread.Rule2 rule)
+            global::Mixedbread.Rule rule)
         {
             this.Rule = rule;
         }
