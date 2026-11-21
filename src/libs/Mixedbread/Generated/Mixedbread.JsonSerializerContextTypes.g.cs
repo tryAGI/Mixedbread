@@ -138,7 +138,7 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.GeneratedMetadataVariant1? Type25 { get; set; }
+        public global::Mixedbread.GeneratedMetadataVariant12? Type25 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -518,15 +518,15 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.AnyOf<global::Mixedbread.EncodingFormat3?, global::System.Collections.Generic.IList<global::Mixedbread.EncodingFormat3>>? Type120 { get; set; }
+        public global::Mixedbread.AnyOf<global::Mixedbread.EncodingFormat?, global::System.Collections.Generic.IList<global::Mixedbread.EncodingFormat>>? Type120 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.EncodingFormat3? Type121 { get; set; }
+        public global::Mixedbread.EncodingFormat? Type121 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Mixedbread.EncodingFormat3>? Type122 { get; set; }
+        public global::System.Collections.Generic.IList<global::Mixedbread.EncodingFormat>? Type122 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -574,15 +574,15 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.AnyOf<string, global::System.Collections.Generic.IList<string>, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.TextInput, global::Mixedbread.ImageUrlInput2>>>? Type134 { get; set; }
+        public global::Mixedbread.AnyOf<string, global::System.Collections.Generic.IList<string>, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.TextInput, global::Mixedbread.ImageUrlInput>>>? Type134 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.TextInput, global::Mixedbread.ImageUrlInput2>>? Type135 { get; set; }
+        public global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.TextInput, global::Mixedbread.ImageUrlInput>>? Type135 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.AnyOf<global::Mixedbread.TextInput, global::Mixedbread.ImageUrlInput2>? Type136 { get; set; }
+        public global::Mixedbread.AnyOf<global::Mixedbread.TextInput, global::Mixedbread.ImageUrlInput>? Type136 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -590,7 +590,7 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.ImageUrlInput2? Type138 { get; set; }
+        public global::Mixedbread.ImageUrlInput? Type138 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -702,7 +702,7 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.ImageUrlInput? Type166 { get; set; }
+        public global::Mixedbread.ImageUrlInput2? Type166 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -714,7 +714,7 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.GeneratedMetadataVariant12? Type169 { get; set; }
+        public global::Mixedbread.GeneratedMetadataVariant13? Type169 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -1306,11 +1306,11 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Mixedbread.DataItem>? Type317 { get; set; }
+        public global::System.Collections.Generic.IList<global::Mixedbread.DataItem3>? Type317 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.DataItem? Type318 { get; set; }
+        public global::Mixedbread.DataItem3? Type318 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -1338,11 +1338,11 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Mixedbread.ChunksVariant1Item>? Type325 { get; set; }
+        public global::System.Collections.Generic.IList<global::Mixedbread.ChunksVariant1Item2>? Type325 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.ChunksVariant1Item? Type326 { get; set; }
+        public global::Mixedbread.ChunksVariant1Item2? Type326 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -1386,11 +1386,11 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Mixedbread.DataItem2>? Type337 { get; set; }
+        public global::System.Collections.Generic.IList<global::Mixedbread.DataItem>? Type337 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.DataItem2? Type338 { get; set; }
+        public global::Mixedbread.DataItem? Type338 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -1422,11 +1422,11 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Mixedbread.DataItem3>? Type346 { get; set; }
+        public global::System.Collections.Generic.IList<global::Mixedbread.DataItem4>? Type346 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.DataItem3? Type347 { get; set; }
+        public global::Mixedbread.DataItem4? Type347 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -1486,11 +1486,11 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Mixedbread.DataItem4>? Type362 { get; set; }
+        public global::System.Collections.Generic.IList<global::Mixedbread.DataItem2>? Type362 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.DataItem4? Type363 { get; set; }
+        public global::Mixedbread.DataItem2? Type363 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -1506,7 +1506,7 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.GeneratedMetadataVariant13? Type367 { get; set; }
+        public global::Mixedbread.GeneratedMetadataVariant1? Type367 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -1554,11 +1554,11 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Mixedbread.ChunksVariant1Item2>? Type379 { get; set; }
+        public global::System.Collections.Generic.IList<global::Mixedbread.ChunksVariant1Item>? Type379 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.ChunksVariant1Item2? Type380 { get; set; }
+        public global::Mixedbread.ChunksVariant1Item? Type380 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -1674,7 +1674,7 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.GeneratedMetadataVariant15? Type409 { get; set; }
+        public global::Mixedbread.GeneratedMetadataVariant110? Type409 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -1682,7 +1682,7 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.GeneratedMetadataVariant16? Type411 { get; set; }
+        public global::Mixedbread.GeneratedMetadataVariant111? Type411 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -1690,7 +1690,7 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.GeneratedMetadataVariant17? Type413 { get; set; }
+        public global::Mixedbread.GeneratedMetadataVariant19? Type413 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -1702,7 +1702,7 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.GeneratedMetadataVariant18? Type416 { get; set; }
+        public global::Mixedbread.GeneratedMetadataVariant112? Type416 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -1714,11 +1714,11 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Mixedbread.RulesItem>? Type419 { get; set; }
+        public global::System.Collections.Generic.IList<global::Mixedbread.RulesItem4>? Type419 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.RulesItem? Type420 { get; set; }
+        public global::Mixedbread.RulesItem4? Type420 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -1738,11 +1738,11 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Mixedbread.RulesItem2>? Type425 { get; set; }
+        public global::System.Collections.Generic.IList<global::Mixedbread.RulesItem3>? Type425 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.RulesItem2? Type426 { get; set; }
+        public global::Mixedbread.RulesItem3? Type426 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -1758,7 +1758,7 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.Rule? Type430 { get; set; }
+        public global::Mixedbread.Rule2? Type430 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -1774,7 +1774,7 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.DeletedRule? Type434 { get; set; }
+        public global::Mixedbread.DeletedRule2? Type434 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -1790,11 +1790,11 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Mixedbread.RulesVariant1Item>? Type438 { get; set; }
+        public global::System.Collections.Generic.IList<global::Mixedbread.RulesVariant1Item2>? Type438 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.RulesVariant1Item? Type439 { get; set; }
+        public global::Mixedbread.RulesVariant1Item2? Type439 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -1810,11 +1810,11 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Mixedbread.RulesItem3>? Type443 { get; set; }
+        public global::System.Collections.Generic.IList<global::Mixedbread.RulesItem2>? Type443 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.RulesItem3? Type444 { get; set; }
+        public global::Mixedbread.RulesItem2? Type444 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -1834,11 +1834,11 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Mixedbread.RulesItem4>? Type449 { get; set; }
+        public global::System.Collections.Generic.IList<global::Mixedbread.RulesItem>? Type449 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.RulesItem4? Type450 { get; set; }
+        public global::Mixedbread.RulesItem? Type450 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -1854,7 +1854,7 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.Rule2? Type454 { get; set; }
+        public global::Mixedbread.Rule? Type454 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -1870,7 +1870,7 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.DeletedRule2? Type458 { get; set; }
+        public global::Mixedbread.DeletedRule? Type458 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -1886,11 +1886,11 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Mixedbread.RulesVariant1Item2>? Type462 { get; set; }
+        public global::System.Collections.Generic.IList<global::Mixedbread.RulesVariant1Item>? Type462 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.RulesVariant1Item2? Type463 { get; set; }
+        public global::Mixedbread.RulesVariant1Item? Type463 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -1902,7 +1902,7 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.GeneratedMetadataVariant19? Type466 { get; set; }
+        public global::Mixedbread.GeneratedMetadataVariant16? Type466 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -1914,7 +1914,7 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.GeneratedMetadataVariant110? Type469 { get; set; }
+        public global::Mixedbread.GeneratedMetadataVariant17? Type469 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -1926,7 +1926,7 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.GeneratedMetadataVariant111? Type472 { get; set; }
+        public global::Mixedbread.GeneratedMetadataVariant15? Type472 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -1938,7 +1938,7 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.GeneratedMetadataVariant112? Type475 { get; set; }
+        public global::Mixedbread.GeneratedMetadataVariant18? Type475 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -2051,11 +2051,11 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.AnyOf<global::Mixedbread.EncodingFormat3?, global::System.Collections.Generic.List<global::Mixedbread.EncodingFormat3>>? ListType20 { get; set; }
+        public global::Mixedbread.AnyOf<global::Mixedbread.EncodingFormat?, global::System.Collections.Generic.List<global::Mixedbread.EncodingFormat>>? ListType20 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::Mixedbread.EncodingFormat3>? ListType21 { get; set; }
+        public global::System.Collections.Generic.List<global::Mixedbread.EncodingFormat>? ListType21 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -2071,11 +2071,11 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.AnyOf<string, global::System.Collections.Generic.List<string>, global::System.Collections.Generic.List<global::Mixedbread.AnyOf<global::Mixedbread.TextInput, global::Mixedbread.ImageUrlInput2>>>? ListType25 { get; set; }
+        public global::Mixedbread.AnyOf<string, global::System.Collections.Generic.List<string>, global::System.Collections.Generic.List<global::Mixedbread.AnyOf<global::Mixedbread.TextInput, global::Mixedbread.ImageUrlInput>>>? ListType25 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::Mixedbread.AnyOf<global::Mixedbread.TextInput, global::Mixedbread.ImageUrlInput2>>? ListType26 { get; set; }
+        public global::System.Collections.Generic.List<global::Mixedbread.AnyOf<global::Mixedbread.TextInput, global::Mixedbread.ImageUrlInput>>? ListType26 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -2235,11 +2235,11 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::Mixedbread.DataItem>? ListType66 { get; set; }
+        public global::System.Collections.Generic.List<global::Mixedbread.DataItem3>? ListType66 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::Mixedbread.ChunksVariant1Item>? ListType67 { get; set; }
+        public global::System.Collections.Generic.List<global::Mixedbread.ChunksVariant1Item2>? ListType67 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -2247,11 +2247,11 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::Mixedbread.DataItem2>? ListType69 { get; set; }
+        public global::System.Collections.Generic.List<global::Mixedbread.DataItem>? ListType69 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::Mixedbread.DataItem3>? ListType70 { get; set; }
+        public global::System.Collections.Generic.List<global::Mixedbread.DataItem4>? ListType70 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -2263,7 +2263,7 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::Mixedbread.DataItem4>? ListType73 { get; set; }
+        public global::System.Collections.Generic.List<global::Mixedbread.DataItem2>? ListType73 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -2271,7 +2271,7 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::Mixedbread.ChunksVariant1Item2>? ListType75 { get; set; }
+        public global::System.Collections.Generic.List<global::Mixedbread.ChunksVariant1Item>? ListType75 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -2291,27 +2291,27 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::Mixedbread.RulesItem>? ListType80 { get; set; }
+        public global::System.Collections.Generic.List<global::Mixedbread.RulesItem4>? ListType80 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::Mixedbread.RulesItem2>? ListType81 { get; set; }
+        public global::System.Collections.Generic.List<global::Mixedbread.RulesItem3>? ListType81 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::Mixedbread.RulesVariant1Item>? ListType82 { get; set; }
+        public global::System.Collections.Generic.List<global::Mixedbread.RulesVariant1Item2>? ListType82 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::Mixedbread.RulesItem3>? ListType83 { get; set; }
+        public global::System.Collections.Generic.List<global::Mixedbread.RulesItem2>? ListType83 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::Mixedbread.RulesItem4>? ListType84 { get; set; }
+        public global::System.Collections.Generic.List<global::Mixedbread.RulesItem>? ListType84 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::Mixedbread.RulesVariant1Item2>? ListType85 { get; set; }
+        public global::System.Collections.Generic.List<global::Mixedbread.RulesVariant1Item>? ListType85 { get; set; }
         /// <summary>
         ///
         /// </summary>
