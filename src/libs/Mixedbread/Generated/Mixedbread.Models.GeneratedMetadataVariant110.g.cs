@@ -12,7 +12,7 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredImageUrlInputChunkGeneratedMetadataVariant1DiscriminatorType? Type { get; }
+        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredAudioUrlInputChunkGeneratedMetadataVariant1DiscriminatorType? Type { get; }
 
         /// <summary>
         ///
@@ -437,7 +437,7 @@ namespace Mixedbread
         ///
         /// </summary>
         public GeneratedMetadataVariant110(
-            global::Mixedbread.MxbaiOmniCoreStoreModelsChunkTypesScoredImageUrlInputChunkGeneratedMetadataVariant1DiscriminatorType? type,
+            global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsScoredAudioUrlInputChunkGeneratedMetadataVariant1DiscriminatorType? type,
             global::Mixedbread.MarkdownChunkGeneratedMetadata? markdown,
             global::Mixedbread.TextChunkGeneratedMetadata? text,
             global::Mixedbread.PDFChunkGeneratedMetadata? pdf,

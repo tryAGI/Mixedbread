@@ -20,7 +20,7 @@ namespace Mixedbread
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("rules")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::Mixedbread.RulesItem> Rules { get; set; }
+        public required global::System.Collections.Generic.IList<global::Mixedbread.RulesItem4> Rules { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -42,7 +42,7 @@ namespace Mixedbread
 #endif
         public MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsSearchRuleCreateParams(
             string query,
-            global::System.Collections.Generic.IList<global::Mixedbread.RulesItem> rules)
+            global::System.Collections.Generic.IList<global::Mixedbread.RulesItem4> rules)
         {
             this.Query = query ?? throw new global::System.ArgumentNullException(nameof(query));
             this.Rules = rules ?? throw new global::System.ArgumentNullException(nameof(rules));

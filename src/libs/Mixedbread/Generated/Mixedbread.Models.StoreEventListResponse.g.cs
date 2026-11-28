@@ -27,7 +27,7 @@ namespace Mixedbread
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("data")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::Mixedbread.DataItem> Data { get; set; }
+        public required global::System.Collections.Generic.IList<global::Mixedbread.DataItem3> Data { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -53,7 +53,7 @@ namespace Mixedbread
 #endif
         public StoreEventListResponse(
             global::Mixedbread.CursorPaginationResponse pagination,
-            global::System.Collections.Generic.IList<global::Mixedbread.DataItem> data,
+            global::System.Collections.Generic.IList<global::Mixedbread.DataItem3> data,
             string? @object)
         {
             this.Pagination = pagination ?? throw new global::System.ArgumentNullException(nameof(pagination));

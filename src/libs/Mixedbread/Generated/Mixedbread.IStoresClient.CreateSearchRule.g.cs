@@ -72,7 +72,7 @@ namespace Mixedbread
         global::System.Threading.Tasks.Task<global::Mixedbread.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleResponse> CreateSearchRuleAsync(
             global::Mixedbread.AnyOf<string, global::System.Guid?> storeIdentifier,
             string query,
-            global::System.Collections.Generic.IList<global::Mixedbread.RulesItem3> rules,
+            global::System.Collections.Generic.IList<global::Mixedbread.RulesItem2> rules,
             global::Mixedbread.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

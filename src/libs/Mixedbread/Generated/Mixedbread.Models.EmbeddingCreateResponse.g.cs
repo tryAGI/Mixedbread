@@ -48,9 +48,9 @@ namespace Mixedbread
         /// The encoding formats of the embeddings.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("encoding_format")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<global::Mixedbread.EncodingFormat3?, global::System.Collections.Generic.IList<global::Mixedbread.EncodingFormat3>>))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<global::Mixedbread.EncodingFormat?, global::System.Collections.Generic.IList<global::Mixedbread.EncodingFormat>>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Mixedbread.AnyOf<global::Mixedbread.EncodingFormat3?, global::System.Collections.Generic.IList<global::Mixedbread.EncodingFormat3>> EncodingFormat { get; set; }
+        public required global::Mixedbread.AnyOf<global::Mixedbread.EncodingFormat?, global::System.Collections.Generic.IList<global::Mixedbread.EncodingFormat>> EncodingFormat { get; set; }
 
         /// <summary>
         /// The number of dimensions used for the embeddings.
@@ -97,7 +97,7 @@ namespace Mixedbread
             string model,
             global::Mixedbread.AnyOf<global::System.Collections.Generic.IList<global::Mixedbread.Embedding>, global::System.Collections.Generic.IList<global::Mixedbread.MultiEncodingEmbedding>> data,
             bool normalized,
-            global::Mixedbread.AnyOf<global::Mixedbread.EncodingFormat3?, global::System.Collections.Generic.IList<global::Mixedbread.EncodingFormat3>> encodingFormat,
+            global::Mixedbread.AnyOf<global::Mixedbread.EncodingFormat?, global::System.Collections.Generic.IList<global::Mixedbread.EncodingFormat>> encodingFormat,
             string? @object,
             int? dimensions)
         {

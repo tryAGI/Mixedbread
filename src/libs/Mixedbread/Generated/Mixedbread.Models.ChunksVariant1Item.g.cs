@@ -12,7 +12,7 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.StoreFileChunksVariant1ItemDiscriminatorType? Type { get; }
+        public global::Mixedbread.VectorStoreFileChunksVariant1ItemDiscriminatorType? Type { get; }
 
         /// <summary>
         ///
@@ -257,7 +257,7 @@ namespace Mixedbread
         ///
         /// </summary>
         public ChunksVariant1Item(
-            global::Mixedbread.StoreFileChunksVariant1ItemDiscriminatorType? type,
+            global::Mixedbread.VectorStoreFileChunksVariant1ItemDiscriminatorType? type,
             global::Mixedbread.TextInputChunk? text,
             global::Mixedbread.ImageUrlInputChunk? imageUrl,
             global::Mixedbread.AudioUrlInputChunk? audioUrl,

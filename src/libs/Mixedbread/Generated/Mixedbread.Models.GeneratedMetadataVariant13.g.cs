@@ -12,7 +12,7 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.TextInputChunkGeneratedMetadataVariant1DiscriminatorType? Type { get; }
+        public global::Mixedbread.ImageUrlInputChunkGeneratedMetadataVariant1DiscriminatorType? Type { get; }
 
         /// <summary>
         ///
@@ -437,7 +437,7 @@ namespace Mixedbread
         ///
         /// </summary>
         public GeneratedMetadataVariant13(
-            global::Mixedbread.TextInputChunkGeneratedMetadataVariant1DiscriminatorType? type,
+            global::Mixedbread.ImageUrlInputChunkGeneratedMetadataVariant1DiscriminatorType? type,
             global::Mixedbread.MarkdownChunkGeneratedMetadata? markdown,
             global::Mixedbread.TextChunkGeneratedMetadata? text,
             global::Mixedbread.PDFChunkGeneratedMetadata? pdf,

@@ -83,7 +83,7 @@ namespace Mixedbread
         global::System.Threading.Tasks.Task<global::Mixedbread.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleSpecificDeleted> DeleteSpecificSearchRuleAsync(
             global::Mixedbread.AnyOf<string, global::System.Guid?> storeIdentifier,
             global::System.Guid ruleId,
-            global::Mixedbread.Rule2 rule,
+            global::Mixedbread.Rule rule,
             global::Mixedbread.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

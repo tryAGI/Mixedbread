@@ -24,11 +24,11 @@ namespace Mixedbread
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Guid))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.EnhancedJsonSchema))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.ExtractContentCreateParams))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.AnyOf<string, global::System.Collections.Generic.IList<string>, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.TextInput, global::Mixedbread.ImageUrlInput2>>>), TypeInfoPropertyName = "AnyOfStringIListStringIListAnyOfTextInputImageUrlInput22")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.TextInput, global::Mixedbread.ImageUrlInput2>>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.AnyOf<global::Mixedbread.TextInput, global::Mixedbread.ImageUrlInput2>), TypeInfoPropertyName = "AnyOfTextInputImageUrlInput22")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.AnyOf<string, global::System.Collections.Generic.IList<string>, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.TextInput, global::Mixedbread.ImageUrlInput>>>), TypeInfoPropertyName = "AnyOfStringIListStringIListAnyOfTextInputImageUrlInput2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.TextInput, global::Mixedbread.ImageUrlInput>>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.AnyOf<global::Mixedbread.TextInput, global::Mixedbread.ImageUrlInput>), TypeInfoPropertyName = "AnyOfTextInputImageUrlInput2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.TextInput))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.ImageUrlInput2))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.ImageUrlInput))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.ExtractJobCreateParams))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.ExtractionJob))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.ParsingJobStatus), TypeInfoPropertyName = "ParsingJobStatus2")]
@@ -36,7 +36,7 @@ namespace Mixedbread
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.HTTPValidationError))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Mixedbread.ValidationError>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.ValidationError))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.ImageUrlInput))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.ImageUrlInput2))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.JsonSchemaCreateParams))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.JsonSchemaEnhanceParams))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.JsonSchemaValidateParams))]
@@ -48,14 +48,14 @@ namespace Mixedbread
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.DateTime?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Guid?))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.AnyOf<string, global::System.Collections.Generic.IList<string>, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.TextInput, global::Mixedbread.ImageUrlInput2>>>?), TypeInfoPropertyName = "NullableAnyOfStringIListStringIListAnyOfTextInputImageUrlInput22")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.AnyOf<global::Mixedbread.TextInput, global::Mixedbread.ImageUrlInput2>?), TypeInfoPropertyName = "NullableAnyOfTextInputImageUrlInput22")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.AnyOf<string, global::System.Collections.Generic.IList<string>, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.TextInput, global::Mixedbread.ImageUrlInput>>>?), TypeInfoPropertyName = "NullableAnyOfStringIListStringIListAnyOfTextInputImageUrlInput2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.AnyOf<global::Mixedbread.TextInput, global::Mixedbread.ImageUrlInput>?), TypeInfoPropertyName = "NullableAnyOfTextInputImageUrlInput2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.ParsingJobStatus?), TypeInfoPropertyName = "NullableParsingJobStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.MultiModalQueryVariant2?), TypeInfoPropertyName = "NullableMultiModalQueryVariant22")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.AnyOf<string, int?>?), TypeInfoPropertyName = "NullableAnyOfStringInt322")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<string>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.AnyOf<string, global::System.Collections.Generic.List<string>, global::System.Collections.Generic.List<global::Mixedbread.AnyOf<global::Mixedbread.TextInput, global::Mixedbread.ImageUrlInput2>>>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Mixedbread.AnyOf<global::Mixedbread.TextInput, global::Mixedbread.ImageUrlInput2>>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Mixedbread.AnyOf<string, global::System.Collections.Generic.List<string>, global::System.Collections.Generic.List<global::Mixedbread.AnyOf<global::Mixedbread.TextInput, global::Mixedbread.ImageUrlInput>>>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Mixedbread.AnyOf<global::Mixedbread.TextInput, global::Mixedbread.ImageUrlInput>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Mixedbread.ValidationError>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Mixedbread.AnyOf<string, int?>>))]
     internal sealed partial class ExtractionsSourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
@@ -110,8 +110,8 @@ namespace Mixedbread
             options.Converters.Add(new global::Mixedbread.JsonConverters.AnyOfJsonConverter<int?, string>());
             options.Converters.Add(new global::Mixedbread.JsonConverters.AnyOfJsonConverter<int?, string>());
             options.Converters.Add(new global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
-            options.Converters.Add(new global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.TextInput, global::Mixedbread.ImageUrlInput2>>>());
-            options.Converters.Add(new global::Mixedbread.JsonConverters.AnyOfJsonConverter<global::Mixedbread.TextInput, global::Mixedbread.ImageUrlInput2>());
+            options.Converters.Add(new global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<global::Mixedbread.TextInput, global::Mixedbread.ImageUrlInput>>>());
+            options.Converters.Add(new global::Mixedbread.JsonConverters.AnyOfJsonConverter<global::Mixedbread.TextInput, global::Mixedbread.ImageUrlInput>());
             options.Converters.Add(new global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, global::System.Guid?>());
             options.Converters.Add(new global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, int?, double?, bool?, global::System.Collections.Generic.IList<global::Mixedbread.AnyOf<string, int?, double?, bool?>>>());
             options.Converters.Add(new global::Mixedbread.JsonConverters.AnyOfJsonConverter<string, int?, double?, bool?>());

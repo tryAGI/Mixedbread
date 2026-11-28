@@ -26,7 +26,7 @@ namespace Mixedbread
         /// metadata of the chunk
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("generated_metadata")]
-        public global::Mixedbread.GeneratedMetadataVariant1? GeneratedMetadata { get; set; }
+        public global::Mixedbread.GeneratedMetadataVariant12? GeneratedMetadata { get; set; }
 
         /// <summary>
         /// model used for this chunk
@@ -111,7 +111,7 @@ namespace Mixedbread
             int chunkIndex,
             int samplingRate,
             string? mimeType,
-            global::Mixedbread.GeneratedMetadataVariant1? generatedMetadata,
+            global::Mixedbread.GeneratedMetadataVariant12? generatedMetadata,
             string? model,
             string? type,
             string? transcription,

@@ -18,9 +18,9 @@ namespace Mixedbread
         /// Model for image input validation.
         /// </summary>
 #if NET6_0_OR_GREATER
-        public global::Mixedbread.ImageUrlInput2? ImageUrl { get; init; }
+        public global::Mixedbread.ImageUrlInput? ImageUrl { get; init; }
 #else
-        public global::Mixedbread.ImageUrlInput2? ImageUrl { get; }
+        public global::Mixedbread.ImageUrlInput? ImageUrl { get; }
 #endif
 
         /// <summary>
@@ -38,7 +38,7 @@ namespace Mixedbread
 #if NET6_0_OR_GREATER
             [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
 #endif
-            out global::Mixedbread.ImageUrlInput2? value)
+            out global::Mixedbread.ImageUrlInput? value)
         {
             value = ImageUrl;
             return IsImageUrl;
@@ -47,7 +47,7 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.ImageUrlInput2 PickImageUrl() => ImageUrl is { } value
+        public global::Mixedbread.ImageUrlInput PickImageUrl() => ImageUrl is { } value
             ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'ImageUrl' but the value was {ToString()}.");
 
@@ -93,17 +93,17 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public static implicit operator MultiModalQueryVariant2(global::Mixedbread.ImageUrlInput2 value) => new MultiModalQueryVariant2((global::Mixedbread.ImageUrlInput2?)value);
+        public static implicit operator MultiModalQueryVariant2(global::Mixedbread.ImageUrlInput value) => new MultiModalQueryVariant2((global::Mixedbread.ImageUrlInput?)value);
 
         /// <summary>
         ///
         /// </summary>
-        public static implicit operator global::Mixedbread.ImageUrlInput2?(MultiModalQueryVariant2 @this) => @this.ImageUrl;
+        public static implicit operator global::Mixedbread.ImageUrlInput?(MultiModalQueryVariant2 @this) => @this.ImageUrl;
 
         /// <summary>
         ///
         /// </summary>
-        public MultiModalQueryVariant2(global::Mixedbread.ImageUrlInput2? value)
+        public MultiModalQueryVariant2(global::Mixedbread.ImageUrlInput? value)
         {
             ImageUrl = value;
         }
@@ -111,7 +111,7 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public static MultiModalQueryVariant2 FromImageUrl(global::Mixedbread.ImageUrlInput2? value) => new MultiModalQueryVariant2(value);
+        public static MultiModalQueryVariant2 FromImageUrl(global::Mixedbread.ImageUrlInput? value) => new MultiModalQueryVariant2(value);
 
         /// <summary>
         ///
@@ -141,7 +141,7 @@ namespace Mixedbread
         /// </summary>
         public MultiModalQueryVariant2(
             global::Mixedbread.MultiModalQueryVariant2DiscriminatorType? type,
-            global::Mixedbread.ImageUrlInput2? imageUrl,
+            global::Mixedbread.ImageUrlInput? imageUrl,
             global::Mixedbread.TextInput? text
             )
         {
@@ -179,7 +179,7 @@ namespace Mixedbread
         ///
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::Mixedbread.ImageUrlInput2, TResult>? imageUrl = null,
+            global::System.Func<global::Mixedbread.ImageUrlInput, TResult>? imageUrl = null,
             global::System.Func<global::Mixedbread.TextInput, TResult>? text = null,
             bool validate = true)
         {
@@ -204,7 +204,7 @@ namespace Mixedbread
         ///
         /// </summary>
         public void Match(
-            global::System.Action<global::Mixedbread.ImageUrlInput2>? imageUrl = null,
+            global::System.Action<global::Mixedbread.ImageUrlInput>? imageUrl = null,
 
             global::System.Action<global::Mixedbread.TextInput>? text = null,
             bool validate = true)
@@ -228,7 +228,7 @@ namespace Mixedbread
         ///
         /// </summary>
         public void Switch(
-            global::System.Action<global::Mixedbread.ImageUrlInput2>? imageUrl = null,
+            global::System.Action<global::Mixedbread.ImageUrlInput>? imageUrl = null,
             global::System.Action<global::Mixedbread.TextInput>? text = null,
             bool validate = true)
         {
@@ -255,7 +255,7 @@ namespace Mixedbread
             var fields = new object?[]
             {
                 ImageUrl,
-                typeof(global::Mixedbread.ImageUrlInput2),
+                typeof(global::Mixedbread.ImageUrlInput),
                 Text,
                 typeof(global::Mixedbread.TextInput),
             };
@@ -274,7 +274,7 @@ namespace Mixedbread
         public bool Equals(MultiModalQueryVariant2 other)
         {
             return
-                global::System.Collections.Generic.EqualityComparer<global::Mixedbread.ImageUrlInput2?>.Default.Equals(ImageUrl, other.ImageUrl) &&
+                global::System.Collections.Generic.EqualityComparer<global::Mixedbread.ImageUrlInput?>.Default.Equals(ImageUrl, other.ImageUrl) &&
                 global::System.Collections.Generic.EqualityComparer<global::Mixedbread.TextInput?>.Default.Equals(Text, other.Text)
                 ;
         }
