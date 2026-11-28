@@ -4,22 +4,23 @@
 namespace Mixedbread
 {
     /// <summary>
-    /// Model for image URL validation.
+    /// Model for image input validation.
     /// </summary>
     public sealed partial class ImageUrlInput
     {
         /// <summary>
-        /// The image URL. Can be either a URL or a Data URI.
+        /// Input type identifier<br/>
+        /// Default Value: image_url
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("url")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Url { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("type")]
+        public string? Type { get; set; }
 
         /// <summary>
-        /// The image format/mimetype
+        /// The image input specification.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("format")]
-        public string? Format { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("image_url")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::Mixedbread.ImageUrlInput2 ImageUrl { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -30,21 +31,22 @@ namespace Mixedbread
         /// <summary>
         /// Initializes a new instance of the <see cref="ImageUrlInput" /> class.
         /// </summary>
-        /// <param name="url">
-        /// The image URL. Can be either a URL or a Data URI.
+        /// <param name="imageUrl">
+        /// The image input specification.
         /// </param>
-        /// <param name="format">
-        /// The image format/mimetype
+        /// <param name="type">
+        /// Input type identifier<br/>
+        /// Default Value: image_url
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ImageUrlInput(
-            string url,
-            string? format)
+            global::Mixedbread.ImageUrlInput2 imageUrl,
+            string? type)
         {
-            this.Url = url;
-            this.Format = format;
+            this.Type = type;
+            this.ImageUrl = imageUrl ?? throw new global::System.ArgumentNullException(nameof(imageUrl));
         }
 
         /// <summary>

@@ -12,7 +12,7 @@ namespace Mixedbread
         /// <summary>
         ///
         /// </summary>
-        public global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsSearchRuleSpecificDeletedDeletedRuleDiscriminatorType? Type { get; }
+        public global::Mixedbread.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleSpecificDeletedDeletedRuleDiscriminatorType? Type { get; }
 
         /// <summary>
         /// Represents a string query substitution rule for a vector store search.
@@ -257,7 +257,7 @@ namespace Mixedbread
         ///
         /// </summary>
         public DeletedRule(
-            global::Mixedbread.MxbaiOmniApiRoutesV1DeprecatedVectorStoresModelsSearchRuleSpecificDeletedDeletedRuleDiscriminatorType? type,
+            global::Mixedbread.MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleSpecificDeletedDeletedRuleDiscriminatorType? type,
             global::Mixedbread.QueryStringSubstitutionRule? queryString,
             global::Mixedbread.QueryRegexSubstitutionRule? queryRegex,
             global::Mixedbread.ChunkSearchResultRule? chunkSearchResult,

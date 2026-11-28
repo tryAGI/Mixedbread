@@ -47,8 +47,8 @@ namespace Mixedbread
         /// Default Value: float
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("encoding_format")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<global::Mixedbread.EncodingFormat3?, global::System.Collections.Generic.IList<global::Mixedbread.EncodingFormat3>>))]
-        public global::Mixedbread.AnyOf<global::Mixedbread.EncodingFormat3?, global::System.Collections.Generic.IList<global::Mixedbread.EncodingFormat3>>? EncodingFormat { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Mixedbread.JsonConverters.AnyOfJsonConverter<global::Mixedbread.EncodingFormat?, global::System.Collections.Generic.IList<global::Mixedbread.EncodingFormat>>))]
+        public global::Mixedbread.AnyOf<global::Mixedbread.EncodingFormat?, global::System.Collections.Generic.IList<global::Mixedbread.EncodingFormat>>? EncodingFormat { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -88,7 +88,7 @@ namespace Mixedbread
             int? dimensions,
             string? prompt,
             bool? normalized,
-            global::Mixedbread.AnyOf<global::Mixedbread.EncodingFormat3?, global::System.Collections.Generic.IList<global::Mixedbread.EncodingFormat3>>? encodingFormat)
+            global::Mixedbread.AnyOf<global::Mixedbread.EncodingFormat?, global::System.Collections.Generic.IList<global::Mixedbread.EncodingFormat>>? encodingFormat)
         {
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
             this.Input = input;

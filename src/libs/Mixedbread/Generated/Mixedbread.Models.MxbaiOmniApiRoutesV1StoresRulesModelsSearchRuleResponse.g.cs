@@ -41,7 +41,7 @@ namespace Mixedbread
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("rules")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::Mixedbread.RulesItem4> Rules { get; set; }
+        public required global::System.Collections.Generic.IList<global::Mixedbread.RulesItem> Rules { get; set; }
 
         /// <summary>
         /// When the rule was created
@@ -95,7 +95,7 @@ namespace Mixedbread
             string id,
             string query,
             string storeId,
-            global::System.Collections.Generic.IList<global::Mixedbread.RulesItem4> rules,
+            global::System.Collections.Generic.IList<global::Mixedbread.RulesItem> rules,
             global::System.DateTime createdAt,
             global::System.DateTime updatedAt,
             string? @object)

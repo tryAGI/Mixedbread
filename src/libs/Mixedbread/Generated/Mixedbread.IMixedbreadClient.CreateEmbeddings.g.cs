@@ -75,7 +75,7 @@ namespace Mixedbread
             int? dimensions = default,
             string? prompt = default,
             bool? normalized = default,
-            global::Mixedbread.AnyOf<global::Mixedbread.EncodingFormat3?, global::System.Collections.Generic.IList<global::Mixedbread.EncodingFormat3>>? encodingFormat = default,
+            global::Mixedbread.AnyOf<global::Mixedbread.EncodingFormat?, global::System.Collections.Generic.IList<global::Mixedbread.EncodingFormat>>? encodingFormat = default,
             global::Mixedbread.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

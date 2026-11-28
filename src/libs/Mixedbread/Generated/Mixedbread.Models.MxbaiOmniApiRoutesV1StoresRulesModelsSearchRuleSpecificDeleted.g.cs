@@ -26,9 +26,9 @@ namespace Mixedbread
         /// The specific rule that was deleted
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("deleted_rule")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Mixedbread.JsonConverters.DeletedRule2JsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Mixedbread.JsonConverters.DeletedRuleJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Mixedbread.DeletedRule2 DeletedRule { get; set; }
+        public required global::Mixedbread.DeletedRule DeletedRule { get; set; }
 
         /// <summary>
         /// Number of rules remaining in the array
@@ -64,7 +64,7 @@ namespace Mixedbread
 #endif
         public MxbaiOmniApiRoutesV1StoresRulesModelsSearchRuleSpecificDeleted(
             string id,
-            global::Mixedbread.DeletedRule2 deletedRule,
+            global::Mixedbread.DeletedRule deletedRule,
             int remainingRules,
             string? @object)
         {
